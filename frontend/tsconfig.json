@@ -1,0 +1,13 @@
+{
+  "extends": "@kwai-explore/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@markdown/*": ["./markdown/*"]
+    }
+  },
+  "include": ["src/**/*", "src/**/*.vue", ".vitepress/**/*"]
+}

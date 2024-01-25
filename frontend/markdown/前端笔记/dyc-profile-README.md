@@ -1,0 +1,1 @@
+vitepress不是用vue-router，没法用Sentry去监听router的错误
