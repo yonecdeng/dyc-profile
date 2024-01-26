@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@sentry/vue": "^7.95.0",
+    "@vercel/speed-insights": "^1.0.8",
     "element-plus": "^2.5.1",
     "vue": "^3.4.13"
   }
