@@ -8,13 +8,15 @@
   "devDependencies": {
     "@kwai-explore/tsconfig": "^0.0.3",
     "@types/node": "^20.11.1",
-    "unplugin-element-plus": "^0.8.0",
+    "rollup-plugin-visualizer": "^5.12.0",
+    "vite-plugin-inspect": "^0.8.3",
     "vitepress": "1.0.0-rc.36"
   },
   "dependencies": {
     "@sentry/vue": "^7.95.0",
     "@vercel/speed-insights": "^1.0.8",
-    "element-plus": "^2.5.1",
+    "rollup-pluginutils": "^2.8.2",
+    "vite": "^5.0.12",
     "vue": "^3.4.13"
   }
 }

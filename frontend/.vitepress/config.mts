@@ -1,13 +1,12 @@
 import { defineConfig } from "vitepress";
-import ElementPlus from "unplugin-element-plus/vite";
-
 import { fileURLToPath, URL } from "node:url";
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { formatSidebarAndNav } from "../src/utils/fs";
+import { formatSidebarAndNav } from "../src/utils/fs.js";
 const markdownPath = path.resolve(__dirname, "../markdown");
 const { nav, sidebar } = formatSidebarAndNav(markdownPath);
 // https://vitepress.dev/reference/site-config
+
 export default defineConfig({
   // 应用级别
   title: "dyc-profile",
@@ -43,6 +42,23 @@ export default defineConfig({
       // 默认禁用图片懒加载
       lazyLoading: true,
     },
+    config(md) {
+      const regex = /<img\b((?!(?:loading=['"]?lazy['"]?))[^>]*)\/>/gi;
+      const replacement = '<img $1 loading="lazy"/>';
+      const htmlInlineRule = md.renderer.rules.html_inline!;
+      md.renderer.rules.html_inline = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]!;
+        token.content = token.content.replace(regex, replacement);
+        return htmlInlineRule(tokens, idx, options, env, self);
+      };
+
+      const htmlBlockRule = md.renderer.rules.html_block!;
+      md.renderer.rules.html_block = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]!;
+        token.content = token.content.replace(regex, replacement);
+        return htmlBlockRule(tokens, idx, options, env, self);
+      };
+    },
   },
 
   //vite
@@ -68,6 +84,7 @@ export default defineConfig({
         },
       ],
     },
+    plugins: [],
   },
 
   //vue

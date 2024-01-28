@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
+    "sourceMap": true,
     "paths": {
       "@/*": ["./src/*"],
       "@markdown/*": ["./markdown/*"]
