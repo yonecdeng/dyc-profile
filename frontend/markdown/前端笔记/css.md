@@ -4925,15 +4925,95 @@ transform: scale(0.5,0.5);
 
 ### 介绍
 
-<font color="red">过渡是直接从一个地方变换到另一个地方，相比之下，我们可能希望某个元素的变化过程中间有好几个阶段，也可能需要元素在动画运动后再回到起始的地方。</font>这些事情无法使用过渡来实现。为了对页面变化有更加精确的控制，CSS提供了关键帧动画。动画会生硬地跳回开始状态，但过渡的行为则完全不同，过渡会反向播放，从而平滑地过渡回原始状态。
+<mark>过渡是直接从一个地方变换到另一个地方，相比之下，我们可能希望某个元素的变化过程中间有好几个阶段，也可能需要元素在动画运动后再回到起始的地方。</mark>
+
+一般动效和音效会分开交付，原因是： 
+
+技术上：带有声音的视频如要播放, 则在ios上必须通过user action来触发。但是动效一般都是期望自动播放的。
+
+职能上： 音效和动效(序列帧)由设计的两个职能交付。
+
+归根结底，落到web上之后，目前无非 js+css、svg、canvas、webgl这几种方式。但是<mark>分那么多类有一个很重要的原因是动效的交付</mark>，他们用不同的方式制作的不同动画，导出来交付给我们，我们希望能通过工具直接在项目中使用，而不是看着他的效果重头用代码写。
+
+### css写
+
+#### 介绍
+
+CSS提供了关键帧动画，动画会生硬地跳回开始状态，但过渡的行为则完全不同，过渡会反向播放，从而平滑地过渡回原始状态。
 
 关键帧（keyframe）是指动画过程中某个特定时刻。我们定义一些关键帧，浏览器负责填充或者插入这些关键帧之间的帧图像。从原理上看，过渡其实和关键帧动画类似：我们定义第一帧（起始点）和最后一帧（结束点），浏览器计算所有中间值，使得元素可以在这些值之间平滑变换。但使用关键帧动画，我们就不再局限于只定义两个点，而是想加多少加多少。浏览器负责填充一个个点与点之间的值，直到最后一个关键帧，最终生成一系列无缝衔接的过渡。
 
-<font color="red">动画中应用的声明有更高的优先级来源。</font>为某个属性添加动画的时候，会覆盖样式表中其他地方应用的样式。这就确保了关键帧中所有的声明可以互相配合完成动画，而不用关注动画之外对这个元素可能应用了哪些样式。
+<span style="color:red">动画中应用的声明有更高的优先级。</span>为某个属性添加动画的时候，会覆盖样式表中其他地方应用的样式。这就确保了关键帧中所有的声明可以互相配合完成动画，而不用关注动画之外对这个元素可能应用了哪些样式。
 
 
 
-### 属性
+
+
+CSS3的动画三大属性：Transform 变形，Transition 过渡，和Animation 动画。
+
+**优点：**兼容性好、占用内存少、文件小、可以动态内容。
+
+**缺点：**动画拆分依赖动效严重，开发成本高。
+
+tips
+
+​	复杂一点的效果最好让设计师提供keyframes，以及transition-timing-function（动画的过渡效果），不然很可能做出来之后要花费比较多的时间与设计师联调动效。一般好的过渡效果都会用贝塞尔曲线实现。
+
+
+
+AE使用inspector spacetime插件导出的文本描述动画一般长这样: 
+
+```
+Total Dur: 5767ms
+
+≡ shou2x.png ≡
+- 缩放 -
+Delay: 0ms
+Dur: 533ms
+Val: 58% ›› 100%
+(0.4, 0, 0.29, 1.02)
+
+- 位置 -
+Delay: 0ms
+Dur: 533ms
+Val: [406,1201]››[406,1175]
+(0.4, 0, 0.29, 1)
+
+- 旋转 -
+Delay: 0ms
+Dur: 533ms
+Val: -95° ››› 10°
+(0.33, 0, 0.67, 1)
+
+- 旋转 -
+Delay: 533ms
+Dur: 300ms
+Val: 10° ››› -2.5°
+(0.33, 0, 0.67, 1)
+```
+
+可以转换为两种CSS:
+
+- 普通CSS (关键帧CSS)
+
+  - 普通CSS没有办法实现路径动画, 如需路径动画, 请使用序列帧CSS
+  - **普通CSS比较适合单纯的动画内容, 如果图层动画较为复杂, 推荐使用序列帧CSS**
+
+- 序列帧CSS  (逐帧CSS)
+
+  
+
+
+
+一般这类动效的场景是，动效设计师使用 AE 生产动效，但<mark>动效的资源是动态的</mark>，我们主要是提取动画的参数写 CSS 代码，例如：红包要做一个旋转效果，红包内容是动态的，但这个旋转动画的效果是确定的。<mark>(快手有lottie-css库可以将lottie转成css绘制)</mark>
+
+
+
+
+
+
+
+#### 属性
 
 CSS中的动画包括两部分：用来定义动画的@keyframes规则和为元素添加动画的animation属性。
 
@@ -4955,15 +5035,7 @@ CSS中的动画包括两部分：用来定义动画的@keyframes规则和为元�
 
 
 
-### 写好的动画代码
-
-这个网站https://animista.net/play/basic
-
-
-
-
-
-### js动画和css3动画的优缺点
+#### js动画和css3动画的优缺点
 
 由于 JavaScript 运行在浏览器的主线程中，主线程中还有其他的重要任务在运行，因而可能会受到干扰导致**线程阻塞**，从而**丢帧**。
 
@@ -4971,45 +5043,78 @@ CSS中的动画包括两部分：用来定义动画的@keyframes规则和为元�
 
 
 
+#### 一些写好的动画代码
+
+这个网站https://animista.net/play/basic
 
 
 
 
-### 动效方式
 
-一般动效和音效会分开交付，原因是： 
+#### 三方库
 
-技术上：带有声音的视频如要播放, 则在ios上必须通过user action来触发。但是动效一般都是期望自动播放的。
+对于变形的动画，推荐的比较优秀的三方库有以下几个：
 
-职能上： 音效和动效(序列帧)由设计的两个职能交付。
+| 库名                                                         | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [GSAP](https://gsap.com/)                                    | 全称是GreenSock Animation Platform，GSAP.js 速度快，轻量与模块化；（dyc感觉这个不适合设计师交付动效之后开发人员<font color='red'>迅速</font>在页面上实现该动效，更适合于开发者自嗨在页面上做动效） |
+| [Snap.svg](https://link.juejin.cn?target=http%3A%2F%2Fsnapsvg.io%2F)、[SVG.js](https://svgjs.dev/docs/3.0/)、[Velocity.js](https://link.juejin.cn?target=http%3A%2F%2Fwww.velocityjs.org%2F) | 这三个库一直会被开发者拿来对比，基本上会用jQuery，就会使用这三个库，也就是说入手友好，Snap.svg 更偏向于支持现代浏览器，所以它的体量也会小一些。对比 Snap.svg 来看 SVG.js ，SVG.js 的写法更加的清晰，使用时会有更好的体验，且自称提供接近完整的 SVG 规范覆盖。Snap.svg 风格就更像一个侠客，写起来会很潇洒但是不好读，Velocity 也很强大，简单易用、高性能、功能丰富 |
+| [anime.js](https://animejs.com/)                             | anime.js 虽然功能没有 GASP 强大，但是体积很乐观，gzip压缩完只有9kb左右。（使用场景同 gsap，就是简单的吧用css就行了，复杂的吧直接用设计师交付的祯动画肯定更快） |
+| [D3](https://link.juejin.cn?target=https%3A%2F%2Fd3js.org%2F) | Data-Driven Documents 顾名思义，更加适合用于创建数据可视化图形场景去使用 |
 
-#### css写
+
+
+
+
+
+
+### 图片序列帧动画
+
+#### 介绍
+
+​		帧动画即是众多png图片序列。由js脚本模拟编写或是使用css3新属性step() 来控制图片的background-position 这个属性制作而成。step()在移动端的兼容性是很好的。帧动画和GIF动画的差别在于，脚本可以控制帧动画的快慢和动作的暂停，而GIF动画无法在后期通过代码进行动画速率及透明度的修改。
+
+***优点：\***可以自定义播放速度、次数、重复位置等等，可以做到与背景音乐等其它效果灵活配合。可以实现对动画图片的精确控制效果。
+
+***缺点：\***同样效果要比gif图大；图片要根据不同屏幕分辨率进行适配。
+
+#### tips
+
+​	帧动画在移动端开发中兼容性好，缺点是资源大，对于需要用户触发、交互，一些爆炸，撒花类的场景可采用逐帧动画。还有播放lottie和播放视频会存在兼容性问题，可以选用逐帧动画作为兜底方案。
+
+
+
+
+
+
+
+### Lottie/svga
+
+#### lottie
 
 ##### 介绍
 
-CSS3的动画三大属性：Transform 变形，Transition 过渡，和Animation 动画。
+Lottie是由Airbnb开源的一个支持 Android、iOS 以及 ReactNative的动画库。它能够使用Adobe After Effects导出动画为json格式，并在原生应用或Web上播放这些动画。
 
-**优点：**兼容性好、占用内存少、文件小、可以动态内容。
+官方文档：https://airbnb.io/lottie/#/web
 
-**缺点：**动画拆分依赖动效严重，以及联调耗时多。
+官方资源免费动画：https://lottiefiles.com/featured
 
-##### tips
+[Lottie](https://link.juejin.cn?target=http%3A%2F%2Fairbnb.io%2Flottie%2F%23%2F) 是一个复杂帧动画的解决方案，它提供了一套从设计师使用 AE（Adobe After Effects）到各端开发者实现动画的工具流。
 
-​	复杂一点的效果最好让设计师提供keyframes，以及transition-timing-function（动画的过渡效果），如果无法提供，可以考虑其他方案，不然很可能做出来之后要花费比较多的时间与设计师联调动效。一般好的过渡效果都会用贝塞尔曲线实现。
+1. 设计师使用 AE 制作动画。
+2. 通过 Lottie 提供的 AE 插件 Bodymovin 把动画导出 JSON 数据文件。
+3. 加载 Lottie 库结合 JSON 文件就可以实现一个 Lottie 动画。
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-16-37-image-20231214163732074.png" alt="image-20231214163732074" style="zoom:33%;" />
 
 
 
 
-
-#### Lottie/svga
-
-##### 介绍
-
-Lottie是由Airbnb开源的一个支持 Android、iOS 以及 ReactNative的动画库。它能够使用Adobe After Effects导出动画为json格式，并在原生应用或Web上播放这些动画。svga是YY 公司开源动画库，类似 lottie，支持安卓、ios、web、flutter：https://github.com/svga。相比 lottie 从效果和性能上类似，但是lottie 的使用量级和社区活跃度远比 svga 要好。
 
 **优点：**
 
-​	1)、多端支持较好，开发应用较简单。lottie-web能实现的动画效果有，平移、放大、旋转、淡入淡出、svg的各种动画，基本能满足大部分的动画场景，最大的好处就是能够大量节省开发时间以及和设计师联调的时间。
+​	1)、多端支持较好，开发应用较简单。lottie-web能实现的动画效果有，平移、放大、旋转、淡入淡出、svg的各种动画。
 
 ​	2）、不发版，动态更新。
 
@@ -5019,75 +5124,251 @@ Lottie是由Airbnb开源的一个支持 Android、iOS 以及 ReactNative的动�
 
 ​	2）、大的 lottie 动画效果一般，h5 渲染大的 lottie 动画有性能问题，相对于属性动画，在展示大动画时帧率较低。
 
-##### tips
+tips
 
 导出的时候有两种导出形式，一种是只有json文件，图片资源直接在文件中。一种是静态资源和json文件分开导出。分开导出的优势是可读性更强，并且不容易出错。同时可以外部对资源再进行压缩。
 
-导出lottie文件过大的时候，一方面可以让动效检查一下，导出的时候可不可以做优化。另一方面图片资源上传CDN。
-
-
-
-#### 帧动画
-
-##### 介绍
-
-​		帧动画即是众多png图片序列。由js脚本模拟编写或是使用css3新属性step() 来控制图片的background-position 这个属性制作而成。step()在移动端的兼容性是很好的。帧动画和GIF动画的差别在于，脚本可以控制帧动画的快慢和动作的暂停，而GIF动画无法在后期通过代码进行动画速率及透明度的修改。
-
-***优点：\***可以自定义播放速度、次数、重复位置等等，可以做到与背景音乐等其它效果灵活配合。可以实现对动画图片的精确控制效果。
-
-***缺点：\***同样效果要比gif图大；图片要根据不同屏幕分辨率进行适配。
-
-##### tips
-
-​	帧动画在移动端开发中兼容性好，缺点是资源大，对于需要用户触发、交互，一些爆炸，撒花类的场景可采用逐帧动画。还有播放lottie和播放视频会存在兼容性问题，可以选用逐帧动画作为兜底方案。
+导出lottie文件过大的时候，一方面可以让动效检查一下导出的时候可不可以做优化。另一方面图片资源上传CDN。
 
 
 
 
 
-#### 透明视频
+
+
+##### 使用
+
+```js
+import lottie from 'lottie-web';
+import animationJsonData from 'xxx-demo.json';  // json 文件
+
+const lot = lottie.loadAnimation({
+   container: document.getElementById('lottie'), 
+   renderer: 'svg',
+   loop: true,
+   autoplay: false,
+   animationData: animationJsonData,
+ });
+
+// 开始播放动画
+lot.play();
+```
+
+
+
+
+
+##### lottie简易原理
+
+###### 解读 JSON 文件数据格式
+
+https://juejin.cn/post/6935677483672928287#heading-2
+
+
+
+###### Lottie 动画播放流程可**暂时**小结为
+
+1. 渲染图层，初始化所有图层的  `transform` 和 `opacity`
+2. 根据帧率 30fps，计算每一帧（每隔 33.3ms ）对应的  `transform` 和 `opacity` 并修改 DOM
+
+然而 Lottie 如何控制 30fps 的时间间隔呢？如果设计师设置 20fps or 40fps 怎么处理？
+
+通过调用 [requestAnimationFrame](https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FAPI%2FWindow%2FrequestAnimationFrame) 方法，不断的调用 `resume` 方法来控制动画。`requestAnimationFrame` 在正常情况下能达到 60 fps（每隔 16.7ms 左右）。那么 Lottie 如何保证动画按照 30 fps （每隔 33.3ms）流畅运行呢。这个时候我们要转化下思维，设计师希望按照每隔 33.3ms 去计算变化，那也可以通过 `requestAnimationFrame` 方法，每隔 16.7ms 去计算，也可以计算动画的变化。只不过计算的更细致而已，而且还会使得动画更流畅，这样无论是 20fps or 40fps  都可以处理了，来看下源码是如何处理的：
+
+```js
+function resume(nowTime) {
+    // 两次 requestAnimationFrame 间隔时间
+    var elapsedTime = nowTime - initTime;
+
+    // 下一次计算帧数 = 上一次执行的帧数 + 本次间隔的帧数
+    // frameModifier 为帧率( fr / 1000 = 0.03)
+  	// 计算动画的当前帧数。注意这里的帧数只是相对 AE 设置的一个计算单位，可以有小数。
+    var nextValue = this.currentRawFrame + value * this.frameModifier;
+    
+    this.setCurrentRawFrameValue(nextValue);
+    
+    initTime = nowTime;
+    if(playingAnimationsNum && !_isFrozen) {
+        window.requestAnimationFrame(resume);
+    } else {
+        _stopped = true;
+    }
+}
+
+AnimationItem.prototype.setCurrentRawFrameValue = function(value){
+    this.currentRawFrame = value;
+    // 渲染当前帧
+    this.renderFrame(); // 有三种渲染方式：canvas，svg，html+css+js
+};
+```
+
+
+
+##### Lottie 的优缺点
+
+优点：
+
+1. 设计师通过 AE 制作动画，前端可以直接还原，不会出现买家秀卖家秀的情况。
+2. SVG 是可伸缩的，任何分辨率下不会失真。
+3. JSON 文件，可以多端复用（Web、Android、iOS、React Native）。
+4. JSON 文件大小会比 GIF 以及 APNG 等文件小很多，性能也会更好。
+
+
+
+缺点：
+
+1. Lottie-web 文件本身仍然比较大，未压缩大小为 513k，轻量版压缩后也有 144k，经过 Gzip 后，大小为39k。所以，需要注意 Lottie-web 的加载。
+2. 不必要的序列帧。Lottie 的主要动画思想是绘制某一个图层不断的改变 CSS 属性，如果设计师偷懒用了一些插件实现的动画效果，可能会造成每一帧都是一张图，如下图所示，那就会造成这个 JSON 文件非常大，注意和设计师提前进行沟通。
+
+![不必要的序列帧](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4179c197faeb4970ad30f6957e1d3c79~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+
+3. 部分AE特效不支持。有少量的 AE 动画效果，Lottie 无法实现，有些是因为性能问题，有些是没有做，注意和设计师提前沟通，[点我查看](https://link.juejin.cn?target=http%3A%2F%2Fairbnb.io%2Flottie%2F%23%2Fsupported-features)。
+
+
+
+#### svga
+
+svga是YY 公司开源动画库，类似 lottie，支持安卓、ios、web、flutter：https://github.com/svga。相比 lottie 从效果和性能上类似，但是lottie 的使用量级和社区活跃度远比 svga 要好。
+
+使用 After Effects 或是 Animate(Flash) 进行动画设计，SVGA 可以支持其中的大部分效果，设计师使用导出工具即可生成动画文件
+
+[SVGAPlayer-Web-Lite](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fsvga%2FSVGAPlayer-Web-Lite)(下面简称SVGA)是一个优秀的动画库，他能解析svga格式的文件，并将其渲染到canvas上，性能比gif和mp4要好，体积也小。
+
+
+
+
+
+#### pag
+
+腾讯产的一种格式
+
+https://github.com/Tencent/libpag/blob/main/README.zh_CN.md
+
+
+
+
+
+### 透明视频
 
 ##### 介绍
 
 ​	一些特效类的效果，可以考虑做为背景视频实现，使用视频做动画的好处是效果炫酷，接入成本较低，如果一些动效通过技术手段不好实现，可以考虑做成视频接入，这类动效不能有交互操作，所以一般做为背景。
 
-​	实现原理（[参考站内文档](https://docs.corp.kuaishou.com/k/home/VZXABqF8fxlI/fcABXLtgD-BKieEl3YZIj2_mj)）：读取视频播放的每一帧图像数据，通过处理画面上下对称或左右对称图像，最后通过 mask 图像扣取得到具体需要显示的图像。
-
-​	1）、获取 canvas 2d 画布 - buffer；
-
-​	2）、绘制视频图像到buffer画布上；
-
-​	3）、读取图像到buffer画布上；
-
-​	4）、读取图像mask信息（下半部分或者右半部分）；
-
-​	5）、利用mask部分的rgb黑色值，值为0，即为透明，赋值给上半部分（左半部分）图像 RGBA 的 Alpha 透明度信息；
-
-​	6）、将图片输出绘制到画布上。
-
-![image-20230705195755642](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-05-19-57-image-20230705195755642.png)
+​	
 
 ##### tips
 
-​	1）、pet已经有组件的沉淀，[transparent-video-player](https://pet-web.corp.kuaishou.com/gallery/detail/?name=@pet/base.transparent-video-player&version=0.0.2)，可以供业务来用；
+​	1）、透明视频存在播放丢帧问题；
 
-​	2）、透明视频存在播放丢帧问题；
-
-​	3）、透明视频的实现原理，也是为什么不直接播放mp4，而是要转换成左右对称的形式。并且相比Lottie能实现更复杂的动画。
+​	2）、相比Lottie能实现更复杂的动画。
 
 
 
 
 
-#### canvas绘制
+
+
+##### **如何实现透明视频？**
+
+###### 方法一：**webm格式视频**
+
+理想方式就是在动效渲染区域通过video标签标签播放一个带透明背景的视频，目前浏览器原生支持的带Alpha通道的视频格式是webm，但是兼容性差，很多浏览器上都不能完整支持，同时video标签播放视频在不同机型不同浏览器上也存在问题，需要做的兼容处理太多。
+
+
+
+###### 方法二：**CSS 样式去掉背景**
+
+利用css样式 mix-blend-mode 混合模式，也有兼容性问题。有一个属性 screen 就是黑色和其它元素进行混合的时候表现为透明。但这种方法有一种情况没法解决，就是如果视频中有元素是半透明的就无法成功了。
+
+
+
+###### 方法三：**webgl渲染带透明通道视频(推荐)**
+
+WebGL实现透明视频绘制的主要思路为：
+
+- 解析 Video 视频播放过程的每一帧；
+- 识别每一帧需要透明的区域，并设置为透明；
+- 通过 WebGL 绘制处理后的每一帧；
+- 以上过程重复至视频播放结束，快速绘制过程产生连续变化，即为带透明度的动画；
+
+
+
+##### webGL透明视频
+
+首先讲讲video，一段 AE 制作的动画，无损导出后的大小如下：
+
+- APNG 大小 27M
+- Video 仅有 400K
+
+<mark>h264格式Video 没有 Alpha 通道</mark>，也就是如下效果所示，视频背景是黑乎乎的。<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-19-48-image-20231214194847258.png" alt="image-20231214194847258" style="zoom:25%;" />然而我们平时的动画场景基本都是需要透明度的。
+
+已知“用户与页面交互之后才可以使用 Video 标签进行视频播放”限制的平台有：移动端微信浏览器，iPhone 省电模式，部分 Android 浏览器。视频的可配置性和可交互性太差。高清视频一般体积都比较大。移动端视频在不同app、不同机型、不同系统的播放显示都不太一样，容易踩不少坑。
+
+
+
+业界通过 [WebGl](https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FAPI%2FWebGL_API) 来绘制透明视频：比如tencent：https://github.com/Tencent/vap/blob/master/Introduction.md。可以动态显示一些用户名用户头像之类。
+
+WebGl 实现透明视频绘制的主要思路为：
+
+- 解析 Video 视频播放过程的每一帧
+- 识别每一帧需要透明的区域，并设置为透明
+- 通过 WebGl 绘制处理后的每一帧
+- 以上过程重复至视频播放结束，快速绘制过程产生连续变化，为新的带有透明度的动画
+
+
+
+设计同学导出左右对称视频 [查看视频](https://link.juejin.cn/?target=http%3A%2F%2Ff1.iplay.126.net%2FLTg4MDA1%2Fc62f8e1f15e98ff9eb9a094d015db380.mp4) 如下：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-36-image-20231214203658951.png" alt="image-20231214203658951" style="zoom: 25%;" />
+
+这个视频中是左右对称的。左面是纯白色的动画，右面是有色彩的也是我们所需要的动画。那我们的绘制思路就可以为：
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-44-image-20231214204436507.png" alt="image-20231214204436507" style="zoom:25%;" />
+
+1. 真正绘制的动画宽为原视频的 50%，也就是一半，高和视频一致
+2. 解析左侧像素点，白色就代表是动画，黑色就代表需要透明
+3. 解析右侧像素点的 `rgb`
+4. 绘制时色值变为 `rgba`，那么 `a` 的值就是左侧的白色 `1` （该像素颜色不变）或是黑色 `0`（该像素颜色变为透明）
+
+```javascript
+precision lowp float;
+varying vec2 v_texCoord;
+uniform sampler2D u_sampler;
+void main(void) {
+  	gl_FragColor = vec4( // vec4代表4维变量，因为rgba是4个值
+        texture2D(u_sampler, v_texCoord).rgb, // 右侧的rgb
+        texture2D(u_sampler, v_texCoord + vec2(-0.5, 0)).r // -0.5代表画布左侧，取值是rgb中的r值
+   	);
+}
+```
+
+上述 WebGl 代码就是透明度的核心代码，当然第一次接触 WebGl 的人肯定就懵了（我也是）。所以我们主要是理解思路即可，理解这个思路，完全可以用 canvas 实现同样的效果。
+
+
+
+
+
+##### 社区方案
+
+https://github.com/yylive/YYEVA 这个方案能支持 透明视频 里的某些元素是动态的（比如展示用户头像）。原理介绍：https://xie.infoq.cn/article/a4cad444d7b4b317b2b9254b9
+
+VAP（Video Animation Player）是企鹅电竞开发
+
+
+
+
+
+
+
+
+
+### canvas绘制
 
 ##### 介绍
 
-​		Canvas 的动画通过重绘实现，每次重绘相当于创建动画的一帧，以小于 0.1s 的时间间隔重绘，就可以看到连续的动画效果。
+​		Canvas 的动画通过不断重绘实现，每次重绘相当于创建动画的一帧，以小于 0.1s 的时间间隔重绘，就可以看到连续的动画效果。
 
 ***优点：\***动画性能优。
 
-***缺点：\***实现成本较大，适用于页面动画元素较多可以考虑。
+***缺点：\***实现成本较大，适用于页面动画元素较多时。
 
 ##### tips
 
@@ -5117,13 +5398,13 @@ function onClick(clientX, clinetY) {
 
 
 
-#### 动图apng/gif/webp
+### 动图apng/gif/webp
 
 ​	H5页面承载动图的方式相对其他方法，是最省成本，最为简便的。只需要以背景图片/内容图片的形式在页面上进行引用即可。
 
 ​	它们自身在压缩性、适用场景、兼容性等方面有些许区别，这里单独做下分析。
 
-##### （1）、GIF
+#### GIF
 
 ​		比较常用的一种动画方式，是图片序列帧的一种呈现方式，制作方式一般是将很多个png序列帧放在ps中导出gif。
 
@@ -5133,7 +5414,7 @@ function onClick(clientX, clinetY) {
 
 ​	***缺点：\***自定义播放，包括控制播放速度、播放次数、重复帧位置等需要引入[libgif](https://www.npmjs.com/package/libgif)库；复杂动画生成的gif图片较大，且耗内存比较严重；需要为各种屏幕尺寸、分辨率做适配。
 
-##### （2）、Apng
+#### Apng
 
 ​	Apng 其实就是png。APNG是Mozilla在2008年发布的图片格式，本质上是在PNG的基础上加上一个扩展。
 
@@ -5143,7 +5424,242 @@ function onClick(clientX, clinetY) {
 
 ​	这里看一个[apng与gif图的对比](https://apng.onevcat.com/demo/)**，****GIF的图片带上透明度以后，边缘会出现明显的锯齿**。原因是GIF的alpha通道只有1bit，一个像素要么完全透明，要么完全不透明，不像现在PNG的RGBA的8bit alpha通道，alpha值也可以和RGB一样都有255个透明值。这导致了所有所以需要展示带透明度的动图，GIF基本上可以不考虑**。**
 
-##### （3）、webp
+
+
+##### 介绍
+
+GIF 经常会有杂边。APNG（Animated Portable Network Graphics）是基于 PNG 格式扩展的一种动画格式，增加了对动画图像的支持，同时加入了 24 位图像和 8 位 Alpha 透明度的支持。看下 APNG 和 GIF 的对比效果：
+
+![clock.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/121e1a5ef145485a9c5435afade918d3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)![clock.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b224dfd96b564a90845d56242fa8f43e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+
+ APNG 和 GIF 的大小虽然相差不大，但是 APNG 要比 GIF 清晰的多，并且没有杂边。
+
+对于不兼容的浏览器，APNG会显示为动画的第一帧。
+
+###### 数据格式
+
+png的数据格式：
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-29-image-20231214172917571.png" alt="image-20231214172917571" style="zoom:33%;" />
+
+主要分为 4 部分：
+
+- PNG Signature 是文件标识，用于校验文件格式是否为 PNG。内容固定为：
+
+  ```javascript
+  0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a
+  ```
+
+- IHDR 是文件头数据块，包含 PNG 图像的基本信息，例如图像的宽高等信息
+
+- IDAT 是图像数据块，最核心，存储具体的图像数据
+
+- IEND 是结束数据块，标示图像结束
+
+
+
+APNG 的数据格式：
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-39-image-20231214173905380.png" alt="image-20231214173905380" style="zoom:50%;" />
+
+APNG 在 PNG 的基础上增加了 acTL、fcTL 和 fdAT 3 种模块
+
+- acTL：必须在第一个 IDAT 块之前，用于告诉解析器这是一个动画格式的 PNG，包含动画帧总数和循环次数的信息，**意味着可以通过这个字段来判断是否为 APNG 的图像格式**。
+- fcTL：帧控制块，每一帧都必须有的，属于 PNG 规范中的辅助块，包含了当前帧的序列号、图像的宽高。
+- fdAT：帧数据块，和 IDAT 意义相同，都是图像数据。但是比 IDAT 多了帧的序列号，因为动画存在多帧。图中可以看到第一帧的图像数据依然叫做 IDAT，第 2 帧以后才叫 fdAT，这是因为第一帧和 PNG 数据的格式保持相同。在不支持 APNG 的浏览器上，可以降级为静态图片，只展示第一帧。
+
+
+
+###### apng性能
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174306894.png" alt="image-20231214174306894" style="zoom:50%;" />
+
+生成 APNG 前，APNG 会通过算法计算帧之间的差异，只存储帧之前的差异，而不是存储全帧。如下，第 2、3、4 帧都没有表盘部分了。
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174324181.png" alt="image-20231214174324181" style="zoom:50%;" />
+
+APNG 文件存储多帧数据会很大，所以建议使用比较小的动画场景上。如果场景合适，也可以放一张静态图在底部，待 APNG 加载完毕后替换，不过这种需要第一帧是可以对用户静态展示的。
+
+
+
+
+
+##### 使用
+
+###### Img(❌)
+
+平时我们使用 APNG 方式如下，非常简单：
+
+```html
+<img src="xxx.png" />
+```
+
+但是直接使用 `img` 标签存在 2 个问题：
+
+1. apng 在页面上只能播放一次，所以如果一个动画需要重复播放，需要每次给动画连接添加时间戳，让浏览器认为是一个新的连接，或者让设计师导出一张会循环的apng。
+2. 一个非常大的坑，在 Safari for iOS（Safari for macOS正常）预览 APNG 的时候，动图的循环次数为对应原图的 `loop` + 1。比如 APNG 有 10帧，`loop` 为 2，那么会循环总计展示 30 帧。如果我们的动画只想播放一次的话，那就糟糕了。
+3. apng 的动画时间无法控制，很难实现中途暂停，衔接等操作 如上所述，我们可以借助 `apng-canvas`，将其转成 canvas ，然后以使用 canvas 的方式使用它。得物团队在 apng-canvas 的基础上进行了魔改，增加了一些对 canvas 播放的控制能力，例如：控制 apng 的播放速度 和播放次数、监听播放完成的事件等等，使其更加便于使用。
+
+
+
+
+
+######  apng-canvas✅
+
+ [apng-canvas](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fdavidmz%2Fapng-canvas) 。该库需要以下支持才能运行：
+
+- [Canvas](https://link.juejin.cn?target=http%3A%2F%2Fcaniuse.com%2F%23feat%3Dcanvas)
+- [Typed Arrays](https://link.juejin.cn?target=http%3A%2F%2Fcaniuse.com%2F%23feat%3Dtypedarrays)
+- [Blob URLs](https://link.juejin.cn?target=http%3A%2F%2Fcaniuse.com%2F%23feat%3Dbloburls)
+- [requestAnimationFrame](https://link.juejin.cn?target=http%3A%2F%2Fcaniuse.com%2F%23feat%3Drequestanimationframe)
+
+接下来带大家看一下 `apng-canvas` 库是如何实现 APNG 正常播放的，主要分为 3 个步骤：
+
+1. 解析 APNG 数据格式（按照 1.2 小节的 APNG 图片格式）。
+2. 将解析好的 APNG 数据进行整理。
+3. 按照每一帧的间隔时长，通过 [requestAnimationFrame](https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FAPI%2FWindow%2FrequestAnimationFrame) 进行绘制每一帧。
+
+[apng-canvas](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fdavidmz%2Fapng-canvas) 解码比较耗时，如果动画是进页面就展示的，会增加页面阻塞时间。笔者尝试过放到Web Worker 中解析，可以节省耗时 100ms 左右。
+
+
+
+kapng跟这个原理差不多，也是parser 之后 raf + canvas。
+
+
+
+
+
+##### APNG 兼容性检测
+
+在实际应用中如何检测浏览器是够支持 APNG，可以通过如下方法：
+
+```javascript
+(function() {
+	"use strict";
+	var apngTest = new Image(),
+	ctx = document.createElement("canvas").getContext("2d");
+	apngTest.onload = function () {
+		ctx.drawImage(apngTest, 0, 0);
+		self.APNG = ( ctx.getImageData(0, 0, 1, 1).data[3] === 0 );
+	};
+	apngTest.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACGFjVEwAAAABAAAAAcMq2TYAAAANSURBVAiZY2BgYPgPAAEEAQB9ssjfAAAAGmZjVEwAAAAAAAAAAQAAAAEAAAAAAAAAAAD6A+gBAbNU+2sAAAARZmRBVAAAAAEImWNgYGBgAAAABQAB6MzFdgAAAABJRU5ErkJggg==";
+	// frame 1 (skipped on apng-supporting browsers): [0, 0, 0, 255]
+	// frame 2: [0, 0, 0, 0]
+}());
+```
+
+1. 加载一张 1x1 像素大小的 Base64 编码图片，图像有 2 帧数据，区分就是每一帧最后一个值不同。
+
+   ```javascript
+   javascript
+   复制代码// frame 1 (skipped on apng-supporting browsers): [0, 0, 0, 255]
+   // frame 2: [0, 0, 0, 0]
+   ```
+
+2. 将其绘制到画布中，通过 [getImageData()](https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FAPI%2FCanvasRenderingContext2D%2FgetImageData) 方法去获取该图片的像素数据，主要是获取 `data[3]` 的 Alpha 透明通道（值的范围：0 - 255）。在不支持 APNG 的浏览器上会降级只显示第一帧，因此 `data[3]` 会等于 255。在支持 APNG 的浏览器上最终会显示第 2 帧，因此 `data[3]` 会等于 0，则表示支持 APNG。
+
+
+
+
+
+
+
+##### `apng-canvas`库如何绘制每一帧
+
+APNG 的绘制，主要是<mark>通过 `requestAnimationFrame` 不断的调用 `renderFrame` 方法绘制每一帧</mark>，每一帧的图像、宽高、位置我们都在上一节中获取到了。 `requestAnimationFrame` 在正常情况下能达到 60 fps（每隔 16.7ms 左右），在上一节中提过 `playTime` 这个字段，是每一帧的绘制时间。所以，并不是 `requestAnimationFrame` 每次都会去绘制，而是通过 `playTime` 计算 `nextRenderTime` （下次绘制时间），达到这个时间再绘制。避免无用的绘制，对性能造成影响。代码如下：
+
+```javascript
+const renderFrame = function (now) {
+    if (nextRenderTime === 0) nextRenderTime = now;
+    while (now > nextRenderTime + ani.playTime) nextRenderTime += ani.playTime;
+    nextRenderTime += frame.delay;
+};
+
+const tick = function (now) {
+    while (played && nextRenderTime <= now) renderFrame(now);
+    if (played) requestAnimationFrame(tick);
+};
+```
+
+<mark>具体的绘制是采用 Canvas 2D 的 API 实现。</mark>
+
+```js
+const renderFrame = function (now) {
+    const f = fNum++ % ani.frames.length;
+    const frame = ani.frames[f];
+ 
+    if (prevF && prevF.disposeOp === 1) { // 清空上一帧区域的底图
+        ctx.clearRect(prevF.left, prevF.top, prevF.width, prevF.height);
+    } else if (prevF && prevF.disposeOp === 2) { // 恢复为上一帧绘制之前的底图
+        ctx.putImageData(prevF.iData, prevF.left, prevF.top);
+    } // 0 则直接绘制
+
+    const {
+        left, top, width, height,
+        img, disposeOp, blendOp
+    } = frame;
+    prevF = frame;
+    prevF.iData = null;
+    if (disposeOp === 2) { // 存储当前的绘制底图，用于下一帧绘制前恢复该数据
+        prevF.iData = ctx.getImageData(left, top, width, height);
+    }
+    if (blendOp === 0) { // 清空当前帧区域的底图
+        ctx.clearRect(left, top, width, height);
+    }
+
+    ctx.drawImage(img, left, top); // 绘制当前帧图片
+
+    // 下一帧的绘制时间
+    if (nextRenderTime === 0) nextRenderTime = now;
+    nextRenderTime += frame.delay; // delay为帧间隔时间
+};
+```
+
+从上面的绘制代码中，我们可以看到 `blendOp` 和 `disposeOp` 2个字段决定了是否复用绘制过的帧数据。2 个字段对应的配置参数信息如下：
+
+- ```
+  disposeOp
+  ```
+
+   指定了下一帧绘制之前对缓冲区的操作
+
+  - 0：不清空画布，直接把新的图像数据渲染到画布指定的区域
+  - 1：在渲染下一帧前将当前帧的区域内的画布清空为默认背景色
+  - 2：在渲染下一帧前将画布的当前帧区域内恢复为上一帧绘制后的结果
+
+- ```
+  blendOp
+  ```
+
+   指定了绘制当前帧之前对缓冲区的操作
+
+  - 0：表示清除当前区域再绘制
+  - 1：表示不清除直接绘制当前区域，图像叠加
+
+对应时钟 4 帧绘制流程如下：
+
+- 第一帧:
+  - blendOp：0 绘制当前帧之前，清除当前区域再绘制
+  - disposeOp：0 不清空画布，直接把新的图像数据渲染到画布指定的区域
+- 第二帧:
+  - blendOp：1 绘制当前帧之前，表示不清除直接绘制当前区域，图像叠加
+  - disposeOp：0 不清空画布，直接把新的图像数据渲染到画布指定的区域
+- 第三帧:
+  - blendOp：1 绘制当前帧之前，表示不清除直接绘制当前区域，图像叠加
+  - disposeOp：2 渲染下一帧前将画布的当前帧区域内恢复为上一帧绘制后的结果（因为第4张图覆盖的是第二张图的红色线条，所以第三张图动完要回到第2帧）
+- 第四帧:
+  - blendOp：1 绘制当前帧之前，表示不清除直接绘制当前区域，图像叠加
+  - disposeOp：0 不清空画布，直接把新的图像数据渲染到画布指定的区域
+
+
+
+
+
+
+
+
+
+#### webp
 
 ​	WebP是Google在2010年发布的图片格式，完全开源，在Chrome，Android上得到了原生的支持。
 
@@ -5151,9 +5667,15 @@ function onClick(clientX, clinetY) {
 
 
 
-#### 上述方式总结
+### 上述方式总结
 
 ##### 适用场景总结
+
+apng/透明视频/lottie 如何选型 ---  看内存占用和实现效果，有的效果是lottie无法实现的，有的效果是视频占用的内存比apng/lottie要小(比如卡合成动画)。（不同的资源格式占用的内存肯定不一样，至于哪种格式占用的内存大就得看实现的效果）
+
+至于要不要用css去搞那就看投入产出比了，css写肯定是性能最高，但是开发效率最慢。
+
+
 
 **1）、css实现动画总结：** 如果只是一些简单的动画效果（可以通过位移、变形实现的动画），直接用css实现是最方便的。
 
@@ -5167,15 +5689,112 @@ function onClick(clientX, clinetY) {
 
 **6）、canvas:** canvas实现动画性能优秀，当页面动画元素较多可以考虑，但是实现成本大。
 
+
+
 ##### 其他维度总结
 
 ![image-20230705200125080](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-05-20-01-image-20230705200125080.png)
 
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-01-image-20231214200111523.png" alt="image-20231214200111523" style="zoom:50%;" />
+
+![image-20230428120224415](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-28-12-02-image-20230428120224415.png)
+
+1. 矢量动画(Lottie)：Lottie矢量动画压缩率很高，但其无法显示特殊效果（比如粒子特效）；
+2. 动图方案(GIF、Apng、Webp)：GIF只支持8位颜色，颜色丢失严重，解码性能低，无法满足特效效果；Apng, Webp虽然能够满足特效效果，但文件较大，软解效率低，资源加载缓慢，容易引起体验问题；
+3. 视频方案(mp4)：采用H264编码，相比动图方案，有很高的压缩率，硬件解码效率很高，缺点很明显。
+
+
+
+#### **从动画类型出发讨论动画的实现方式：**
+
+**（1）逐帧动画(序列帧动画)**
+
+由于是一帧一帧的画，所以逐帧动画具有非常大的灵活性
+
+- GIF实现
+- CSS实现（animation）
+- JS+DOM实现
+- JS+canvas实现
+
+**（2）补间动画(Tween动画\关键帧动画)**
+
+- CSS实现（transition、animation等）使用一些缓动函数
+- JS实现
+
+**（3）SVG动画**
+
+- 使用 XML 格式定义图形
+- 可以用AI等SVG编辑工具生成SVG图片后，配合anime.js、GSAP等现有库进行动画制作
+
+**（4）骨骼动画**
+
+- 一般采用Spine、DragonBones等工具导出相应资源图片和JSON动画配置资源后使用。
+
+**（5）3D动画**
+
+- DOM操作用CSS 3D实现。（perspective属性、[css3d-engine](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fshrekshrek%2Fcss3d-engine)）
+- 场景搭建用webGL(Three.js等)
+- 3D模型动画用Blender或maya等制作完成后导出使用
 
 
 
 
-#### 骨骼动画
+
+### 骨骼动画
+
+##### 介绍
+
+首先 骨骼动画 是一种概念，一种用于在计算机图形和动画中模拟运动的技术。就是指动画的效果是像我们实际物体是有骨骼的那样运动。那么你用任何手段达成这个效果都是可以的，比如css、js、canvas....
+
+其次 最方便的骨骼动画的交付流程是 通过spine，即动效设计师 利用专业软件搞完动效后导出成 glTF 格式，然后开发直接同spine-player进行操作。一般有 3D 和 2D 骨骼动画两种类型，3D 骨骼动画一般用 3ds Max 来制作，2D 骨骼动画一般用 Spine Editor 制作。
+
+**骨骼动画**由 Maya、C4D 等专业 3D 美术软件制作，导出成 glTF 格式，其中包含了骨架与蒙皮信息。骨架由多个骨骼组成，通过 4x4 的矩阵来驱动每根骨骼的旋转等变换，骨架带动蒙皮，蒙皮通过不同的权重系数影响了顶点位置的变化，最后大家看到效果就是顶点位移后的效果。要注意在移动端骨骼数是有限制的，超出之后部分骨骼动画将无法播放。2D&3D都可。
+
+业界比较好的骨骼动画方案：
+
+- spine只支持2D: https://zh.esotericsoftware.com/spine-player 、 https://github.com/EsotericSoftware/spine-runtimes/tree/4.1/spine-ts，落到web应该要么canvas or webgl
+- DragonBones
+
+
+
+3D的可以用快手的crab引擎，感觉3D游戏才用的上吧，普通的小游戏和活动用2D就行了（dyc感觉是只能沿Z轴动的是2D，能沿xyz轴动的是3D）
+
+
+
+
+
+##### 与lottie区别
+
+- 骨骼动画适用于需要实现更加灵活、复杂的动画效果，比如角色动画、物体变形动画等。它可以对角色的骨架进行精细控制，实现更加真实、流畅的动画效果。但是，骨骼动画需要一定的制作技能和经验，制作周期较长，适用于需要更高质量、更复杂动画效果的项目。
+- Lottie动画是一种轻量级的矢量动画技术，适用于实现简单、重复的动画效果，比如按钮点击动画、图标加载动画等。Lottie动画可以通过简单的代码或者工具的方式实现制作，适用于项目周期短、需要快速迭代的项目。
+
+
+
+
+
+### 粒子动画
+
+**粒子动画** 的实现重点在于把大量计算从 CPU 转移到 GPU 并行计算，CPU 通过每帧输入一个最简单的时间值给 GPU 来实现每个粒子的位置、旋转角度、透明度、贴图UV等数值的更新，它的算法很简单，就是中学物理中的匀变速运动。
+
+可以用快手的crab引擎
+
+
+
+通常用于表现<font color="red">大量单位</font>以一定规则变化的效果，比如雪、落叶和流星拖尾等等。**粒子动画是由在一定范围内随机生成的大量粒子产生运动而组成的动画，被广泛运用于模拟天气系统、烟雾光效等方面。在电商平台的微型游戏化场景中，粒子动画主要 用于呈现在能量收集、金币收集时的特效。**
+
+### **图形类动画**
+
+这类动画一般是实现一些无需图片素材，仅通过图形来实现的效果，例如：折线图增加一些动画、一些多边形效果等，一般我们会选择以下两种方式来开发：
+
+- canvas：逐帧绘制一些基础的图形和动画
+- svg：因为可以动态生成 svg 代码并展示，一般用来应对一些「动态化」、「模板化」绘制的场景
+
+当然也可以参考一些开源的图标库，例如：
+
+- echart：https://echarts.apache.org/zh/index.html
+- d3：https://d3js.org/
+
+但由于这类库的体积一般比较大，且冗余的功能比较多，最好别在C端项目中直接使用。
 
 
 
@@ -5275,30 +5894,255 @@ h1 {
 
 
 
-## requestAnimationframe
 
-实现动画效果的方法比较多，Javascript 中可以通过定时器 setTimeout 来实现，CSS3 中可以使用 transition 和 animation 来实现，HTML5 中的 canvas 也可以实现。
+## 让您的网站变得很炫酷
 
-**请求动画帧**。如果屏幕刷新率是60Hz,那么回调函数就每16.7ms被执行一次，如果刷新率是75Hz，那么这个时间间隔就变成了1000/75=13.3ms，换句话说就是，`requestAnimationFrame`的步伐跟着系统的刷新步伐走。它能保证回调函数在屏幕每一次的刷新间隔中只被执行一次，这样就不会引起丢帧现象。官方规定应该把RAF放在css渲染之前,至少谷歌浏览器和火狐是实现了在css渲染之前执行
+### **文档类**
 
-MDN对该方法的描述：
+https://learnopengl.com/Introduction
 
-> window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
+https://thebookofshaders.com/
 
-**语法：** `window.requestAnimationFrame(callback);`  其中，callback是**下一次重绘之前更新动画帧所调用的函数**(即上面所说的回调函数)。该回调函数会被传入DOMHighResTimeStamp参数，它表示requestAnimationFrame() 开始去执行回调函数的时刻。该方法属于**宏任务**，所以会在执行完微任务之后再去执行。
+https://sites.cs.ucsb.edu/~lingqi/teaching/#teaching
 
-**取消动画：** 使用cancelAnimationFrame()来取消执行动画，该方法接收一个参数——requestAnimationFrame默认返回的id，只需要传入这个id就可以取消动画了。
+https://developer.nvidia.com/gpugems/gpugems/foreword
 
-**优势：**
+https://pbrt.org/
 
-- **CPU节能**：使用SetTinterval 实现的动画，当页面被隐藏或最小化时，SetTinterval 仍然在后台执行动画任务，由于此时页面处于不可见或不可用状态，刷新动画是没有意义的，完全是浪费CPU资源。而RequestAnimationFrame则完全不同，当页面处理未激活的状态下，该页面的屏幕刷新任务也会被系统暂停，因此跟着系统走的RequestAnimationFrame也会停止渲染，当页面被激活时，动画就从上次停留的地方继续执行，有效节省了CPU开销。
-- **函数节流**：在高频率事件( resize, scroll 等)中，为了防止在一个刷新间隔内发生多次函数执行，RequestAnimationFrame可保证每个刷新间隔内，函数只被执行一次，这样既能保证流畅性，也能更好的节省函数执行的开销，一个刷新间隔内函数执行多次时没有意义的，因为多数显示器每16.7ms刷新一次，多次绘制并不会在屏幕上体现出来。
-- **减少DOM操作**：requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+https://iquilezles.org/index.html
 
-**setTimeout执行动画的缺点**：它通过设定间隔时间来不断改变图像位置，达到动画效果。但是容易出现卡顿、抖动的现象；原因是：
+https://learnxinyminutes.com/
 
-- settimeout任务被放入异步队列，只有当主线程任务执行完后才会执行队列中的任务，因此实际执行时间总是比设定时间要晚；
-- settimeout的固定时间间隔不一定与屏幕刷新间隔时间相同，会引起丢帧。
+### **素材类**
+
+https://www.vantajs.com/?effect=halo
+
+https://tympanus.net/codrops/
+
+http://www.shadedrelief.com/natural3/pages/textures.html
+
+https://www.solarsystemscope.com/textures/
+
+https://tb.rg-adguard.net/public.php
+
+### **展示类**
+
+https://hepengwei.cn/#/html/visualDesign
+
+https://www.shadertoy.com/
+
+https://codepen.io/Yakudoo/pen/YXxmYR
+
+https://lab.miguelmota.com/threejs-earth/
+
+### **工具类**
+
+https://nl.hideproxy.me/go.php?u=2ljqM%2BZacOCnSm8g%2Fx%2BnLKTt6F5j1vKL9A%3D%3D&b=0&f=norefer
+
+https://zh.lmgtfy.app/
+
+http://browserhacks.com/
+
+https://jex.im/regulex/#!flags=&re=%5E(a%7Cb)*%3F%24
+
+https://css-doodle.com/ 有意思的用CSS画图工具
+
+https://github.com/facebookincubator/FBX2glTF  
+
+### **教程类**
+
+https://csscoco.com/inspiration/#/ 一系列CSS实现灵感效果教程集合 作者[chokcoco](https://github.com/chokcoco/CSS-Inspiration/commits?author=chokcoco)
+
+### **聚合**
+
+https://www.kawabangga.com/collection
+
+https://coolshell.cn/articles/4990.html
+
+
+
+
+
+## 动效测试
+
+### devtool调试
+
+####  Layers
+
+打开chrome控制台 -> More Tools -> Layers
+
+![image-20230909163743013](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-37-image-20230909163743013.png)
+
+当我们选中Layers里面的某一层时，就可以看到几个关键信息：产生合成层的原因/占据内存是多少、以及绘制次数。这里会涉及到几个点需要大家在写动画的时候注意：
+
+- 层产生原因为overlap other compositing layers xxx ->  某个非合成层元素因为层级关系(z-index)覆盖在合成层元素导致的，这个需要看看是否能调整覆盖关系
+- 动画元素只有一小部分，但形成的合成确是半个页面 -> 合理减少绘画区域
+- 某个元素是静止的，Paint Count却一直在增加 -> 通常也是因为原因1导致
+- Paint Count 每秒飞速的在自增 -> 如果是JS动画，要看是否有不合理的re-render
+
+
+
+
+
+#### Rendering
+
+打开chrome控制台 -> More Tools -> Layer/Rendering
+
+![image-20230909163121444](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-31-image-20230909163121444.png)
+
+
+
+
+
+
+
+####  Animations
+
+打开chrome控制台 -> More Tools -> Layer/Animations
+
+ Animations里面展示的动画都为CSS动画，通过JS + Raf调用去控制的JS动画是不会出现在Animations里面。
+
+![image-20230909164054907](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-40-image-20230909164054907.png)
+
+
+
+### 性能测试
+
+性能测试主要关注几个指标：
+
+- Frame Rate
+- 资源体积
+- 内存占用
+- 手机发烫情况
+
+#### **Frame Rate**
+
+目前这个数据缺乏有效的线上数据收集手段，只能查看实验室数据，打开相关调试工具：打开chrome控制台 -> More Tools -> Rendering，
+
+勾选<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-03-image-20240129180354224.png" alt="image-20240129180354224" style="zoom:33%;" />即可看到<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-04-image-20240129180418251.png" alt="image-20240129180418251" style="zoom:33%;" />。
+
+一般推荐 FPS 保持在 60 为最佳
+
+
+
+
+
+
+
+
+
+
+
+#### **资源体积**
+
+资源体积可能对 FMP/FCP 等性能指标会产生影响，实验室数据可以看 devtools 里的 lighthouse 或者 performance数据。可以通过以下方式进行优化：
+
+- 压缩资源
+
+- - 例如使用 tinypng 压缩图片体积，使用 ffmpeg 压缩视频码率等等，尽量使用无损压缩
+  - 使用合适的资源格式，例如 APNG 替代 PNGs
+
+- 预加载
+
+- - 例如使用离线包、非首屏内容 request idle 时预加载等方式
+
+- 延迟加载
+
+- - 例如非首屏资源懒加载
+
+#### **内存占用**
+
+一般动效（尤其是序列帧）所用的图片等资源较多，极有可能大量占用系统内存，引起 OOM 导致 APP 崩溃，所以内存占用情况也需要测试。
+
+目前这部分也缺乏有效的线上数据，可以使用eva来收集实验室数据，参考：快手内网搜[如何使用Eva]，目前虽然不支持 iOS 的内存数据获取，但Android的数据可以做个参考。
+
+当发现内存有明显问题时（例如：4G内存的手机，webview占用内存超过 1G，崩溃的情况可能就会很普遍），需要做一些优化。
+
+优化的本质是减少页面使用资源的字节数，例如：
+
+- 减少序列帧帧数
+- 缩小图片尺寸
+- 减少同时存在的动效数
+- 尽量使用其他可选方案替代序列帧
+- 减少 Layers 数量和尺寸
+- 排查是否有 JS 内存泄露
+
+#### **手机发烫情况**
+
+keep里有手机温度的数据，但由于影响因素太多，推荐还是实验室场景靠人来感受。
+
+一般有明显发烫的情况，主要是 CPU/GPU 运算量太大导致，可以选择：
+
+- 优化算法复杂度
+
+- 减少计算
+
+- - 例如锁30FPS 降低计算频率
+  - 通过预运算等手段减少一些运行时的实时计算
+  - 非焦点内容减少计算或不做计算
+
+
+
+## **动效降级**
+
+由于不同设备性能不一，最好动效可以针对不同的设备类型做一些降级的方案。
+
+一般以下的机型需要引起注意
+
+- 高崩溃机型：从UA侧拿到的icfo字段下发
+
+- 低端机：
+
+- - UA中存在islp字段
+  - 或者从UA中判断安装包为32位包
+
+这类机型的特点是：
+
+- 内存小
+- CPU / GPU 性能不行
+
+可以结合上面提到的内存和处理器的优化策略，适当砍掉一些动效，比如：只保留极少帧数的序列帧动画、砍掉所有 CPU/GPU 不友好的动画，适当保留一些简单的 CSS 动效等。
+
+
+
+## **动效设计流程**
+
+了解了大致的动效分类后，我们需要了解下大致的动效生产及交付流程，以便我们知道我们最终拿到的交付产物可能有哪些。
+
+设计师有以下角色分工：
+
+- 交互设计师：参与完成对产品与它的使用者之间的互动机制进行分析、预测、定义、规划、描述和探索的过程的设计师，产出交互稿
+- UI 设计师：从事对软件的人机交互、操作逻辑、界面美观的整体设计工作的人，产出UI稿
+- 视觉设计师：职责为创建视觉元素，以实现特定目标的目的。这些目标可以包括提高产品销售、增加品牌知名度、提高用户体验等。产出视觉稿，一般为：图片、序列帧、3D 模型、2D 骨骼动画的贴图
+- 动效设计师：负责在视频和数字产品中，添加相关的动画以及运动效果设计。产出动效稿，一般为：2D & 3D 骨骼动画、Lottie、粒子
+
+一般的设计师合作流程如下：
+
+![image-20230909154002015](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-40-image-20230909154002015.png)
+
+
+
+
+
+## 游戏
+
+在活动场景中：
+
+游戏往往是作为一个完整的需求的一部分。在一个web页面中，除了游戏场景外还伴生着很多的传统页面元素的渲染和交互。且游戏场景中即时状态修改不会特别频繁（类似高频操作类），而基本都是线性的弱人机交互。
+
+<mark>PixiJS也好、Eva.js也好，它们无非是一套基于Canvas的渲染方案(包了一层canvas)</mark>，而当前端开发者沉浸于DSL开发时（比如我们团队就是以react为基础技术栈），PixiJS、Eva.js并没有提供一套与之对应的DSL开发模式。这就使得我们遭遇了几个重点难题：
+
+**痛点1**、无法高效的去绘制一些界面内容，各种元素的绘制都需要append节点来做，非常低效，而为了解决这个问题。我们尝试将一个需求拆解为DOM层和游戏层这种分层设计，这样确实可以最大程度利用DOM的高效排版能力。可是这又带来了另外的问题：
+
+**痛点2**、当react和这些渲染引擎的代码穿插出现在业务中的时候，往往带来的代码管理成本是非常高的。比如状态管理就无法在游戏侧和UI侧同时共享；
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112005637.png" alt="image-20231215112005637" style="zoom:25%;" />
+
+以一个卡牌类桌游场景为例。于是就有了以下这种很棘手的开发流程
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112034565.png" alt="image-20231215112034565" style="zoom:25%;" />
+
+**痛点3**、除此之外，代码里也需要有大量的订阅发布、面向对象开发、甚至有时需要单独维护一套状态机。在使用Eva.js的过程中，我们还需要遵循ECS的架构思路来安排自己的代码。这一切，都与DSL有所割裂。而完全在需求中摒弃DSL却又会导致开发效率的直线下滑。
 
 
 
@@ -6605,7 +7449,7 @@ index.scss 文件内容：
 4. State（状态）
 5. Theme（主题）
 
- ![img](https://docs.corp.kuaishou.com/image/api/external/load/out?code=fcACTDLxfwSROKU4Fl_BKjYaQ:-4822264753390557646fcACTDLxfwSROKU4Fl_BKjYaQ:1691551821308)
+ <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-15-53-image-20240129155306955.png" alt="image-20240129155306955" style="zoom:33%;" />
 
 
 

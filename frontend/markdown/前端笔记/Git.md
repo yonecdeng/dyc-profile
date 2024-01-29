@@ -73,7 +73,7 @@ $ cat .git/refs/tags/v0.0.0
 
 ## ssh-keygen
 
-`ssh-keygen -t rsa -C "dengyongchi@kuaishou.com"`
+`ssh-keygen -t rsa -C "***@***.com"`
 
 如果不指定的话生成公钥时`ssh-keygen` 默认会用`用户名@主机名`。
 
@@ -660,7 +660,7 @@ Git 分布式的一个重要体现是 git 在本地是有一个完整的 git 仓
 
 ### 简介
 
-公司文章：[什么是Ship / Show / Ask？以及十九种分支管理模式](https://kstack.corp.kuaishou.com/article/4398)
+快手内网搜：[什么是Ship / Show / Ask？以及十九种分支管理模式]
 
 分支管理模型只是一种通用的约定,并不是强制要按照这个模型的管理办法实施,只是针对各种分支管理的情况总结出来的通用的管理办法,每个项目可能根据自身项目的周期和实际情况来指定分支管理模型.
 
