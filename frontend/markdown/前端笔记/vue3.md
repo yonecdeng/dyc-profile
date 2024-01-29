@@ -13280,54 +13280,41 @@ Vue.js RFC 的原文所述：“在 Vue.js 3 中使用函数式组件，主要�
 
 
 
-#### Transition
+#### Transition过渡！
 
-核心原理是：
+##### 设计用途
+
+不是让你用来写animation的！
+
+Vue的 Transition 组件使用了一套类名来控制<mark>过渡</mark>效果。这套类名包括 `v-enter-from`, `v-enter-active`, `v-enter-to`，以及对应的离开过渡类名。
+
+- `v-enter-from`: 这个类名在元素刚刚插入并且过渡还未开始时被添加。这个类名用于定义过渡的初始状态。在下一帧，`v-enter-from` 类名会被移除，`v-enter-to` 类名会被添加。
+- `v-enter-active`: 这个类名在整个进入过渡的阶段都会被添加。这个类名通常用于<mark>定义过渡的持续时间、延迟和缓动函数。</mark>
+- `v-enter-to`: 这个类名在 `v-enter-from` 被移除后被添加，并在过渡/动画完成后被移除。这个类名用于定义过渡的结束状态。
+
+这三个类名允许你精细地控制过渡的不同阶段，从而实现复杂的动画效果。例如，你可以使用 `v-enter-from` 来设置元素的初始透明度，使用 `v-enter-to` 来设置元素的最终透明度，然后使用 `v-enter-active` 来控制这个透明度变化的速度
+
+
+
+
+
+
+
+##### 核心原理
 
 ● 当 DOM 元素被挂载时，将动效类附加到该 DOM 元素上；
 
 ● 当 DOM 元素被卸载时，不要立即卸载 DOM 元素，而是等到附加到该 DOM 元素上的动效执行完成后再卸载它。
 
-
-
 ● Transition 组件本身不会渲染任何额外的内容，它只是通过默认插槽读取过渡元素，并渲染需要过渡的元素；
 
-● Transition 组件的作用，就是在过渡元素的虚拟节点上添加 transition 相关的钩子函数。经过 Transition 组件的包装后，内部需要过渡的虚拟节点对象会被添加一个 vnode.transition 对象。这个对象下存在一些与 DOM 元素过渡相关的钩子函数，例如 beforeEnter、enter、leave 等。渲染器在渲染需要过渡的虚拟节点时，会在合适的时机调用附加到该虚拟节点上的过渡相关的生命周期钩子函数，具体体现在 mountElement 函数以及 unmount 函数中，如下面的代码所示：
+● Transition 组件的作用，就是在过渡元素的虚拟节点上添加 transition 相关的钩子函数。经过 Transition 组件的包装后，内部需要过渡的虚拟节点对象会被添加一个 vnode.transition 对象。这个对象下存在一些与 DOM 元素过渡相关的钩子函数，例如 beforeEnter、enter、leave 等。渲染器在渲染需要过渡的虚拟节点时，会在合适的时机调用附加到该虚拟节点上的过渡相关的生命周期钩子函数，具体体现在 mountElement 函数以及 unmount 函数中
 
-```js
-01 function mountElement(vnode, container, anchor) {
-02   const el = vnode.el = createElement(vnode.type)
-03
-04   if (typeof vnode.children === 'string') {
-05     setElementText(el, vnode.children)
-06   } else if (Array.isArray(vnode.children)) {
-07     vnode.children.forEach(child => {
-08       patch(null, child, el)
-09     })
-10   }
-11
-12   if (vnode.props) {
-13     for (const key in vnode.props) {
-14       patchProps(el, key, null, vnode.props[key])
-15     }
-16   }
-17
-18   // 判断一个 VNode 是否需要过渡
-19   const needTransition = vnode.transition
-20   if (needTransition) {
-21     // 调用 transition.beforeEnter 钩子，并将 DOM 元素作为参数传递
-22     vnode.transition.beforeEnter(el)
-23   }
-24
-25   insert(el, container, anchor)
-26   if (needTransition) {
-27     // 调用 transition.enter 钩子，并将 DOM 元素作为参数传递
-28     vnode.transition.enter(el)
-29   }
-30 }
-```
 
-元素挂载前会插入enter的from和active类，然后下一帧会干掉from类，插入to类。（下一帧应该dom挂载上去了，反正to类肯定是dom挂载上去了才插入的）。
+
+
+
+元素挂载前会同时插入enter的from和active类，然后下一帧会干掉from类，插入to类。（下一帧应该dom挂载上去了，反正to类肯定是dom挂载上去了才插入的）。
 
 源码里有个方法叫`addTransitionClass`，通过在这个方法里打断点，你就可以抓住整个加类名的过程。
 
@@ -13418,14 +13405,23 @@ Vue.js 可以用于构建客户端应用程序，组件的代码在浏览器中�
 
 ●在页面中的 DOM 元素与虚拟节点对象之间建立联系，即 vnode.el = node；●为页面中的 DOM 元素添加事件绑定。
 
-
-
 ```js
 纯客户端渲染时，renderer.render 函数来完成渲染
 01 renderer.render(vnode, container)
 对于同构应用，使用renderer.hydrate 函数来完成激活：
 01 renderer.hydrate(vnode, container)
 ```
+
+在hydration过程中，Vue主要做了以下几件事：
+
+1. 创建一个新的Vue实例，并将其挂载到已存在的HTML元素上。这个过程在createHydrationRenderer函数中进行。
+2. 对于每一个VNode，Vue会找到对应的DOM节点，并将其与VNode关联起来。这个过程在hydrate函数中进行。
+3. 如果VNode有子节点，Vue会递归地对子节点进行hydration。这个过程在hydrateChildren函数中进行。
+4. 如果VNode是一个组件，Vue会对组件进行hydration。这个过程在hydrateComponent函数中进行。
+5. 如果在hydration过程中发现VNode与DOM节点不匹配，Vue会修复这个不匹配。这个过程在handleMismatch函数中进行。
+6. 在hydration过程结束后，Vue会触发一系列的生命周期钩子和指令钩子。
+
+
 
 
 
@@ -13837,119 +13833,5 @@ export function pausableFilter(extendFilter: EventFilter = bypassFilter): Pausab
 
 
 
-# 踩过的坑
-
-## Watch & 组件卸载
-
-#### 原场景
-
-把问题抽像出来之后大概是这种场景：
-
-```js
-function close() {
-    show = false // 外层组件通过v-if引用本组件，此时值设为false，导致本组件会被卸载
-    a.value = 12345;
-}
-watch(a, (newv) => {
-    console.log('ssdyc', newv);
-});
-```
-
-此时执行close方法后watch的回调不会被执行，但我当时以为会执行，所以导致出了bug。
-
-原场景是：
-
-```js
-import { useLocalStorage } from '@vueuse/core';
-import {show} from './model'
-const lastCloseTaskPanelDay = useLocalStorage('dyc-handsome', 0);
-function close() {
-    lastCloseTaskPanelDay.value = 12345;
-  	show = false // 外层组件通过v-if=“show”引用本组件，show是从一个公用model引入的，此时值设为false，导致本组件会被卸载
-}
-```
-
-现象是：我本来希望点击close之后在localstorage里改变dyc-handsome这个值，但实际是dyc-handsome并没有被改变。
 
 
-
-#### 解决方法
-
-通过这件事看了vueuse的useLocalStorage、vue的v-if编译、组件卸载、scheduler、watch配置flush等原码。过程如下：
-
-首先看useLocalStorage方法源码，发现其实就是利用了watch去监听，
-
-然后debugger调试响应式数据改变的时候发现走到了scheduler里但是 watch的回调没有被执行，然后看scheduler原理和watch的回调原理
-
-然后去看v-if编译后的产物是什么，patch方法，组件卸载的流程。
-
-然后就捋清这个事了：
-
-useLocalStorage本质是调用了watch去监听lastCloseTaskPanelDay且flush为pre，watch的回调里会执行写入localStorage。响应式依赖（响应式数据触发的组件更新、watch回调都是该响应式数据的依赖）会被放到queueJob中管理，父组件的effect会比本组件的effect优先执行(queueJob会根据uid进行排序，uid跟组件的创建顺序相关)，所以先执行了父组件的组件更新effect，由于该effect是v-if变为false所以会执行patch->unmountComponent->unmount，unmountComponent里会调用`scope.stop()`停止子组件的所有依赖，所以watch的回调就不会再被执行。
-
-最后的解决方案是在`useLocalStorage('key','v',{flush:sync})` ,加上`{flush:sync}`即可。这样watch的回调会同步执行，不会放到queueJob中异步执行。
-
-
-
-
-
-
-
-
-
-## 关于nextTick
-
-
-
-模拟原场景：同步将某个样式删掉后，再通过nextTick来加上这个样式进而达到让动画再播一遍的效果。但现象是动画不会再播一遍。
-
-````vue
-onMounted(() => { 
-  setTimeout(() => {
-    kkk?.classList.remove('animation')
-    nextTick(() => { // 同步将某个样式删掉后，再通过nextTick来加上这个样式进而达到让动画再播一遍的效果。
-      kkk?.classList.add('animation')
-    })
-  }, 3000)
-})
-<template>
-    <div id="kkk" style="color: red" class="animation">kkk</div>
-</template>
-
-<style scoped>
-.animation {
-  animation: ani 5s both;
-}
-
-@keyframes ani {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-</style>
-````
-
-
-
-
-
-抽像最小demo：
-
-```vue
-const a = ref(2)
-a.value = 3
-nextTick(() => {
-  a.value = 2
-})
-
-<template>
-    {{ a }}
-</template>
-```
-
-这样页面上是看不到3的，一直就展示2，即对于真正的页面来说从来就没有过3（所以如果你把3改成是删掉一个类，）；因为a数值变化后导致的dom更新是微任务A，nextTick是在dom更新之后的微任务B，然后a又更新，又往队列里塞进一个dom更新微任务C（这里的dom更新是指vue的运行时操作dom），<mark>A->B->C都是微任务直接一溜烟一起执行完，然后再执行真正的渲染线程(或者什么合成线程，现在都用gpu加速的呀，所以真有可能js变太快了让视图发现其实没有变。)更新视图。</mark>而<span style="color:red">如果在nextTick里面写个debbugger就能看到页面中出现为3的时候了，因为debbugger只能断住js主线程，不会影响渲染线程，可能如果是debugger停住js主线程，那么渲染线程还会继续执行（猜测是不遵循互斥逻辑了）</span>
-
-首先你得弄懂nextTick的机制，弄懂之后你会发现这其实是事件循环机制的问题。最终交付给渲染线程的就是前后没有变化的，所以动画当然不会再执行一遍。

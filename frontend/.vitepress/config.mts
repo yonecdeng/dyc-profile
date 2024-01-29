@@ -14,11 +14,13 @@ export default defineConfig({
 
   // 主题样式
   themeConfig: {
-    // 应该用脚本去跑某个目录
     // https://vitepress.dev/reference/default-theme-config
     nav,
     sidebar,
     outline: [1, 6],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/yonecdeng/dyc-profile" },
+    ],
     // search: {
     //   provider: "algolia",
     //   options: {
