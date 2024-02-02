@@ -2,11 +2,10 @@ import { defineConfig } from "vitepress";
 import { fileURLToPath, URL } from "node:url";
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { formatSidebarAndNav } from "../src/utils/fs.js";
+import { formatSidebarAndNav, formatPublicNav } from "../src/utils/fs.js";
 const markdownPath = path.resolve(__dirname, "../markdown");
-const { nav, sidebar } = formatSidebarAndNav(markdownPath);
-// https://vitepress.dev/reference/site-config
-
+const { nav, sidebar } = formatSidebarAndNav(markdownPath, "public");
+const publicNav = formatPublicNav(markdownPath + "/public");
 export default defineConfig({
   // 应用级别
   title: "dyc-profile",
@@ -15,7 +14,7 @@ export default defineConfig({
   // 主题样式
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav,
+    nav: [...nav, publicNav],
     sidebar,
     outline: [1, 6],
     socialLinks: [
