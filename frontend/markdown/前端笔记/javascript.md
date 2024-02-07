@@ -141,7 +141,7 @@ defer 使用场景：一般情况下都可以使用 defer，特别是需要控�
 
 link 标签的 preload 属性：用于提前加载一些需要的依赖，这些资源会优先加载（如下图红框）
 
-![preload.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c4b39cd07844848b3900bd944790af6~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+![preload.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-c4Jwjt.webp)
 
 vue2 项目打包生成的 index.html 文件，会自动给首页所需要的资源，全部添加 preload，实现关键资源的提前加载
 
@@ -159,7 +159,7 @@ preload 特点：
 
 prefetch 是利用浏览器的空闲时间，加载页面将来可能用到的资源的一种机制；通常可以用于加载其他页面（非首页）所需要的资源，以便加快后续页面的打开速度
 
-![prefetch.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5ea8026dd2e42e1bd5c709178f0235f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+![prefetch.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7S2M1H.webp)
 
 prefetch 特点：
 
@@ -211,7 +211,7 @@ parseInt(1100100,2)
 
 在 JavaScript 里，数字均为[基于 IEEE 754 标准的双精度 64 位的浮点数](https://link.juejin.cn/?target=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%E9%9B%99%E7%B2%BE%E5%BA%A6%E6%B5%AE%E9%BB%9E%E6%95%B8)，它的结构长这样：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/7/16e436aa3a4ad2e1~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ZbTvqk.webp)
 
 - sign bit（符号）: 用来表示正负号
 - exponent（指数）: 用来表示次方数
@@ -690,7 +690,7 @@ isNaN() 如果参数不能转换为数字则判断是NaN； Number.isNaN() 利�
 
 ### == 操作符的强制类型转换规则
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c451c19e23dd4726b3f36223b6c18a1e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-6L3sYS.webp)
 
 所以 `a!=null`就能保证a既不等于null也不等于undefined。
 
@@ -1618,7 +1618,7 @@ test();
 
 在 JavaScript 里，数字均为[基于 IEEE 754 标准的双精度 64 位的浮点数](https://link.juejin.cn/?target=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%E9%9B%99%E7%B2%BE%E5%BA%A6%E6%B5%AE%E9%BB%9E%E6%95%B8)，它的结构长这样：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/7/16e436aa3a4ad2e1~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-93uu3P.webp)
 
 - sign bit（符号）: 用来表示正负号
 - exponent（指数）: 用来表示次方数
@@ -1744,12 +1744,12 @@ b2 - 0.5 | 0 // -2
 
 ### 按位异或 XOR（^）
 
-两者不一样就返回 1 
+两者不一样就返回 1 。
 
-首先针对异或运算，这里做一个知识点的总结：
+#### 异或运算规律
 
-任何数和自己做异或运算，结果为 000，即 `a⊕a=0。`
-任何数和 000 做异或运算，结果还是自己，即 `a⊕0=a`。
+任何数和自己做异或运算，结果为 0，即 `a⊕a=0。`
+任何数和 0 做异或运算，结果还是自己，即 `a⊕0=a`。
 异或运算中，满足交换律和结合律，也就是 `a⊕b⊕a=b⊕a⊕a=b⊕(a⊕a)=b⊕0=b`
 
 
@@ -1839,7 +1839,7 @@ let c = -2
 
 ### 左移（<<）
 
-将数值的二进制码按照指定的位数向左移动，符号位不变。空位补 0 
+将数值的二进制码按照指定的位数向左移动，<mark>符号位不变</mark>。高位丢弃，低位补 0。 
 
 数字 x 左移 y 位我们其实可以得到一个公式，如下
 
@@ -1855,7 +1855,7 @@ x * 2^y
 
 ### 有符号右移（>>）
 
-将数值的二进制码按照指定的位数向右移动，符号位不变。有符号右移时移动数位后会造成空位，空位位于数字的左侧，但位于符号位之后，`ECMAScript` 中用符号位的值填充这些空位
+将数值的二进制码按照指定的位数向右移动，<mark>符号位不变</mark>。有符号右移时移动数位后会造成空位，空位位于数字的左侧，但位于符号位之后，各编译器对这个空位的处理不一样，`ECMAScript` 中用符号位的值填充这些空位。
 
 数字 x 有符号右移 y 位我们也可以得到一个公式，如下
 
@@ -1871,7 +1871,7 @@ x / 2^y //除于2后向下取整
 
 ### 无符号右移（>>>）
 
-将数值的所有 32 位字符都右移，空位补 0 ，所以右移完的数值一定是非负的。
+将数值的所有 32 位字符都右移，高位补 0 ，所以右移完的数值一定是非负的。
 
 
 
@@ -2136,7 +2136,7 @@ while (true) {
 
 看个图就很容易理解了：
 
-![img](https://labuladong.github.io/algo/images/%E4%BD%8D%E6%93%8D%E4%BD%9C/1.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aVZ9Ze.png)
 
 其核心逻辑就是，`n - 1` 一定可以消除最后一个 1，同时把其后的 0 都变成 1，这样再和 `n` 做一次 `&` 运算，就可以仅仅把最后一个 1 变成 0 了。
 
@@ -2290,11 +2290,11 @@ var missingNumber = function(nums) {
 
 而这道题索就可以通过这些性质巧妙算出缺失的那个元素，比如说 `nums = [0,3,1,4]`：
 
-![img](https://labuladong.github.io/algo/images/%E7%BC%BA%E5%A4%B1%E5%85%83%E7%B4%A0/1.jpg)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jbZde5.jpg)
 
 为了容易理解，我们假设先把索引补一位，然后让每个元素和自己相等的索引相对应：
 
-![img](https://labuladong.github.io/algo/images/%E7%BC%BA%E5%A4%B1%E5%85%83%E7%B4%A0/2.jpg)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-USLi48.jpg)
 
 这样做了之后，就可以发现除了缺失元素之外，所有的索引和元素都组成一对儿了，现在如果把这个落单的索引 2 找出来，也就找到了缺失的那个元素。
 
@@ -2318,7 +2318,7 @@ var missingNumber = function(nums) {
 }
 ```
 
-![img](https://labuladong.github.io/algo/images/%E7%BC%BA%E5%A4%B1%E5%85%83%E7%B4%A0/3.jpg)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dyUHGV.jpg)
 
 由于异或运算满足交换律和结合律，所以总是能把成对儿的数字消去，留下缺失的那个元素。
 
@@ -6772,7 +6772,7 @@ chrome里的performance也能看出下面这个流程图。
 
 ![image-20230804000142916](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-04-00-01-image-20230804000142916.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2baaf009636748c491898aafeceddb32~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lTIVtK.webp)
 
 如果setTimeout不设置延迟时间，感觉chrome不一定满足这个（要设个几ms才能满足），但是safari是完全满足这个。
 
@@ -8904,7 +8904,7 @@ exports.b = '修改值-b模块内变量'
 
 输出结果如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/cpWiaicnZTauZyNibViayh0lqUsQFhibMibwxHT8cmhOWsfIpiazGic1NfNYmntrVLtRiakAluMjdzpy6ibIAib09u28BXxUg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-OBqetU.png)
 
 
 
@@ -8932,7 +8932,7 @@ console.log('c模块执行')
 
 执行结果如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/cpWiaicnZTauZyNibViayh0lqUsQFhibMibwxHAHmsHT2TaHIAXKezpp20XBAGPrTahtEZx8W0QdVc2piacARuMt5EY3g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uoIhmz.png)
 
 
 
@@ -9132,7 +9132,7 @@ export default function sayHello() {
 
 结果如下
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/cpWiaicnZTauZyNibViayh0lqUsQFhibMibwxHdI6sC9v1ZYzZcBz3UItgmwiaaNa0JCYRCm2lFybG4EicZf7OKHRULS0Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![图片](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tk4Jkj.png)
 
 
 
@@ -9248,7 +9248,7 @@ b = "修改值-b模块内变量"
 
 运行代码后的结果如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/cpWiaicnZTauZyNibViayh0lqUsQFhibMibwxHwEK5Rn2gtzQ2hiajW3cWtsZ6YSdzddvHpB2p65eSzzKoqfybiaWHic0KA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dR3MJy.png)
 
 
 
@@ -9264,7 +9264,7 @@ b = "修改值-b模块内变量"
 
    仔细观察module这个变量，可以看到还有一个属性`paths`
 
-   ![](https://mmbiz.qpic.cn/mmbiz_png/cpWiaicnZTauZyNibViayh0lqUsQFhibMibwxHicBMic5Q57ZPxBMibxMCt9Dvicx8jta7vYMOt7jicCuHVOcZMlmtLTfwbIg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+   ![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-S0KViI.png)
 
 
 
@@ -9530,7 +9530,7 @@ FastClick.attach(document.body);
 
 返回值是一个 [`DOMRect`](https://developer.mozilla.org/zh-CN/docs/Web/API/DOMRect) 对象，是包含整个元素的最小矩形（包括 `padding` 和 `border-width`）。该对象使用 `left`、`top`、`right`、`bottom`、`x`、`y`、`width` 和 `height` 这几个以像素为单位的只读属性描述整个矩形的位置和大小。
 
-![img](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect/element-box-diagram.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Cff1mW.png)
 
 
 
@@ -9656,7 +9656,7 @@ raf也会被主线程阻塞的，不一定在每一帧前都执行回调函数�
 
 **优势：**
 
-- **CPU节能**：使用SetTinterval 实现的动画，当页面被隐藏或最小化时，SetTinterval 仍然在后台执行动画任务，由于此时页面处于不可见或不可用状态，刷新动画是没有意义的，完全是浪费CPU资源。而RequestAnimationFrame则完全不同，当页面处理未激活的状态下，该页面的屏幕刷新任务也会被系统暂停，因此跟着系统走的RequestAnimationFrame也会停止渲染，当页面被激活时，动画就从上次停留的地方继续执行，有效节省了CPU开销。
+- **CPU节能**：使用SetInterval 实现的动画，当页面被隐藏或最小化时，SetTinterval 仍然在后台执行动画任务，由于此时页面处于不可见或不可用状态，刷新动画是没有意义的，完全是浪费CPU资源。而RequestAnimationFrame则完全不同，当页面处理未激活的状态下，该页面的屏幕刷新任务也会被系统暂停，因此跟着系统走的RequestAnimationFrame也会停止渲染，当页面被激活时，动画就从上次停留的地方继续执行，有效节省了CPU开销。
 - **函数节流**：在高频率事件( resize, scroll 等)中，为了防止在一个刷新间隔内发生多次函数执行，RequestAnimationFrame可保证每个刷新间隔内，函数只被执行一次，这样既能保证流畅性，也能更好的节省函数执行的开销，一个刷新间隔内函数执行多次时没有意义的，因为多数显示器每16.7ms刷新一次，多次绘制并不会在屏幕上体现出来。
 - **减少DOM操作**：requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
 
@@ -10197,69 +10197,6 @@ dyc扩充：
 
 
 
-
-
-
-## 面向对象编程(Object-Oriented Programming，OOP)
-
-### 接口
-
-接口是对象能响应的请求的集合。
-
-
-
-### 三大特点
-
-1. **封装（Encapsulation）**：
-   - **定义**：封装是一种将数据和操作（方法或函数）封装在一个单一实体内部的机制。这个实体称为类（Class）。
-   - **特点**：通过封装，类将数据（属性或成员变量）和方法（函数或成员函数）捆绑在一起，形成一个独立的单元。这个单元对外界隐藏了内部实现的细节，只公开了有限的接口，这种限制让数据和行为更加安全和可控。
-   - **优势**：封装有助于防止数据被意外修改，提高代码的可维护性和可扩展性。同时，它允许代码的修改不会对其他部分产生负面影响，从而降低了耦合度。
-2. **继承（Inheritance）**：
-   - **定义**：继承是一种通过创建新类（子类或派生类）来重用现有类（父类或基类）的属性和方法的机制。
-   - **特点**：子类继承了父类的特性，包括属性和方法。子类可以在不修改父类代码的情况下，添加新的属性和方法，或者覆盖（重写）父类的方法以改变其行为。
-   - **优势**：继承提高了代码的可重用性，减少了代码重复。它还支持多态性，允许不同的子类对象可以以相同的方式进行操作，提高了代码的灵活性。
-3. **多态（Polymorphism）**：
-   - **定义**：多态是一种能够根据上下文自动选择适当行为的能力，通常用于不同类对象对相同方法的调用。
-   - **特点**：多态允许不同类的对象对相同的方法名称进行调用，但具体的实现可以因对象类型而异。这意味着相同的方法可以根据对象的实际类型产生不同的行为。
-   - **优势**：多态提高了代码的灵活性和可扩展性。它允许在不知道对象具体类型的情况下编写通用代码，使得代码更容易维护和扩展。
-
-#### 多态
-
-含义是：同一操作作用于不同的对象上面，可以产生不同的解释和不同的执行结果。
-
-
-
-<mark>多态背后的思想是将【“不变的事物”】与【“可能改变的事物”】分离开来（“面向接口编程”）</mark>。动物都会叫，这是不变的，但是不同类型的动物具体怎么叫是可变的。把不变的部分隔离出来，把可变的部分封装起来，这给予了我们扩展程序的能力。
-
-这也是符合开放-封闭原则的，相对于修改代码来说，仅仅增加代码就能完成同样的功能，这显然优雅和安全得多。
-
-
-
-多态最根本的作用就是通过把过程化的条件分支语句转化为对象的多态性，从而消除这些条件分支语句。
-
-
-
-比如js里每个类型都实现了toString()方法。
-
-
-
-#### 封装
-
-封装的目的是将信息隐藏。对象对它自己的行为负责。其他对象或者用户都不关心它的内部实现。对象之间只通过暴露的API接口来通信。我们可以随意地修改它的内部实现，只要对外的接口没有变化，就不会影响到程序的其他功能。
-
-
-
-### SOLID 原则
-
-接口是对象能响应的请求的集合。
-
-面向对象编程的五个基本原则。SOLID 指代的五个基本原则分别是：
-
-- 单一功能原则（Single Responsibility Principle）对象应该仅具有一种单一功能。
-- 开放封闭原则（Opened Closed Principle）：【对拓展开放，对修改封闭】。说得更准确点，**软件实体（类、模块、函数）可以扩展，但是不可修改**。
-- 里式替换原则（Liskov Substitution Principle）程序中的对象应该是可以在不改变程序正确性的前提下被它的子类所替换的。
-- 接口隔离原则（Interface Segregation Principle）多个特定客户端接口要好于一个宽泛用途的接口。
-- 依赖反转原则（Dependency Inversion Principle）依赖于抽象而不是一个实例，依赖注入是该原则的一种实现方式。
 
 
 
@@ -13650,7 +13587,7 @@ console.log(proxy[0]); // 1
 
 最终实现效果：（没有用一模一样的图片，只是模拟了类似的效果）
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd506f46c966467f9ca42e4a0fc4c6ee~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+![image.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5V1p9o.webp)
 
 上述是在整个页面添加蒙层，若想只在图片部分添加蒙层：
 
@@ -13695,7 +13632,7 @@ console.log(proxy[0]); // 1
 
 效果：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9998e021460d411e952d37589f9c6856~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+![image.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-QeUIUc.webp)
 
 
 

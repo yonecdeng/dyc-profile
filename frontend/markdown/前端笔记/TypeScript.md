@@ -66,7 +66,7 @@
 
 ## 面向对象的三大特性
 
-![](https://ask.qcloudimg.com/http-save/yehe-3647312/rzlqxf2cgk.gif)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-mU7LSb.gif)
 
 ### 封装
 
@@ -82,7 +82,7 @@
 
 #### 泛化（Generalization）
 
-![img](https://ask.qcloudimg.com/http-save/yehe-3647312/cy29ddnqmb.gif)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-DUef1H.gif)
 
 在上图中，空心的三角表示继承关系（类继承），在UML的术语中，这种关系被称为泛化（Generalization）。Person(人)是基类，Teacher(教师)、Student(学生)、Guest(来宾)是子类。
 
@@ -94,7 +94,7 @@
 
 #### 聚合（组合）
 
-![](https://ask.qcloudimg.com/http-save/yehe-3647312/rdx36njlgu.gif)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-RMJG7t.gif)
 
 若在逻辑上A是B的“一部分”（a part of），则不允许B从A派生，而是要用A和其它东西组合出B。
 
@@ -865,7 +865,7 @@ ts习题
 >
 > 在线地址：[www.typescriptlang.org/play/](https://link.juejin.cn?target=https%3A%2F%2Fwww.typescriptlang.org%2Fplay%2F)
 
-![img](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f0f847192f5476fbab2d36e2c28df5f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-BItm42.jpg)
 
 除了 TypeScript 官方的 Playground 之外，你还可以选择其他的 Playground，比如 [codepen.io](https://link.juejin.cn?target=https%3A%2F%2Fcodepen.io%2F)、[stackblitz](https://link.juejin.cn?target=https%3A%2F%2Fstackblitz.com%2F) 或 [jsbin.com](https://link.juejin.cn?target=https%3A%2F%2Fjsbin.com%2F%3Fjs) 等。
 
@@ -875,7 +875,7 @@ ts习题
 >
 > 在线地址：[tsuml-demo.firebaseapp.com/](https://link.juejin.cn?target=https%3A%2F%2Ftsuml-demo.firebaseapp.com%2F)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba1007ed5c55434a9ef12a3792c2ab80~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cut0Nn.jpg)
 
 #### 16.3 [JSON TO TS](https://link.juejin.cn?target=http%3A%2F%2Fwww.jsontots.com%2F)
 
@@ -883,7 +883,7 @@ ts习题
 >
 > 在线地址：[www.jsontots.com/](https://link.juejin.cn?target=http%3A%2F%2Fwww.jsontots.com%2F)
 
-![img](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/037bbc7a84e145ad8ac13e1e8e49b115~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hr14V8.jpg)
 
 除了使用 [jsontots](https://link.juejin.cn?target=http%3A%2F%2Fwww.jsontots.com%2F) 在线工具之外，对于使用 VSCode IDE 的小伙们还可以安装 [JSON to TS](https://link.juejin.cn?target=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DMariusAlchimavicius.json-to-ts) 扩展来快速完成  **JSON to TS** 的转换工作。
 
@@ -893,7 +893,7 @@ ts习题
 >
 > 在线地址：[github.com/SweetIQ/sch…](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2FSweetIQ%2Fschemats)
 
-![img](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20e5b6e73c5a48bd9118b5c4f61e6c43~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0JKHu4.jpg)
 
 #### 16.5 [TypeScript AST Viewer](https://link.juejin.cn?target=https%3A%2F%2Fts-ast-viewer.com%2F)
 
@@ -901,7 +901,7 @@ ts习题
 >
 > 在线地址：[ts-ast-viewer.com/](https://link.juejin.cn?target=https%3A%2F%2Fts-ast-viewer.com%2F)
 
-![img](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/baf0f0d1dd9c488893d0cc3c3eaa45bd~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vTMz5J.jpg)
 
 对于了解过 AST 的小伙伴来说，对 [astexplorer](https://link.juejin.cn?target=https%3A%2F%2Fastexplorer.net%2F) 这款在线工具应该不会陌生。该工具除了支持 JavaScript 之外，还支持 CSS、JSON、RegExp、GraphQL 和 Markdown 等格式的解析。
 
@@ -2485,7 +2485,7 @@ type Counter = {
 
 #### 索引查询类型
 
-![image-20220417165612988](https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/image-20220417165612988.png)
+![image-20220417165612988](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-u4PqGL.png)
 
 
 
@@ -2493,7 +2493,7 @@ type Counter = {
 
 
 
-![image-20220417165744130](https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/image-20220417165744130.png)
+![image-20220417165744130](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0eWhTP.png)
 
 
 
@@ -2592,7 +2592,7 @@ getVegetables({
 
 有时候我们希望一个接口中除了包含必选和可选属性之外，还允许有其他的任意属性，这时我们可以使用 **索引签名** 的形式来满足上述要求。注意，可以设置索引类型为 number。但是这样如果将属性名设置为字符串类型，则会报错；但是<font color="red">如果设置索引类型为字符串类型，那么即便属性名设置的是数值类型，也没问题。因为 JS 在访问属性值时，如果属性名是数值类型，会先将数值类型转为字符串，然后再去访问</font>
 
-![image-20220417163713703](https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/image-20220417163713703.png)
+![image-20220417163713703](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-YbHkmk.png)
 
 ```javascript
 // 数字索引——约束数组
@@ -4211,7 +4211,7 @@ type Partial<T> = {
 
 在以上代码中，首先通过 `keyof T` 拿到 `T` 的所有属性名，然后使用 `in` 进行遍历，将值赋给 `P`，最后通过 `T[P]` 取得相应的属性值。中间的 `?` 号，用于将所有属性变为可选。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb55806af6834dbe87d7844753821da7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8EdW4r.webp)
 
 
 
@@ -4243,7 +4243,7 @@ const todo2 = updateTodo(todo1, {
 
 ### Readonly
 
-![image-20220417161245085](https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/Readonly.png)
+![image-20220417161245085](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WfzyiU.png)
 
 
 
@@ -4449,11 +4449,11 @@ type T7 = ReturnType<Function>; // Error
 
 ## 映射类型
 
-![image-20220417173831090](https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/image-20220417173831090.png)
+![image-20220417173831090](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3auiAy.png)
 
 
 
-![image-20220417173859867](https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/image-20220417173859867.png)
+![image-20220417173859867](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YEMuoq.png)
 
 
 
@@ -4488,7 +4488,7 @@ type LazyPerson = Getters<Person>;
 // }
 ```
 
-![img](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdc4109e65fb4c96ac64975f9884f2c9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hl4Of6.webp)
 
 
 

@@ -257,7 +257,7 @@ Virtual DOM本质上是JavaScript的对象，它可以很方便的跨平台操�
 
 而如果[用组合式 API 重构](https://gist.github.com/yyx990803/8854f8f6a97631576c14b63c8acd8f2e)这个组件，将会变成下面右边这样：
 
-![img](https://user-images.githubusercontent.com/499550/62783026-810e6180-ba89-11e9-8774-e7771c8095d6.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cFMl5V.png)
 
 现在与同一个逻辑关注点相关的代码被归为了一组：我们无需再为了一个逻辑关注点在不同的选项块间来回滚动切换。此外，我们现在可以很轻松地将这一组代码移动到一个外部文件中，不再需要为了抽象而重新组织代码，大大降低了重构成本，这在长期维护的大型项目中非常关键。
 
@@ -4832,7 +4832,7 @@ export function useCount() {
 
 以下是一个表示“单向数据流”理念的简单示意：
 
-![img](https://vuex.vuejs.org/flow.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ogfZ4k.png)
 
 但是，当我们的应用遇到**多个组件共享状态**时，单向数据流的简洁性很容易被破坏：
 
@@ -6848,7 +6848,7 @@ store是用于全局存储Model实例的集合
 
 - [ ] cny里写了个base.model-utils使得有类型提示，看完源码后可以看看这个model-utils，主要是为了结合swagger吧
 
-- [x] 从error到有data，这中间过程可能会导致白屏，这个有待复现，从错误到有数据这个转换就有点奇怪。而且白屏跟model有啥关系
+- [x] 从error到有data，这中间过程可能会导致白屏，这个有待复现。白屏跟model有啥关系
 
 - [x] 一开始返回的是一个空数据，等接口回来了响应式变化，所以有的场景需要这个数据有值了再去做一些操作的时候只能通过watch这个响应式数据来知道这个数据必定有数了，而不是await 接口的形式，接口已经不能await了。比如：从home接口里拿参数透传给share接口(这个等home接口有数据可以通过配置skip完成)，然后页面上要先弹出share接口里的弹窗再弹出home接口里的弹窗。这时就只能监听share接口等share有数据了就先show share返回的弹窗，然后再show home接口里的弹窗。
 
@@ -6857,6 +6857,8 @@ store是用于全局存储Model实例的集合
 - [x] 为啥没有持久化处理---不是没有，是没必要，用uselocalstorage就行了。pinia那个插件跟uselocalstorage的原理差不多。
 
 - [x] apollo应该利用rxjs解决了快速切换tab的问题 --- 看useRestQuery标黄部分，核心是利用switchAll操作符，每次采用最新的observable，将最新的observable吐出的数据吐出。
+
+- [x] <mark>apollo-model如果返回error那么不会修改data，所以第一次接口成功，第二次接口错误，那么此时页面展示的是第一次接口的数据。</mark>
 
 
 
@@ -8804,7 +8806,7 @@ destroyed(){
 
 #### [#](http://www.zhufengpeixun.com/jg-vue/guide/01.introduce.html#vue3项目结构)Vue3项目结构
 
-[![xx](http://www.zhufengpeixun.com/jg-vue/assets/img/introduce.bc2c2816.png)](http://www.zhufengpeixun.com/jg-vue/guide/introduce.png)
+[![xx](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jcRj3z.png)](http://www.zhufengpeixun.com/jg-vue/guide/introduce.png)
 
 
 
@@ -12461,7 +12463,7 @@ children has 3 possibilities: text, array or no children.
 
 ##### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#sync-from-start)sync from start
 
-![img](http://www.zhufengpeixun.com/jg-vue/assets/img/diff-1.633a1a31.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Udj0iy.png)
 
 ```js
  h('div',[
@@ -12505,7 +12507,7 @@ const patchKeydChildren = (c1, c2, container) => {
 
 ##### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#sync-from-end)sync from end
 
-![img](http://www.zhufengpeixun.com/jg-vue/assets/img/diff-2.d3e4a7df.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vm3P3I.png)
 
 ```js
         // 2. sync from end
@@ -12531,9 +12533,9 @@ const patchKeydChildren = (c1, c2, container) => {
 
 //此时得到的就是中间部分的那些节点，下面就是处理这些中间部分的节点
 
-![img](http://www.zhufengpeixun.com/jg-vue/assets/img/diff-3.747209db.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-re1Eaj.png)
 
-![img](http://www.zhufengpeixun.com/jg-vue/assets/img/diff-4.07076735.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dNognp.png)
 
 ```js
         //此时得到的就是中间部分的那些节点，下面就是处理这些中间部分的节点
@@ -12562,9 +12564,9 @@ const patchKeydChildren = (c1, c2, container) => {
 
 ##### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#common-sequence-unmount)common sequence + unmount
 
-![img](http://www.zhufengpeixun.com/jg-vue/assets/img/diff-5.92c37bd1.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1IOlQ6.png)
 
-![img](http://www.zhufengpeixun.com/jg-vue/assets/img/diff-6.58f193d3.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YBUrVj.png)
 
 ```js
         // 4. common sequence + unmount
@@ -12595,7 +12597,7 @@ const patchKeydChildren = (c1, c2, container) => {
 
 ###### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#build-key-index-map-for-newchildren)`build key:index map for newChildren`
 
-![img](http://www.zhufengpeixun.com/jg-vue/assets/img/diff-7.566dc6f6.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oh4Qk4.png)
 
 ```js
         // 5. unknown sequence
@@ -12638,7 +12640,7 @@ const patchKeydChildren = (c1, c2, container) => {
 
 ​        //到这只是新老属性和儿子的比对，下面就要移动该节点的位置 或者 新建节点了
 
-![img](http://www.zhufengpeixun.com/jg-vue/assets/img/diff-8.03470ece.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lEVfsL.png)
 
 ```js
         for (let i = toBePatched - 1; i >= 0; i--) { //从后往前
@@ -12727,7 +12729,7 @@ console.log(getSequence([2, 3, 1, 5, 6, 8, 7, 9, 4]))
 
 假设有：[2,3,1,5,6,8,7,9,4] 
 
-![img](http://www.zhufengpeixun.com/jg-vue/assets/img/sequence.54ce55fc.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-IYEPiP.png)
 
 ##### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#优化diff算法)利用最长递增子序列优化`Diff`算法
 

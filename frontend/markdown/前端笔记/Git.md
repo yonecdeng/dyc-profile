@@ -87,11 +87,11 @@ $ cat .git/refs/tags/v0.0.0
 
 2. 在你的电脑上生成 ssh 秘钥，打开终端，执行 `ssh-keygen -t rsa -C "你公司内部邮箱地址"`，如果执行成功，切换到 `~/.ssh` 目录下，此时目录应该如下所示。复制 `id_rsa.pub` 的内容。
 
-   ![image-20210519163921819.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0deb58d91310414f80eff364c694af9c~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+   ![image-20210519163921819.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-OUE54Z.webp)
 
 3. 这里以 Github 为例，如下图所示，进入 `settings -> SSH and GPG keys` 通过 `cat` 命令查看文件 `id_rsa.pub` 的内容，然后复制过来，点击 `add ssh key`，这一步等于说把你的公钥放到了 Github 上进行托管。
 
-   ![image-20210519164643069.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ff633573cc946bab9a13f014a099d7b~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+   ![image-20210519164643069.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-OwpzzM.webp)
 
 4. 全局配置 Git 的用户名和邮箱
 
@@ -674,7 +674,7 @@ Git 分布式的一个重要体现是 git 在本地是有一个完整的 git 仓
 
 [原文地址](https://zhuanlan.zhihu.com/p/198066289)
 
-![原文地址https://zhuanlan.zhihu.com/p/198066289](https://pic4.zhimg.com/80/v2-be9b084200241f007d9b466f6acf26a3_1440w.jpg)
+![原文地址https://zhuanlan.zhihu.com/p/198066289](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-NWRg22.jpg)
 
 ##### 各分支介绍
 
@@ -714,29 +714,29 @@ feature分支主要是用来开发一个新的功能，一旦开发完成，我�
 
 我们要基于master分支创建一个develop分支，develop分支用于保存开发好的相对稳定的功能，master分支和develop分支是仓库的常驻分支，一直会保留在仓库中
 
-![img](https://pic4.zhimg.com/80/v2-05ef2299bedaeaab8ec5cc51d281a047_1440w.jpg)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-YjjnA6.jpg)
 
 我们不要在develop分支上写代码，要保证develop分支的相对稳定，所以这时就要基于develop 分支创建一个临时的开发分支，然后在开发分支上编写代码，等功能开发完之后我们再把开发分支合并到develop上
 
-![img](https://pic3.zhimg.com/80/v2-315c3a551d9b73d7284f432749cdfaf6_1440w.jpg)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-5uT9gG.jpg)
 
 
 
 新功能合并到develop分支之后，我们想把新功能发布到生产环境，首先基于develop分支创建release分支，然后在release分支测试完成之后，把release分别合并到master分支和develop分支
 
-![img](https://pic4.zhimg.com/80/v2-c62e4af681a350eec046248f2d279f8b_1440w.jpg)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-5QibSq.jpg)
 
 
 
 release分支合并到master分支之后，在master分支上==打标签==用于发布：
 
-![img](https://pic3.zhimg.com/80/v2-67d6b3b9d659af09d9bf378ec1d8c3e2_1440w.jpg)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-44F9p1.jpg)
 
 
 
 我们把代码发布到了生产环境，用户在使用的时候给我们反馈了一个bug，这时我们需要基于master分支创建一个hotfix 分支，用于修复bug，bug修好之后，把hotfix 分支分别合并到master分支和develop分支
 
-![img](https://pic4.zhimg.com/80/v2-ef02163c6714a437ccb7b7b2f2cfcadb_1440w.jpg)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-DfTG1S.jpg)
 
 
 
@@ -1058,7 +1058,7 @@ $ rm text.txt
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0702-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-TT1k3C.png)
 
 
 图7-2. 签出时，“smudge”过滤器被触发。
@@ -1067,7 +1067,7 @@ $ rm text.txt
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0703-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IFxav3.png)
 
 
 图7-3. 提交到暂存区时，“clean”过滤器被触发。
@@ -2059,7 +2059,7 @@ $ git log --pretty="%h - %s" --author=gitster --since="2008-10-01" \
 
 有时候图形化工具更容易展示历史提交的变化，随 Git 一同发布的 gitk 就是这样一种工具。它是用 Tcl/Tk 写成的，基本上相当于 `git log` 命令的可视化版本，凡是 `git log` 可以用的选项也都能用在 gitk 上。在项目工作目录中输入 gitk 命令后，就会启动图 2-2 所示的界面。
 
-![img](https://gitee.com/progit/figures/18333fig0202-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-1526DH.png)
 
 
 图 2-2. gitk 的图形界面
@@ -2118,7 +2118,7 @@ $ git commit --amend
 
 1. `git reset --soft HEAD^`。 详情看reset
 
-![git6.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/843c54ebbc5643fba64ee5142f6be420~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?)
+![git6.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CNqgO1.webp)
 
 
 
@@ -2368,7 +2368,7 @@ pick 310154e updated README formatting and added blame
 
 在开发中，常会遇到在一个分支上产生了很多的无效的提交，这种情况下使用 rebase 的交互式模式可以把已经发生的多次提交压缩成一次提交，得到了一个干净的提交历史，例如某个分支的提交历史情况如下：
 
-![image-20210518211345258.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee27b108f03443a58c19600cac7ddf70~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210518211345258.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-4O3UYl.webp)
 
 进入交互式模式的方式是执行：
 
@@ -2386,7 +2386,7 @@ git rebase -i ac18084
 
 此时会进入一个 vim 的交互式页面，编辑器列出的信息像下列这样。
 
-![image-20210518212036198.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3fd2ea54dbbe4c88a51fc652c6b1e86f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210518212036198.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Qj4heS.webp)
 
 想要合并这一堆更改，我们要使用 Squash 策略进行合并，即把当前的 commit 和它的上一个 commit 内容进行合并， 大概可以表示为下面这样，在交互模式的 rebase 下，至少保留一个 pick，否则命令会执行失败。
 
@@ -2400,7 +2400,7 @@ s     ... ...
 
 修改文件后 按下 `:` 然后 `wq` 保存退出，此时又会弹出一个编辑页面，这个页面是用来编辑提交的信息，修改为 `feat: 更正`，最后保存一下，接着使用 `git branch` 查看提交的 commit 信息，rebase 后的提交记录如下图所示，是不是清爽了很多？rebase 操作可以让我们的提交历史变得更加清晰。
 
-![image-20210518212812000.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2586ec49060f4dfc9006c8f3fc532260~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210518212812000.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-6afot4.webp)
 
 > 特别注意，只能在自己使用的 feature 分支上进行 rebase 操作，不允许在集成分支上进行 rebase，因为这种操作会修改集成分支的历史记录。
 
@@ -3009,7 +3009,7 @@ $ git commit -m 'initial commit of my project'
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0301-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-fRXCNs.png)
 
 
 图 3-1. 单个提交对象在仓库中的数据结构
@@ -3022,7 +3022,7 @@ $ git commit -m 'initial commit of my project'
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0302-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-8rL81B.png)
 
 
 图 3-2. 多个提交对象之间的链接关系
@@ -3039,7 +3039,7 @@ $ git commit -m 'initial commit of my project'
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0303-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-vdasMi.png)
 
 
 图 3-3. 分支其实就是从某个提交对象往回看的历史
@@ -3058,7 +3058,7 @@ $ git branch testing
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0304-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-MS3dl7.png)
 
 
 图 3-4. 多个分支指向提交数据的历史
@@ -3071,7 +3071,7 @@ $ git branch testing
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0305-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-qgHo5J.png)
 
 
 图 3-5. HEAD 指向当前所在的分支
@@ -3115,7 +3115,7 @@ $ git checkout testing
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0306-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z8cZ35.png)
 
 
 图 3-6. HEAD 在你转换分支时指向新的分支
@@ -3135,7 +3135,7 @@ $ git commit -a -m 'made a change'
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0307-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2AIklW.png)
 
 
 图 3-7. 每次提交后 HEAD 随着分支一起向前移动
@@ -3158,7 +3158,7 @@ $ git checkout master
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0308-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-6WDgGZ.png)
 
 
 图 3-8. HEAD 在一次 checkout 之后移动到了另一个分支
@@ -3176,7 +3176,7 @@ $ git commit -a -m 'made other changes'
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0309-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-xpvYnE.png)
 
 
 图 3-9. 不同流向的分支历史
@@ -3306,7 +3306,7 @@ $ git branch -d testing
 
 首先，我们看一个简短的提交历史。
 
-![img](https://gitee.com/progit/figures/18333fig0310-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lDc8a9.png)
 
 
 
@@ -3318,7 +3318,7 @@ $ git checkout -b iss53
     Switched to a new branch "iss53"
 ```
 
-![img](https://gitee.com/progit/figures/18333fig0311-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-t92AAS.png)
 
 
 图 3-11. 创建了一个新分支的指针
@@ -3334,7 +3334,7 @@ $ vim index.html
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0312-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5hHqC7.png)
 
 
 图 3-12. iss53 分支随工作进展向前推进
@@ -3365,7 +3365,7 @@ $ git checkout -b 'hotfix'
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0313-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ckyKDf.png)
 
 
 图 3-13. hotfix 分支是从 master 分支所在点分化出来的
@@ -3389,7 +3389,7 @@ $ git merge hotfix
 
 合并时出现了“Fast forward”的提示。由于当前 `master` 分支所在的提交对象是要并入的 `hotfix` 分支的直接上游，Git 只需把 `master` 分支指针直接右移。换句话说，如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，只会简单地把指针右移，因为这种单线的历史分支不存在任何需要解决的分歧，所以这种合并过程可以称为快进（Fast forward）。
 
-![img](https://gitee.com/progit/figures/18333fig0314-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-luvJp5.png)
 
 
 图 3-14. 合并之后，master 分支和 hotfix 分支指向同一位置。
@@ -3414,7 +3414,7 @@ $ git checkout master
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0316-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tq9Qru.png)
 
 
 图 3-16. Git 为分支合并自动识别出最佳的同源合并点。
@@ -3427,7 +3427,7 @@ $ git checkout master
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0317-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-EZ77ju.png)
 
 
 图 3-17. Git 自动创建了一个包含了合并结果的提交对象。
@@ -3440,11 +3440,11 @@ $ git checkout master
 
 如下场景，以下有三条分支，feature/cherry-pick1 和 feature/cherry-pick2 都是基于 master 检出的两条功能性分支，对应的分支 log 记录如下
 
-![image-20210518221001432.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66e205eb421841bfa476167e6fd7c581~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210518221001432.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ZxaMg7.webp)
 
-![image-20210518221010458.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5743a18a0c24b3aa085db3d7a620742~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210518221010458.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-tGOIf0.webp)
 
-master 分支的提交如下 ![image-20210518221051734.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64fe055a5e764ff58e85923314096f9e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+master 分支的提交如下 ![image-20210518221051734.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hBWuIV.webp)
 
 现在 master 只需要 feature/cherry-pick1 和 feature/cherry-pick2 有关 change 的修改，并不关心有关 fix 内容的修改。此时就可以用 cherry-pick 指令了。
 
@@ -3452,7 +3452,7 @@ master 分支的提交如下 ![image-20210518221051734.png](https://p3-juejin.by
 
 commit-hash 表示的是某次 commit 的 hash 值。现在，依次执行以下两条指令 `git cherry-pick e0bb7f3`、`git cherry-pick c9a3101`，过程中，如果出现冲突，解决冲突后 进行 `git add `，接着执行 `git cherry-pick --continue`，最后，master 上的提交如下
 
-![image-20210518235707190.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38f9c71679824941abdf98b769b9a062~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210518235707190.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5KjGuj.webp)
 
 此时，master 分支上应用了需要的提交，就达到了我们想要的效果。如果需要多个 cherry-pick 需要同步到目标分支，可以简写为  `git cherry-pick <first-commit-id>...<last-commit-id>`，这是一个左开右闭的区间，也就时说 `first-commit-id` 提交带来的代码的改动不会被合并过去，如果需要合并过去，可以使用 `git cherry-pick <first-commit-id>^...<last-commit-id>`，它表示包含 `first-commit-id` 到 `last-commit-id` 在内的提交都会被合并过去。
 
@@ -3466,7 +3466,7 @@ commit-hash 表示的是某次 commit 的 hash 值。现在，依次执行以下
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0320-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-vWuD65.png)
 
 
 图 3-20. 拥有多个特性分支的提交历史。
@@ -3477,7 +3477,7 @@ commit-hash 表示的是某次 commit 的 hash 值。现在，依次执行以下
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0321-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-F9zo0m.png)
 
 
 
@@ -3603,7 +3603,7 @@ Merge branch 'iss53'
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0318-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PrXjhi.png)
 
 
 图 3-18. 稳定分支总是比较老旧。
@@ -3614,7 +3614,7 @@ Merge branch 'iss53'
 
 
 
-![img](https://gitee.com/progit/figures/18333fig0319-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-VLTelj.png)
 
 
 图 3-19. 想象成流水线可能会容易点。
@@ -3671,7 +3671,7 @@ C0 -- M1 -- M2 -- M3(origin/master)
 
 衍合也可以放到其他分支进行，并不一定非得根据分化之前的分支。以图 3-31 的历史为例，我们为了给服务器端代码添加一些功能而创建了特性分支 `server`，然后提交 C3 和 C4。然后又从 C3 的地方再增加一个 `client` 分支来对客户端代码进行一些相应修改，所以提交了 C8 和 C9。最后，又回到 `server` 分支提交了 C10。
 
-![img](https://gitee.com/progit/figures/18333fig0331-tn.png)图 3-31
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PkLtpU.png)图 3-31
 
 
 
@@ -3683,7 +3683,7 @@ $ git rebase --onto master server client
 
 这好比在说：“取出 `client` 分支，找出 `client` 分支和 `server` 分支的共同祖先之后的变化，然后把它们在 `master` 上重演一遍”。它的结果如图 3-32 所示，非常酷（译注：虽然 `client` 里的 C8, C9 在 C3 之后，但这仅表明时间上的先后，而非在 C3 修改的基础上进一步改动，因为 `server` 和 `client` 这两个分支对应的代码应该是两套文件，虽然这么说不是很严格，但应理解为在 C3 时间点之后，对另外的文件所做的 C8，C9 修改，放到主干重演。）
 
-![img](https://gitee.com/progit/figures/18333fig0332-tn.png)图 3-32
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7sJP6W.png)图 3-32
 
 现在可以快进 `master` 分支了（见图 3-33）：
 
@@ -3692,7 +3692,7 @@ $ git checkout master
 $ git merge client
 ```
 
-![img](https://gitee.com/progit/figures/18333fig0333-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ncl0yM.png)
 
 
 图 3-33. 快进 master 分支，使之包含 client 分支的变化。
@@ -3709,7 +3709,7 @@ $ git merge client
 
 下面我们用一个实际例子来说明为什么公开的衍合会带来问题。假设你从一个中央服务器克隆然后在它的基础上搞了一些开发，提交历史类似图所示：
 
-![img](https://gitee.com/progit/figures/18333fig0336-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-W86SIW.png)
 
 
 
@@ -3717,20 +3717,20 @@ $ git merge client
 
 现在，某人在 C1 的基础上做了些改变，并合并他自己的分支得到结果 C6，推送到中央服务器。当你抓取并合并这些数据到你本地的开发分支中后，会得到合并结果 C7，历史提交会变成图 这样：
 
-![img](https://gitee.com/progit/figures/18333fig0337-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-8aPFW1.png)
 
 
 
 接下来，那个推送 C6 上来的人决定用衍合取代之前的合并操作；继而又用 `git push --force` 覆盖了服务器上的历史，得到 C4'。而之后当你再从服务器上下载最新提交后，会得到：
 
-![img](https://gitee.com/progit/figures/18333fig0338-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2T4fQn.png)
 
 
 图 3-38. 有人推送了衍合后得到的 C4'，丢弃了你作为开发基础的 C4 和 C6。
 
 下载更新后需要合并，但此时衍合产生的提交对象 C4' 的 SHA-1 校验值和之前 C4 完全不同，所以 Git 会把它们当作新的提交对象处理，而实际上此刻你的提交历史 C7 中早已经包含了 C4 的修改内容，于是合并操作会把 C7 和 C4' 合并为 C8（见图 3-39）:
 
-![img](https://gitee.com/progit/figures/18333fig0339-tn.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-75HtIz.png)
 
 
 图 3-39. 你把相同的内容又合并了一遍，生成一个新的提交 C8。
@@ -3992,19 +3992,19 @@ Cherry pick 也支持转移另一个代码库的提交，方法是先将该库�
 
 首先通过 `git status` 查看下现在的状态。
 
-![image-20210520115802579.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4ede8763be443868de951dc08721c1a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210520115802579.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-nUS0ME.webp)
 
 目前我们的工作区是很干净的，没有任何修改的操作，此时，修改一下代码再次查看状态，可以看到，1.js 这个文件被修改了。
 
-![image-20210520115934693.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/371084f06fca40778b2f95900ebf19b6~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210520115934693.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-8ZcLp3.webp)
 
 现在我们想把 1.js 这个文件恢复到修改前的状态，即撤回工作区的修改，就可以使用  `git checkout -- <filename>` 的命令，如果要撤回多个文件的修改，文件之间使用空格隔开，如下图所示，我们撤回了 1.js 文件的修改，工作区也恢复干净了。
 
-![image-20210520120242475.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02da2adecc3b43bd917294c203596d1e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210520120242475.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zuRpVQ.webp)
 
 如果说现在我们对文件进行了修改，并且已经提交到暂存区了，这部分文件我们不想要的话，那么就可以通过 `git reset <filename>` 的命令来对特定的文件进行撤销，`git reset` 会撤回所有存在暂存区的文件，如下图所示，查看前后的状态可知，文件最后成功撤回到工作区了。
 
-![image-20210520141538130.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0d6b5e17ec341afb86e1e9732f2ded9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210520141538130.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-G8c7x5.webp)
 
 
 
@@ -4030,7 +4030,7 @@ git reset [--soft | --mixed | --hard] [HEAD]
 
 git reset 实际上就是在修改head指向的commit。根据修改head后，是否级联修改stage、workspace，可进一步的细分成三种模式hard、sort、mixed（默认）
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/048b2733d7054c99a18fc402b9bfba40~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jMs7IL.webp)
 
 
 
@@ -4047,7 +4047,7 @@ git reset 实际上就是在修改head指向的commit。根据修改head后，�
 1. `git reset --soft HEAD^`
 1. 再重新提交
 
-![git6.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/843c54ebbc5643fba64ee5142f6be420~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?)
+![git6.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-HZgjpU.webp)
 
 ##### 场景--撤销上次提交的部分修改
 
@@ -4132,7 +4132,7 @@ $ git reset --hard origin/master    # 将本地的状态回退到和远程的一
 
 git revert用于撤销该版本的修改。这会创建一个新的提交，该提交会撤销上一个提交所做的更改。如果你只想要撤销上一个提交的部分更改，则可以提供要撤销的提交的哈希值。比如，我们commit了三个版本（版本一、版本二、 版本三），想要撤销版本二，但又不想影响撤销版本三的提交，就可以用 git revert 命令来反做版本二，生成新的版本四，这个版本四里会保留版本三的东西，但撤销了版本二的东西。如下图所示：
 
-![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwNDE0MjA1ODE2MTg4)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jHT0DP.png)
 
 
 
@@ -4142,18 +4142,18 @@ git revert用于撤销该版本的修改。这会创建一个新的提交，该�
 
 举个例子，现在库里面有三个文件：READ.md、text.txt、text2.txt。
 
-![](https://img-blog.csdnimg.cn/20190726111023401.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4bHNoaw==,size_16,color_FFFFFF,t_70)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Cnm22K.png)
 
 #### 1.查看版本号
 
 可以通过命令行查看（输入git log）：
 如图，最近的两个版本分别叫：“add text.txt”（即新增了文件text.txt）、“add text2.txt”（新增了文件text2.txt）。这个时候我们不需要text.txt这个文件了，那就是说不想要“add text.txt”那个版本的操作，那可以通过反做“add text.txt”这个版本来实现。
 
-![](https://img-blog.csdnimg.cn/20190726105234748.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4bHNoaw==,size_16,color_FFFFFF,t_70)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gVndro.png)
 
 也可以通过github网站图形化界面查看版本号：
 
-![](https://img-blog.csdnimg.cn/20190726105637358.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4bHNoaw==,size_16,color_FFFFFF,t_70)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-u1FZiS.png)
 
 #### 2.使用“git revert -n 版本号”反做，并使用“git commit -m 版本名”提交：
 
@@ -4175,17 +4175,17 @@ git commit -m "revert add text.txt"
 
 此时可以用“git log”查看本地的版本信息，可见多生成了一个新的版本，该版本反做了“add text.txt”版本，但是保留了“add text2.txt”版本：
 
-![](https://img-blog.csdnimg.cn/20190726110223433.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4bHNoaw==,size_16,color_FFFFFF,t_70)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-kN8nu5.png)
 
 #### 3.使用“git push”推上远程库
 
 查看github上显示的远程库版本信息：
 
-![](https://img-blog.csdnimg.cn/20190726110646667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4bHNoaw==,size_16,color_FFFFFF,t_70)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-LGSOak.png)
 
 此时查看仓库的文件，剩下两个：READ.md、text2.txt
 
-![](https://img-blog.csdnimg.cn/201907261108187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l4bHNoaw==,size_16,color_FFFFFF,t_70)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-K6Gajg.png)
 
 
 
@@ -4203,11 +4203,11 @@ git commit -m "revert add text.txt"
 
 下面就用一个案例来理解一下这个命令，如下图所示，假设被红框框起来的地方是会引起 bug 的一次提交，在他的提交之后，又进行了2次提交，其中包含了其它同事的提交。
 
-![image-20210519142702752.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f36331158e084072a033802bf4fa0478~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210519142702752.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-nN4uyn.webp)
 
 此时想把引起提交的 bug 的干掉，执行 `git revert 1121932`，执行操作后，再打开查看日志，如下图所示，可以看到是新增了一条 commit 记录，这个 commit 的产生的 msg 是自动生成的，Revert 开头，后面跟撤回的 commit-msg 信息 之前的 commit 记录并没有消失，此时也达到了代码回退的效果
 
-![image-20210519142824836.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9729e537218e4609b54df3e899fd332f~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![image-20210519142824836.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UvQpMB.webp)
 
 此外 git revert 也可以回滚多次的提交
 
@@ -4248,7 +4248,7 @@ git reset --hard HEAD@{8}
 ```
 
 
-![](https://img-blog.csdn.net/20160202192935902)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-qNOJiA.png)
 
 
 从图中可以看到，大部分的HEAD@{*}记录了你重要的提交/切换/合并等操作的点，找到你需要回退的点，执行reset操作即可实现回退。
@@ -4267,19 +4267,19 @@ git reset --hard HEAD@{8}
 
 ### 命令使用
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9855c6fcc8e84545952f3f93d2a0445a~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5AGH5F.webp)
 
 分支记录如上，想要 reset 到 b。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c9e3cc1281f436fa3f0d5e10cb10462~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ys3edX.webp)
 
 误操作 reset 过头，b 没了，最新的只剩下 a。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36cc5814ef784a8180676058d4636f8e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gtuvTo.webp)
 
 这时用 `git reflog` 查看历史记录，把错误提交的那次 commitHash 记下。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee749d2bd3564213b7a4ee565c458f6d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-i3Qx1c.webp)
 
 再次 reset 回去，就会发现 b 回来了。
 
@@ -4293,7 +4293,7 @@ git reset --hard HEAD@{8}
 
 ### 介绍
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8b347d7246f48b0a5fd46de28c1c54a~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-vhVdc5.webp)
 
 假设你要给然叔的组件库提交代码，在 GitHub 中的 PullRequest 步骤如下：
 
@@ -4317,13 +4317,13 @@ git reset --hard HEAD@{8}
 
 Fork 实际上就是复制的意思。在 Github 中相当于将 samrty-team 账号中的 smarty-admin 项目复制了一份到 su37josephxia 账号中。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ec9d0b7d2d84b0c908796d0757bfdbd~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-s1mHzw.webp)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6fe717f6fe944c5a54ad728ba994969~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4MAcdA.webp)
 
 点击 【Create fork】就可以了。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/534ee08b08f1441cb9fc266f4020ceab~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1SqBME.webp)
 
 新创建的代码在 su37josephxia 账号下，这个代码和自己常见的几乎没有差别，只是在界面上多了一点内容：
 
@@ -4337,37 +4337,37 @@ Fork 实际上就是复制的意思。在 Github 中相当于将 samrty-team 账
 git clone git@github.com:su37josephxia/smarty-admin.git
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38e226d02c364c16b4546f732e885a70~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jSr0nZ.webp)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e412fb9bc8d448f9f0645b9e4f6f455~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5SBWtw.webp)
 
 ```Bash
 git commit -am 'fix: del Button.tsx useless comments'
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d734542d4784467da54b6b3ec49fa864~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-nqH9gp.webp)
 
 ```Bash
 git push
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fdde31852ae4602935172207dd17a08~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ZPLhxz.webp)
 
 提交代码后，回到 su37josephxia/smarty-admin 的 Github 页面。这个时候就可以看到这个提交。这是一个新的功能，可以更方便你提交 PullRequest。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd945f7a115c4853ad4e0b3a2d24c5e6~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-AlpbiB.webp)
 
 点击 【Contribute】中的 【Open pull request】按钮，就可以创建一个新的 PullRequest 了。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab7216fe70994c18b1d1e73a77b17bfb~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wySywx.webp)
 
 在 pull request 界面中可以看到提交的方向。这里面表明是从 su37josephxia 向 smarty-team 提交代码。当然这里面方向和分支都可以选择，多分支通常用于你同时要处理很多个 PullRequest 的情况，目前只处理一个分支就没有这么麻烦。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87e379d4456c4a1fb86fd219b33e443a~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-yGVKDE.webp)
 
 另外，你也可以从后面的比对中清楚地看到你修改的内容。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f0f4755f47042b9b12207f47eaa9ebc~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-EQijDT.webp)
 
 点击 【Create pull request】后，这个pullrequest 就创建成功了。这时然叔就收到了你的 pullrequest。
 
@@ -4375,19 +4375,19 @@ git push
 
 当有人给然叔的组件库提交了代码贡献，然叔就可以很容易地在 【PullRequest】中看到。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca764601103e4236aefcfc5cc8c22e9e~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-J1NAUU.webp)
 
 打开后可以查阅代码变更，也可以清楚地看到这个代码 CI 运行的结果。通过这个结果就可以判断代码是否正确，也可以提出一定的改进意见，让你继续进行修改。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49727e60836642ed91128262b6b8da2a~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-mmZ9ZH.webp)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46341df93d7b48c98e9beba2f0b8c213~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gYiOgm.webp)
 
 假设认为你的修改是有价值的，就可以批准你的修改。点击 Merge pull request 就可以接受这次代码合并。这时，你的代码也就合并到了 smarty-team/ smarty-admin 仓库中了，这次代码贡献宣告胜利结束。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5820525266734daabd722b0d81c65699~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ERw8W6.webp)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fd12526652f4ba2be0153702a0c4f50~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-VJjp9I.webp)
 
 
 
@@ -4433,7 +4433,7 @@ Issue 就是在 Github 中内置的工单系统或者叫问题管理系统。
 
 下面我们来实践一下。在 Github 中打开 【Issue】选项卡。我们看一下如何提交 Issue。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a681b121342490c842d7db4195d85f6~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hGPcMA.webp)
 
 - 描述： 这个是聊天室模式所有人都可以评论；
 - 指派者： 实在不知道这个怎么翻译，其实意思就是目前的负责人。如果有一个 Bug 的话，发现的人可以指派给项目负责人。负责人也可以根据分工指派给具体开发，大家也可以自己认领；
@@ -4441,7 +4441,7 @@ Issue 就是在 Github 中内置的工单系统或者叫问题管理系统。
 - 项目和里程碑： 这个和下文介绍的项目 Project 有关。简单的说，就是表示这个问题和哪个项目相关。一般所有属于这个项目的问题都解决或被移出这个项目，才能算是项目完结；
 - 相关代码： 这个功能可以链接某一个代码的提交，也就是相关的代码在哪。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/648a84e2f92a435e8b39251bc0b7e687~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Od8I7A.webp)
 
 可以在 ISSUE 中不断讨论问题、链接代码、指派给相关人，直到最终将问题解决，然后 Close 问题 。 这就是问题管理系统。
 
@@ -4462,17 +4462,17 @@ Issue 就是在 Github 中内置的工单系统或者叫问题管理系统。
 
 Github 项目的面板在最新版中调整到了组织或个人目录中（[github.com/orgs/smarty…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Forgs%2Fsmarty-team%2Fprojects%EF%BC%89%EF%BC%8C%E8%BF%99%E6%A0%B7%E6%9B%B4%E5%AE%B9%E6%98%93%E5%9C%A8%E5%A4%9A%E4%B8%AA%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E4%B9%8B%E4%B8%AD%E7%AE%A1%E7%90%86%E3%80%82)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6986aaa5350044d98e7d6788c4cabff8~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uBP5bg.webp)
 
 首先，开启一个项目 【Smarty UI Vite Alpha.1】 开发。接下来可以选择一下项目的种类。
 
 视图方式可以选择 Table 和 Board，Board 就是看板模式。这个模式其实就和大多数敏捷团队中使用的实体看板是一样的。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c23b7c6faa85472486c81f2612597173~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-jWAo6k.webp)
 
 然后回到 smarty-admin 中将 Project 挂载到此仓库。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec8281f90758411a8c312fcc439a8a47~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YWh7PI.webp)
 
 1. 将 ISSUE 纳入项目
 
@@ -4480,23 +4480,23 @@ Github 项目的面板在最新版中调整到了组织或个人目录中（[git
 
 比如本次开发的是 Alpha.1 版本。目标就是完善工程化闭环 + 添加典型组件。那么就需要将相关的功能 ISSUE 和 Bug ISSUE 添加到项目之中。如果还缺少一些功能，可以添加 ISSUE。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98ab94d8416d48eca4e6974aa051de69~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Awti6M.webp)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e231de99f5141cb9a99fbb5426ba76f~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Z6JknB.webp)
 
 1. 分配项目
 
 接着就是评估 ISSUE 的重要度和复杂度，来确定开发的有限顺序。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bade5701b141457aac1d2357d978f9ba~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sqov7E.webp)
 
 跟着就需要分配任务到开发者，或者开发者自觉认领。其实开源团队这个过程一般都是认领的比较多。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf153fba4d1f4ab69c7163f6d6f1b09c~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-x4RUoo.webp)
 
 接下来就是使用，看板功能跟踪项目过程。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/183b0bf5bf9f44779e3a5f536f8c941f~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8fyRpM.webp)
 
 要强调的是，开发完成不是完成任务。代码的 review 和关闭项目需要第三者确认才有意义。就比如说你开发的新组件，一定是需要然叔检查了你的代码、跑了你写的测试用例、确认才算完成这个 ISSUE
 

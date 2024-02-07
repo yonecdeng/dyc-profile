@@ -383,7 +383,7 @@ https://juejin.cn/post/6917898288481959943#heading-3
 
 下图可以直观的看出三者之间的区别:(蓝色代表js脚本网络加载时间，红色代表js脚本执行时间，绿色代表html解析)
 
-![script标签中defer和async的区别](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b0a8a139519f46dfa2d1992c58eb5397~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![script标签中defer和async的区别](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-zuVjnR.webp)
 
 #### `<script>`
 
@@ -583,57 +583,81 @@ Unicode字符（\2261）。这个字符是一个数学符号，由三条横线�
 
 ## 对比
 
+首先明确Dom最大的问题在于重排重绘，所以图表不会用dom来画
+
+### 总览
+
 ![image-20230429142507857](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-25-image-20230429142507857.png)
 
 
 
-## 介绍
 
-Canvas 是基于脚本的，通过 JavaScript 指令来动态绘图。而 SVG 则是使用 XML 文档来描述矢量图。
 
-## 适用场景
+### 适用场景
 
-1. Canvas 提供的绘图能力更底层，适合做到像素级的图形处理，能动态渲染和绘制大数据量的图形。SVG 抽象层次更高，声明描述式的接口功能更丰富，内置了大量的图形、滤镜和动画等，方便进行文档元素的维护，也能导出为文件脱离浏览器环境使用。
-
-2.  SVG 做定制和交互更有优势，因为有类似 DOM 的结构，能快速应用浏览器底层的鼠标事件、CSS 样式、CSS3 动画等。不过基于 Canvas 做上层封装后也能实现类似的定制和交互，并且自由度更高。canvas 绘制的图形，只能给 canvas 整个画布添加事件，而不能给某个图形或文件添加事件处理器，但是 svg 支持事件绑定，如果需要添加带有事件的动画效果时，就需要选择 svg。
-
-3. svg 是一种矢量图，而 canvas 依赖于分辨率,绘制出来的图形是位图。所以 svg 放大不会失真，但是 canvas 绘制的图形会失真。
-
-4. svg 中的文字独立于图像，文字可保留，可编辑和可搜索，canvas 的文本渲染能力弱。
-
-5. canvas 适合图像密集型的游戏，频繁地重绘图像，svg 绘制的复杂度高时减慢渲染的速度。
-
-6. canvas 绘制的图形可以多种格式 (jpg、png) 保存图片，但是 svg 绘制的只能以 .svg 格式保存，使用时可以引入 html 文件
-
-   
-
-小画布、大数据量的场景适合用 Canvas，譬如热力图、大数据量的散点图等。如果画布非常大，有缩放、平移等高频的交互，或者移动端对内存占用量非常敏感等场景，可以使用 SVG 的方案,svg 绘制的是矢量图，放大后不会失真，所以很适合做地图。。
+小画布、大数据量的场景适合用 Canvas，譬如热力图、大数据量的散点图等。如果画布非常大，有缩放、平移等高频的交互，或者移动端对内存占用量非常敏感等场景，可以使用 SVG 的方案,svg 绘制的是矢量图，放大后不会失真，所以很适合做地图。
 
 下图从通用层面描述不同渲染技术各自适合的场景。
 
-![Canvas vs SVG | left](https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*2WKtTqXkMBMAAAAAAAAAAABkARQnAQ)
+![Canvas vs SVG | left](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IkLBom.jpg)
 
-## 性能差异
+### 性能差异
 
-<mark>Canvas 的性能受画布尺寸影响更大，而 SVG 的性能受图形元素个数影响更大。</mark>而且在小数据量的情况下，SVG 的方案通常内存占用会更小，做缩放、平移等操作的时候往往帧率也更高，缩放功能时不会模糊。
+<mark>Canvas 的性能受画布尺寸影响更大，而 SVG 的性能受图形元素个数影响更大（因为svg的渲染过程跟 DOM 一样也要渲染树的生成、布局合成、绘制）。</mark>而且在小数据量的情况下，SVG 的方案通常内存占用会更小，做缩放、平移等操作的时候往往帧率也更高，缩放功能时不会模糊。
 
 <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-19-15-image-20231215191522858.png" alt="image-20231215191522858" style="zoom:50%;" />
 
 
 
-
+1. **绘图方式**：Canvas 使用基于像素的绘图方式，而 SVG 使用基于矢量的绘图方式。在 Canvas 中，图形被转换为像素，并直接绘制在画布上。而在 SVG 中，图形是通过数学公式和几何描述来定义的，需要在每次渲染时重新计算和绘制。这使得 Canvas 在处理大量图形元素时更高效。
+2. **渲染方式**：Canvas 绘制后的图形是静态的位图，不会保留图形的结构信息。而 SVG 保留了图形的结构和属性信息，因此在每次渲染时都需要解析和计算这些信息。这使得 Canvas 在动态更新和频繁重绘时更快。
+3. **复杂性**：由于 SVG 保留了图形的结构信息，它可以更容易地进行交互和修改。但这也增加了渲染的复杂性和计算量。相比之下，Canvas 简单地将图形绘制在画布上，不需要处理图形的结构信息，因此更高效。
 
 
 
 ## canvas
 
+### 介绍
+
+**`Canvas` 是 HTML5 中的一个元素，它提供了一个用于绘制图形、动画和图像的空白画布**。Canvas 可以通过 JavaScript 来操作，使开发者可以在网页上实时绘制和渲染图形。
+
+
+
+
+
 ### 使用
+
+#### 总览
+
+所有api汇总：https://www.canvasapi.cn/
+
+canvas dom 节点有两个属性 `width 和 Height`，分别代表 Canvas 的宽和高；canvas dom 节点有`三个方法`，分别是 getContext、toDataURL 和 toBlob。
+
+getContext 返回一个绘图上下文对象，用于在 Canvas 上绘制。还有两个不太常见的 API，在下载传输的时候我们会用到：
+
+- `toDataURL`：用于将 Canvas 图像数据转换为数据 URL。它接收一个参数，表示图像的格式（默认为 `image/png` ）。该方法返回一个包含图像数据的 Base64 编码的数据 URL，可以使用这个数据 URL 来显示图像或在 HTML 中嵌入图像。
+- `toBlob`：用于将 Canvas 图像数据转换为 Blob 对象。它接收两个参数，第一个参数是一个回调函数，用于接收生成的 Blob 对象，第二个参数是图像的格式（默认为 `image/png` ）。该方法将生成的 Blob 对象作为回调函数的参数传递。
+
+![image-20240130215447275](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-21-54-image-20240130215447275.png)
+
+```html
+<body>
+    <canvas id="myCanvas">
+        // 一旦浏览器不兼容canvas，会默认渲染内部结构
+        浏览器不支持canvas
+    </canvas>
+</body>
+```
+
+
+
+
 
 #### 设置canvas环境
 
 ##### 元素属性
 
-[`width`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas#attr-width)和[`height`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas#attr-height)。当没有设置宽度和高度的时候，canvas 会初始化宽度为 300 像素和高度为 150 像素。该元素可以使用[CSS](https://developer.mozilla.org/zh-CN/docs/Glossary/CSS)来定义大小，但在绘制时图像会伸缩以适应它的框架尺寸：如果 CSS 的尺寸与初始画布的比例不一致，它会出现扭曲。
+[`width`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas#attr-width)和[`height`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas#attr-height)。当没有设置宽度和高度的时候，canvas 会初始化宽度为 300 像素和高度为 150 像素。<mark>也可以使用[CSS](https://developer.mozilla.org/zh-CN/docs/Glossary/CSS)来定义大小，但在绘制时图像会伸缩以适应它的框架尺寸：如果 CSS 的尺寸与初始画布的比例不一致，它会出现扭曲。</mark>
 
 >  **备注：** 如果你绘制出来的图像是扭曲的，尝试用 width 和 height 属性为`<canvas>`明确规定宽高，而不是使用 CSS。
 
@@ -647,6 +671,12 @@ Canvas 是基于脚本的，通过 JavaScript 指令来动态绘图。而 SVG �
 var canvas = document.getElementById('tutorial');//得到 DOM 对象
 var ctx = canvas.getContext('2d');//有了元素对象，你可以通过使用它的 getContext() 方法来访问绘画上下文。
 ```
+
+Canvas 上下文容器不仅仅可以获取 2D 的上下文，还可以获取 3D 的上下文，比如 WebGL。
+
+
+
+
 
 ##### [检查支持性](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Basic_usage#检查支持性)
 
@@ -800,7 +830,7 @@ canvas 提供了三种方法绘制矩形：
 
   绘制三次贝塞尔曲线，`cp1x,cp1y`为控制点一，`cp2x,cp2y`为控制点二，`x,y`为结束点。
 
-![img](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes/canvas_curves.png)左边的图能够很好的描述两者的关系，二次贝塞尔曲线有一个开始点（蓝色）、一个结束点（蓝色）以及一个控制点（红色)，而三次贝塞尔曲线有两个控制点。
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LTUaZy.png)左边的图能够很好的描述两者的关系，二次贝塞尔曲线有一个开始点（蓝色）、一个结束点（蓝色）以及一个控制点（红色)，而三次贝塞尔曲线有两个控制点。
 
 参数 x、y 在这两个方法中都是结束点坐标。`cp1x,cp1y`为坐标中的第一个控制点，`cp2x,cp2y`为坐标中的第二个控制点。
 
@@ -957,7 +987,9 @@ Canvas 状态存储在栈中，每当`save()`方法被调用后，当前的状�
 
 
 
+### 库
 
+konva
 
 
 
@@ -971,9 +1003,73 @@ SVG 图像及其相关行为被定义于 [XML](https://developer.mozilla.org/zh-
 
 和传统的点阵图像模式（如 [JPEG](https://developer.mozilla.org/zh-CN/docs/Glossary/jpeg) 和 [PNG](https://developer.mozilla.org/zh-CN/docs/Glossary/PNG)）不同的是，SVG 格式提供的是矢量图，这意味着它的图像能够被无限放大而不失真或降低质量，并且可以方便地修改内容，无需图形编辑器。
 
-<mark>SVG 中保存的是点、线、面的信息，与分辨率和图形大小无关，只是跟图像的复杂程度有关，所以图像文件所占的存储空间通常会比 png 小。</mark>
+<mark>SVG 中保存的是点、线、面的信息，用数学公式和几何描述来定义图形，与分辨率和图形大小无关，只是跟图像的复杂程度有关，所以图像文件所占的存储空间通常会比 png 小。</mark>
+
+它的渲染过程跟 DOM 一样也要渲染树的生成、布局合成、绘制，这也就意味着大批量的图形对于 SVG 来说很容易造成卡顿。可以使用事件直接对元素做绑定。
 
 ### 使用
+
+#### Web 端引入 SVG 的不同方式
+
+1. **img**。这个是将 SVG 图像添加到网页的最简单方法。若要使用此方法，请将元素添加到 HTML 文档中并在属性中引用它，如下所示：
+
+> `<img>`尽管我们可以更改通过标签添加的 SVG 图像的大小，但如果你想对 SVG 图像进行重大样式更改，仍然存在一些限制。
+
+```js
+js
+复制代码<img src = "happy.svg" alt="My Happy SVG"/>
+```
+
+1. **background-image**。如下：
+
+```js
+js
+复制代码body {
+  background-image: url(happy.svg);
+}
+```
+
+1. **内联 SVG**。SVG 图像可以使用标签直接写入 HTML 文档。`<svg> </svg>`。
+2. **object**。你还可以通过 HTML 元素使用以下代码语法将 SVG 图像添加到网页：
+
+```
+<object>
+html
+复制代码<object data="happy.svg" width="300" height="300"> </object>
+```
+
+1. **iframe**。使用此格式添加的 SVG 图像不可缩放，同时 SEO 也会有问题。
+2. **embed**。我们在 HTML 中可以使用嵌入的方式引用，比如这样：`<embed><embed src="happy.svg" />`，但是该标签已经在大多数浏览器弃用了，不再推荐使用。
+
+#### 属性
+
+##### xmlns
+
+`xmlns` 是 XML 命名空间属性，用于指定所使用的 XML 命名空间。命名空间是一种用于区分不同 XML 元素和属性的机制，以确保不同来源的 XML 数据可以正确解析和处理。但是，如果嵌入在 HTML 内部，xmlns 属性是可以被省略的。
+
+
+
+>xmlns 和 xmlns:xlink 是 XML 命名空间的属性，而 xlink:href 是 XLink 规范中的属性。它们之间的区别如下：
+>
+>1. xmlns 属性用于定义 XML 文档中的默认命名空间。它指定了 XML 元素和属性的命名空间，如果没有指定其他命名空间，则默认使用该命名空间。
+>
+>2. xmlns:xlink 属性也是用于定义 XML 文档中的命名空间，但它是为了支持 XLink（XML 链接）规范而定义的。xmlns:xlink 属性指定了用于解析和处理 XLink 链接的命名空间。
+>
+>3. xlink:href 是 XLink 规范中的属性，用于指定链接的目标。它是在具有 XLink 命名空间的 XML 文档中使用的属性，通过该属性可以指定链接的目标资源。
+>
+>   **综上所述，xmlns 属性用于定义默认命名空间，xmlns:xlink 属性用于定义 XLink 命名空间，而 xlink:href 属性用于指定 XLink 链接的目标资源。**
+
+
+
+
+
+##### Css属性
+
+CSS 属性的权重是比 SVG 的属性大的。
+
+在 [Property Index — SVG 2 (w3.org)](https://link.juejin.cn/?target=https%3A%2F%2Fwww.w3.org%2FTR%2FSVG%2Fpropidx.html) 中查看所有可影响 SVG 的 CSS 属性。
+
+
 
 #### 画基本形状
 
@@ -1138,7 +1234,7 @@ m dx dy
 
 Copy to Clipboard
 
-这有一个比较好的例子，不过我们没画任何东西，只是将画笔移动到路径的起点，所以我们不会看到任何图案。但是，我把我们移动到的点标注出来了，所以在下面的例子里会看到 (10,10) 坐标上有一个点。注意，如果只画 path，这里什么都不会显示。（这段不太好理解，说明一下：为了更好地展示路径，下面的所有例子里，在用 path 绘制路径的同时，也会用 circle 标注路径上的点。）![img](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths/blank_path_area.png)
+这有一个比较好的例子，不过我们没画任何东西，只是将画笔移动到路径的起点，所以我们不会看到任何图案。但是，我把我们移动到的点标注出来了，所以在下面的例子里会看到 (10,10) 坐标上有一个点。注意，如果只画 path，这里什么都不会显示。（这段不太好理解，说明一下：为了更好地展示路径，下面的所有例子里，在用 path 绘制路径的同时，也会用 circle 标注路径上的点。）![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Ie6Ykf.png)
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1172,7 +1268,7 @@ Copy to Clipboard
 
 Copy to Clipboard
 
-现在我们已经掌握了一些命令，可以开始画一些东西了。先从简单的地方开始，画一个简单的矩形（同样的效果用`<rect/>`元素可以更简单的实现），矩形是由水平线和垂直线组成的，所以这个例子可以很好地展现前面讲的画线的方法。![img](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths/path_line_commands.png)
+现在我们已经掌握了一些命令，可以开始画一些东西了。先从简单的地方开始，画一个简单的矩形（同样的效果用`<rect/>`元素可以更简单的实现），矩形是由水平线和垂直线组成的，所以这个例子可以很好地展现前面讲的画线的方法。![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IXpW1m.png)
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1236,7 +1332,7 @@ c dx1 dy1, dx2 dy2, dx dy
 
 这里的最后一个坐标 (x,y) 表示的是曲线的终点，另外两个坐标是控制点，(x1,y1) 是起点的控制点，(x2,y2) 是终点的控制点。如果你熟悉代数或者微积分的话，会更容易理解控制点，控制点描述的是曲线起始点的斜率，曲线上各个点的斜率，是从起点斜率到终点斜率的渐变过程。（文字描述不好，维基百科上有图示，更直观。）
 
-![Cubic Bézier Curves with grid](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths/cubic_b%C3%A9zier_curves_with_grid.png)
+![Cubic Bézier Curves with grid](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Xn79c6.png)
 
 ```
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
@@ -1270,7 +1366,7 @@ Copy to Clipboard
 
 S 命令可以用来创建与前面一样的贝塞尔曲线，但是，如果 S 命令跟在一个 C 或 S 命令后面，则它的第一个控制点会被假设成前一个命令曲线的第二个控制点的中心对称点。如果 S 命令单独使用，前面没有 C 或 S 命令，那当前点将作为第一个控制点。下面是 S 命令的语法示例，图中左侧红色标记的点对应的控制点即为蓝色标记点。
 
-![A smooth S-shaped curve is drawn from two Bézier curves. The second curve keeps the same slope of the control points as the first curve, which is reflected to the other side.](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths/shortcut_cubic_b%C3%A9zier_with_grid.png)
+![A smooth S-shaped curve is drawn from two Bézier curves. The second curve keeps the same slope of the control points as the first curve, which is reflected to the other side.](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CHely8.png)
 
 ```
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
@@ -1290,7 +1386,7 @@ q dx1 dy1, dx dy
 
 Copy to Clipboard
 
-![Quadratic Bézier with grid](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths/quadratic_b%C3%A9zier_with_grid.png)
+![Quadratic Bézier with grid](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-UFWrgk.png)
 
 ```
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
@@ -1312,7 +1408,7 @@ Copy to Clipboard
 
 和之前一样，快捷命令 T 会通过前一个控制点，推断出一个新的控制点。这意味着，在你的第一个控制点后面，可以只定义终点，就创建出一个相当复杂的曲线。需要注意的是，T 命令前面必须是一个 Q 命令，或者是另一个 T 命令，才能达到这种效果。如果 T 单独使用，那么控制点就会被认为和终点是同一个点，所以画出来的将是一条直线。
 
-![Two quadratic curves form one smooth S-shaped curve. The second curve's control points are reflected across the horizontal axis](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths/shortcut_quadratic_b%C3%A9zier_with_grid.png)
+![Two quadratic curves form one smooth S-shaped curve. The second curve's control points are reflected across the horizontal axis](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8CqcIv.png)
 
 ```
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
@@ -1337,7 +1433,7 @@ Copy to Clipboard
 
 弧形命令 A 的前两个参数分别是 x 轴半径和 y 轴半径，它们的作用很明显，不用多做解释，如果你不是很清楚它们的作用，可以参考一下椭圆[ellipse](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/ellipse)命令中的相同参数。弧形命令 A 的第三个参数表示弧形的旋转情况，下面的例子可以很好地解释它：
 
-![SVGArcs_XAxisRotation_with_grid](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths/svgarcs_xaxisrotation_with_grid.png)
+![SVGArcs_XAxisRotation_with_grid](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vEfIzM.png)
 
 ```
 <svg width="320" height="320" xmlns="http://www.w3.org/2000/svg">
@@ -1356,7 +1452,7 @@ Copy to Clipboard
 
 对于上图没有旋转的椭圆，只有 2 种弧形可以选择，不是 4 种，因为两点连线（也就是对角线）正好穿过了椭圆的中心。像下面这张图，就是普通的情况，可以画出两个椭圆，四种弧。
 
-![Show the 4 arcs on the Ellipse example](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths/svgarcs_xaxisrotation_with_grid_ellipses.png)
+![Show the 4 arcs on the Ellipse example](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-akw0G2.png)
 
 ```
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="320">
@@ -1377,7 +1473,7 @@ Copy to Clipboard
 
 上面提到的四种不同路径将由接下来的两个参数决定。如前所讲，还有两种可能的椭圆用来形成路径，它们给出的四种可能的路径中，有两种不同的路径。这里要讲的参数是 large-arc-flag（角度大小）和 sweep-flag（弧线方向），large-arc-flag 决定弧线是大于还是小于 180 度，0 表示小角度弧，1 表示大角度弧。sweep-flag 表示弧线的方向，0 表示从起点到终点沿逆时针画弧，1 表示从起点到终点沿顺时针画弧。下面的例子展示了这四种情况。
 
-![Four examples are shown for each combination of large-arc-flag and sweep-flag for two circles overlapping, one in the top right, the other in the bottom left. For sweep-flag = 0, when large-arc-flag = 0, the interior arc of the top right circle is drawn, and when large-arc-flag = 1, the exterior arc of the bottom left circle is drawn. For sweep-flag = 1, when large-arc-flag = 0, the interior arc of the bottom left circle is drawn, and when large-arc-flag = 1, the exterior arc of the top right circle is drawn.](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths/svgarcs_flags.png)
+![Four examples are shown for each combination of large-arc-flag and sweep-flag for two circles overlapping, one in the top right, the other in the bottom left. For sweep-flag = 0, when large-arc-flag = 0, the interior arc of the top right circle is drawn, and when large-arc-flag = 1, the exterior arc of the bottom left circle is drawn. For sweep-flag = 1, when large-arc-flag = 0, the interior arc of the bottom left circle is drawn, and when large-arc-flag = 1, the exterior arc of the top right circle is drawn.](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-HDxQNB.png)
 
 ```
 <svg width="325" height="325" xmlns="http://www.w3.org/2000/svg">
@@ -1429,7 +1525,7 @@ Copy to Clipboard
 
 除了颜色属性，还有其他一些属性用来控制绘制描边的方式。
 
-![img](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes/svg_stroke_linecap_example.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ghOn7g.png)
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1452,7 +1548,7 @@ Copy to Clipboard
 
 还有一个`stroke-linejoin`属性，用来控制两条描边线段之间，用什么方式连接。
 
-![img](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes/svg_stroke_linejoin_example.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dQ9dmL.png)
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1474,7 +1570,7 @@ Copy to Clipboard
 
 最后，你可以通过指定`stroke-dasharray`属性，将虚线类型应用在描边上。
 
-![img](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes/svg_stroke_dasharray_example.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-If949V.png)
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1570,11 +1666,134 @@ style.css 看起来就像这样：
 
 
 
+
+
+### 如何优化 SVG 图像
+
+渲染矢量格式时，我们必须编写一些额外的 SVG 代码。最终结果应使用不同的服务进行优化。
+
+大多数情况下，为了优化 SVG，我们可以使用 [SVGO](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fsvg%2Fsvgo)。
+
+`SVG Optimizer `是一个基于 Node.js 的工具，用于优化 SVG 矢量图形文件，可以针对元数据、注释、隐藏元素、默认值或非最佳值以及其他可以安全删除或转换的内容，而不会影响 SVG 渲染结果。
+
+
+
+
+
+
+
+### 库
+
+#### D3
+
+`D3` 为我们解决了比如链式调用、数据驱动的思想、复杂数学的处理、比例尺的封装技巧等问题，为了高效开发我们更应该学习更灵活的 D3 设计思想及开发技巧，这能让我们**上升到库的开发的层面**。
+
+但是同时也伴随了一个新的问题，它的渲染过程跟 DOM 一样也要渲染树的生成、布局合成、绘制，这也就意味着大批量的图形对于 SVG 来说很容易造成卡顿。
+
+
+
 ## webgl
+
+可以通过 CSS 来模拟三维、Canvas 或 SVG 来二维模拟三维，但是它们都是二维的图形接口。为了解决三维的图形接口问题，WebGL 诞生了。
 
 WebGl 概念：
 
-> WebGL（Web图形库）是一个 JavaScript API，可在任何兼容的 Web 浏览器中渲染高性能的交互式 3D 和 2D 图形，而无需使用插件。WebGL 通过引入一个与 OpenGL ES 2.0 非常一致的 API 来做到这一点，<mark>该 API可以在 HTML5 [canvas](https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FHTML%2FElement%2Fcanvas) 元素中使用。 </mark>这种一致性使 API 可以利用用户设备提供的硬件图形加速。
+> WebGL（Web图形库）是一个 JavaScript API，可在任何兼容的 Web 浏览器中渲染高性能的交互式 3D 和 2D 图形。它是基于 OpenGL ES（OpenGL for Embedded Systems）标准的一个 JavaScript API。<mark>该 API在 HTML5 [canvas](https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FHTML%2FElement%2Fcanvas) 元素中使用。 </mark>这种一致性使 API 可以利用用户设备提供的硬件图形加速。
+
+
+
+### WebGL 绘图模式
+
+WebGL 中的保留模式（Retained Mode）和即时模式（Immediate Mode）是两种不同的渲染方式。
+
+1. 在`保留模式`下，WebGL 应用程序通过创建和管理图形对象的持久性表示来进行渲染。它使用缓冲区和纹理等数据结构来存储和管理几何形状、纹理等渲染相关的数据。在保留模式中，一旦图形对象被创建，它们可以在多个帧之间保持不变，从而提高渲染效率。**保留模式适用于复杂的场景和需要频繁重绘的情况。**
+2. 在`即时模式`下，WebGL 应用程序通过即时绘制命令来进行渲染，每一帧都需要重新指定要绘制的几何形状和纹理等信息。在即时模式中，渲染命令直接发送给 GPU，并立即执行，每一帧都需要重新指定渲染状态和数据。**即时模式适用于简单的场景和需要频繁变化的情况。**
+
+### WebGL 渲染过程
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-31-20-25-image-20240131202526849.png" alt="image-20240131202526849" style="zoom:50%;" />
+
+接下来将逐步来讲解每个阶段：
+
+1. **html + css + js + Shader Source Code**。在 WebGL 渲染过程中，通常需要使用 HTML、CSS 和 JavaScript 来创建并嵌入 WebGL 的上下文，同时还需要编写着色器源代码来定义顶点着色器和片段着色器的行为。
+2. **WebGL API**。WebGL API 是一组用于在 Web 上进行图形渲染的 JavaScript 接口。它提供了许多函数和方法，用于创建和管理 WebGL 上下文、加载和绑定纹理、创建和操作缓冲区对象、设置着色器程序、执行渲染操作等。此时会将 3D 的绘制信息传递到 GPU 中。
+3. **vertex shader**。顶点着色器是在 WebGL 渲染管线中的第一个阶段，用于对输入的顶点数据进行处理和变换。它通过对每个顶点应用一系列变换操作，将顶点从模型空间转换到裁剪空间，并输出变换后的坐标和其他属性。
+4. **NDC**。NDC 之前会执行裁剪，即对坐标（x, y, z, w）中的 w 用于除法，将 xyz 的值映射到[-1, 1]，转换后即为 NDC 坐标系。NDC 是标准化设备坐标，是 WebGL 渲染管线中的一个阶段。在这个阶段，裁剪空间中的坐标被映射到标准化设备坐标空间，这个阶段对应于视口变换和投影变换。
+5. **Primitive Assembly**。图元装配是 WebGL 渲染管线的一个阶段，它将顶点组装成基本图元，如点、线段或三角形。在这个阶段，顶点数据被组合成一组基本图元，以供后续的光栅化操作使用。
+6. **Rasterization**。光栅化是 WebGL 渲染管线的一个阶段，它将基本图元转换为屏幕上的像素。在这个阶段，基本图元被分解为一系列离散的像素，并计算每个像素的位置和属性。
+7. **fragment shader**。片段着色器是 WebGL 渲染管线中的一个阶段，用于对光栅化后的片段进行处理。它可以根据片段的位置、纹理坐标、光照等信息，计算出片段的颜色和其他属性。
+8. **Multisampling**。多重采样是一种抗锯齿技术，用于减少图形渲染中的锯齿边缘。在 WebGL 中，可以通过启用多重采样功能，对每个像素进行多次采样，并根据采样结果进行平滑处理，以获得更平滑的边缘效果。说白了就是对边缘锐度高的地方，扩大边缘的像素范围并过渡。
+9. **Fragment Operations**。片段操作是 WebGL 渲染管线中的一个阶段，用于对光栅化后的片段进行进一步处理。这个阶段包括深度测试、模板测试、剪裁等操作，以决定是否绘制片段以及如何绘制。
+10. **Z-buffer**。Z 缓冲区是用于深度测试的一种缓冲区。在 WebGL 中，每个像素都有一个深度值，表示该像素在三维场景中的深度。Z 缓冲区可以用于比较深度值，并根据比较结果决定是否绘制该像素。
+11. **blending**。混合是一种将新绘制的像素与已存在的像素进行混合的技术。在 WebGL 中，可以配置混合函数和混合因子，以控制颜色的混合方式，实现透明效果、颜色叠加等效果。
+12. **dithering**。抖动是一种通过在颜色之间引入噪声来减少颜色带宽的技术。在 WebGL 中，可以使用抖动算法对颜色进行抖动，从而在颜色较少的情况下实现更平滑的渐变效果。
+13. **painting**。绘制是 WebGL 渲染管线的最后一个阶段，它将经过所有前面阶段处理的片段最终绘制到屏幕上。在这个阶段，可以通过绘制命令将片段的颜色值写入到帧缓冲区中，实现最终的图形渲染效果。
+
+
+
+
+
+
+
+### Shader
+
+操作 WebGL 的三维图形 API 本质上其实就是处理着色器 Shader。
+
+`Shader（着色器）`是计算机图形学中用于描述光照、材质和渲染效果的程序。它是一种在图形渲染管线中执行的小型程序，用于控制图形的绘制和渲染过程。
+
+Shader 着色器通常由两个主要部分组成：顶点着色器（Vertex Shader）和片段着色器（Fragment Shader）。
+
+- **顶点着色器**是在图形渲染管线的顶点处理阶段执行的程序。它接收输入的顶点数据，并对每个顶点进行一系列的计算和变换，如位置变换、法线变换、纹理坐标变换等并输出。
+- **片段着色器**是在图形渲染管线的片段处理阶段执行的程序。它接收顶点着色器传递过来的数据，并对每个片段（像素）进行计算。片段着色器通常用于计算光照、纹理采样、颜色插值等操作，并最终确定片段的最终颜色。也就是屏幕的显示效果是它来决定的。
+
+Shader 的上手门槛很高，但是 Shader 的优势是可以让我们用几 kb 来实现通过几百 M 搭建的建模场景。
+
+看看别人做的：https://www.shadertoy.com/view/XltGRX
+
+
+
+
+
+
+
+### 库
+
+#### three.js
+
+
+
+## WebGPU
+
+### 背景
+
+WebGL 是一个较为古老的技术，它的标准是基于 OpenGL 继承而来的。OpenGL 的历史可以追溯到 1992 年，而这些早期的设计理念与现代 GPU 的工作原理并不完全匹配。对于浏览器开发者来说，不同的 GPU 新特性的适配是很麻烦的事情。
+
+2014 年，苹果发布了 Metal 图形框架。随后苹果放弃了 OpenGL ES。
+
+微软在 2015 年发布了自己的 D3D12（Direct3D 12）图形框架。紧随其后的是 Khronos Group，这是图形界的国际组织，类似于前端的 W3C、TC39。而 WebGL 是该组织的标准。然而，随着时间的推移，WebGL 逐渐淡化，取而代之的是对现代图形框架 Vulkan 的支持。
+
+迄今为止，Metal、D3D12 和 Vulkan 被视为现代的三大图形框架。这些框架充分发挥了 GPU 的可编程能力，使开发者能够更自由地控制 GPU。
+
+同样重要的是要注意，当今的主流操作系统不再将 OpenGL 作为主要图形支持。这意味着编写的每一行 WebGL 代码都有 90% 的机会不会由 OpenGL 进行绘制。在 Windows 上使用 DirectX 进行绘制，在 Mac 上使用 Metal 进行绘制。
+
+所以，WebGPU 诞生了……
+
+
+
+### 介绍
+
+**`WebGPU` 是一种新的 Web 标准，用于在 Web 浏览器中进行高性能图形渲染和计算**。它旨在提供比 WebGL 更底层、更直接的硬件访问，并且更好地与现代图形 API（如 Vulkan、Metal 和 Direct3D 12）对接。
+
+WebGPU 的设计目标是提供一个**跨平台、高性能**的图形和计算编程接口，使开发者能够更好地利用 GPU 的计算能力。它为开发者提供了更多的控制权和灵活性，以实现更高效、更复杂的图形渲染和计算任务。
+
+WebGPU 的特点包括：
+
+1. **低级别的硬件访问**：WebGPU 提供了更底层的硬件访问接口，使开发者能够更直接地控制 GPU 的功能和性能。
+2. **线程安全**：WebGPU 支持多线程操作，使开发者能够更好地利用多核 CPU 和多个 GPU。
+3. **强大的计算能力**：WebGPU 提供了强大的计算能力，使开发者能够在浏览器中进行复杂的计算任务，如图像处理、物理模拟等。
+4. **跨平台支持**：WebGPU 的设计目标是跨平台的，可以在不同的操作系统和设备上运行，包括桌面、移动设备和虚拟/增强现实设备。
+
+WebGPU 的发展是由 Khronos Group（图形界的国际组织）主导的，该组织也负责制定其他图形 API 标准，如 OpenGL、Vulkan 等。
 
 
 

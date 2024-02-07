@@ -2581,11 +2581,201 @@ koa-generator
 
 #### 路由
 
-`koa-router` 基于正则匹配
+##### 相关库
+
+`koa-router` 、`@koa/router`基于正则匹配
 
 `koa-trie-router`  基于 字典树
 
-`@koa/router`
+
+
+##### 方式一：逻辑分割
+
+路由分割路由分割就是把所有路由按照类别进行划分，并分别维护在不同的文件里。
+
+举例：
+
+1. 货物的路由文件代码如下: 
+
+```js
+// routers/goods.js
+const Router = require('koa-router')
+const router = new Router()
+// 设置路由前缀
+router.prefix('/goods')
+router.get('/getInfo', (ctx, next)=>{
+  ctx.body = "this is koa book."
+})
+module.exports = router
+```
+
+
+
+2. 用户的路由文件代码如下:
+
+````js
+// routers/user.js
+const Router = require('koa-router')
+const router = new Router()
+router.prefix('/user')
+router.get('/getInfo', (ctx, next)=>{
+  ctx.body = "my name is liujianghong."
+})
+module.exports = router
+````
+
+
+
+3. 使用koa-compose 合并 所有路由（因为koa-router里面的routers方法和allowedMethods方法和我们平时用的中间件回调方法是一样的）：
+
+```js
+// routers/index.js
+const compose = require('koa-compose')
+const glob = require('glob')
+const { resolve } = require('path')
+
+registerRouter = () => {
+  let routers = [];
+  // 递归式获取当前文件夹下所有的.js文件
+  glob.sync(resolve(__dirname, './', '**/*.js'))
+    // 排除index.js文件, 因为这个文件不是具体的路由文件
+    .filter(value => (value.indexOf('index.js') === -1))
+    .forEach(router => {
+      routers.push(require(router).routes())
+      routers.push(require(router).allowedMethods())
+    })
+  return compose(routers)
+}
+
+module.exports = registerRouter
+```
+
+
+
+4. 最后把整合后的路由引进来，代码如下：
+
+```js
+// app.js
+const Koa = require('koa')
+const registerRouter  = require('./routers')
+const app = new Koa()
+app.use(registerRouter())
+app.listen(4000, () => {
+  console.log('server is running, port is 4000')
+})
+```
+
+
+
+##### 方式二：约定式分割
+
+###### 定义
+
+根据文件路径来匹配路由。
+
+比如现在有这样一个项目，组织结构如下。actions目录下的内容就是匹配路由的，比如前端有一个GET请求http://127.0.0.1:4000/goods/getInfo，那么会匹配到actions目录下的goods/getInfo.js文件，最终会执行getInfo.js里面的逻辑。
+
+```sh
+.
+├── actions
+│   ├── goods
+│   │   └── getInfo.js
+│   └── user
+│       └── getInfo.js
+└── app.js
+```
+
+
+
+###### 2个优势
+
+- 依据项目的文件目录就能了解项目包含哪些路由，不用查看路由文件。
+- 用文件路径来组织路由，便于开发。
+
+
+
+###### 实现步骤
+
+1. actions/goods/getInfo.js文件的定义代码如下。
+
+   ```js
+   // actions/goods/getInfo.js
+   module.exports = {
+     method: 'GET',
+     handler: (ctx) => {
+       ctx.body = "this is koa book."
+     }
+   }
+   ```
+
+2. actions/user/getInfo.js文件的定义代码如下:
+
+   ```js
+   // actions/user/getInfo.js
+   module.exports = {
+     method: 'GET',
+     handler: (ctx) => {
+       ctx.body = "my name is liujianghong."
+     }
+   }
+   ```
+
+   两个文件都定义了两个属性，一个是method，另一个是handler。method的配置主要是为了比如请求路径都是/goods/getInfo，那么方法类型是GET或是POST，两个请求是不一样的。handler方法就是一个回调函数，用来处理相应的业务逻辑。
+
+3. 请求路径映射到对应的文件路径
+
+   ```js
+   const glob = require('glob')
+   const path = require('path')
+   const Koa = require('koa')
+   const app = new Koa()
+   
+   // actions的绝对路径
+   const basePath = path.resolve(__dirname, './actions')
+   // 获取actions目录下所有的.js文件, 并返回其绝对路径
+   const filesList = glob.sync(path.resolve(__dirname, './actions', '**/*.js'))
+   
+   // 文件路由映射表
+   let routerMap = {}
+   filesList.forEach(item => {
+     // 解构的方式获取当前文件导出对象中的method属性和handler属性
+     const { method, handler } = require(item)
+     // 获取和actions目录的相对路径, 例如：goods/getInfo.js
+     const relative = path.relative(basePath, item)
+     // 获取文件后缀.js
+     const extname = path.extname(item)
+     // 剔除后缀.js, 并在前面加一个"/", 例如：/goods/getInfo
+     const fileRouter = '/' + relative.split(extname)[0]
+     // 连接method, 形成一个唯一请求, 例如: _GET_/goods/getInfo
+     const key = '_' + method + '_' + fileRouter
+     // 保存在路由表里
+     routerMap[key] = handler
+   })
+   
+   app.use(async (ctx, next) => {
+     const { path, method } = ctx
+     // 构建和文件路由匹配的形式为_GET_路由
+     const key = '_' + method + '_' + path
+     // 如果匹配到, 就执行对应到handler方法
+     if (routerMap[key]) {
+       routerMap[key](ctx)
+     } else {
+       ctx.body = 'no this router'
+     }
+   })
+   
+   app.listen(4000, () => {
+     console.log('server is running, port is 4000')
+   })
+   ```
+
+   
+
+
+
+
+
+
 
 
 
@@ -2598,6 +2788,58 @@ koa-generator
 #### 处理异常`koa-error`
 
 
+
+#### 鉴权koa-jwt
+
+koa-jwt这个包是一个用来进行JWT鉴权的中间件，其主要功能是生产JWT。
+
+```js
+// app.js
+const koa = require('koa');
+const bodyParser = require('koa-bodyparser');
+const app = new koa();
+const Router = require('koa-router');
+const router = new Router();
+const static = require('koa-static');
+const path = require('path');
+
+const { sign } = require('jsonwebtoken');
+const secret = 'my_secret';
+const jwt = require('koa-jwt')({ secret });
+
+app.use(bodyParser())
+app.use(static(path.join(__dirname, '/static')))
+
+/*******************以下是核心代码*****************************************/
+router.post('/login', async (ctx, next) => {
+  const { userName } = ctx.request.body;
+  if (userName) {
+    const token = sign({ userName }, secret, {expiresIn:'1h'});
+    ctx.body = {
+      mssage: 'get token success!',
+      code: 1,
+      token
+    }
+  } else {
+    ctx.body = {
+      message: 'param error',
+      code: -1
+    }
+  }
+})
+.get('/welcome', jwt, async (ctx, next) => { //进行/welcome接口调用时，会带上localStorage中的token进行鉴权，鉴权通过后直接返回接口数据
+  ctx.body = { message: 'welcome!!!' }
+})
+/*******************以上是核心代码*****************************************/
+
+
+app
+  .use(router.routes())
+  .use(router.allowedMethods())
+app.listen(4000, () => {
+  console.log('server is running, port is 4000')
+})
+```
 
 
 
@@ -3865,7 +4107,7 @@ $ npx egg-init --type=ts showcase
 
 **每一个中间件都有两次处理时机**。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a9961afe5b54d20bd473ae26175da0d~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hiO5ub.webp)
 
 
 
@@ -3899,11 +4141,2450 @@ $ npx egg-init --type=ts showcase
 
 # nestjs
 
-## 开始
+## 与请求处理库的区别
 
-创建一个新应用
+Express 只是一个处理请求的库，并没有提供组织代码的架构能力，代码可能写成各种样子。
 
-npx @nestjs/cli new 项目名
+Nest 提供了 IOC、AOP 等架构特性，规定了代码组织的形式，而且对 websocket、graphql、orm 等各种方案都提供了开箱即用的支持。
+
+ Nest 就是 node 生态里的 Spring。
+
+
+
+## 通用规范对象名
+
+后端系统中，会有很多对象：
+
+- Controller 对象：接收 http 请求，调用 Service，返回响应
+- Service 对象：实现业务逻辑
+- Repository 对象：实现对数据库的增删改查
+- 数据库链接对象 DataSource，配置对象 Config 等等。
+
+
+
+dto 是 data transfer object，用于参数的接收。
+
+vo 是 view object，用于返回给视图的数据的封装。
+
+而 entity 是和数据库表对应的实体类。
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-06-19-49-image-20240206194932589.png" alt="image-20240206194932589" style="zoom:50%;" />
+
+
+
+
+
+## 开发知识
+
+### IOC
+
+#### 介绍
+
+nest 实现了IOC，它有一个放对象的容器，程序初始化的时候会扫描 class 上声明的依赖关系，分析 Module 之间的引用关系，然后把这些 class 都给 new 一个实例放到容器里。创建对象的时候，还会把它们依赖的对象注入进去。这样就完成了自动的对象创建和组装。
+
+
+
+
+
+#### providers
+
+##### 注入class: useClass
+
+AppService 是被 @Injectable 修饰的 class：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-P0gILt.webp)
+
+在 Module 的 providers 里声明完整的写法是这样的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-swll2s.webp)
+
+通过 provide 指定 token，通过 useClass 指定对象的类，Nest 会自动对它做实例化后用来注入。
+
+在 AppController 的构造器里参数里声明了 AppService 的依赖，就会自动注入：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-pZw0fR.webp)
+
+如果不想用构造器注入，也可以属性注入：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-QqDNuC.webp)
+
+
+
+这个 token 也可以是字符串：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-VJo8ue.webp)
+
+
+
+如果 token 是字符串的话，注入的时候就要用 @Inject 手动指定注入对象的 token 了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7vvNc8.webp)
+
+
+
+
+
+##### 注入值
+
+###### 注入静态值 useValue
+
+除了指定 class 外，还可以直接指定一个值，让 IoC 容器来注入。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ARyjXi.webp)
+
+
+
+使用 provide 指定 token，使用 useValue 指定值。
+
+然后在对象里注入它：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0PFAo.webp)
+
+
+
+
+
+###### 注入动态值 useFactory
+
+provider 的值可能是动态产生的，Nest 也同样支持：
+
+```javascript
+{
+    provide: 'person2',
+    useFactory() {
+        return {
+            name: 'bbb',
+            desc: 'cccc'
+        }
+    }
+}
+```
+
+我们可以使用 useFactory 来动态创建一个对象。
+
+在对象里注入：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-GfhMxv.webp)
+
+
+
+
+
+这个 useFactory 支持通过参数注入别的 provider：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8XQlUP.webp)
+
+
+
+通过 inject 声明了两个 token，一个是字符串 token 的 person，一个是 class token 的 AppService。
+
+也就是注入这两个 provider：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Qs3TF6.webp)
+
+
+
+<mark>useFactory 支持异步</mark>：
+
+```javascript
+{
+  provide: 'person5',
+  async useFactory() {
+    await new Promise((resolve) => {
+      setTimeout(resolve, 3000);
+    });
+    return {
+      name: 'bbb',
+      desc: 'cccc'
+    }
+  },
+},
+```
+
+Nest 会等拿到异步方法的结果之后再注入。
+
+
+
+##### useExisting 指定别名
+
+此外，provider 还可以通过 useExisting 来指定别名：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-nh75dE.webp)
+
+这里就是给 person2 的 token 的 provider 起个新的 token 叫做 person4。
+
+
+
+##### 避免providers之间循环依赖
+
+这时候 nest start --watch 会报错：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Vfl6gg.webp)
+
+说是没法解析 DddService 的依赖，也是因为循环依赖导致的。
+
+这时候也是通过 forwardRef 解决：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Kc3ujL.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iutquf.webp)
+
+这时候就不能用默认的注入方式了，通过 @Inject 手动指定注入的 token，这里是 forwardRef 的方式注入。
+
+
+
+
+
+#### 原理
+
+##### 简述
+
+nest 的核心实现原理：**通过装饰器给 class 或者对象添加 metadata，并且开启 ts 的 emitDecoratorMetadata 来自动添加类型相关的 metadata，然后运行的时候通过这些元数据来实现依赖的扫描，对象的创建等等功能。**
+
+Nest 的装饰器的实现原理就是 Reflect.getMetadata、Reflect.defineMetadata 这些 api。通过在 class、method 上添加 metadata，然后扫描到它的时候取出 metadata 来做相应的处理来完成各种功能。
+
+Nest 的 Controller、Module、Service 等等所有的装饰器都是通过 Reflect.meatdata 给类或对象添加元数据的，然后初始化的时候取出来做依赖的扫描，实例化后放到 IOC 容器里。
+
+实例化对象还需要构造器参数的类型，这个开启 ts 的 emitDecoratorMetadata 的编译选项之后， ts 就会自动添加一些元数据，也就是 design:type、design:paramtypes、design:returntype 这三个，分别代表被装饰的目标的类型、参数的类型、返回值的类型。
+
+当然，reflect metadata 的 api 还在草案阶段，需要引入 reflect metadata 的包做 polyfill。
+
+
+
+##### reflect metadata
+
+###### 介绍
+
+只是通过装饰器声明了一下，然后启动 Nest 应用，这时候对象就给创建好了，依赖也给注入了。那它是怎么实现的呢？用的是Reflect 的 metadata 的 api。这个api 还没有进入Web标准，还在草案阶段，也就是 [metadata 的 api](https://link.juejin.cn/?target=https%3A%2F%2Frbuckton.github.io%2Freflect-metadata%2F)：
+
+```typescript
+Reflect.defineMetadata(metadataKey, metadataValue, target);
+Reflect.defineMetadata(metadataKey, metadataValue, target, propertyKey);
+
+let result = Reflect.getMetadata(metadataKey, target);
+let result = Reflect.getMetadata(metadataKey, target, propertyKey);
+```
+
+Reflect.defineMetadata 和 Reflect.getMetadata 分别用于设置和获取某个类的元数据，如果最后传入了属性名，还可以单独为某个属性设置元数据。
+
+那元数据存在哪呢？
+
+存在类或者对象上呀，如果给类或者类的静态属性添加元数据，那就保存在类上，如果给实例属性添加元数据，那就保存在对象上，用类似 [[metadata]] 的 key 来存的。
+
+
+
+看下 nest 的源码：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Hik6yB.webp)
+
+上面就是 @Module 装饰器的实现，里面就调用了 Reflect.defineMetadata 来给这个类添加了一些元数据。
+
+所以我们这样用的时候：
+
+```python
+import { Module } from '@nestjs/common';
+import { CatsController } from './cats.controller';
+import { CatsService } from './cats.service';
+
+@Module({
+  controllers: [CatsController],
+  providers: [CatsService],
+})
+export class CatsModule {}
+```
+
+其实就是给 CatsModule 添加了 controllers 的元数据和 providers 的元数据。
+
+后面创建 IOC 容器的时候就会取出这些元数据来处理：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PDwSNl.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-XW8v7r.webp)
+
+而且 @Controller 和 @Injectable 的装饰器也是这样实现的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-a7x65X.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w5lgoZ.webp)
+
+Nest 的实现原理就是通过装饰器给 class 或者对象添加元数据，然后初始化的时候取出这些元数据，进行依赖的分析，然后创建对应的实例对象就可以了。
+
+所以说，nest 实现的核心就是 Reflect metadata 的 api。
+
+当然，现在 metadata 的 api 还在草案阶段，需要使用 reflect-metadata 这个 polyfill 包才行。
+
+
+
+###### 创建的对象需要知道构造器的参数，但现在并没有添加这部分 metadata 数据为什么也行？
+
+
+
+比如这个 CatsController 依赖了 CatsService，但是并没有添加 metadata 呀：
+
+```typescript
+typescript
+复制代码import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { CatsService } from './cats.service';
+import { CreateCatDto } from './dto/create-cat.dto';
+
+@Controller('cats')
+export class CatsController {
+  constructor(private readonly catsService: CatsService) {}
+
+  @Post()
+  async create(@Body() createCatDto: CreateCatDto) {
+    this.catsService.create(createCatDto);
+  }
+
+  @Get()
+  async findAll(): Promise<Cat[]> {
+    return this.catsService.findAll();
+  }
+}
+```
+
+这就不得不提到 TypeScript 的优势了，TypeScript 支持编译时自动添加一些 metadata 数据：
+
+比如这段代码：
+
+```typescript
+typescript
+复制代码import "reflect-metadata";
+ 
+class Guang {
+  @Reflect.metadata("名字", "光光")
+  public say(a: number): string {
+    return '加油鸭';
+  }
+}
+```
+
+按理说我们只添加了一个元数据，生成的代码也确实是这样的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Sqzps6.webp)
+
+但是呢，ts 有一个编译选项叫做 emitDecoratorMetadata，开启它就会自动添加一些元数据。
+
+开启之后再试一下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tvfqwv.webp)
+
+你会看到多了三个元数据：
+
+design:type 是 Function，很明显，这个是描述装饰目标的元数据，这里装饰的是函数
+
+design:paramtypes 是 [Number]，很容易理解，就是参数的类型
+
+design:returntype 是 String，也很容易理解，就是返回值的类型
+
+所以说，只要开启了这个编译选项，ts 生成的代码会自动添加一些元数据。
+
+然后创建对象的时候就可以通过 design:paramtypes 来拿到构造器参数的类型了。
+
+nest 源码里你会看到这样的代码：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-rBTjM1.webp)
+
+就是获取构造器的参数类型的。这个常量就是我们上面说的那个：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UXtR0Z.webp)
+
+这也是为什么 nest 会用 ts 来写，因为它很依赖这个 emitDecoratorMetadata 的编译选项。
+
+你用 cli 生成的代码模版里也都默认开启了这个编译选项：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-FupccI.webp)
+
+### 模块机制
+
+#### 创建模块
+
+可以把不同业务的 controller、service 等放到不同模块里。
+
+```sh
+nest g module other # 用 nest cli 的 generate 命令生成一个模块。
+```
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DeyPvt.webp)
+
+会生成如下代码：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-0PlK8F.webp)
+
+会在 AppModule 里自动 imports 这个模块：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-M77MjM.webp)
+
+
+
+#### Imports&exports
+
+<mark>当 import 别的模块后，那个模块 exports 的 provider 就可以在当前模块注入了。</mark>
+
+比如我们再生成 OtherService：
+
+```sh
+nest g service other
+```
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PcJyW2.webp)
+
+会生成 Service 的代码：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iMMdFR.webp)
+
+并自动添加到 OtherModule 的 providers 中：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wIWWz6.webp)
+
+我们改下 OtherService，添加一个方法：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-aTGWa7.webp)
+
+然后在 OtherModule 里 exports：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wtrANq.webp)
+
+那当 AppModule 引用了 OtherModule 之后，就可以注入它 exports 的 OtherService 了。
+
+我们在 AppService 里注入下：
+
+```javascript
+import { OtherService } from './other/other.service';
+import { Inject, Injectable } from '@nestjs/common';
+
+@Injectable()
+export class AppService {
+
+  @Inject(OtherService) 
+  private otherService:OtherService;
+
+  getHello(): string {
+    return 'Hello World!' + this.otherService.xxx();
+  }
+}
+```
+
+
+
+
+
+
+
+#### 全局模块
+
+`@Global()`
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-NRx52U.webp)
+
+在 AaaModule 上加一个 @Global 的装饰器，这样不用imports也能直接使用了。不过全局模块还是尽量少用，不然注入的很多 provider 都不知道来源，会降低代码的可维护性。
+
+
+
+#### 避免循环依赖
+
+报这样的错误：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SybGOj.webp)
+
+意思是在解析 BbbModule 的时候，它的第一个 imports 是 undefined。
+
+这有两个原因，一个是这个值本来就是 undefined，第二个就是形成了循环依赖。
+
+因为 Nest 创建 Module 的时候会递归创建它的依赖，而它的依赖又依赖了这个 Module，所以没法创建成功，拿到的就是 undefined。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z5S7qU.webp)
+
+那怎么办呢？
+
+其实我们可以先单独创建这两个 Module，然后再让两者关联起来。
+
+也就是用 forwardRef 的方式：单独创建两个 Module，之后再把 Module 的引用转发过去
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nw1Oav.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-l7W3hA.webp)
+
+
+
+
+
+
+
+#### 动态模块
+
+##### 方法一
+
+###### 介绍
+
+希望 import 的时候给这个模块传一些参数，动态生成模块的内容，怎么办呢？
+
+这时候就需要 Dynamic Module 了：
+
+```javascript
+import { DynamicModule, Module } from '@nestjs/common';
+import { BbbService } from './bbb.service';
+import { BbbController } from './bbb.controller';
+
+@Module({})
+export class BbbModule {
+
+  static register(options: Record<string, any>): DynamicModule {
+    return {
+      module: BbbModule,
+      controllers: [BbbController],
+      providers: [
+        {
+          provide: 'CONFIG_OPTIONS',
+          useValue: options,
+        },
+        BbbService,
+      ],
+      exports: []
+    };
+  }
+}
+```
+
+我们给 BbbModule 加一个 register 的静态方法，返回模块定义的对象。
+
+而且我们还可以把参数传入的 options 对象作为一个新的 provider。
+
+import 的时候就得这样用了，通过 register 方法传入参数，返回值就是模块定义：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UWBGLf.webp)
+
+这时候我们把传入的 options 通过 useValue 创建了个 provider，这样模块内部就可以注入它了。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3Suse9.webp)
+
+改一下 register 的参数：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jlZHWM.webp)
+
+浏览器再访问下，可以看到控制台打印了 config 对象：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zjMRaQ.webp)
+
+
+
+这里的 register 方法其实叫啥都行，但 nest 约定了 3 种方法名：
+
+- register
+- forRoot
+- forFeature
+
+我们约定它们分别用来做不同的事情：
+
+- register：用一次模块传一次配置，比如这次调用是 BbbModule.register({aaa:1})，下一次就是 BbbModule.register({aaa:2}) 了
+- forRoot：配置一次模块用多次，比如 XxxModule.forRoot({}) 一次，之后就一直用这个 Module，一般在 AppModule 里 import
+- forFeature：用了 forRoot 固定了整体模块，用于局部的时候，可能需要再传一些配置，比如用 forRoot 指定了数据库链接信息，再用 forFeature 指定某个模块访问哪个数据库和表。
+
+并且这些方法都可以写 xxxAsync 版本，也就是传入 useFactory 等 option，内部注册异步 provider。
+
+
+
+###### 比如 @nestjs/typeorm 的动态模块：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Zt1uTr.webp)
+
+forRoot 传入配置，动态产生 provider 和 exports，返回模块定义。
+
+而且还有 forRootAsync：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oskBY0.webp)
+
+区别就是可以用 async 的 useFactory 动态产生 provider，比如异步请求别的服务拿到配置返回，作为 options。
+
+forFeature 则是传入局部的一些配置，来动态产生局部用的模块：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-8Zxs5v.webp)
+
+typeorm 的模块用起来是这样的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DOKJgA.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2k3NQc.webp)
+
+在 AppModule 里 import 通过 forRoot 动态产生的模块，在具体的业务 Module 里，通过 forFeature 传入具体实体类的配置。
+
+其实 forRoot、forFeature、register 有区别么？
+
+本质上没区别，只是我们约定了它们使用上的一些区别。
+
+
+
+##### 方法二(不常用)
+
+此外，Nest 还提供了另一种方式来创建动态模块：
+
+我们再生成一个新模块：
+
+```arduino
+arduino
+复制代码nest g module ccc
+```
+
+然后生成个 controller：
+
+```css
+css
+复制代码nest g controller ccc --no-spec
+```
+
+这次我们不手动写 register、registerAsync 等方法了，用 builder 来生成。
+
+新建一个 ccc.module-definition.ts 文件：
+
+```javascript
+javascript
+复制代码import { ConfigurableModuleBuilder } from "@nestjs/common";
+
+export interface CccModuleOptions {
+    aaa: number;
+    bbb: string;
+}
+
+export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
+  new ConfigurableModuleBuilder<CccModuleOptions>().build();
+```
+
+用 ConfigurableModuleBuilder 生成一个 class，这个 class 里就带了 register、registerAsync 方法。
+
+返回的 ConfigurableModuleClass、MODULE_OPTIONS_TOKEN 分别是生成的 class 、options 对象的 token。
+
+然后 Module 继承它：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2TwSOp.webp)
+
+这样这个 CccModule 就已经有了 register 和 registerAsync 方法了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-LvROWE.webp)
+
+不用自己定义了，省事了不少。
+
+传入 options：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4L4hiP.webp)
+
+那现在如何在 Module 内注入这个 options 呢？
+
+记得 build class 的时候返回了一个 token 么？
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ZR11nJ.webp)
+
+就用这个注入：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Qm17lO.webp)
+
+```javascript
+javascript
+复制代码import { Controller, Get, Inject } from '@nestjs/common';
+import { MODULE_OPTIONS_TOKEN, CccModuleOptions } from './ccc.module-definition';
+
+@Controller('ccc')
+export class CccController {
+
+    @Inject(MODULE_OPTIONS_TOKEN)
+    private options: CccModuleOptions;
+
+    @Get('')
+    hello() {
+        return this.options;
+    }
+}
+```
+
+浏览器访问下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WktfYX.webp)
+
+可以看到拿到了 options 对象。
+
+当然，options 对象不是这么用的，一般是用来做配置，内部的 provider 基于它来做一些设置，这里只是演示。
+
+你还可以用 registerAsync 方法，用 useFactory 动态创建 options 对象：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hD8vZZ.webp)
+
+前面我们不是说还可以用 forRoot、forFeature 这样的方法么？
+
+那用 builder 的方式如何生成这样的 class 呢？
+
+调用 setClassMethodName 设置下就好了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Ffue9g.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Lqu6DT.webp)
+
+如果我还想根据传入的参数决定是否设置为全局模块呢？
+
+那就要这样写了：
+
+```javascript
+javascript
+复制代码import { ConfigurableModuleBuilder } from "@nestjs/common";
+
+export interface CccModuleOptions {
+    aaa: number;
+    bbb: string;
+}
+
+export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
+  new ConfigurableModuleBuilder<CccModuleOptions>().setClassMethodName('register').setExtras({
+    isGlobal: true
+  }, (definition, extras) => ({
+    ...definition,
+    global: extras.isGlobal,
+  })).build();
+```
+
+setExtras 第一个参数是给 options 扩展啥 extras 属性，第二个参数是收到 extras 属性之后如何修改模块定义。
+
+我们定义了 isGlobal 的 option，收到它之后给模块定义加上个 global。
+
+这时候你就会发现 register 的 options 多了 isGlobal：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-T54iys.webp)
+
+这样创建的就是全局的模块。
+
+不过这样还有个问题：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7bqfM4.webp)
+
+options 那里多了 isGlobal 属性，但是类型定义这里还没有呀。
+
+因为我们用的是这个类型：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-50xmMl.webp)
+
+最好是用 builder 返回的类型：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-vk5ZVW.webp)
+
+这样就有了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gvn1RS.webp)
+
+而这个 ASYNC_OPTIONS_TYPE 是 async 方式创建模块的 otpion 类型：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5dXiW5.webp)
+
+回过头来看一下这个 ConfigurableModuleBuilder，它只是对我们定义 register、registerAsync 的过程做了封装，传参数就可以生成对应的 class，简便了不少。
+
+
+
+
+
+### 生命周期
+
+#### 启动时
+
+Nest 在启动的时候，会递归解析 Module 依赖，扫描其中的 provider、controller，注入它的依赖。全部解析完后，会监听网络端口，开始处理请求。
+
+这个过程中，Nest 暴露了一些生命周期方法：
+
+首先，递归初始化模块，会依次调用模块内的 controller、provider 的 onModuleInit 方法，然后再调用 module 的 onModuleInit 方法。
+
+全部初始化完之后，再依次调用模块内的 controller、provider 的 onApplicationBootstrap 方法，然后调用 module 的 onApplicationBootstrap 方法
+
+然后监听网络端口。之后 Nest 应用就正常运行了。
+
+
+
+
+
+#### 结束时
+
+先调用每个模块的 controller、provider 的 onModuleDestroy 方法，然后调用 Module 的 onModuleDestroy 方法。
+
+之后再调用每个模块的 controller、provider 的 beforeApplicationShutdown 方法，然后调用 Module 的 beforeApplicationShutdown 方法。
+
+然后停止监听网络端口。
+
+之后调用每个模块的 controller、provider 的 onApplicationShutdown 方法，然后调用 Module 的 onApplicationShutdown 方法。
+
+之后停止进程。
+
+
+
+### 面向切面编程(AOP)的方式
+
+Nest 实现 AOP 的方式一共有五种，包括 Middleware、Guard、Pipe、Interceptor、ExceptionFilter。
+
+#### 中间件 Middleware
+
+Nest 并不是直接依赖于 Express，可以切换到别的 http 请求处理库，那 Nest 的特性肯定也不直接是 Express 里的。
+
+
+
+##### 使用
+
+如果不需要注入依赖，那可以写函数形式的 middleware，这时候和 Express 的 middleware 就没啥区别了。
+
+如果需要注入依赖，那就写 class 形式的 middleware，可以用 Nest 的依赖注入能力。
+
+
+
+```css
+nest g middleware aaa --no-spec --flat
+```
+
+创建个 middleware：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dd9nWI.webp)
+
+因为这时候并不知道你用的 express 还是 fastify，所以 request、response 是 any，手动标注下类型就好了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-kKbWff.webp)
+
+这里是 express 的 request、response。
+
+加一下前后的的逻辑：
+
+```javascript
+javascript
+复制代码import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Request, Response } from 'express';
+
+@Injectable()
+export class AaaMiddleware implements NestMiddleware {
+  use(req: Request, res: Response, next: () => void) {
+    console.log('brefore');
+    next();
+    console.log('after');
+  }
+}
+```
+
+然后在 Module 里这样使用：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nx1qsd.webp)
+
+实现 NestModule 接口的 configure 方法，在里面应用 AaaMiddleware 到所有路由。
+
+然后跑起来试一下：
+
+```sql
+sql
+复制代码nest start --watch
+```
+
+浏览器访问 [http://localhost:3000](https://link.juejin.cn/?target=http%3A%2F%2Flocalhost%3A3000)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dk0qsb.webp)
+
+可以看到中间件的逻辑都执行了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-65U8Fp.webp)
+
+这里也可以指定更精确的路由。
+
+我们添加几个 handler：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-L024Iy.webp)
+
+然后重新指定 Middleware 应用的路由：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-e6Uv5y.webp)
+
+可以看到，hello、hello2、world2 的路由都调用了这个中间件，而 world1 没有：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-BQXrSC.webp)
+
+这就是 Nest 里 middleware 的用法。
+
+如果只是这样，那和 Express 的 middleware 差别并不大，无非是变成了 class 的方式。
+
+Nest 为什么要把 Middleware 做成 class 呢？
+
+当然是为了依赖注入了！
+
+我们通过 @Inject 注入 AppService 到 middleware 里：
+
+```javascript
+javascript
+复制代码import { AppService } from './app.service';
+import { Inject, Injectable, NestMiddleware } from '@nestjs/common';
+import { Request, Response } from 'express';
+
+@Injectable()
+export class AaaMiddleware implements NestMiddleware {
+  @Inject(AppService)
+  private readonly appService: AppService;
+
+  use(req: Request, res: Response, next: () => void) {
+    console.log('brefore');
+    console.log('-------' + this.appService.getHello());
+    next();
+    console.log('after');
+  }
+}
+```
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4nxPHz.webp)
+
+当然，这里也可以用构造器注入，这样更简洁一点：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-975b4U.webp)
+
+这时在访问这个路由的时候，就可以看到中间件成功调用了 AppService：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4cH4AY.webp)
+
+这就是 Nest 注入的依赖。
+
+
+
+
+
+
+
+##### 全局中间件
+
+全局中间件就是这样，在 main.ts 里通过 app.use 使用：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-s2EIjW.webp)
+
+
+
+##### 路由中间件
+
+用 nest cli 创建一个路由中间件：
+
+
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-13yCfZ.webp)
+
+--no-spec 是不生成测试文件，--flat 是平铺，不生成目录。
+
+生成的代码是这样的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-B7tnhr.webp)
+
+
+
+然后在 AppModule 里启用：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7JppXl.webp)
+
+
+
+
+
+
+
+#### Guard
+
+
+
+Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前判断权限，返回 true 或者 false 来决定是否放行：
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-23-image-20240202202354816.png" alt="image-20240202202354816" style="zoom:33%;" />
+
+我们创建个 Guard：
+
+```css
+nest g guard login --no-spec --flat
+```
+
+
+
+生成的 Guard 代码是这样的：
+
+```typescript
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import { Observable } from 'rxjs';
+
+@Injectable()
+export class LoginGuard implements CanActivate {
+  canActivate(
+    context: ExecutionContext,
+  ): boolean | Promise<boolean> | Observable<boolean> {
+    console.log('login check') //我们加个打印语句，然后返回 false
+    return false;
+  }
+}
+```
+
+
+
+Guard 要实现 CanActivate 接口，实现 canActivate 方法，可以从 context 拿到请求的信息，然后做一些权限验证等处理之后返回 true 或者 false。
+
+
+
+##### 部分Guard
+
+在 AppController 里启用：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SfiJjM.webp)
+
+
+
+aaa 没有权限，返回了 403。
+
+Controller 本身不需要做啥修改，却透明的加上了权限判断的逻辑，这就是 AOP 架构的好处。
+
+
+
+##### 全局Guard
+
+###### 写法一
+
+这种方式是手动 new 的 Guard 实例，不在 IoC 容器里
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-bMbN89.webp)
+
+
+
+这样每个路由都会应用这个 Guard：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-RKul5V.webp)
+
+
+
+###### 写法二
+
+用 provider 的方式声明的 Guard 是在 IoC 容器里的，可以注入别的 provider，需要注入别的 provider 的时候，就要用第二种全局 Guard 的声明方式。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zshzbH.webp)
+
+
+
+我们注入下 AppService 试试：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dfnLrk.webp)
+
+
+
+
+
+#### Interceptor
+
+Interceptor 可以在目标 Controller 方法前后加入一些逻辑：
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-30-image-20240202203046095.png" alt="image-20240202203046095" style="zoom:33%;" />
+
+创建个 interceptor：
+
+```css
+nest g interceptor time --no-spec --flat
+```
+
+
+
+生成的 interceptor 是这样的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3F7Y1I.webp)
+
+Interceptor 要实现 NestInterceptor 接口，实现 intercept 方法，调用 next.handle() 就会调用目标 Controller，可以在之前和之后加入一些处理逻辑。
+
+Controller 之前之后的处理逻辑可能是异步的。Nest 里通过 rxjs 来组织它们，所以可以使用 rxjs 的各种 operator。
+
+```javascript
+import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
+import { Observable, tap } from 'rxjs';
+
+@Injectable()
+export class TimeInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+
+    const startTime = Date.now();
+
+    return next.handle().pipe(
+      tap(() => {
+        console.log('time: ', Date.now() - startTime)
+      })
+    );
+  }
+}
+```
+
+
+
+启用这个 interceptor：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lgEust.webp)
+
+
+
+ Interceptor 和 Middleware 主要在于参数的不同。
+
+interceptor 可以拿到调用的 controller 和 handler：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QA0DHQ.webp)
+
+
+
+Interceptor 支持每个路由单独启用，只作用于某个 handler：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LJOTio.webp)
+
+也可以在 controller 级别启动，作用于下面的全部 handler：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-s1O8Xy.webp)
+
+也同样支持全局启用，作用于全部 controller：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-I3qOlS.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lZzXF9.webp)
+
+两种全局启用方式的区别和 guard 的一样。
+
+
+
+#### Pipe
+
+##### 介绍
+
+Pipe 用来对参数做一些检验和转换，在参数传给 handler 之前对参数做一些验证和转换的 class。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9FKsR7.webp)
+
+
+
+##### 原理
+
+对应的源码如下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-K1ApD2.webp)
+
+对每个参数都会应用 pipe：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-wiWyhu.webp)
+
+
+
+##### 使用
+
+用 nest cli 创建个 pipe：
+
+```css
+nest g pipe validate --no-spec --flat
+```
+
+
+
+生成的代码是这样的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-3mHnU6.webp)
+
+Pipe 要实现 PipeTransform 接口，实现 transform 方法，里面可以对传入的参数值 value 做参数验证，比如格式、类型是否正确，不正确就抛出异常。也可以做转换，返回转换后的值。
+
+我们实现下：
+
+```javascript
+import { ArgumentMetadata, BadRequestException, Injectable, PipeTransform } from '@nestjs/common';
+
+@Injectable()
+export class ValidatePipe implements PipeTransform {
+  transform(value: any, metadata: ArgumentMetadata) {
+
+    if(Number.isNaN(parseInt(value))) {
+      throw new BadRequestException(`参数${metadata.data}错误`)
+    }
+
+    return typeof value === 'number' ? value * 10 : parseInt(value) * 10;
+  }
+}
+```
+
+这里的 value 就是传入的参数，如果不能转成数字，就返回参数错误，否则乘 10 再传入 handler：
+
+在 AppController 添加一个 handler，然后应用这个 pipe：
+
+
+
+```javascript
+@Get('ccc')
+ccc(@Query('num', ValidatePipe) num: number) {
+    return num + 1;
+}
+```
+
+
+
+同样，Pipe 可以只对某个参数生效，或者整个 Controller 都生效：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-MSLNwj.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AdNjCO.webp)
+
+或者全局生效：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OsFdKZ.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-tDc3UH.webp)
+
+
+
+
+
+##### 内置的一些 Pipe
+
+- ValidationPipe
+- ParseIntPipe
+- ParseBoolPipe
+- ParseArrayPipe
+- ParseUUIDPipe
+- DefaultValuePipe
+- ParseEnumPipe
+- ParseFloatPipe
+- ParseFilePipe
+
+ParseIntPipe 的源码是这样的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ahBVhb.webp)
+
+
+
+##### 自定义pipe
+
+自己写一个 pipe 也很简单，就是实现 PipeTransform 接口的 transform 方法，它的返回值就是传给 handler 的值。
+
+在 pipe 里可以拿到装饰器和 handler 参数的各种信息，基于这些来实现校验和转换就是很简单的事情了。
+
+
+
+
+
+#### ExceptionFilter
+
+不管是 Pipe、Guard、Interceptor 还是最终调用的 Controller，过程中都可以抛出一些异常，如何对某种异常做出某种响应呢？
+
+这种异常到响应的映射也是一种通用逻辑，Nest 提供了 ExceptionFilter 来支持：
+
+ExceptionFilter 可以对抛出的异常做处理，返回对应的响应：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-IzDyWV.webp)
+
+其实我们刚刚在 pipe 里抛的这个错误，能够返回 400 的响应，就是 Exception Filter 做的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kHQKKo.webp)
+
+
+
+创建一个 filter：
+
+```css
+nest g filter test --no-spec --flat
+```
+
+
+
+改一下生成的代码：
+
+```javascript
+import { ArgumentsHost, BadRequestException, Catch, ExceptionFilter } from '@nestjs/common';
+import { Response } from 'express';
+
+@Catch(BadRequestException)
+export class TestFilter implements ExceptionFilter {
+  catch(exception: BadRequestException, host: ArgumentsHost) {
+
+    const response: Response = host.switchToHttp().getResponse();
+
+    response.status(400).json({
+      statusCode: 400,
+      message: 'test: ' + exception.message
+    })
+  }
+}
+```
+
+实现 ExceptionFilter 接口，实现 catch 方法，就可以拦截异常了。
+
+拦截什么异常用 @Catch 装饰器来声明，然后在 catch 方法返回对应的响应，给用户更友好的提示。
+
+用一下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-JfmAhq.webp)
+
+再次访问，异常返回的响应就变了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KIjaEK.webp) Nest 内置了很多 http 相关的异常，都是 HttpException 的子类：
+
+- BadRequestException
+- UnauthorizedException
+- NotFoundException
+- ForbiddenException
+- NotAcceptableException
+- RequestTimeoutException
+- ConflictException
+- GoneException
+- PayloadTooLargeException
+- UnsupportedMediaTypeException
+- UnprocessableException
+- InternalServerErrorException
+- NotImplementedException
+- BadGatewayException
+- ServiceUnavailableException
+- GatewayTimeoutException
+
+当然，也可以自己扩展：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-bBgSxH.webp)
+
+**Nest 通过这样的方式实现了异常到响应的对应关系，代码里只要抛出不同的异常，就会返回对应的响应，很方便。**
+
+同样，ExceptionFilter 也可以选择全局生效或者某个路由生效：
+
+某个 handler： ![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nMCA5G.webp)
+
+某个 controller：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-n7zoTd.webp)
+
+全局： ![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DyqTUe.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-zsEn6m.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QGkYrD.webp) 
+
+
+
+
+
+
+
+#### 几种 AOP 机制的顺序
+
+![image-20240202204215919](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-42-image-20240202204215919.png)
+
+对应的源码是这样的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Lpop9V.webp)
+
+很明显，进入这个路由的时候，会先调用 Guard，判断是否有权限等，如果没有权限，这里就抛异常了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nsBkb6.webp)
+
+抛出的 ForbiddenException 会被 ExceptionFilter 处理，返回 403 状态码。
+
+如果有权限，就会调用到拦截器，拦截器组织了一个链条，一个个的调用，最后会调用的 controller 的方法：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YIzpsV.webp)
+
+调用 controller 方法之前，会使用 pipe 对参数做处理：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UEQipj.webp)
+
+会对每个参数做转换：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-voTiOQ.webp)
+
+ExceptionFilter 的调用时机很容易想到，就是在响应之前对异常做一次处理。
+
+而 Middleware 是 express 中的概念，Nest 只是继承了下，那个是在最外层被调用。
+
+
+
+
+
+#### 几种AOP机制的区别
+
+middleware 和 interceptor 功能类似，但也有不同，interceptor 可以拿到目标 class、handler 等，也可以调用 rxjs 的 operator 来处理响应，更适合处理具体的业务逻辑。
+
+middleware 更适合处理通用的逻辑。
+
+
+
+
+
+#### `@SetMetadata`:与Guard和Interceptor通信
+
+Nest 还提供了 @SetMetadata 的装饰器，可以在 controller 的 class 和 method 上添加 metadata，然后在 interceptor 和 guard 里通过 reflector 的 api 取出来。
+
+handler 和 class 可以通过 @SetMetadata 指定 metadata：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kcFwOd.webp)
+
+然后在 guard 或者 interceptor 里取出来：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DctODp.webp)
+
+
+
+#### 切换上下文
+
+##### 介绍
+
+Nest 支持创建 HTTP 服务、WebSocket 服务，还有基于 TCP 通信的微服务。
+
+这些不同类型的服务都需要 Guard、Interceptor、Exception Filter 功能。
+
+那么问题来了：
+
+不同类型的服务它能拿到的参数是不同的，比如 http 服务可以拿到 request、response 对象，而 ws 服务就没有，如何让 Guard、Interceptor、Exception Filter 跨多种上下文复用呢？
+
+Nest 的解决方法是 ArgumentHost 和 ExecutionContext 类（**ArgumentHost 是用于切换 http、ws、rpc 等上下文类型的，可以根据上下文类型取到对应的 argument**）。
+
+
+
+
+
+为了让 Filter、Guard、Exception Filter 支持 http、ws、rpc 等场景下复用，Nest 设计了 ArgumentHost 和 ExecutionContext 类。
+
+ArgumentHost 可以通过 getArgs 或者 getArgByIndex 拿到上下文参数，比如 request、response、next 等。
+
+更推荐的方式是根据 getType 的结果分别 switchToHttp、switchToWs、swtichToRpc，然后再取对应的 argument。
+
+而 ExecutionContext 还提供 getClass、getHandler 方法，可以结合 reflector 来取出其中的 metadata。
+
+在写 Filter、Guard、Exception Filter 的时候，是需要用到这些 api 的。
+
+
+
+##### filter
+
+比如这样：
+
+```javascript
+import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
+import { Response } from 'express';
+import { AaaException } from './AaaException';
+
+@Catch(AaaException)
+export class AaaFilter implements ExceptionFilter {
+  catch(exception: AaaException, host: ArgumentsHost) {
+    if(host.getType() === 'http') {
+      const ctx = host.switchToHttp();
+      const response = ctx.getResponse<Response>();
+      const request = ctx.getRequest<Request>();
+
+      response
+        .status(500)
+        .json({
+          aaa: exception.aaa,
+          bbb: exception.bbb
+        });
+    } else if(host.getType() === 'ws') {
+
+    } else if(host.getType() === 'rpc') {
+
+    }
+  }
+}
+```
+
+
+
+##### guard 和 interceptor
+
+可以看到它传入的是 ExecutionContext：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-m0ahh3.webp)
+
+ExecutionContext 是 ArgumentHost 的子类，扩展了 getClass、getHandler 方法。
+
+
+
+这俩分别是要调用的 controller 的 class 以及要调用的方法。
+
+为什么 ExecutionContext 里需要多出这俩方法呢？
+
+因为 Guard、Interceptor 的逻辑可能要根据目标 class、handler 有没有某些装饰而决定怎么处理。
+
+比如权限验证的时候，我们会先定义几个角色：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UWRNPT.webp)
+
+然后定义这样一个装饰器：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-F7ALDE.webp)
+
+它的作用是往修饰的目标上添加 roles 的 metadata。
+
+然后在 handler 上添加这个装饰器，参数为 admin，也就是给这个 handler 添加了一个 roles 为 admin 的metadata。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cFwBUp.webp)
+
+这样在 Guard 里就可以根据这个 metadata 决定是否放行了：
+
+```javascript
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
+import { Observable } from 'rxjs';
+import { Role } from './role';
+
+@Injectable()
+export class AaaGuard implements CanActivate {
+  constructor(private reflector: Reflector) {}
+
+  canActivate(
+    context: ExecutionContext,
+  ): boolean | Promise<boolean> | Observable<boolean> {
+
+    const requiredRoles = this.reflector.get<Role[]>('roles', context.getHandler());
+
+    if (!requiredRoles) {
+      return true;
+    }
+
+    const { user } = context.switchToHttp().getRequest();
+    return requiredRoles.some((role) => user && user.roles?.includes(role));
+  }
+}
+```
+
+
+
+这里我需要 Nest 注入 reflector，但并不需要在模块的 provider 声明。
+
+guard、interceptor、middleware、pipe、filter 都是 Nest 的特殊 class，当你通过 @UseXxx 使用它们的时候，Nest 就会扫描到它们，创建对象它们的对象加到容器里，就已经可以注入依赖了。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 其它装饰器
+
+
+
+`@Optional`：注入的依赖如果没有的话，创建对象时会报错。但如果它是可选的，你可以用 `@Optional` 声明一下，这样没有对应的 provider 也能正常创建这个对象。
+
+
+
+#### 创建一个装饰器
+
+```sh
+nest g decorator aaa --flat
+```
+
+
+
+#### 自定义装饰器
+
+方法的装饰器就是传入参数，调用下别的装饰器就好了，比如对 @SetMetadata 的封装。
+
+如果组合多个方法装饰器，可以使用 applyDecorators api。
+
+class 装饰器和方法装饰器一样。
+
+还可以通过 createParamDecorator 来创建参数装饰器，它能拿到 ExecutionContext，进而拿到 reqeust、response，可以实现很多内置装饰器的功能，比如 @Query、@Headers 等装饰器。
+
+
+
+#### http相关
+
+##### 请求信息
+
+###### `@Headers `
+
+通过 @Headers 装饰器取某个请求头 或者全部请求头：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-SeOMUN.webp)
+
+
+
+###### `@Ip`
+
+通过 @Ip 拿到请求的 ip：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-PxZyoi.webp)
+
+
+
+
+
+###### `@HostParam`
+
+host 里的参数就可以通过 @HostParam 取出来：
+
+```javascript
+import { Controller, Get, HostParam } from '@nestjs/common';
+
+@Controller({ host: ':host.0.0.1', path: 'aaa' })
+export class AaaController {
+    @Get('bbb')
+    hello(@HostParam('host') host) {
+        return host;
+    }
+}
+```
+
+
+
+
+
+###### `@req`&`@request`
+
+直接注入 request 对象：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-P46TQ7.webp)
+
+通过 @Req 或者 @Request 装饰器，这俩是同一个东西：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-jHsYBk.webp)
+
+
+
+##### 请求方法
+
+除了 @Get、@Post 外，还可以用 @Put、@Delete、@Patch、@Options、@Head 装饰器分别接受 put、delete、patch、options、head 请求：
+
+
+
+##### 操作
+
+###### `@Session`
+
+通过 @Session 拿到 session 对象：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-mzDLMG.webp)
+
+但要使用 session 需要安装一个 express 中间件：
+
+```sh
+npm install express-session
+```
+
+在 main.ts 里引入并启用：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-U1oWdB.webp)
+
+指定加密的密钥和 cookie 的存活时间。
+
+
+
+然后刷新页面：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-soxeXD.webp)
+
+会返回 set-cookie 的响应头，设置了 cookie，包含 sid 也就是 sesssionid。
+
+之后每次请求都会自动带上这个 cookie：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Yo4gck.webp)
+
+这样就可以在 session 对象里存储信息了。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-73PFJF.webp)
+
+
+
+
+
+
+
+
+
+##### 响应
+
+###### `@Res`&`@Response`
+
+也可以 @Res 或者 @Response 注入 response 对象，只不过 response 对象有点特殊：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kTQLwc.webp)
+
+当你注入 response 对象之后，服务器会一直没有响应：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Y1kRxC.webp)
+
+因为这时候 Nest 就不会再把 handler 返回值作为响应内容了。
+
+你可以自己返回响应：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8GNxsz.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-0XvcWO.webp)
+
+Nest 这么设计是为了避免你自己返回的响应和 Nest 返回的响应的冲突。
+
+如果你不会自己返回响应，可以通过 passthrough 参数告诉 Nest：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OF42Pm.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sNUWyS.webp)
+
+
+
+
+
+###### `@Next`
+
+除了注入 @Res 不会返回响应外，注入 @Next 也不会：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LuX19I.webp)
+
+当你有两个 handler 来处理同一个路由的时候，可以在第一个 handler 里注入 next，调用它来把请求转发到第二个 handler：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ASdeQT.webp)
+
+Nest 不会处理注入 @Next 的 handler 的返回值。
+
+
+
+
+
+###### `@HttpCode`
+
+handler 默认返回的是 200 的状态码，你可以通过 @HttpCode 修改它：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8QESnR.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-91uTxN.webp)
+
+
+
+###### `@Header`
+
+当然，你也可以修改 response header，通过 @Header 装饰器：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OUny5Y.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Of2OY9.webp)
+
+
+
+
+
+###### `@Redirect`
+
+通过 @Redirect 装饰器来指定路由重定向的 url：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LNEroj.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-T2CNlv.webp)
+
+或者在返回值的地方设置 url：
+
+```javascript
+@Get('xxx')
+@Redirect()
+async jump() {
+    return {
+      url: 'https://www.baidu.com',
+      statusCode: 302
+    }  
+}
+```
+
+
+
+###### 指定渲染引擎
+
+响应内容指定渲染引擎，不过这需要先这样设置：
+
+```javascript
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { join } from 'path';
+
+async function bootstrap() {
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  /**核心这段代码：分别指定静态资源的路径和模版的路径，并指定模版引擎为 handlerbars。*/
+  app.useStaticAssets(join(__dirname, '..', 'public'));
+  app.setBaseViewsDir(join(__dirname, '..', 'views'));
+  app.setViewEngine('hbs');
+
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+
+
+需要安装模版引擎的包 hbs：
+
+```sh
+npm install --save hbs
+```
+
+然后准备图片和模版文件：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KVDFVC.webp)
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-g1qzeL.webp)
+
+在 handler 里指定模版和数据：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kv0eZW.webp)
+
+就可以看到渲染出的 html 了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-16sYVt.webp)
+
+
+
+
+
+### 切换请求库
+
+#### 介绍
+
+Nest 也没有和 Express 强耦合，它做了一层抽象：
+
+定义了 [HttpServer 的 interface](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fnestjs%2Fnest%2Fblob%2Fd352e6f138bc70ff33cccf830053946d17272b82%2Fpackages%2Fcommon%2Finterfaces%2Fhttp%2Fhttp-server.interface.ts%23L21C1-L85)。
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-04-15-46-image-20240204154631810.png" alt="image-20240204154631810" style="zoom:50%;" />
+
+这俩适配器分别在 @nestjs/platform-express 和 @nestjs/platform-fastify 的包里：
+
+
+
+#### 操作
+
+切换到 fastify 试试看：
+
+安装 fastify 和 @nestjs/platform-fastify：
+
+```bash
+npm install fastify @nestjs/platform-fastify
+```
+
+然后修改下 Nest 创建的方式：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9Ronuz.webp)
+
+改成这样：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YrKbDg.webp)
+
+
+
+
+
+还可以再传一个类型参数：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uOJpbg.webp)
+
+这样返回的 app 就会提示 fastify 平台特有的方法了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AM6wER.webp)
+
+这也是为什么之前我们要传入 NestExpressApplication 才有 useStaticAssets 方法：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-B8dx4o.webp)
+
+然后在 controller 里可以注入 fastify 的 reqeust 和 reply 对象：
+
+```javascript
+javascript
+复制代码import { Controller, Get, Request, Response } from '@nestjs/common';
+import { FastifyReply, FastifyRequest } from 'fastify';
+import { AppService } from './app.service';
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getHello(@Request() request: FastifyRequest, @Response() reply: FastifyReply) {
+    reply.header('url', request.url)
+    reply.send('hello')
+  }
+}
+```
+
+我们注入了 fastify 的 request 和 reply 对象，然后用它来设置 header 发送响应：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uQWG1f.webp)
+
+
+
+### 定时任务
+
+学习了定时任务，用到 @nestjs/scheduler 这个包。
+
+主要有 cron、timeout、interval 这 3 种任务。
+
+其中 cron 是依赖 cron 包实现的，而后两种则是对原生 api 的封装。
+
+我们学习了 cron 表达式，还是挺复杂的，当然，你也可以直接用 CronExpression 的一些常量。
+
+此外，你还可以注入 SchedulerRegistery 来对定时任务做增删改查。
+
+定时任务里可以注入 service，来定时执行一些逻辑，在特定业务场景下是很有用的。
+
+
+
+
+
+### repl模式
+
+能不能像 node 的 repl 那样，直接在控制台测试呢？
+
+repl 是 read-eval-paint-loop
+
+https://juejin.cn/book/7226988578700525605/section/7236158090448470077
+
+
+
+### 代码复用Library
+
+https://juejin.cn/book/7226988578700525605/section/7236158043338047546
+
+
+
+### 微服务架构
+
+#### 创建微服务
+
+https://juejin.cn/book/7226988578700525605/section/7236156501499330618
+
+
+
+#### etcd做注册和配置中心
+
+https://juejin.cn/book/7226988578700525605/section/7279427084621987875
+
+
+
+
+
+## 接入工程
+
+### 日志
+
+接入 winstom： https://juejin.cn/book/7226988578700525605/section/7283507588007165952
+
+
+
+### 生成项目文档
+
+compodoc
+
+https://juejin.cn/book/7226988578700525605/section/7284441423842443316
+
+
+
+### 发邮件
+
+https://juejin.cn/book/7226988578700525605/section/7247327089496424505
+
+
+
+### 动态读取不同环境的配置
+
+提供了现成的封装：@nestjs/config
+
+我们创建个 nest 项目来试下：
+
+```arduino
+nest new nest-config-test -p npm
+```
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cyZaIh.webp)
+
+安装 @nestjs/config 包：
+
+```css
+css
+复制代码npm install --save @nestjs/config
+```
+
+这个包同样是动态模块的方式，他有 forRoot 和 forFeature 两个方法。
+
+我们在根目录加一个配置文件 .env：
+
+```ini
+ini
+复制代码aaa=1
+bbb=2
+```
+
+然后在 AppModule 里面引入：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sW64o5.webp)
+
+然后在 AppController 里注入 ConfigService 来读取配置：
+
+```javascript
+javascript
+复制代码import { Controller, Get, Inject } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { AppService } from './app.service';
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Inject(ConfigService)
+  private configService: ConfigService;
+
+  @Get()
+  getHello() {
+    return {
+      aaa: this.configService.get('aaa'),
+      bbb: this.configService.get('bbb')
+    }
+  }
+}
+```
+
+把 Nest 服务跑起来：
+
+```arduino
+arduino
+复制代码npm run start:dev
+```
+
+浏览器访问下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-uuCsn7.webp)
+
+可以看到，nest 读取到了 .env 里的配置。
+
+如果有多个配置文件，比如还有个 .aaa.env：
+
+```ini
+ini
+复制代码aaa=3
+```
+
+在 AppModule 里面这样指定：
+
+```javascript
+javascript
+复制代码import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import * as path from 'path';
+
+@Module({
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: [path.join(process.cwd(), '.aaa.env'), path.join(process.cwd(), '.env')]
+    })
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+```
+
+前面的配置会覆盖后面的配置。
+
+重新跑一下：
+
+```arduino
+arduino
+复制代码npm run start:dev
+```
+
+浏览器访问下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-sApnJO.webp)
+
+可以看到 aaa 是 .aaa.env 里的，bbb 是 .env 里的。
+
+那如果我嫌 .env 里配置不够灵活，想在 ts 文件里配置呢？
+
+@nestjs/config 也是支持的。
+
+我们写一个 config.ts：
+
+```javascript
+javascript
+复制代码export default async () => {
+    const dbPort = await 3306;
+
+    return {
+        port: parseInt(process.env.PORT, 10) || 3000,
+        db: {
+          host: 'localhost',
+          port: dbPort
+        }
+    }
+}
+```
+
+这里可以写异步逻辑。
+
+然后引入下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Kelonh.webp)
+
+在 Controller 里取出来：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-IVaCRG.webp)
+
+浏览器访问下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-2RB6dt.webp)
+
+这样，你可以动态加载配置。
+
+后面将讲微服务的时候，会讲到配置中心，比如 nacos、etcd 这种中间件，到时候配置就是动态获取的。
+
+而且这个配置文件里，你完全可以自己实现 yaml 文件的加载。
+
+```
+复制代码npm install js-yaml
+```
+
+添加一个配置文件 aaa.yaml
+
+```yaml
+yaml
+复制代码application:
+  host: 'localhost'
+  port: 8080
+
+aaa:
+   bbb:
+    ccc: 'ccc'
+    port: 3306
+```
+
+然后在 config2.ts 里加载下：
+
+```javascript
+javascript
+复制代码import { readFile } from 'fs/promises';
+import * as yaml from 'js-yaml';
+import { join } from 'path';
+
+
+export default async () => {
+    const configFilePath = join(process.cwd(), 'aaa.yaml');
+
+    const config = await readFile(configFilePath, {
+        encoding: 'utf-8'
+    });
+
+    return yaml.load(config);
+};
+```
+
+在 AppModule 引入：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-g01yXg.webp)
+
+同样，前面覆盖后面的。
+
+改下 Controller：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-9ZZlBL.webp)
+
+浏览器访问下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-JBf3A8.webp)
+
+这样就正确读取了 yaml 配置。
+
+同理，其他格式的配置也可以这样来自己解析。
+
+此外，@nestjs/config 还提供了 forFeature 方法来返回动态模块。
+
+如果别的模块也需要用到 config 咋办呢？
+
+我们新建一个模块：
+
+```css
+css
+复制代码nest g resource bbb --no-spec
+```
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-gSjgGe.webp)
+
+在 BbbModule 里注入下：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-lFlkez.webp)
+
+跑起来你会发现报错了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qL4CAj.webp)
+
+这个模块找不到 ConfigModule。
+
+这时候把 ConfigModule.forRoot 注册为全局模块就好了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rMUDZU.webp)
+
+这样就可以在 BbbModule 读取到配置了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rCxJ1k.webp)
+
+此外，你还可以通过 ConfigModule.forFeautrue 来注册局部配置：
+
+```javascript
+javascript
+复制代码import { Module } from '@nestjs/common';
+import { BbbService } from './bbb.service';
+import { BbbController } from './bbb.controller';
+import { ConfigModule } from '@nestjs/config';
+
+@Module({
+  imports: [
+    ConfigModule.forFeature(() => {
+      return {
+        ddd: 222
+      }
+    })
+  ],
+  controllers: [BbbController],
+  providers: [BbbService]
+})
+export class BbbModule {}
+```
+
+BbbController 里读取下：
+
+```javascript
+javascript
+复制代码@Get()
+findAll() {
+    return {
+      ccc: this.configService.get('aaa.bbb.ccc'),
+      ddd: this.configService.get('ddd')
+    }
+}
+```
+
+可以看到，Nest 读取到了这个局部注册的配置。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qzJcpt.webp)
+
+这里是再次验证了**动态模块的 forRoot 用于在 AppModule 里注册，一般指定为全局模块，forFeature 用于局部配置，在不同模块里 imports，而 register 用于一次性的配置。**
+
+比如 JwtModule.register、TypeOrmModule.ForRoot、TypeOrmModule.forFeature。
+
+对动态模块不太理解的同学建议回过头去看看第 15 节。
+
+最后我们简单看一下 @nestjs/config 的源码：
+
+先是 forFeature：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6mZ6nC.webp)
+
+动态返回模块定义，也就是 providers、exports 这些。
+
+用 useFactory 动态创建了 provider，merge 了局部配置和全局配置。
+
+然后是 forRoot：
+
+它就是根据 options 读取 env 配置，然后用 useFactory 创建 ConfigService 的 provider：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hvU1pC.webp)
+
+之后动态返回模块定义：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-63Vocv.webp)
+
+
+
+
+
+### 部署
+
+假设我们 nest 服务开发完了，想部署，那就要写这样的 dockerfile：
+
+```docker
+FROM node:18.0-alpine3.14 as build-stage
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+# production stage
+FROM node:18.0-alpine3.14 as production-stage
+
+COPY --from=build-stage /app/dist /app
+COPY --from=build-stage /app/package.json /app/package.json
+
+WORKDIR /app
+
+RUN npm install --production
+
+EXPOSE 3000
+
+CMD ["node", "/app/main.js"]
+```
+
+
+
+在根目录添加这个 Dockerfile，然后 docker build 一下：
+
+```erlang
+docker build -t eee .
+```
+
+
+
+在 docker desktop 里可以看到这个镜像：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-yJO8D7.webp)
+
+那假设在服务器上，要怎么部署这个 nest 应用呢？
+
+#### 如果没用桥接网络
+
+在根目录添加一个 docker-compose.yml
+
+```yaml
+services:
+  nest-app:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    depends_on:
+      - mysql-container
+      - redis-container
+    ports:
+      - '3000:3000'
+  mysql-container:
+    image: mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - /Users/guang/mysql-data:/var/lib/mysql
+  redis-container:
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - /Users/guang/aaa:/data
+```
+
+每个 services 都是一个 docker 容器，名字随便指定。
+
+这里指定了 nest-app、mysql-container、reids-container 3 个service：
+
+然后 nest-app 配置了 depends_on 其他两个 service。
+
+这样 docker-compose 就会先启动另外两个，再启动这个，这样就能解决顺序问题。
+
+然后 mysql-container、redis-container 的 service 指定了 image 和 ports、volumes 的映射，这些都很容易看懂。
+
+nest-app 指定了 context 下的 dockerfile 路径，端口映射。
+
+version 是指定 docker-compose.yml 的版本，因为不同版本配置不同。
+
+然后我们通过 docker-compose 把它跑起来：
+
+```shell
+docker-compose up
+```
+
+docker-compose 和 docker 命令是一起的，docker 能用，docker-compose 就能用。
+
+它会把所有容器的日志合并输出：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-5CNorX.webp)
+
+可以看到是先跑的 mysql、redis，再跑的 nest。
+
+只不过 mysql 服务启动有点慢，会连接失败几次。最后是会成功的：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MI1AX3.webp)
+
+
+
+
+
+我们只需要定义 docker-compose.yaml 来声明容器的顺序和启动方式，之后执行 docker-compose up 一条命令就能按照顺序启动所有的容器。
+
+这时候如果你去 docker desktop 里看下，会发现它有专门的显示方式：多个容器可以一起管理。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-34-5ed7de84c738426caf96b938b8a8018e~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp)
+
+
+
+#### 如果用了桥接网络
+
+把docker-compose.yml改成这样：
+
+```yml
+version: '3.8'
+services:
+  nest-app:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    depends_on:
+      - mysql-container
+      - redis-container
+    ports:
+      - '3000:3000'
+    networks:
+      - common-network
+  mysql-container:
+    image: mysql
+    volumes:
+      - /Users/guang/mysql-data:/var/lib/mysql
+    networks:
+      - common-network
+  redis-container:
+    image: redis
+    volumes:
+      - /Users/guang/aaa:/data
+    networks:
+      - common-network
+networks:
+  common-network:
+    driver: bridge
+```
+
+把 mysql-container、redis-container 的 ports 映射去掉，指定桥接网络为 common-network。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-47-c3e7e3da3d4448759bbf5a3e2978bc37~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp)
+
+然后下面通过 networks 指定创建的 common-network 桥接网络，网络驱动程序指定为 bridge。
+
+其实我们一直用的网络驱动程序都是 bridge，它的含义是容器的网络和宿主机网络是隔离开的，但是可以做端口映射。比如 -p 3000:3000、-p 3306:3306 这样。
+
+
+
+![image-20240202175447166](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-17-54-image-20240202175447166.png)
+
+首先有一个 AppService 声明了 @Injectable，代表这个 class 可注入，那么 nest 就会把它的对象放到 IOC 容器里。
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MkbDuX.webp)
+
+AppController 声明了 @Controller，代表这个 class 可以被注入，nest 也会把它放到 IoC 容器里。
+
+AppController 的构造器参数依赖了 AppService。
+
+或者这样通过属性的方式声明依赖：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Entqpb.webp)
+
+<mark>前者是构造器注入，后者是属性注入，两种都可以。</mark>
+
+
+
+然后在 AppModule 里引入：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-bjRcOj.webp)
+
+通过 @Module 声明模块，其中 controllers 是控制器，只能接收别人。
+
+providers 里是提供者也是接收者，比如这里的 AppService。
+
+然后在入口模块里跑起来：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6rfTP4.webp)
+
+那么 nest 就会从 AppModule 开始解析 class 上通过装饰器声明的依赖信息，自动创建和组装对象。
+
+所以 AppController 只是声明了对 AppService 的依赖，就可以调用它的方法了：
+
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hlttm9.webp)
+
+nest 在背后自动做了对象创建和依赖注入的工作。
 
 
 
@@ -3912,389 +6593,6 @@ npx @nestjs/cli new 项目名
 
 
 # node开发服务端(主要以koa为例)
-
-## 业务中使用
-
-### 路由koa-router
-
-#### 路由分割
-
-##### 方式一：逻辑分割
-
-路由分割路由分割就是把所有路由按照类别进行划分，并分别维护在不同的文件里。
-
-举例：
-
-1. 货物的路由文件代码如下: 
-
-```js
-// routers/goods.js
-const Router = require('koa-router')
-const router = new Router()
-// 设置路由前缀
-router.prefix('/goods')
-router.get('/getInfo', (ctx, next)=>{
-  ctx.body = "this is koa book."
-})
-module.exports = router
-```
-
-
-
-2. 用户的路由文件代码如下:
-
-````js
-// routers/user.js
-const Router = require('koa-router')
-const router = new Router()
-router.prefix('/user')
-router.get('/getInfo', (ctx, next)=>{
-  ctx.body = "my name is liujianghong."
-})
-module.exports = router
-````
-
-
-
-3. 使用koa-compose 合并 所有路由（因为koa-router里面的routers方法和allowedMethods方法和我们平时用的中间件回调方法是一样的）：
-
-```js
-// routers/index.js
-const compose = require('koa-compose')
-const glob = require('glob')
-const { resolve } = require('path')
-
-registerRouter = () => {
-  let routers = [];
-  // 递归式获取当前文件夹下所有的.js文件
-  glob.sync(resolve(__dirname, './', '**/*.js'))
-    // 排除index.js文件, 因为这个文件不是具体的路由文件
-    .filter(value => (value.indexOf('index.js') === -1))
-    .forEach(router => {
-      routers.push(require(router).routes())
-      routers.push(require(router).allowedMethods())
-    })
-  return compose(routers)
-}
-
-module.exports = registerRouter
-```
-
-
-
-4. 最后把整合后的路由引进来，代码如下：
-
-```js
-// app.js
-const Koa = require('koa')
-const registerRouter  = require('./routers')
-const app = new Koa()
-app.use(registerRouter())
-app.listen(4000, () => {
-  console.log('server is running, port is 4000')
-})
-```
-
-
-
-##### 方式二：约定式分割
-
-###### 定义
-
-根据文件路径来匹配路由。
-
-比如现在有这样一个项目，组织结构如下。actions目录下的内容就是匹配路由的，比如前端有一个GET请求http://127.0.0.1:4000/goods/getInfo，那么会匹配到actions目录下的goods/getInfo.js文件，最终会执行getInfo.js里面的逻辑。
-
-```sh
-.
-├── actions
-│   ├── goods
-│   │   └── getInfo.js
-│   └── user
-│       └── getInfo.js
-└── app.js
-```
-
-
-
-###### 2个优势
-
-- 依据项目的文件目录就能了解项目包含哪些路由，不用查看路由文件。
-- 用文件路径来组织路由，便于开发。
-
-
-
-###### 实现步骤
-
-1. actions/goods/getInfo.js文件的定义代码如下。
-
-   ```js
-   // actions/goods/getInfo.js
-   module.exports = {
-     method: 'GET',
-     handler: (ctx) => {
-       ctx.body = "this is koa book."
-     }
-   }
-   ```
-
-2. actions/user/getInfo.js文件的定义代码如下:
-
-   ```js
-   // actions/user/getInfo.js
-   module.exports = {
-     method: 'GET',
-     handler: (ctx) => {
-       ctx.body = "my name is liujianghong."
-     }
-   }
-   ```
-
-   两个文件都定义了两个属性，一个是method，另一个是handler。method的配置主要是为了比如请求路径都是/goods/getInfo，那么方法类型是GET或是POST，两个请求是不一样的。handler方法就是一个回调函数，用来处理相应的业务逻辑。
-
-3. 请求路径映射到对应的文件路径
-
-   ```js
-   const glob = require('glob')
-   const path = require('path')
-   const Koa = require('koa')
-   const app = new Koa()
-   
-   // actions的绝对路径
-   const basePath = path.resolve(__dirname, './actions')
-   // 获取actions目录下所有的.js文件, 并返回其绝对路径
-   const filesList = glob.sync(path.resolve(__dirname, './actions', '**/*.js'))
-   
-   // 文件路由映射表
-   let routerMap = {}
-   filesList.forEach(item => {
-     // 解构的方式获取当前文件导出对象中的method属性和handler属性
-     const { method, handler } = require(item)
-     // 获取和actions目录的相对路径, 例如：goods/getInfo.js
-     const relative = path.relative(basePath, item)
-     // 获取文件后缀.js
-     const extname = path.extname(item)
-     // 剔除后缀.js, 并在前面加一个"/", 例如：/goods/getInfo
-     const fileRouter = '/' + relative.split(extname)[0]
-     // 连接method, 形成一个唯一请求, 例如: _GET_/goods/getInfo
-     const key = '_' + method + '_' + fileRouter
-     // 保存在路由表里
-     routerMap[key] = handler
-   })
-   
-   app.use(async (ctx, next) => {
-     const { path, method } = ctx
-     // 构建和文件路由匹配的形式为_GET_路由
-     const key = '_' + method + '_' + path
-     // 如果匹配到, 就执行对应到handler方法
-     if (routerMap[key]) {
-       routerMap[key](ctx)
-     } else {
-       ctx.body = 'no this router'
-     }
-   })
-   
-   app.listen(4000, () => {
-     console.log('server is running, port is 4000')
-   })
-   ```
-
-   
-
-
-
-### 鉴权
-
-koa-jwt这个包是一个用来进行JWT鉴权的中间件，其主要功能是生产JWT。
-
-```js
-// app.js
-const koa = require('koa');
-const bodyParser = require('koa-bodyparser');
-const app = new koa();
-const Router = require('koa-router');
-const router = new Router();
-const static = require('koa-static');
-const path = require('path');
-
-const { sign } = require('jsonwebtoken');
-const secret = 'my_secret';
-const jwt = require('koa-jwt')({ secret });
-
-app.use(bodyParser())
-app.use(static(path.join(__dirname, '/static')))
-
-/*******************以下是核心代码*****************************************/
-router.post('/login', async (ctx, next) => {
-  const { userName } = ctx.request.body;
-  if (userName) {
-    const token = sign({ userName }, secret, {expiresIn:'1h'});
-    ctx.body = {
-      mssage: 'get token success!',
-      code: 1,
-      token
-    }
-  } else {
-    ctx.body = {
-      message: 'param error',
-      code: -1
-    }
-  }
-})
-.get('/welcome', jwt, async (ctx, next) => { //进行/welcome接口调用时，会带上localStorage中的token进行鉴权，鉴权通过后直接返回接口数据
-  ctx.body = { message: 'welcome!!!' }
-})
-/*******************以上是核心代码*****************************************/
-
-
-app
-  .use(router.routes())
-  .use(router.allowedMethods())
-app.listen(4000, () => {
-  console.log('server is running, port is 4000')
-})
-```
-
-
-
-
-
-### 操作数据库
-
-#### MySQL
-
-法一：直接写sql：在工程中安装一个mysql2包。
-
-法二：用orm：在Node社区中流行着一种通过对象和关系类型的映射，使得操作数据库和操作对象一样，常用的社区包为sequelize。如果我们再往tbl_users表中插入一条数据，首先需要安装依赖sequelize和mysql2，然后简单实现一个插入操作，实例代码如下：
-
-```js
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('koadb', 'root', '123456', {
-  host: 'localhost',
-  dialect: 'mysql',
-});
-
-const User = sequelize.define('tbl_user', {
-  id: {
-    type: Sequelize.STRING(50),
-    primaryKey: true
-  },
-  username: {
-    type: DataTypes.STRING,
-    allowNull: true
-  },
-  nickname: {
-    type: DataTypes.STRING,
-    allowNull: true
-  }
-},{
-  timestamps: false
-});
-
-User.create({
-  username: 'liujianghong2',
-  nickname: '刘江虹2'
-}).then(res => {
-    console.log(res)
-}).catch(err => {
-    console.log(err)
-})
-```
-
-使用起来非常简单，实例化一个Sequelize对象，将表结构映射到一个User对象上，通过User对象就可以对数据库进行各种操作了。需要注意的是，定义表结构时，tbl_user表其实就是实际数据库中的tbl_users表。
-
-
-
-#### elasticsearch
-
-安装npm包elasticsearch，通过它来对Elasticsearch进行操作。
-
-官方文档：https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/index.html
-
-
-
-#### Redis
-
-Redis用`ioredis`
-
-
-
-
-
-### 日志
-
-#### log4js
-
-官方地址：https://log4js-node.github.io/log4js-node/
-
-
-
-##### 日志级别
-
-log4js对日志级别进行详细分类，比如重要的日志，可以用error或者fatal级别，不重要的日志，可以用debug或者info级别。
-
-log4js提供了9种级别的日志：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-13-19-51-image-20231213195132375.png" alt="image-20231213195132375" style="zoom:33%;" />
-
-##### 日志分类
-
-通过getLogger()方法传入对应的模块名，即可对日志进行模块分类。
-
-```js
-const log4js = require('log4js');
-log4js.configure({
-  appenders: {
-    out: { type: 'stdout' },
-    app1: { type: 'file', filename: 'application1.log' },
-    app2: { type: 'file', filename: 'application2.log' }
-  },
-  categories: {
-    default: { appenders: [ 'out' ], level: 'trace' },
-    app1: { appenders: ['app1'], level: 'trace' },
-    app2: { appenders: ['app2'], level: 'info' }
-  }
-});
-
-const logger = log4js.getLogger();
-logger.trace('This will use the default category and go to stdout');
-
-const app1Log = log4js.getLogger('app1');
-app1Log.trace('This will go to a file');
-const app2Log = log4js.getLogger('app2');
-app2Log.info('This will go to a file');
-```
-
-执行代码后，会在同级目录下创建application1.log和application2.log两个日志文件，并且app1和app2的日志会落到对应的日志文件里。
-
-
-
-##### 日志分割
-
-日志分割在实际项目中也是经常遇到的。因为在业务场景比较复杂的情况下，需要按照不同纬度对日志进行分割，分割的标准有很多，比如类别、日期等，日志分割需要按照业务的实际场景进行。一般情况下，日志是通过日期来进行分割的，因为按照日期查看日志能够缩小日志范围。
-
-```js
-const log4js = require('log4js');
-log4js.configure({
-  appenders: {
-    app: {
-      type: 'dateFile',
-      filename: 'application',
-      alwaysIncludePattern: true,
-      pattern: 'yyyy-MM-dd-hh.log'
-    }
-  },
-  categories: {
-    default: { appenders: [ 'app' ], level: 'trace' },
-    app: { appenders: ['app'], level: 'trace' },
-  }
-});
-
-const appLog = log4js.getLogger('app');
-appLog.trace('This will go to a file');
-```
-
-运行代码后，可以看到生成了一个名为application. 2021-09-28-16.log的文件，日期是执行程序的时间。按照日期分割日志就是在设置日志类型时，将type设置为dateFile，这样落到磁盘的日志就是按照日期进行分类的。
-
-
 
 
 

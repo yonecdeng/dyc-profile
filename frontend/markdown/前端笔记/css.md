@@ -417,6 +417,8 @@ body * + * {
 
 
 
+`:where` 的权重为 0，`:is` 作为伪类选择器的权重为 10。
+
 
 
 ### 状态伪类选择器
@@ -566,7 +568,20 @@ calc()函数内可以对两个及其以上的值进行基本运算。它支持�
 
 
 
+## `attr()`
 
+attr 可以让我们更方便引用 HTML 的自定义属性。
+
+
+
+## `clamp()`
+
+``clamp(<首选值>, <最小值>, <最大值>)` 只要尺寸不超过最小和最大边界，就会遵循首选值。相比媒体查询，可以更简洁方便地处理响应式。
+
+```css
+.page-wrap { width: clamp(320px, 80%, 1200px) } 
+body { font-size: clamp(12px, 1rem + 2vw, 18px) }
+```
 
 
 
@@ -1638,7 +1653,7 @@ FFC的全称是Flex formatting contexts，弹性盒模型。
 
 ##### 1、自动撑开页面高度，底栏总是出现在页面的底部
 
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/30/171cb1d1257c0954~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Kqvukz.webp)
 
 ```css
 <style>
@@ -1660,7 +1675,7 @@ FFC的全称是Flex formatting contexts，弹性盒模型。
 </body>
 ```
 
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/30/171cb1ea21b41919~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-qXOFNK.webp)
 
 ##### 2、经典的圣杯布局
 
@@ -1707,7 +1722,7 @@ footer {
 </body>
 ```
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/30/171cb28b00a9a860~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp)
+![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aM5FmI.webp)
 
 
 
@@ -1904,7 +1919,7 @@ translate 是 transform 属性的⼀个值。改变transform或opacity不会触�
 
 如果我们不去解决position:fixed;引发的问题，那么下面的图片初始加载出来时就会位于任务栏的下方（如下图所示）
 
-![img](https://img2020.cnblogs.com/blog/1964976/202009/1964976-20200913200453467-54489126.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CgGdTR.png)
 
  那么我们要如何解决这个问题呢？
 
@@ -2222,7 +2237,7 @@ flex属性的几种实用方式：
 }
 ```
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/17389591c300e81a~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2v5OiX.webp)
 
 
 
@@ -2247,7 +2262,7 @@ flex属性的几种实用方式：
 }
 ```
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/17389591ccc256d1~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-MdQpe3.webp)
 
 
 
@@ -2264,7 +2279,7 @@ flex属性的几种实用方式：
 }
 ```
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/17389591dc05edac~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-4Fn0Y6.webp)
 
 
 
@@ -2365,7 +2380,7 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 }
 ```
 
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/173895921548265c~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-bEQt8m.webp)
 
 
 
@@ -2373,7 +2388,7 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 细心的同学可能发现了一个问题，就是第五个项目和第六个项目之间有个空白（如下图所示），这个是由于第六块的长度大于了空白处的长度，被挤到了下一行导致的。在实际应用中，我们可能想让下面长度合适的填满这个空白，这个时候可以设置  `grid-auto-flow: row dense`，表示尽可能填满表格。代码以及效果如下所示：
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/17389592211e1d6b~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-lAVx9a.webp)
 
 
 
@@ -2387,7 +2402,7 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 }
 ```
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/173895923612a19b~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CDNHX1.webp)
 
 
 
@@ -2405,7 +2420,7 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 }
 ```
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/173895923f11dd83~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2p86op.webp)
 
 
 
@@ -2430,7 +2445,7 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 
 
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/173895927d99af1c~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LwfKrT.webp)
 
 
 
@@ -2472,25 +2487,25 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 - start：对齐单元格的起始边缘
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/1738959244947d96~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0guMG.webp)
 
 
 
 - end：对齐单元格的结束边缘
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/17389592560e3fc2~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-3DNa6a.webp)
 
 
 
 - center：单元格内部居中
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/173895925bd879fa~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-F9wed8.webp)
 
 
 
 - stretch：拉伸，占满单元格的整个宽度（默认值）
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/1738959270057d0c~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gfNRtx.webp)
 
 
 
@@ -2531,7 +2546,7 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/173895926d20f5d6~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-TfEEeM.webp)
 
 
 
@@ -2557,7 +2572,7 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/173895927ba770c4~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-xH0yHD.webp)
 
 
 
@@ -2653,7 +2668,7 @@ subgrid 解决 grid 嵌套 grid 时，子网格的位置、轨迹线不能完全
 
 上面代码中，类 `.two` 所在的网格项目，垂直网格线是从 2 到 4，水平网格线是从 1 到 2。其中它跟 `.three` （垂直网格线是从3 到 4，水平网格线是从 1 到 4） 是有冲突的。可以设置 `z-index` 去决定它们的层级关系
 
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/173895928bc7e88e~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WsKoXn.webp)
 
 
 
@@ -2699,7 +2714,7 @@ subgrid 解决 grid 嵌套 grid 时，子网格的位置、轨迹线不能完全
 
 
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/1738959292160e78~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9Lsu9R.webp)
 
 
 
@@ -2707,19 +2722,19 @@ subgrid 解决 grid 嵌套 grid 时，子网格的位置、轨迹线不能完全
 
 
 
-![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/17389592a0d5a3c0~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SYl73T.webp)
 
 
 
 - center：单元格内部居中
 
-  ![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/17389592b1378c8d~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+  ![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3s9If2.webp)
 
   
 
 - stretch：拉伸，占满单元格的整个宽度（默认值）
 
-  ![image](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/26/17389592b895f0ed~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp)
+  ![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9SDOEx.webp)
 
 
 
@@ -3923,7 +3938,7 @@ JS 实现方式：
 
 我们以分页器为例，当页码发生变化的时候，不等宽的数字会造成左侧箭头的位置偏移，大家可以从下图中看到示例：
 
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/tibUxowsg9P0T8JzrdzW0EicKEj9PHI58qPicHib3WmLgsoR4JcMIBnpVR7KcaT4KPs9tQfKDjGQdCibmBibLJaDKW8g/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+![图片](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-X5SQMU.gif)
 
 当遇到这种情况时，我们可以通过 font-variant-numeric 属性来实现数字的等宽。
 
@@ -4767,6 +4782,132 @@ cubic-bezier(0.2， 0.9，0.3，1.3)函数产生了一个弹跳特效：标签�
 
 ❑ 倾斜（Skew）——使元素变形，顶边滑向一个方向，底边滑向相反的方向。
 
+
+
+##### matrix
+
+###### 介绍
+
+❑  matrix 让 CSS 具备处理 3 维场景的能力。矩阵的作用只是输入向量，输出新的向量。无论是旋转还是拉伸，本质上都是应用的`matrix()`方法实现的（修改matrix()方法固定几个值）
+
+> 向量点乘，也称为内积或数量积，是一种在线性代数中常见的运算。它用于计算两个向量之间的乘积。对于两个二维向量或三维向量，向量点乘的计算方法如下：
+>
+> 设有两个向量 A 和 B，A = [A₁, A₂, A₃]，B = [B₁, B₂, B₃]。 向量点乘的计算公式为：A · B = A₁ * B₁ + A₂ * B₂ + A₃ * B₃。
+
+
+
+###### 计算方式
+
+<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-20-11-image-20240130201124484.png" alt="image-20240130201124484" style="zoom:75%;" />
+
+###### 偏移/缩放
+
+matrix表现偏移就是只要关心后面两个参数就可以了，至于前面4个参数，是牛是马，是男是女都没有关系的，transform: matrix(0, 0, 0, 0, tx, ty);就等同于transform: translate(tx px, ty px);.
+
+matrix(sx, 0, 0, sy, 0, 0);，等同于scale(sx, sy);
+
+
+
+###### 旋转
+
+方法以及参数使用如下（假设角度为θ）：
+
+```javascript
+matrix(cosθ,sinθ,-sinθ,cosθ,0,0)
+```
+
+结合矩阵公式，就有：
+
+```javascript
+x' = x*cosθ-y*sinθ+0 = x*cosθ-y*sinθ
+y' = x*sinθ+y*cosθ+0 = x*sinθ+y*cosθ
+```
+
+就旋转而言，rotate(θdeg)这种书写形式要比matrix简单多了，首先记忆简单，其次，无需计算。例如，旋转30°，前者直接：
+
+```javascript
+transform:rotate(30deg);
+```
+
+而使用matrix表示则还要计算cos, sin值：
+
+```javascript
+transform: matrix(0.866025,0.500000,-0.500000,0.866025,0,0);
+```
+
+
+
+###### 拉伸(skew)
+
+拉伸也用到了三角函数，是tanθ，而且，其只与b, c两个参数相关，书写如下（注意y轴倾斜角度在前）：
+
+```javascript
+matrix(1,tan(θy),tan(θx),1,0,0)
+```
+
+套用矩阵公式计算结果为：
+
+```javascript
+x' = x+y*tan(θx)+0 = x+y*tan(θx) 
+y' = x*tan(θy)+y+0 = x*tan(θy)+y
+```
+
+对应于skew(θx + "deg"，θy+ "deg")这种写法。
+
+
+
+
+
+###### 镜像对称效果
+
+对于一般地交互应用，transform属性默认提供的些方法是足够了，但是，一些其他的效果，如果transform属性没有提供接口方法，那你又该怎么办呢？比方说，“**镜像对称效果**”！
+
+在镜像对称的时候轴是看不见的。轴围绕的那个点就是CSS3中transform变换的中心点，自然，镜像对称也不例外。因为该轴永远经过原点，因此，任意对称轴都可以用y = k * x表示。则matrix表示就是：
+
+```css
+matrix((1-k*k) / (1+k*k), 2k / (1 + k*k), 2k / (1 + k*k), (k*k - 1) / (1+k*k), 0, 0)
+```
+
+这个如何得到的呢？如下图，已经y=kx，并且知道点(x, y)坐标，求其对称点(x’, y’)的坐标？
+
+![在这里插入图片描述](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w0kvOP.webp)
+
+很简单，一是垂直，二是中心点在轴线上，因此有：
+
+(y‘-y) / (x’ - x) = -1/ k → ky'-ky = x-x' ((y + y')/2)/((x + x') / 2) = k → y+y' = kx+kx'
+
+再通过因数消除法，把x'和y'提出来，就有：
+
+x' = ((1-k*k)*x + 2k*y)/(k*k+1); y' = (2k*x + ((k*k-1)*y))/(k*k+1);
+
+再结合矩阵公式： x' = ax+cy+e; y' = bx+dy+f;
+
+我们就可以得到： a = (1-k*k)/(k*k+1); b = 2k/(k*k+1); c = 2k/(k*k+1); d = (k*k-1)/(k*k+1);
+
+也就是上面matrix方法中的参数值
+
+
+
+##### matrix3d
+
+从二维到三维，是从4到9；而在矩阵里是从 9到16了。
+
+其实，本质上很多东西都与2D一致的，只是复杂度不一样而已。这里就举一个简单的3D缩放变换的例子。
+
+对于3D缩放效果，其矩阵如下：
+
+![在这里插入图片描述](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uomFwu.webp)
+
+代码表示就是：
+
+```javascript
+transform: matrix3d(sx, 0, 0, 0, 0, sy, 0, 0, 0, 0, sz, 0, 0, 0, 0, 1)
+```
+
+
+
+
+
 #### 注意
 
 - 虽然元素可能会被移动到页面上的新位置，但<font color="red">它不会脱离文档流，其初始位置不会被其他元素占用。</font> 变换元素不会导致其他元素移动，因此可能出现重叠。
@@ -4804,6 +4945,10 @@ transform-origin: 0 0;
 多重变换可以对transform属性指定多个值，用空格隔开。变换的每个值<font color="red">从右向左</font>按顺序执行，比如我们设置`transform: rotate(15deg) translate(15px, 0)`，元素会先向右平移15px，然后顺时针旋转15度。元素好像是沿着一个倾斜的坐标轴在移动，而不是正常的方向。这是因为旋转发生在平移之后。
 
 通常把translate()放在最后执行（在transform代码顺序中放在首位）
+
+
+
+
 
 
 
@@ -5220,7 +5365,7 @@ AnimationItem.prototype.setCurrentRawFrameValue = function(value){
 1. Lottie-web 文件本身仍然比较大，未压缩大小为 513k，轻量版压缩后也有 144k，经过 Gzip 后，大小为39k。所以，需要注意 Lottie-web 的加载。
 2. 不必要的序列帧。Lottie 的主要动画思想是绘制某一个图层不断的改变 CSS 属性，如果设计师偷懒用了一些插件实现的动画效果，可能会造成每一帧都是一张图，如下图所示，那就会造成这个 JSON 文件非常大，注意和设计师提前进行沟通。
 
-![不必要的序列帧](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4179c197faeb4970ad30f6957e1d3c79~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![不必要的序列帧](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z85IZO.webp)
 
 3. 部分AE特效不支持。有少量的 AE 动画效果，Lottie 无法实现，有些是因为性能问题，有些是没有做，注意和设计师提前沟通，[点我查看](https://link.juejin.cn?target=http%3A%2F%2Fairbnb.io%2Flottie%2F%23%2Fsupported-features)。
 
@@ -5430,7 +5575,7 @@ function onClick(clientX, clinetY) {
 
 GIF 经常会有杂边。APNG（Animated Portable Network Graphics）是基于 PNG 格式扩展的一种动画格式，增加了对动画图像的支持，同时加入了 24 位图像和 8 位 Alpha 透明度的支持。看下 APNG 和 GIF 的对比效果：
 
-![clock.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/121e1a5ef145485a9c5435afade918d3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)![clock.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b224dfd96b564a90845d56242fa8f43e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![clock.gif](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jF4Bkv.webp)![clock.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gWQs55.png)
 
  APNG 和 GIF 的大小虽然相差不大，但是 APNG 要比 GIF 清晰的多，并且没有杂边。
 
@@ -5740,7 +5885,7 @@ apng/透明视频/lottie 如何选型 ---  看内存占用和实现效果，有�
 
 
 
-### 骨骼动画
+### 骨骼动画spine
 
 ##### 介绍
 
@@ -5786,6 +5931,7 @@ apng/透明视频/lottie 如何选型 ---  看内存占用和实现效果，有�
 
 这类动画一般是实现一些无需图片素材，仅通过图形来实现的效果，例如：折线图增加一些动画、一些多边形效果等，一般我们会选择以下两种方式来开发：
 
+- Css: https://chartscss.org/
 - canvas：逐帧绘制一些基础的图形和动画
 - svg：因为可以动态生成 svg 代码并展示，一般用来应对一些「动态化」、「模板化」绘制的场景
 
@@ -6126,11 +6272,21 @@ keep里有手机温度的数据，但由于影响因素太多，推荐还是实�
 
 ## 游戏
 
+### 基础
+
+H5 游戏开发的核心在于精灵图绘制、模拟真实世界的物理效果、碰撞检测、点选等，掌握了这些基本已经攻克了大部分难点。
+
+
+
+
+
+### 痛点
+
 在活动场景中：
 
 游戏往往是作为一个完整的需求的一部分。在一个web页面中，除了游戏场景外还伴生着很多的传统页面元素的渲染和交互。且游戏场景中即时状态修改不会特别频繁（类似高频操作类），而基本都是线性的弱人机交互。
 
-<mark>PixiJS也好、Eva.js也好，它们无非是一套基于Canvas的渲染方案(包了一层canvas)</mark>，而当前端开发者沉浸于DSL开发时（比如我们团队就是以react为基础技术栈），PixiJS、Eva.js并没有提供一套与之对应的DSL开发模式。这就使得我们遭遇了几个重点难题：
+H5 采用 Canvas 做游戏方面的开发，主要原因在于性能和游戏引擎的支持，比如 Phaser、Pixi.js、CreateJS、Cocos2d-js 等。而当前端开发者沉浸于DSL开发时（比如我们团队就是以react为基础技术栈），PixiJS、Eva.js并没有提供一套与之对应的DSL开发模式。这就使得我们遭遇了几个重点难题：
 
 **痛点1**、无法高效的去绘制一些界面内容，各种元素的绘制都需要append节点来做，非常低效，而为了解决这个问题。我们尝试将一个需求拆解为DOM层和游戏层这种分层设计，这样确实可以最大程度利用DOM的高效排版能力。可是这又带来了另外的问题：
 
@@ -6146,7 +6302,15 @@ keep里有手机温度的数据，但由于影响因素太多，推荐还是实�
 
 
 
+### 素材资源
 
+https://opengameart.org/
+
+https://kenney.nl/assets
+
+### 库
+
+手子推币机用的物理引擎：https://github.com/liabru/matter-js
 
 
 
@@ -6399,7 +6563,7 @@ div {
 }
 ```
 
-显示出来是这样的：![上面css展示的效果图](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cba8731fea9842a8b8103c2b387fe64f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+显示出来是这样的：![上面css展示的效果图](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-fA9Laj.webp)
 
 
 
@@ -6414,7 +6578,7 @@ div {
 }
 ```
 
-上面css展示效果：![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/531c6c250dd8446fb0f264e7b3df6fba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+上面css展示效果：![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1XxluP.webp)
 
 
 
@@ -6427,7 +6591,7 @@ div {
 }
 ```
 
-上面css展示效果：![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1ac630463164e42a027b54bb95f56ba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+上面css展示效果：![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-KF2FYv.webp)
 
 
 
@@ -6445,7 +6609,7 @@ div{
 }
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db5e46aea0ce4805a0c2bbec2743546e~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-AtBX0u.webp)
 
 ### 实现一个宽高自适应的正方形
 
@@ -6874,7 +7038,7 @@ OOCSS 的全称为 Object Oriented CSS （面向对象的 CSS），它让我们�
 
 面向对象有三大特征：**封装、继承、多态** ，在 OOCSS 中，主要应用到了面向对象的**封装**和**继承**的思想。我们以掘金的下图这个部分来进行说明：
 
-![item.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5fcb2a64445446e1ad31b23f8dfbc738~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+![item.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3bMusH.webp)
 
 图中画红色的部分，可以看成是有四个容器组成的，每个容器里面的内容又不一样。那么每个容器都有相同的样式，那么我们就可以进行**封装**。
 
@@ -6893,7 +7057,7 @@ OOCSS 的全称为 Object Oriented CSS （面向对象的 CSS），它让我们�
 
 然后如果我们需要对它们每一项进行拓展的话，那么我们只需要在原来的样式基础上进行新增一个 class，再针对这个 class 写不同的样式即可，这样达到**继承**原来基础部分的样式进行拓展自己独有的样式。
 
-![li.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd5f8ab454d84acebe5e910a36e62322~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+![li.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-JnLajO.webp)
 
 通过上图可以得知我们相当于**继承**基础类型 item 后，然后分别拓展出 `浏览 view`、`点赞 like`、`评论 comment`、`更多 more  ` 的 CSS 内容。
 
@@ -7425,7 +7589,7 @@ index.scss 文件内容：
 
 这样我们就实现了所有文件的闭环，最后我们把 play 项目运行起来，看看效果，要运行 play 项目，我们专栏的前面的文章中已经说过了，就是在根目录下执行 `pnpm run dev`  即可。
 
-![icon-play.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c86c48e744a4c35a31b6575547019f9~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
+![icon-play.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uJaZBf.webp)
 
 我们也看到已经成功实现了渲染并和如期一样，那么其他样式的测试，我们将在后续具体的组件实现上再进行测试。
 

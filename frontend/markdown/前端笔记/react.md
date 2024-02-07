@@ -3819,7 +3819,7 @@ React采用的是MVC。“单向驱动”。如果要实现双向驱动得自己
 
 MVC 通过分离 Model、View 和 Controller 的方式来组织代码结构。其中 View 负责页面的显示逻辑，Model 负责存储页面的业务数据，以及对相应数据的操作。并且 View 和 Model 应用了观察者模式，当 Model 层发生改变的时候它会通知有关 View 层更新页面。Controller 层是 View 层和 Model 层的纽带，它主要负责用户与页面产生交互的时候，Controller 中的事件触发器就开始工作了，通过调用 Model 层，来完成对 Model 的修改，然后 Model 层再去通知 View 层更新。
 
-![img](https://cdn.nlark.com/yuque/0/2020/png/1500604/1603814137582-5a9aa62f-0045-4272-bef0-447dedb25596.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IYTbAl.png)
 
 （2）MVVM
 
@@ -3835,7 +3835,7 @@ Model和View并无直接关联，而是通过ViewModel来进行联系的，Model
 
 这种模式实现了 Model和View的数据自动同步，因此开发者只需要专注于数据的维护操作即可，而不需要自己操作DOM。
 
-![img](https://cdn.nlark.com/yuque/0/2020/png/1500604/1603814104939-8c8ac923-735d-4476-937a-cb1f795ffe84.png)
+![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-kEHaIY.png)
 
 
 
