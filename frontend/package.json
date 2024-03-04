@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev",
-    "docs:build": "zx ./src/scripts/index.js && vitepress build",
+    "docs:build": "npx zx ./src/scripts/index.js && vitepress build",
     "docs:preview": "vitepress preview",
     "format-fix": "prettier . --write"
   },
@@ -20,7 +20,8 @@
     "prettier": "^3.2.5",
     "rollup-pluginutils": "^2.8.2",
     "vite": "^5.0.12",
-    "vue": "^3.4.13"
+    "vue": "^3.4.13",
+    "zx": "^7.2.3"
   },
   "pnpm": {
     "patchedDependencies": {
