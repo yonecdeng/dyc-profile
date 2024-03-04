@@ -1,0 +1,29 @@
+diff --git a/dist/node/serve-Bbz0dL6j.js b/dist/node/serve-Bbz0dL6j.js
+index 13874de22350e9ba96c65fe45dc4e7ce3a9d0639..b0579d26a87187bc2c41cde1f1af1462549799a4 100644
+--- a/dist/node/serve-Bbz0dL6j.js
++++ b/dist/node/serve-Bbz0dL6j.js
+@@ -32,6 +32,8 @@ import { webcrypto } from 'node:crypto';
+ import { getHighlighter, bundledLanguages, isSpecialLang } from 'shiki';
+ import { transformerNotationDiff, transformerNotationFocus, transformerNotationHighlight, transformerNotationErrorLevel, transformerCompactLineOptions } from '@shikijs/transformers';
+ import MiniSearch from 'minisearch';
++import {JSDOM} from 'jsdom'
++
+ 
+ var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+ 
+@@ -38148,7 +38150,14 @@ async function createMarkdownToVueRenderFn(srcDir, options = {}, pages, isBuild
+       includes,
+       realPath: fileOrig
+     };
+-    const html = md.render(src, env);
++   let html = md.render(src, env); // 为了解决md.render出来的html里会有`<p>你好<picture></p>`的情况，将其修正为`<p>你好</p><picture>`
++   const dom = new JSDOM(html)
++   const document = dom.window.document;
++
++   // JSDOM会尝试“修正”HTML结构，我们可以直接获取innerHTML
++   // 如果需要，也可以遍历DOM进行更复杂的操作
++   html = document.body.innerHTML;
++
+     const {
+       frontmatter = {},
+       headers = [],

@@ -84,7 +84,11 @@ nav 用来标记一系列导航连接的元素。
 
 ```html
 <header>
-  <img src="/" id="logo" />
+  <picture>
+    <source type="image/avif" srcset="/?imageMogr2/format/avif">
+    <source type="image/webp" srcset="/?imageMogr2/format/webp">
+    <img src="/" id="logo" loading="lazy"/>
+  </picture>
 </header>
 ```
 
@@ -138,7 +142,13 @@ nav 用来标记一系列导航连接的元素。
 </p>
 ```
 
-上面示例在浏览器的渲染结果（添加了一点 CSS 样式）如下：![image-20230909150959394](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-09-image-20230909150959394.png)
+上面示例在浏览器的渲染结果（添加了一点 CSS 样式）如下：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-09-image-20230909150959394.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-09-image-20230909150959394.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-09-image-20230909150959394.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-09-image-20230909150959394.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -337,7 +347,11 @@ meta标签的content属性里包含两个选项。首先，它告诉浏览器当
 
 ## SEO三大标签
 
-![image-20220505204325766](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/SEO三大标签.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/SEO三大标签.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/SEO三大标签.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/SEO三大标签.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/SEO三大标签.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -345,7 +359,11 @@ meta标签的content属性里包含两个选项。首先，它告诉浏览器当
 
 ## `<input>`各种type
 
-![image-20230807140919977](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-07-14-09-image-20230807140919977.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-07-14-09-image-20230807140919977.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-07-14-09-image-20230807140919977.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-07-14-09-image-20230807140919977.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-07-14-09-image-20230807140919977.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -383,7 +401,11 @@ https://juejin.cn/post/6917898288481959943#heading-3
 
 下图可以直观的看出三者之间的区别:(蓝色代表js脚本网络加载时间，红色代表js脚本执行时间，绿色代表html解析)
 
-![script标签中defer和async的区别](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-zuVjnR.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-zuVjnR.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-zuVjnR.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-zuVjnR.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-zuVjnR.webp" loading="lazy"/>
+  </picture>
 
 #### `<script>`
 
@@ -426,7 +448,11 @@ console.log(document.createElement("script").async); // true
 
 ## 标签总览
 
-![image-20230429134119021](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-41-image-20230429134119021.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-41-image-20230429134119021.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-41-image-20230429134119021.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-41-image-20230429134119021.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-41-image-20230429134119021.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -440,7 +466,11 @@ console.log(document.createElement("script").async); // true
 
 当浏览器解析这段 HTML 代码后，会创建一个与之相符的 DOM 元素对象，这个 DOM 对象会包含很多属性（properties），这些属性就是所谓的 **DOM Properties**。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-12-28-image-20240112122845399.png" alt="image-20240112122845399" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-12-28-image-20240112122845399.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-12-28-image-20240112122845399.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-12-28-image-20240112122845399.png" alt="image-20240112122845399" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -559,6 +589,18 @@ HTML 规范也说了` <input> `元素可替换，因为 "image" 类型的` <inpu
 
 # 字符
 
+## 空格
+
+`&nbsp;`表示一个空格
+
+
+
+## 换行
+
+`<br>` 是一个空元素，表示换行，不需要闭合标签。
+
+
+
 ## 乘法符号
 
 HTML字符&times；可以显示为这个字符，
@@ -587,7 +629,11 @@ Unicode字符（\2261）。这个字符是一个数学符号，由三条横线�
 
 ### 总览
 
-![image-20230429142507857](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-25-image-20230429142507857.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-25-image-20230429142507857.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-25-image-20230429142507857.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-25-image-20230429142507857.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-25-image-20230429142507857.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -599,13 +645,21 @@ Unicode字符（\2261）。这个字符是一个数学符号，由三条横线�
 
 下图从通用层面描述不同渲染技术各自适合的场景。
 
-![Canvas vs SVG | left](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IkLBom.jpg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IkLBom.jpg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IkLBom.jpg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IkLBom.jpg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IkLBom.jpg" loading="lazy"/>
+  </picture>
 
 ### 性能差异
 
 <mark>Canvas 的性能受画布尺寸影响更大，而 SVG 的性能受图形元素个数影响更大（因为svg的渲染过程跟 DOM 一样也要渲染树的生成、布局合成、绘制）。</mark>而且在小数据量的情况下，SVG 的方案通常内存占用会更小，做缩放、平移等操作的时候往往帧率也更高，缩放功能时不会模糊。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-19-15-image-20231215191522858.png" alt="image-20231215191522858" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-19-15-image-20231215191522858.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-19-15-image-20231215191522858.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-19-15-image-20231215191522858.png" alt="image-20231215191522858" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -638,7 +692,11 @@ getContext 返回一个绘图上下文对象，用于在 Canvas 上绘制。还�
 - `toDataURL`：用于将 Canvas 图像数据转换为数据 URL。它接收一个参数，表示图像的格式（默认为 `image/png` ）。该方法返回一个包含图像数据的 Base64 编码的数据 URL，可以使用这个数据 URL 来显示图像或在 HTML 中嵌入图像。
 - `toBlob`：用于将 Canvas 图像数据转换为 Blob 对象。它接收两个参数，第一个参数是一个回调函数，用于接收生成的 Blob 对象，第二个参数是图像的格式（默认为 `image/png` ）。该方法将生成的 Blob 对象作为回调函数的参数传递。
 
-![image-20240130215447275](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-21-54-image-20240130215447275.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-21-54-image-20240130215447275.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-21-54-image-20240130215447275.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-21-54-image-20240130215447275.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-21-54-image-20240130215447275.png" loading="lazy"/>
+  </picture>
 
 ```html
 <body>
@@ -830,7 +888,11 @@ canvas 提供了三种方法绘制矩形：
 
   绘制三次贝塞尔曲线，`cp1x,cp1y`为控制点一，`cp2x,cp2y`为控制点二，`x,y`为结束点。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LTUaZy.png)左边的图能够很好的描述两者的关系，二次贝塞尔曲线有一个开始点（蓝色）、一个结束点（蓝色）以及一个控制点（红色)，而三次贝塞尔曲线有两个控制点。
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LTUaZy.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LTUaZy.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LTUaZy.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LTUaZy.png" loading="lazy"/>
+  </picture>左边的图能够很好的描述两者的关系，二次贝塞尔曲线有一个开始点（蓝色）、一个结束点（蓝色）以及一个控制点（红色)，而三次贝塞尔曲线有两个控制点。
 
 参数 x、y 在这两个方法中都是结束点坐标。`cp1x,cp1y`为坐标中的第一个控制点，`cp2x,cp2y`为坐标中的第二个控制点。
 
@@ -1234,7 +1296,13 @@ m dx dy
 
 Copy to Clipboard
 
-这有一个比较好的例子，不过我们没画任何东西，只是将画笔移动到路径的起点，所以我们不会看到任何图案。但是，我把我们移动到的点标注出来了，所以在下面的例子里会看到 (10,10) 坐标上有一个点。注意，如果只画 path，这里什么都不会显示。（这段不太好理解，说明一下：为了更好地展示路径，下面的所有例子里，在用 path 绘制路径的同时，也会用 circle 标注路径上的点。）![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Ie6Ykf.png)
+这有一个比较好的例子，不过我们没画任何东西，只是将画笔移动到路径的起点，所以我们不会看到任何图案。但是，我把我们移动到的点标注出来了，所以在下面的例子里会看到 (10,10) 坐标上有一个点。注意，如果只画 path，这里什么都不会显示。（这段不太好理解，说明一下：为了更好地展示路径，下面的所有例子里，在用 path 绘制路径的同时，也会用 circle 标注路径上的点。）
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Ie6Ykf.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Ie6Ykf.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Ie6Ykf.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Ie6Ykf.png" loading="lazy"/>
+  </picture>
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1268,7 +1336,13 @@ Copy to Clipboard
 
 Copy to Clipboard
 
-现在我们已经掌握了一些命令，可以开始画一些东西了。先从简单的地方开始，画一个简单的矩形（同样的效果用`<rect/>`元素可以更简单的实现），矩形是由水平线和垂直线组成的，所以这个例子可以很好地展现前面讲的画线的方法。![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IXpW1m.png)
+现在我们已经掌握了一些命令，可以开始画一些东西了。先从简单的地方开始，画一个简单的矩形（同样的效果用`<rect/>`元素可以更简单的实现），矩形是由水平线和垂直线组成的，所以这个例子可以很好地展现前面讲的画线的方法。
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IXpW1m.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IXpW1m.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IXpW1m.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IXpW1m.png" loading="lazy"/>
+  </picture>
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1332,7 +1406,11 @@ c dx1 dy1, dx2 dy2, dx dy
 
 这里的最后一个坐标 (x,y) 表示的是曲线的终点，另外两个坐标是控制点，(x1,y1) 是起点的控制点，(x2,y2) 是终点的控制点。如果你熟悉代数或者微积分的话，会更容易理解控制点，控制点描述的是曲线起始点的斜率，曲线上各个点的斜率，是从起点斜率到终点斜率的渐变过程。（文字描述不好，维基百科上有图示，更直观。）
 
-![Cubic Bézier Curves with grid](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Xn79c6.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Xn79c6.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Xn79c6.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Xn79c6.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Xn79c6.png" loading="lazy"/>
+  </picture>
 
 ```
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
@@ -1366,7 +1444,11 @@ Copy to Clipboard
 
 S 命令可以用来创建与前面一样的贝塞尔曲线，但是，如果 S 命令跟在一个 C 或 S 命令后面，则它的第一个控制点会被假设成前一个命令曲线的第二个控制点的中心对称点。如果 S 命令单独使用，前面没有 C 或 S 命令，那当前点将作为第一个控制点。下面是 S 命令的语法示例，图中左侧红色标记的点对应的控制点即为蓝色标记点。
 
-![A smooth S-shaped curve is drawn from two Bézier curves. The second curve keeps the same slope of the control points as the first curve, which is reflected to the other side.](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CHely8.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CHely8.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CHely8.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CHely8.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CHely8.png" loading="lazy"/>
+  </picture>
 
 ```
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
@@ -1386,7 +1468,11 @@ q dx1 dy1, dx dy
 
 Copy to Clipboard
 
-![Quadratic Bézier with grid](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-UFWrgk.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-UFWrgk.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-UFWrgk.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-UFWrgk.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-UFWrgk.png" loading="lazy"/>
+  </picture>
 
 ```
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
@@ -1408,7 +1494,11 @@ Copy to Clipboard
 
 和之前一样，快捷命令 T 会通过前一个控制点，推断出一个新的控制点。这意味着，在你的第一个控制点后面，可以只定义终点，就创建出一个相当复杂的曲线。需要注意的是，T 命令前面必须是一个 Q 命令，或者是另一个 T 命令，才能达到这种效果。如果 T 单独使用，那么控制点就会被认为和终点是同一个点，所以画出来的将是一条直线。
 
-![Two quadratic curves form one smooth S-shaped curve. The second curve's control points are reflected across the horizontal axis](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8CqcIv.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8CqcIv.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8CqcIv.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8CqcIv.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8CqcIv.png" loading="lazy"/>
+  </picture>
 
 ```
 <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
@@ -1433,7 +1523,11 @@ Copy to Clipboard
 
 弧形命令 A 的前两个参数分别是 x 轴半径和 y 轴半径，它们的作用很明显，不用多做解释，如果你不是很清楚它们的作用，可以参考一下椭圆[ellipse](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/ellipse)命令中的相同参数。弧形命令 A 的第三个参数表示弧形的旋转情况，下面的例子可以很好地解释它：
 
-![SVGArcs_XAxisRotation_with_grid](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vEfIzM.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vEfIzM.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vEfIzM.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vEfIzM.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vEfIzM.png" loading="lazy"/>
+  </picture>
 
 ```
 <svg width="320" height="320" xmlns="http://www.w3.org/2000/svg">
@@ -1452,7 +1546,11 @@ Copy to Clipboard
 
 对于上图没有旋转的椭圆，只有 2 种弧形可以选择，不是 4 种，因为两点连线（也就是对角线）正好穿过了椭圆的中心。像下面这张图，就是普通的情况，可以画出两个椭圆，四种弧。
 
-![Show the 4 arcs on the Ellipse example](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-akw0G2.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-akw0G2.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-akw0G2.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-akw0G2.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-akw0G2.png" loading="lazy"/>
+  </picture>
 
 ```
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="320">
@@ -1473,7 +1571,11 @@ Copy to Clipboard
 
 上面提到的四种不同路径将由接下来的两个参数决定。如前所讲，还有两种可能的椭圆用来形成路径，它们给出的四种可能的路径中，有两种不同的路径。这里要讲的参数是 large-arc-flag（角度大小）和 sweep-flag（弧线方向），large-arc-flag 决定弧线是大于还是小于 180 度，0 表示小角度弧，1 表示大角度弧。sweep-flag 表示弧线的方向，0 表示从起点到终点沿逆时针画弧，1 表示从起点到终点沿顺时针画弧。下面的例子展示了这四种情况。
 
-![Four examples are shown for each combination of large-arc-flag and sweep-flag for two circles overlapping, one in the top right, the other in the bottom left. For sweep-flag = 0, when large-arc-flag = 0, the interior arc of the top right circle is drawn, and when large-arc-flag = 1, the exterior arc of the bottom left circle is drawn. For sweep-flag = 1, when large-arc-flag = 0, the interior arc of the bottom left circle is drawn, and when large-arc-flag = 1, the exterior arc of the top right circle is drawn.](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-HDxQNB.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-HDxQNB.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-HDxQNB.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-HDxQNB.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-HDxQNB.png" loading="lazy"/>
+  </picture>
 
 ```
 <svg width="325" height="325" xmlns="http://www.w3.org/2000/svg">
@@ -1525,7 +1627,11 @@ Copy to Clipboard
 
 除了颜色属性，还有其他一些属性用来控制绘制描边的方式。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ghOn7g.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ghOn7g.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ghOn7g.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ghOn7g.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ghOn7g.png" loading="lazy"/>
+  </picture>
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1548,7 +1654,11 @@ Copy to Clipboard
 
 还有一个`stroke-linejoin`属性，用来控制两条描边线段之间，用什么方式连接。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dQ9dmL.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dQ9dmL.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dQ9dmL.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dQ9dmL.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dQ9dmL.png" loading="lazy"/>
+  </picture>
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1570,7 +1680,11 @@ Copy to Clipboard
 
 最后，你可以通过指定`stroke-dasharray`属性，将虚线类型应用在描边上。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-If949V.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-If949V.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-If949V.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-If949V.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-If949V.png" loading="lazy"/>
+  </picture>
 
 ```
 <?xml version="1.0" standalone="no"?>
@@ -1711,7 +1825,11 @@ WebGL 中的保留模式（Retained Mode）和即时模式（Immediate Mode）�
 
 ### WebGL 渲染过程
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-31-20-25-image-20240131202526849.png" alt="image-20240131202526849" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-31-20-25-image-20240131202526849.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-31-20-25-image-20240131202526849.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-31-20-25-image-20240131202526849.png" alt="image-20240131202526849" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 接下来将逐步来讲解每个阶段：
 
@@ -1803,13 +1921,21 @@ WebGPU 的发展是由 Khronos Group（图形界的国际组织）主导的，�
 
 ## Shadow DOM
 
-![image-20230429142110473](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-21-image-20230429142110473.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-21-image-20230429142110473.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-21-image-20230429142110473.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-21-image-20230429142110473.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-21-image-20230429142110473.png" loading="lazy"/>
+  </picture>
 
 
 
 ## WebAssembly
 
-![image-20230429144853300](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-48-image-20230429144853300.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-48-image-20230429144853300.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-48-image-20230429144853300.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-48-image-20230429144853300.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-48-image-20230429144853300.png" loading="lazy"/>
+  </picture>
 
 
 

@@ -52,7 +52,7 @@ addEventListener(
   function (e) {
     keysDown[e.keyCode] = true;
   },
-  false
+  false,
 );
 
 addEventListener(
@@ -60,7 +60,7 @@ addEventListener(
   function (e) {
     delete keysDown[e.keyCode];
   },
-  false
+  false,
 );
 
 // Reset the game when the player catches a monster

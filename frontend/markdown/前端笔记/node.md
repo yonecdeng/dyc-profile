@@ -24,13 +24,21 @@
 
 V8就是c代码，所以依赖一些c的标准库比如glibc。如果发现高版本的node用不了，有可能是当前系统不具备其依赖的底层c库版本，比如node18依赖的glibc版本比较高，如果系统不具备这么高版本的glibc，那么就用不了node18。
 
-![image-20230805144710621](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-47-image-20230805144710621.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-47-image-20230805144710621.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-47-image-20230805144710621.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-47-image-20230805144710621.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-47-image-20230805144710621.png" loading="lazy"/>
+  </picture>
 
 
 
 Node起初只可以在Linux平台上运行，兼容Windows和*nix平台主要得益于Node在架构层面的改动，它在操作系统与Node上层模块系统之间构建了一层平台层架构，即libuv。目前，libuv已经成为许多系统实现跨平台的基础组件。
 
-![image-20230805145923059](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-59-image-20230805145923059.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-59-image-20230805145923059.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-59-image-20230805145923059.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-59-image-20230805145923059.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-14-59-image-20230805145923059.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -63,7 +71,15 @@ Node起初只可以在Linux平台上运行，兼容Windows和*nix平台主要得
 
 阻塞I/O完成整个获取数据的过程，而非阻塞I/O则不带数据直接返回，要获取数据，还需要通过文件描述符再次读取。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-55-image-20230805165525887.png" alt="image-20230805165525887" style="zoom:50%;" />                                      <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-55-image-20230805165546171.png" alt="image-20230805165546171" style="zoom:50%;" />  
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-55-image-20230805165525887.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-55-image-20230805165525887.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-55-image-20230805165525887.png" alt="image-20230805165525887" style="zoom:50%;" loading="lazy"/>
+  </picture>                                      <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-55-image-20230805165546171.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-55-image-20230805165546171.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-55-image-20230805165546171.png" alt="image-20230805165546171" style="zoom:50%;" loading="lazy"/>
+  </picture>  
 
 非阻塞I/O返回之后，CPU的时间片可以用来处理其他事务，此时的性能提升是明显的。
 
@@ -81,7 +97,11 @@ Node起初只可以在Linux平台上运行，兼容Windows和*nix平台主要得
 
 epoll。该方案是Linux下效率最高的I/O事件通知机制，在进入轮询的时候如果没有检查到I/O事件，将会进行休眠，直到事件发生将它唤醒。它是真实利用了事件通知、执行回调的方式，而不是遍历查询，所以不会浪费CPU，执行效率较高。
 
-![image-20230805192759370](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-27-image-20230805192759370.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-27-image-20230805192759370.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-27-image-20230805192759370.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-27-image-20230805192759370.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-27-image-20230805192759370.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -101,7 +121,11 @@ epoll。该方案是Linux下效率最高的I/O事件通知机制，在进入轮�
 
 Windows下主要通过IOCP来向系统内核发送I/O调用和从内核获取已完成的I/O操作，配以事件循环，以此完成异步I/O的过程。在Linux下通过epoll实现这个过程，FreeBSD下通过kqueue实现，Solaris下通过Event ports实现。不同的是线程池在Windows下由内核（IOCP）直接提供，*nix系列下由libuv自行实现。
 
-![image-20230805164931276](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-49-image-20230805164931276.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-49-image-20230805164931276.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-49-image-20230805164931276.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-49-image-20230805164931276.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-49-image-20230805164931276.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -111,7 +135,11 @@ Windows下主要通过IOCP来向系统内核发送I/O调用和从内核获取已
 
 进程启动时，Node便会创建一个类似于while(true)的循环，每执行一次循环体的过程我们称为Tick。每个Tick的过程就是查看是否有事件待处理，如果有，就取出事件及其相关的回调函数。如果存在关联的回调函数，就执行它们。
 
-![image-20230805163341935](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-33-image-20230805163341935.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-33-image-20230805163341935.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-33-image-20230805163341935.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-33-image-20230805163341935.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-16-33-image-20230805163341935.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -159,7 +187,11 @@ Windows下主要通过IOCP来向系统内核发送I/O调用和从内核获取已
 
 异步I/O不仅仅应用在文件操作中。对于网络套接字的处理，Node也应用到了异步I/O，网络套接字上侦听到的请求都会形成事件交给I/O观察者。事件循环会不停地处理这些网络I/O事件。如果JavaScript有传入回调函数，这些事件将会最终传递到业务逻辑层进行处理。
 
-![image-20230805195757220](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-57-image-20230805195757220.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-57-image-20230805195757220.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-57-image-20230805195757220.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-57-image-20230805195757220.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-19-57-image-20230805195757220.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -187,11 +219,19 @@ Node通过事件驱动的方式处理请求，无须为每一个请求创建额�
 
 - 分布式和云。并行使得各个单点之间能够更有效地组织起来，这也是Node在云计算厂商中广受青睐的原因。
 
-  ![image-20230809182936088](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png)
+  <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png" loading="lazy"/>
+  </picture>
 
 如果采用传统的同步I/O模型，分布式计算中性能的折扣将会是明显的
 
-![image-20230809183001090](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -617,11 +657,19 @@ fs.readdirSync('.').forEach(function (file) {
 
 - 分布式和云。基于事件驱动可以实现与大量的客户端进行连接，非阻塞设计则让它可以更好地提升网络的响应吞吐。。
 
-  ![image-20230809182936088](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png)
+  <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-29-image-20230809182936088.png" loading="lazy"/>
+  </picture>
 
 如果采用传统的同步I/O模型，分布式计算中性能的折扣将会是明显的
 
-![image-20230809183001090](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-09-18-30-image-20230809183001090.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -910,7 +958,11 @@ $ node
 
 Buffer是一个像Array的对象，但它主要用于操作字节。Buffer是一个典型的JavaScript与C++结合的模块，它将性能相关部分用C++实现，将非性能相关的部分用JavaScript实现。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-15-56-image-20230811155633162.png" alt="image-20230811155633162" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-15-56-image-20230811155633162.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-15-56-image-20230811155633162.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-15-56-image-20230811155633162.png" alt="image-20230811155633162" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 由于Buffer太过常见，Node在进程启动时就已经加载了它，并将其放在全局对象（global）上。所以在使用Buffer时，无须通过require()即可直接使用。
 
@@ -1440,7 +1492,11 @@ HTTP响应封装了对底层连接的写操作，可以将其看成一个可写�
 
 http模块会自动帮你设置一些头信息，如下所示：
 
-![image-20230819135146639](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-13-51-image-20230819135146639.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-13-51-image-20230819135146639.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-13-51-image-20230819135146639.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-13-51-image-20230819135146639.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-13-51-image-20230819135146639.png" loading="lazy"/>
+  </picture>
 
 报文体部分则是调用res.write()和res.end()方法实现，后者与前者的差别在于res.end()会先调用write()发送数据，然后发送信号告知服务器这次响应结束。报头是在报文体发送前发送的，一旦开始了数据的发送，writeHead()和setHeader()将不再生效。务必在结束时调用res.end()结束请求，否则客户端将一直处于等待的状态。当然，也可以通过延迟res.end()的方式实现客户端与服务器端之间的长连接，但结束时务必关闭连接。
 
@@ -1464,15 +1520,27 @@ http模块提供了一个底层API:http.request(options, connect)，用于构造
 
 HTTP客户端的响应对象是ClientRequest对象。ClientRequest在解析响应报文时，一解析完响应头就触发response事件，同时传递一个响应对象以供操作ClientResponse。后续响应报文体以只读流的方式提供，如下所示：
 
-![image-20230819140623940](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-06-image-20230819140623940.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-06-image-20230819140623940.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-06-image-20230819140623940.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-06-image-20230819140623940.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-06-image-20230819140623940.png" loading="lazy"/>
+  </picture>
 
 ###### 限制请求数
 
 http提供的ClientRequest对象也是基于TCP层实现的，在keepalive的情况下，一个底层会话连接可以多次用于请求。为了重用TCP连接，http模块包含一个默认的客户端代理对象http.globalAgent。它对每个服务器端（host + port）创建的连接进行了管理，默认情况下，通过ClientRequest对象对同一个服务器端发起的HTTP请求最多可以创建5个连接。调用HTTP客户端同时对一个服务器发起10次HTTP请求时，其实质只有5个请求处于并发状态，后续的请求需要等待某个请求完成服务后才真正发出。它的实质是一个连接池，示意图如下所示：
 
-![image-20230819140812102](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-08-image-20230819140812102.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-08-image-20230819140812102.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-08-image-20230819140812102.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-08-image-20230819140812102.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-08-image-20230819140812102.png" loading="lazy"/>
+  </picture>
 
-如需要改变，可以在options中传递agent选项。默认情况下，请求会采用全局的代理对象，默认连接数限制的为5。我们既可以自行构造代理对象，代码如下：![image-20230819140912640](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-09-image-20230819140912640.png)
+如需要改变，可以在options中传递agent选项。默认情况下，请求会采用全局的代理对象，默认连接数限制的为5。我们既可以自行构造代理对象，代码如下：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-09-image-20230819140912640.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-09-image-20230819140912640.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-09-image-20230819140912640.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-09-image-20230819140912640.png" loading="lazy"/>
+  </picture>
 
 也可以设置agent选项为false值，以脱离连接池的管理，使得请求不受并发的限制。Agent对象的sockets和requests属性分别表示当前连接池中使用中的连接数和处于等待状态的请求数，在业务中监视这两个值有助于发现业务状态的繁忙程度。
 
@@ -1492,9 +1560,17 @@ http提供的ClientRequest对象也是基于TCP层实现的，在keepalive的情
 
 最后的最后将一个如下函数传递给createServer()方法作为request事件的侦听器就可以了。所有东西都会挂载到req或res对象上。
 
-![image-20230819150255986](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-02-image-20230819150255986.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-02-image-20230819150255986.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-02-image-20230819150255986.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-02-image-20230819150255986.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-02-image-20230819150255986.png" loading="lazy"/>
+  </picture>
 
-比如Connect或Express的示例中有如下这样的代码：![image-20230819150330248](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-03-image-20230819150330248.png)
+比如Connect或Express的示例中有如下这样的代码：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-03-image-20230819150330248.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-03-image-20230819150330248.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-03-image-20230819150330248.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-03-image-20230819150330248.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1506,7 +1582,11 @@ HTTP_Parser在解析请求报文的时候，将报文头抽取出来，设置为
 
 HTTP_Parser将路径解析为req.url（包括path和search）。如果查询字符串中的键出现多次，那么它的值会是一个数组（所以业务的判断一定要检查值是数组还是字符串，否则可能出现TypeError异常的情况。）如下所示：
 
-![image-20230819151810192](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-18-image-20230819151810192.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-18-image-20230819151810192.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-18-image-20230819151810192.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-18-image-20230819151810192.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-15-18-image-20230819151810192.png" loading="lazy"/>
+  </picture>
 
 HTTP_Parser会将所有的报文字段解析到req.headers上，那么Cookie就是req.headers. cookie
 
@@ -1518,7 +1598,11 @@ HTTP_Parser会将所有的报文字段解析到req.headers上，那么Cookie就�
 
 Node的http模块只对HTTP报文的头部进行了解析，然后触发request事件。如果请求中还带有内容部分（如POST请求，它具有报头和内容），内容部分需要用户自行接收和解析。通过报头头中有无Transfer-Encoding或Content-Length即可判断请求中是否带有内容。
 
-![image-20230820170745706](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-17-07-image-20230820170745706.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-17-07-image-20230820170745706.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-17-07-image-20230820170745706.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-17-07-image-20230820170745706.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-17-07-image-20230820170745706.png" loading="lazy"/>
+  </picture>
 
 各种数据形式的解析看《深入浅出Node.js》或者koa源码
 
@@ -1558,9 +1642,17 @@ https完全与http模块接口一致，区别也仅在于它建立于安全的�
 
 ###### 生成公秘钥
 
-Node在底层采用的是openssl实现TLS/SSL的，为此要生成公钥和私钥可以通过openssl完成。我们分别为服务器端和客户端生成私钥，如下所示：![image-20230819142737096](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142737096.png)
+Node在底层采用的是openssl实现TLS/SSL的，为此要生成公钥和私钥可以通过openssl完成。我们分别为服务器端和客户端生成私钥，如下所示：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142737096.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142737096.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142737096.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142737096.png" loading="lazy"/>
+  </picture>
 
-上述命令生成了两个1024位长的RSA私钥文件，我们可以通过它继续生成公钥，如下所示：![image-20230819142746581](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142746581.png)
+上述命令生成了两个1024位长的RSA私钥文件，我们可以通过它继续生成公钥，如下所示：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142746581.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142746581.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142746581.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-27-image-20230819142746581.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1570,9 +1662,21 @@ Node在底层采用的是openssl实现TLS/SSL的，为此要生成公钥和私�
 
 对于中小型企业而言多半是采用自签名证书来构建安全网络的。就是自己扮演CA机构，给自己的服务器端颁发签名证书。以下为生成私钥、生成CSR文件、通过私钥自签名生成证书的过程：
 
-![image-20230819143840712](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-38-image-20230819143840712.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-38-image-20230819143840712.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-38-image-20230819143840712.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-38-image-20230819143840712.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-38-image-20230819143840712.png" loading="lazy"/>
+  </picture>
 
-上述步骤完成了扮演CA角色需要的文件。接下来回到服务器端，服务器端需要向CA机构申请签名证书。在申请签名证书之前依然是要创建自己的CSR文件。值得注意的是，这个过程中的Common Name要匹配服务器域名，否则在后续的认证过程中会出错。如下是生成CSR文件所用的命令：![image-20230819144159383](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-41-image-20230819144159383.png)。得到CSR文件后，向我们自己的CA机构申请签名吧。签名过程需要CA的证书和私钥参与，最终颁发一个带有CA签名的证书，如下所示：![image-20230819144230942](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-42-image-20230819144230942.png)
+上述步骤完成了扮演CA角色需要的文件。接下来回到服务器端，服务器端需要向CA机构申请签名证书。在申请签名证书之前依然是要创建自己的CSR文件。值得注意的是，这个过程中的Common Name要匹配服务器域名，否则在后续的认证过程中会出错。如下是生成CSR文件所用的命令：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-41-image-20230819144159383.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-41-image-20230819144159383.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-41-image-20230819144159383.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-41-image-20230819144159383.png" loading="lazy"/>
+  </picture>。得到CSR文件后，向我们自己的CA机构申请签名吧。签名过程需要CA的证书和私钥参与，最终颁发一个带有CA签名的证书，如下所示：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-42-image-20230819144230942.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-42-image-20230819144230942.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-42-image-20230819144230942.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-19-14-42-image-20230819144230942.png" loading="lazy"/>
+  </picture>
 
 客户端在发起安全连接前会去获取服务器端的证书，并通过CA的证书验证服务器端证书的真伪。除了验证真伪外，通常还含有对服务器名称、IP地址等进行验证的过程。
 
@@ -1742,7 +1846,11 @@ console.log(decoder.write(buf2));
 
 我们将介绍创建子进程、进程间通信的IPC通道实现、句柄在进程间的发送和还原、端口共用等细节。通过这些基础技术，用child_process模块在单机上搭建Node集群是件相对容易的事情。因此在多核CPU的环境下，让Node进程能够充分利用资源不再是难题。
 
-![image-20230830011313772](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-13-image-20230830011313772.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-13-image-20230830011313772.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-13-image-20230830011313772.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-13-image-20230830011313772.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-13-image-20230830011313772.png" loading="lazy"/>
+  </picture>
 
 图9-1就是著名的Master-Worker模式，又称主从模式。图9-1中的进程分为两种：主进程和工作进程。主进程不负责具体的业务处理，而是负责调度或管理工作进程。通过fork()复制的进程都是一个独立的进程，这个进程中有着独立而全新的V8实例。它需要至少30毫秒的启动时间和至少10 MB的内存。尽管Node提供了fork()供我们复制进程使每个CPU内核都使用上，但是依然要切记fork()进程是昂贵的。
 
@@ -1766,7 +1874,11 @@ spawn()与exec()、execFile()不同的是，后两者创建时可以指定timeou
 
 以上4个方法在创建子进程之后均会返回子进程对象。它们的差别可以看表：
 
-![image-20230830011559342](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-15-image-20230830011559342.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-15-image-20230830011559342.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-15-image-20230830011559342.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-15-image-20230830011559342.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-30-01-15-image-20230830011559342.png" loading="lazy"/>
+  </picture>
 
 <font color="red">这里的可执行文件是指可以直接执行的文件，如果是JavaScript文件通过execFile()运行，它的首行内容必须添加如下代码：`#! /usr/bin/env node`</font>
 
@@ -1861,7 +1973,11 @@ IPC就是通过共享内存的方式实现进程通信的，使得多个进程�
 
 Node中实现IPC通道的是管道（pipe）技术。在Node中管道是个抽象层面的称呼，具体细节实现由libuv提供，在Windows下由命名管道（named pipe）实现，*nix系统则采用Unix Domain Socket实现。表现在应用层上的进程间通信只有简单的message事件和send()方法。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-02-04-image-20230909020434869.png" alt="image-20230909020434869" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-02-04-image-20230909020434869.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-02-04-image-20230909020434869.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-02-04-image-20230909020434869.png" alt="image-20230909020434869" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -1938,7 +2054,11 @@ pipe.write('hello master process！'); // 输出
 
 执行master.js运行结果如图：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-13-19-41-image-20231213194158601.png" alt="image-20231213194158601" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-13-19-41-image-20231213194158601.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-13-19-41-image-20231213194158601.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-13-19-41-image-20231213194158601.png" alt="image-20231213194158601" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -2024,7 +2144,11 @@ Bigpipe的解决思路则是将页面分割成多个部分（pagelet），先向
 
 ❑ 前端渲染。Bigpipe的渲染流程示意图
 
-![image-20230820210550303](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-21-05-image-20230820210550303.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-21-05-image-20230820210550303.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-21-05-image-20230820210550303.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-21-05-image-20230820210550303.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-20-21-05-image-20230820210550303.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2048,7 +2172,11 @@ Node.js的核心作用包含优化页面渲染和提供API服务两种，API服�
 
 以koa为例：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-04-10-55-image-20240104105514645.png" alt="image-20240104105514645" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-04-10-55-image-20240104105514645.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-04-10-55-image-20240104105514645.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-04-10-55-image-20240104105514645.png" alt="image-20240104105514645" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 ### node服务
 
@@ -2062,7 +2190,11 @@ Node.js的核心作用包含优化页面渲染和提供API服务两种，API服�
 
 在普通的Web应用中，Node尽管也能通过中间件实现静态文件服务，但是Node处理静态文件的能力并不算突出。将图片、脚本、样式表和多媒体等静态文件都引导到专业的静态文件服务器上，让Node只处理动态请求即可。这个过程可以用Nginx或者专业的CDN来处理
 
-![image-20230909135521566](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-13-55-image-20230909135521566.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-13-55-image-20230909135521566.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-13-55-image-20230909135521566.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-13-55-image-20230909135521566.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-13-55-image-20230909135521566.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2082,7 +2214,11 @@ Node.js的核心作用包含优化页面渲染和提供API服务两种，API服�
 
 ## node生态
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-11-09-image-20230805110955071.png" alt="image-20230805110955071"  />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-11-09-image-20230805110955071.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-11-09-image-20230805110955071.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-05-11-09-image-20230805110955071.png" alt="image-20230805110955071" loading="lazy"/>
+  </picture>
 
 
 
@@ -2293,7 +2429,11 @@ function call(handle, route, err, req, res, next) {
 
 - Express的哲学是为HTTP服务器提供小的、健壮的工具，使之成为开箱即用的Web框架。而Koa只提供中间件内核，不绑定任何中间件，所以Express和Koa并不在一个重量级别上。其实，Koa和Connect非常像，都是只有中间件机制的内核模块（所以Koa严格来说不算框架，只是将原生http服务器封装成中间件机制）。Koa、Express、Connect特性对比如图所示。
 
-  <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-04-11-48-image-20240104114813760.png" alt="image-20240104114813760" style="zoom:50%;" />
+  <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-04-11-48-image-20240104114813760.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-04-11-48-image-20240104114813760.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-04-11-48-image-20240104114813760.png" alt="image-20240104114813760" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 - 在异步执行中间件时，koa的话哪怕中间件中有异步函数也还是会严格按照洋葱模型的顺序去等异步函数执行完再去走下一个中间件，而express的话就是先执行完中间件里的同步函数再执行异步。原因看上面的中间件。 
 
@@ -4107,7 +4247,11 @@ $ npx egg-init --type=ts showcase
 
 **每一个中间件都有两次处理时机**。
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hiO5ub.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hiO5ub.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hiO5ub.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hiO5ub.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hiO5ub.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4168,7 +4312,11 @@ vo 是 view object，用于返回给视图的数据的封装。
 
 而 entity 是和数据库表对应的实体类。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-06-19-49-image-20240206194932589.png" alt="image-20240206194932589" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-06-19-49-image-20240206194932589.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-06-19-49-image-20240206194932589.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-06-19-49-image-20240206194932589.png" alt="image-20240206194932589" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -4192,33 +4340,57 @@ nest 实现了IOC，它有一个放对象的容器，程序初始化的时候会
 
 AppService 是被 @Injectable 修饰的 class：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-P0gILt.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-P0gILt.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-P0gILt.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-P0gILt.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-P0gILt.webp" loading="lazy"/>
+  </picture>
 
 在 Module 的 providers 里声明完整的写法是这样的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-swll2s.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-swll2s.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-swll2s.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-swll2s.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-swll2s.webp" loading="lazy"/>
+  </picture>
 
 通过 provide 指定 token，通过 useClass 指定对象的类，Nest 会自动对它做实例化后用来注入。
 
 在 AppController 的构造器里参数里声明了 AppService 的依赖，就会自动注入：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-pZw0fR.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-pZw0fR.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-pZw0fR.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-pZw0fR.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-pZw0fR.webp" loading="lazy"/>
+  </picture>
 
 如果不想用构造器注入，也可以属性注入：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-QqDNuC.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-QqDNuC.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-QqDNuC.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-QqDNuC.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-QqDNuC.webp" loading="lazy"/>
+  </picture>
 
 
 
 这个 token 也可以是字符串：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-VJo8ue.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-VJo8ue.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-VJo8ue.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-VJo8ue.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-VJo8ue.webp" loading="lazy"/>
+  </picture>
 
 
 
 如果 token 是字符串的话，注入的时候就要用 @Inject 手动指定注入对象的 token 了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7vvNc8.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7vvNc8.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7vvNc8.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7vvNc8.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7vvNc8.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4230,7 +4402,11 @@ AppService 是被 @Injectable 修饰的 class：
 
 除了指定 class 外，还可以直接指定一个值，让 IoC 容器来注入。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ARyjXi.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ARyjXi.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ARyjXi.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ARyjXi.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ARyjXi.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4238,7 +4414,11 @@ AppService 是被 @Injectable 修饰的 class：
 
 然后在对象里注入它：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0PFAo.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0PFAo.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0PFAo.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0PFAo.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0PFAo.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4264,7 +4444,11 @@ provider 的值可能是动态产生的，Nest 也同样支持：
 
 在对象里注入：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-GfhMxv.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-GfhMxv.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-GfhMxv.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-GfhMxv.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-GfhMxv.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4272,7 +4456,11 @@ provider 的值可能是动态产生的，Nest 也同样支持：
 
 这个 useFactory 支持通过参数注入别的 provider：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8XQlUP.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8XQlUP.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8XQlUP.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8XQlUP.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8XQlUP.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4280,7 +4468,11 @@ provider 的值可能是动态产生的，Nest 也同样支持：
 
 也就是注入这两个 provider：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Qs3TF6.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Qs3TF6.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Qs3TF6.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Qs3TF6.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Qs3TF6.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4309,7 +4501,11 @@ Nest 会等拿到异步方法的结果之后再注入。
 
 此外，provider 还可以通过 useExisting 来指定别名：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-nh75dE.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-nh75dE.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-nh75dE.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-nh75dE.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-nh75dE.webp" loading="lazy"/>
+  </picture>
 
 这里就是给 person2 的 token 的 provider 起个新的 token 叫做 person4。
 
@@ -4319,15 +4515,27 @@ Nest 会等拿到异步方法的结果之后再注入。
 
 这时候 nest start --watch 会报错：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Vfl6gg.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Vfl6gg.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Vfl6gg.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Vfl6gg.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Vfl6gg.webp" loading="lazy"/>
+  </picture>
 
 说是没法解析 DddService 的依赖，也是因为循环依赖导致的。
 
 这时候也是通过 forwardRef 解决：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Kc3ujL.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Kc3ujL.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Kc3ujL.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Kc3ujL.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Kc3ujL.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iutquf.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iutquf.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iutquf.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iutquf.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iutquf.webp" loading="lazy"/>
+  </picture>
 
 这时候就不能用默认的注入方式了，通过 @Inject 手动指定注入的 token，这里是 forwardRef 的方式注入。
 
@@ -4375,7 +4583,11 @@ Reflect.defineMetadata 和 Reflect.getMetadata 分别用于设置和获取某个
 
 看下 nest 的源码：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Hik6yB.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Hik6yB.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Hik6yB.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Hik6yB.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Hik6yB.webp" loading="lazy"/>
+  </picture>
 
 上面就是 @Module 装饰器的实现，里面就调用了 Reflect.defineMetadata 来给这个类添加了一些元数据。
 
@@ -4397,15 +4609,31 @@ export class CatsModule {}
 
 后面创建 IOC 容器的时候就会取出这些元数据来处理：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PDwSNl.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PDwSNl.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PDwSNl.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PDwSNl.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PDwSNl.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-XW8v7r.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-XW8v7r.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-XW8v7r.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-XW8v7r.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-XW8v7r.webp" loading="lazy"/>
+  </picture>
 
 而且 @Controller 和 @Injectable 的装饰器也是这样实现的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-a7x65X.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-a7x65X.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-a7x65X.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-a7x65X.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-a7x65X.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w5lgoZ.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w5lgoZ.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w5lgoZ.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w5lgoZ.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w5lgoZ.webp" loading="lazy"/>
+  </picture>
 
 Nest 的实现原理就是通过装饰器给 class 或者对象添加元数据，然后初始化的时候取出这些元数据，进行依赖的分析，然后创建对应的实例对象就可以了。
 
@@ -4461,13 +4689,21 @@ class Guang {
 
 按理说我们只添加了一个元数据，生成的代码也确实是这样的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Sqzps6.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Sqzps6.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Sqzps6.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Sqzps6.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Sqzps6.webp" loading="lazy"/>
+  </picture>
 
 但是呢，ts 有一个编译选项叫做 emitDecoratorMetadata，开启它就会自动添加一些元数据。
 
 开启之后再试一下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tvfqwv.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tvfqwv.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tvfqwv.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tvfqwv.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tvfqwv.webp" loading="lazy"/>
+  </picture>
 
 你会看到多了三个元数据：
 
@@ -4483,17 +4719,29 @@ design:returntype 是 String，也很容易理解，就是返回值的类型
 
 nest 源码里你会看到这样的代码：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-rBTjM1.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-rBTjM1.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-rBTjM1.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-rBTjM1.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-rBTjM1.webp" loading="lazy"/>
+  </picture>
 
 就是获取构造器的参数类型的。这个常量就是我们上面说的那个：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UXtR0Z.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UXtR0Z.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UXtR0Z.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UXtR0Z.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UXtR0Z.webp" loading="lazy"/>
+  </picture>
 
 这也是为什么 nest 会用 ts 来写，因为它很依赖这个 emitDecoratorMetadata 的编译选项。
 
 你用 cli 生成的代码模版里也都默认开启了这个编译选项：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-FupccI.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-FupccI.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-FupccI.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-FupccI.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-FupccI.webp" loading="lazy"/>
+  </picture>
 
 ### 模块机制
 
@@ -4505,15 +4753,27 @@ nest 源码里你会看到这样的代码：
 nest g module other # 用 nest cli 的 generate 命令生成一个模块。
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DeyPvt.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DeyPvt.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DeyPvt.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DeyPvt.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DeyPvt.webp" loading="lazy"/>
+  </picture>
 
 会生成如下代码：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-0PlK8F.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-0PlK8F.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-0PlK8F.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-0PlK8F.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-0PlK8F.webp" loading="lazy"/>
+  </picture>
 
 会在 AppModule 里自动 imports 这个模块：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-M77MjM.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-M77MjM.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-M77MjM.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-M77MjM.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-M77MjM.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4527,23 +4787,43 @@ nest g module other # 用 nest cli 的 generate 命令生成一个模块。
 nest g service other
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PcJyW2.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PcJyW2.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PcJyW2.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PcJyW2.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-PcJyW2.webp" loading="lazy"/>
+  </picture>
 
 会生成 Service 的代码：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iMMdFR.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iMMdFR.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iMMdFR.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iMMdFR.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-iMMdFR.webp" loading="lazy"/>
+  </picture>
 
 并自动添加到 OtherModule 的 providers 中：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wIWWz6.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wIWWz6.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wIWWz6.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wIWWz6.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wIWWz6.webp" loading="lazy"/>
+  </picture>
 
 我们改下 OtherService，添加一个方法：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-aTGWa7.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-aTGWa7.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-aTGWa7.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-aTGWa7.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-aTGWa7.webp" loading="lazy"/>
+  </picture>
 
 然后在 OtherModule 里 exports：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wtrANq.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wtrANq.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wtrANq.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wtrANq.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-wtrANq.webp" loading="lazy"/>
+  </picture>
 
 那当 AppModule 引用了 OtherModule 之后，就可以注入它 exports 的 OtherService 了。
 
@@ -4575,7 +4855,11 @@ export class AppService {
 
 `@Global()`
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-NRx52U.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-NRx52U.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-NRx52U.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-NRx52U.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-NRx52U.webp" loading="lazy"/>
+  </picture>
 
 在 AaaModule 上加一个 @Global 的装饰器，这样不用imports也能直接使用了。不过全局模块还是尽量少用，不然注入的很多 provider 都不知道来源，会降低代码的可维护性。
 
@@ -4585,7 +4869,11 @@ export class AppService {
 
 报这样的错误：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SybGOj.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SybGOj.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SybGOj.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SybGOj.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SybGOj.webp" loading="lazy"/>
+  </picture>
 
 意思是在解析 BbbModule 的时候，它的第一个 imports 是 undefined。
 
@@ -4593,7 +4881,11 @@ export class AppService {
 
 因为 Nest 创建 Module 的时候会递归创建它的依赖，而它的依赖又依赖了这个 Module，所以没法创建成功，拿到的就是 undefined。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z5S7qU.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z5S7qU.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z5S7qU.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z5S7qU.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z5S7qU.webp" loading="lazy"/>
+  </picture>
 
 那怎么办呢？
 
@@ -4601,9 +4893,17 @@ export class AppService {
 
 也就是用 forwardRef 的方式：单独创建两个 Module，之后再把 Module 的引用转发过去
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nw1Oav.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nw1Oav.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nw1Oav.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nw1Oav.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nw1Oav.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-l7W3hA.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-l7W3hA.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-l7W3hA.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-l7W3hA.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-l7W3hA.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4652,19 +4952,35 @@ export class BbbModule {
 
 import 的时候就得这样用了，通过 register 方法传入参数，返回值就是模块定义：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UWBGLf.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UWBGLf.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UWBGLf.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UWBGLf.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-UWBGLf.webp" loading="lazy"/>
+  </picture>
 
 这时候我们把传入的 options 通过 useValue 创建了个 provider，这样模块内部就可以注入它了。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3Suse9.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3Suse9.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3Suse9.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3Suse9.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3Suse9.webp" loading="lazy"/>
+  </picture>
 
 改一下 register 的参数：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jlZHWM.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jlZHWM.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jlZHWM.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jlZHWM.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jlZHWM.webp" loading="lazy"/>
+  </picture>
 
 浏览器再访问下，可以看到控制台打印了 config 对象：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zjMRaQ.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zjMRaQ.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zjMRaQ.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zjMRaQ.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zjMRaQ.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4686,25 +5002,45 @@ import 的时候就得这样用了，通过 register 方法传入参数，返回
 
 ###### 比如 @nestjs/typeorm 的动态模块：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Zt1uTr.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Zt1uTr.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Zt1uTr.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Zt1uTr.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Zt1uTr.webp" loading="lazy"/>
+  </picture>
 
 forRoot 传入配置，动态产生 provider 和 exports，返回模块定义。
 
 而且还有 forRootAsync：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oskBY0.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oskBY0.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oskBY0.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oskBY0.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oskBY0.webp" loading="lazy"/>
+  </picture>
 
 区别就是可以用 async 的 useFactory 动态产生 provider，比如异步请求别的服务拿到配置返回，作为 options。
 
 forFeature 则是传入局部的一些配置，来动态产生局部用的模块：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-8Zxs5v.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-8Zxs5v.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-8Zxs5v.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-8Zxs5v.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-8Zxs5v.webp" loading="lazy"/>
+  </picture>
 
 typeorm 的模块用起来是这样的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DOKJgA.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DOKJgA.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DOKJgA.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DOKJgA.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-DOKJgA.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2k3NQc.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2k3NQc.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2k3NQc.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2k3NQc.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2k3NQc.webp" loading="lazy"/>
+  </picture>
 
 在 AppModule 里 import 通过 forRoot 动态产生的模块，在具体的业务 Module 里，通过 forFeature 传入具体实体类的配置。
 
@@ -4755,27 +5091,47 @@ export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
 
 然后 Module 继承它：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2TwSOp.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2TwSOp.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2TwSOp.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2TwSOp.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-2TwSOp.webp" loading="lazy"/>
+  </picture>
 
 这样这个 CccModule 就已经有了 register 和 registerAsync 方法了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-LvROWE.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-LvROWE.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-LvROWE.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-LvROWE.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-LvROWE.webp" loading="lazy"/>
+  </picture>
 
 不用自己定义了，省事了不少。
 
 传入 options：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4L4hiP.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4L4hiP.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4L4hiP.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4L4hiP.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4L4hiP.webp" loading="lazy"/>
+  </picture>
 
 那现在如何在 Module 内注入这个 options 呢？
 
 记得 build class 的时候返回了一个 token 么？
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ZR11nJ.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ZR11nJ.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ZR11nJ.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ZR11nJ.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-ZR11nJ.webp" loading="lazy"/>
+  </picture>
 
 就用这个注入：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Qm17lO.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Qm17lO.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Qm17lO.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Qm17lO.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Qm17lO.webp" loading="lazy"/>
+  </picture>
 
 ```javascript
 javascript
@@ -4797,7 +5153,11 @@ export class CccController {
 
 浏览器访问下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WktfYX.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WktfYX.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WktfYX.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WktfYX.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WktfYX.webp" loading="lazy"/>
+  </picture>
 
 可以看到拿到了 options 对象。
 
@@ -4805,7 +5165,11 @@ export class CccController {
 
 你还可以用 registerAsync 方法，用 useFactory 动态创建 options 对象：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hD8vZZ.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hD8vZZ.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hD8vZZ.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hD8vZZ.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hD8vZZ.webp" loading="lazy"/>
+  </picture>
 
 前面我们不是说还可以用 forRoot、forFeature 这样的方法么？
 
@@ -4813,9 +5177,17 @@ export class CccController {
 
 调用 setClassMethodName 设置下就好了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Ffue9g.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Ffue9g.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Ffue9g.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Ffue9g.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Ffue9g.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Lqu6DT.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Lqu6DT.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Lqu6DT.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Lqu6DT.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Lqu6DT.webp" loading="lazy"/>
+  </picture>
 
 如果我还想根据传入的参数决定是否设置为全局模块呢？
 
@@ -4845,31 +5217,55 @@ setExtras 第一个参数是给 options 扩展啥 extras 属性，第二个参�
 
 这时候你就会发现 register 的 options 多了 isGlobal：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-T54iys.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-T54iys.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-T54iys.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-T54iys.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-T54iys.webp" loading="lazy"/>
+  </picture>
 
 这样创建的就是全局的模块。
 
 不过这样还有个问题：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7bqfM4.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7bqfM4.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7bqfM4.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7bqfM4.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7bqfM4.webp" loading="lazy"/>
+  </picture>
 
 options 那里多了 isGlobal 属性，但是类型定义这里还没有呀。
 
 因为我们用的是这个类型：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-50xmMl.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-50xmMl.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-50xmMl.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-50xmMl.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-50xmMl.webp" loading="lazy"/>
+  </picture>
 
 最好是用 builder 返回的类型：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-vk5ZVW.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-vk5ZVW.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-vk5ZVW.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-vk5ZVW.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-vk5ZVW.webp" loading="lazy"/>
+  </picture>
 
 这样就有了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gvn1RS.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gvn1RS.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gvn1RS.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gvn1RS.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gvn1RS.webp" loading="lazy"/>
+  </picture>
 
 而这个 ASYNC_OPTIONS_TYPE 是 async 方式创建模块的 otpion 类型：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5dXiW5.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5dXiW5.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5dXiW5.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5dXiW5.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5dXiW5.webp" loading="lazy"/>
+  </picture>
 
 回过头来看一下这个 ConfigurableModuleBuilder，它只是对我们定义 register、registerAsync 的过程做了封装，传参数就可以生成对应的 class，简便了不少。
 
@@ -4933,11 +5329,19 @@ nest g middleware aaa --no-spec --flat
 
 创建个 middleware：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dd9nWI.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dd9nWI.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dd9nWI.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dd9nWI.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dd9nWI.webp" loading="lazy"/>
+  </picture>
 
 因为这时候并不知道你用的 express 还是 fastify，所以 request、response 是 any，手动标注下类型就好了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-kKbWff.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-kKbWff.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-kKbWff.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-kKbWff.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-kKbWff.webp" loading="lazy"/>
+  </picture>
 
 这里是 express 的 request、response。
 
@@ -4960,7 +5364,11 @@ export class AaaMiddleware implements NestMiddleware {
 
 然后在 Module 里这样使用：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nx1qsd.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nx1qsd.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nx1qsd.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nx1qsd.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Nx1qsd.webp" loading="lazy"/>
+  </picture>
 
 实现 NestModule 接口的 configure 方法，在里面应用 AaaMiddleware 到所有路由。
 
@@ -4973,25 +5381,45 @@ sql
 
 浏览器访问 [http://localhost:3000](https://link.juejin.cn/?target=http%3A%2F%2Flocalhost%3A3000)
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dk0qsb.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dk0qsb.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dk0qsb.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dk0qsb.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Dk0qsb.webp" loading="lazy"/>
+  </picture>
 
 可以看到中间件的逻辑都执行了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-65U8Fp.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-65U8Fp.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-65U8Fp.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-65U8Fp.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-65U8Fp.webp" loading="lazy"/>
+  </picture>
 
 这里也可以指定更精确的路由。
 
 我们添加几个 handler：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-L024Iy.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-L024Iy.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-L024Iy.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-L024Iy.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-L024Iy.webp" loading="lazy"/>
+  </picture>
 
 然后重新指定 Middleware 应用的路由：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-e6Uv5y.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-e6Uv5y.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-e6Uv5y.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-e6Uv5y.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-e6Uv5y.webp" loading="lazy"/>
+  </picture>
 
 可以看到，hello、hello2、world2 的路由都调用了这个中间件，而 world1 没有：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-BQXrSC.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-BQXrSC.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-BQXrSC.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-BQXrSC.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-BQXrSC.webp" loading="lazy"/>
+  </picture>
 
 这就是 Nest 里 middleware 的用法。
 
@@ -5023,15 +5451,27 @@ export class AaaMiddleware implements NestMiddleware {
 }
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4nxPHz.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4nxPHz.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4nxPHz.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4nxPHz.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4nxPHz.webp" loading="lazy"/>
+  </picture>
 
 当然，这里也可以用构造器注入，这样更简洁一点：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-975b4U.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-975b4U.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-975b4U.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-975b4U.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-975b4U.webp" loading="lazy"/>
+  </picture>
 
 这时在访问这个路由的时候，就可以看到中间件成功调用了 AppService：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4cH4AY.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4cH4AY.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4cH4AY.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4cH4AY.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-4cH4AY.webp" loading="lazy"/>
+  </picture>
 
 这就是 Nest 注入的依赖。
 
@@ -5045,7 +5485,11 @@ export class AaaMiddleware implements NestMiddleware {
 
 全局中间件就是这样，在 main.ts 里通过 app.use 使用：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-s2EIjW.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-s2EIjW.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-s2EIjW.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-s2EIjW.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-s2EIjW.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5055,19 +5499,31 @@ export class AaaMiddleware implements NestMiddleware {
 
 
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-13yCfZ.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-13yCfZ.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-13yCfZ.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-13yCfZ.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-13yCfZ.webp" loading="lazy"/>
+  </picture>
 
 --no-spec 是不生成测试文件，--flat 是平铺，不生成目录。
 
 生成的代码是这样的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-B7tnhr.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-B7tnhr.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-B7tnhr.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-B7tnhr.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-B7tnhr.webp" loading="lazy"/>
+  </picture>
 
 
 
 然后在 AppModule 里启用：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7JppXl.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7JppXl.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7JppXl.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7JppXl.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-7JppXl.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5081,7 +5537,11 @@ export class AaaMiddleware implements NestMiddleware {
 
 Guard 是路由守卫的意思，可以用于在调用某个 Controller 之前判断权限，返回 true 或者 false 来决定是否放行：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-23-image-20240202202354816.png" alt="image-20240202202354816" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-23-image-20240202202354816.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-23-image-20240202202354816.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-23-image-20240202202354816.png" alt="image-20240202202354816" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 我们创建个 Guard：
 
@@ -5118,7 +5578,11 @@ Guard 要实现 CanActivate 接口，实现 canActivate 方法，可以从 conte
 
 在 AppController 里启用：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SfiJjM.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SfiJjM.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SfiJjM.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SfiJjM.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SfiJjM.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5134,13 +5598,21 @@ Controller 本身不需要做啥修改，却透明的加上了权限判断的逻
 
 这种方式是手动 new 的 Guard 实例，不在 IoC 容器里
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-bMbN89.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-bMbN89.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-bMbN89.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-bMbN89.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-bMbN89.webp" loading="lazy"/>
+  </picture>
 
 
 
 这样每个路由都会应用这个 Guard：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-RKul5V.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-RKul5V.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-RKul5V.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-RKul5V.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-RKul5V.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5148,13 +5620,21 @@ Controller 本身不需要做啥修改，却透明的加上了权限判断的逻
 
 用 provider 的方式声明的 Guard 是在 IoC 容器里的，可以注入别的 provider，需要注入别的 provider 的时候，就要用第二种全局 Guard 的声明方式。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zshzbH.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zshzbH.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zshzbH.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zshzbH.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-zshzbH.webp" loading="lazy"/>
+  </picture>
 
 
 
 我们注入下 AppService 试试：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dfnLrk.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dfnLrk.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dfnLrk.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dfnLrk.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dfnLrk.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5164,7 +5644,11 @@ Controller 本身不需要做啥修改，却透明的加上了权限判断的逻
 
 Interceptor 可以在目标 Controller 方法前后加入一些逻辑：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-30-image-20240202203046095.png" alt="image-20240202203046095" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-30-image-20240202203046095.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-30-image-20240202203046095.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-30-image-20240202203046095.png" alt="image-20240202203046095" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 创建个 interceptor：
 
@@ -5176,7 +5660,11 @@ nest g interceptor time --no-spec --flat
 
 生成的 interceptor 是这样的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3F7Y1I.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3F7Y1I.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3F7Y1I.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3F7Y1I.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3F7Y1I.webp" loading="lazy"/>
+  </picture>
 
 Interceptor 要实现 NestInterceptor 接口，实现 intercept 方法，调用 next.handle() 就会调用目标 Controller，可以在之前和之后加入一些处理逻辑。
 
@@ -5205,7 +5693,11 @@ export class TimeInterceptor implements NestInterceptor {
 
 启用这个 interceptor：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lgEust.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lgEust.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lgEust.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lgEust.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lgEust.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5213,23 +5705,43 @@ export class TimeInterceptor implements NestInterceptor {
 
 interceptor 可以拿到调用的 controller 和 handler：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QA0DHQ.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QA0DHQ.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QA0DHQ.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QA0DHQ.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QA0DHQ.webp" loading="lazy"/>
+  </picture>
 
 
 
 Interceptor 支持每个路由单独启用，只作用于某个 handler：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LJOTio.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LJOTio.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LJOTio.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LJOTio.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LJOTio.webp" loading="lazy"/>
+  </picture>
 
 也可以在 controller 级别启动，作用于下面的全部 handler：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-s1O8Xy.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-s1O8Xy.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-s1O8Xy.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-s1O8Xy.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-s1O8Xy.webp" loading="lazy"/>
+  </picture>
 
 也同样支持全局启用，作用于全部 controller：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-I3qOlS.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-I3qOlS.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-I3qOlS.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-I3qOlS.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-I3qOlS.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lZzXF9.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lZzXF9.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lZzXF9.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lZzXF9.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-lZzXF9.webp" loading="lazy"/>
+  </picture>
 
 两种全局启用方式的区别和 guard 的一样。
 
@@ -5241,7 +5753,11 @@ Interceptor 支持每个路由单独启用，只作用于某个 handler：
 
 Pipe 用来对参数做一些检验和转换，在参数传给 handler 之前对参数做一些验证和转换的 class。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9FKsR7.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9FKsR7.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9FKsR7.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9FKsR7.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9FKsR7.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5249,11 +5765,19 @@ Pipe 用来对参数做一些检验和转换，在参数传给 handler 之前对
 
 对应的源码如下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-K1ApD2.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-K1ApD2.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-K1ApD2.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-K1ApD2.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-K1ApD2.webp" loading="lazy"/>
+  </picture>
 
 对每个参数都会应用 pipe：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-wiWyhu.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-wiWyhu.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-wiWyhu.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-wiWyhu.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-wiWyhu.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5269,7 +5793,11 @@ nest g pipe validate --no-spec --flat
 
 生成的代码是这样的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-3mHnU6.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-3mHnU6.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-3mHnU6.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-3mHnU6.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-3mHnU6.webp" loading="lazy"/>
+  </picture>
 
 Pipe 要实现 PipeTransform 接口，实现 transform 方法，里面可以对传入的参数值 value 做参数验证，比如格式、类型是否正确，不正确就抛出异常。也可以做转换，返回转换后的值。
 
@@ -5308,15 +5836,31 @@ ccc(@Query('num', ValidatePipe) num: number) {
 
 同样，Pipe 可以只对某个参数生效，或者整个 Controller 都生效：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-MSLNwj.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-MSLNwj.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-MSLNwj.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-MSLNwj.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-MSLNwj.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AdNjCO.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AdNjCO.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AdNjCO.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AdNjCO.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AdNjCO.webp" loading="lazy"/>
+  </picture>
 
 或者全局生效：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OsFdKZ.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OsFdKZ.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OsFdKZ.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OsFdKZ.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OsFdKZ.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-tDc3UH.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-tDc3UH.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-tDc3UH.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-tDc3UH.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-tDc3UH.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5336,7 +5880,11 @@ ccc(@Query('num', ValidatePipe) num: number) {
 
 ParseIntPipe 的源码是这样的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ahBVhb.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ahBVhb.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ahBVhb.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ahBVhb.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ahBVhb.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5358,11 +5906,19 @@ ParseIntPipe 的源码是这样的：
 
 ExceptionFilter 可以对抛出的异常做处理，返回对应的响应：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-IzDyWV.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-IzDyWV.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-IzDyWV.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-IzDyWV.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-IzDyWV.webp" loading="lazy"/>
+  </picture>
 
 其实我们刚刚在 pipe 里抛的这个错误，能够返回 400 的响应，就是 Exception Filter 做的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kHQKKo.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kHQKKo.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kHQKKo.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kHQKKo.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kHQKKo.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5400,11 +5956,19 @@ export class TestFilter implements ExceptionFilter {
 
 用一下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-JfmAhq.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-JfmAhq.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-JfmAhq.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-JfmAhq.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-JfmAhq.webp" loading="lazy"/>
+  </picture>
 
 再次访问，异常返回的响应就变了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KIjaEK.webp) Nest 内置了很多 http 相关的异常，都是 HttpException 的子类：
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KIjaEK.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KIjaEK.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KIjaEK.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KIjaEK.webp" loading="lazy"/>
+  </picture> Nest 内置了很多 http 相关的异常，都是 HttpException 的子类：
 
 - BadRequestException
 - UnauthorizedException
@@ -5425,23 +5989,47 @@ export class TestFilter implements ExceptionFilter {
 
 当然，也可以自己扩展：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-bBgSxH.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-bBgSxH.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-bBgSxH.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-bBgSxH.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-bBgSxH.webp" loading="lazy"/>
+  </picture>
 
 **Nest 通过这样的方式实现了异常到响应的对应关系，代码里只要抛出不同的异常，就会返回对应的响应，很方便。**
 
 同样，ExceptionFilter 也可以选择全局生效或者某个路由生效：
 
-某个 handler： ![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nMCA5G.webp)
+某个 handler： <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nMCA5G.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nMCA5G.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nMCA5G.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nMCA5G.webp" loading="lazy"/>
+  </picture>
 
 某个 controller：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-n7zoTd.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-n7zoTd.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-n7zoTd.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-n7zoTd.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-n7zoTd.webp" loading="lazy"/>
+  </picture>
 
-全局： ![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DyqTUe.webp)
+全局： <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DyqTUe.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DyqTUe.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DyqTUe.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DyqTUe.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-zsEn6m.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-zsEn6m.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-zsEn6m.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-zsEn6m.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-zsEn6m.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QGkYrD.webp) 
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QGkYrD.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QGkYrD.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QGkYrD.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-QGkYrD.webp" loading="lazy"/>
+  </picture> 
 
 
 
@@ -5451,29 +6039,53 @@ export class TestFilter implements ExceptionFilter {
 
 #### 几种 AOP 机制的顺序
 
-![image-20240202204215919](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-42-image-20240202204215919.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-42-image-20240202204215919.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-42-image-20240202204215919.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-42-image-20240202204215919.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-20-42-image-20240202204215919.png" loading="lazy"/>
+  </picture>
 
 对应的源码是这样的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Lpop9V.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Lpop9V.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Lpop9V.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Lpop9V.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Lpop9V.webp" loading="lazy"/>
+  </picture>
 
 很明显，进入这个路由的时候，会先调用 Guard，判断是否有权限等，如果没有权限，这里就抛异常了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nsBkb6.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nsBkb6.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nsBkb6.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nsBkb6.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-nsBkb6.webp" loading="lazy"/>
+  </picture>
 
 抛出的 ForbiddenException 会被 ExceptionFilter 处理，返回 403 状态码。
 
 如果有权限，就会调用到拦截器，拦截器组织了一个链条，一个个的调用，最后会调用的 controller 的方法：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YIzpsV.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YIzpsV.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YIzpsV.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YIzpsV.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YIzpsV.webp" loading="lazy"/>
+  </picture>
 
 调用 controller 方法之前，会使用 pipe 对参数做处理：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UEQipj.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UEQipj.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UEQipj.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UEQipj.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UEQipj.webp" loading="lazy"/>
+  </picture>
 
 会对每个参数做转换：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-voTiOQ.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-voTiOQ.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-voTiOQ.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-voTiOQ.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-voTiOQ.webp" loading="lazy"/>
+  </picture>
 
 ExceptionFilter 的调用时机很容易想到，就是在响应之前对异常做一次处理。
 
@@ -5499,11 +6111,19 @@ Nest 还提供了 @SetMetadata 的装饰器，可以在 controller 的 class 和
 
 handler 和 class 可以通过 @SetMetadata 指定 metadata：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kcFwOd.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kcFwOd.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kcFwOd.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kcFwOd.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kcFwOd.webp" loading="lazy"/>
+  </picture>
 
 然后在 guard 或者 interceptor 里取出来：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DctODp.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DctODp.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DctODp.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DctODp.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-DctODp.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5575,7 +6195,11 @@ export class AaaFilter implements ExceptionFilter {
 
 可以看到它传入的是 ExecutionContext：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-m0ahh3.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-m0ahh3.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-m0ahh3.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-m0ahh3.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-m0ahh3.webp" loading="lazy"/>
+  </picture>
 
 ExecutionContext 是 ArgumentHost 的子类，扩展了 getClass、getHandler 方法。
 
@@ -5589,17 +6213,29 @@ ExecutionContext 是 ArgumentHost 的子类，扩展了 getClass、getHandler �
 
 比如权限验证的时候，我们会先定义几个角色：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UWRNPT.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UWRNPT.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UWRNPT.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UWRNPT.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-UWRNPT.webp" loading="lazy"/>
+  </picture>
 
 然后定义这样一个装饰器：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-F7ALDE.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-F7ALDE.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-F7ALDE.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-F7ALDE.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-F7ALDE.webp" loading="lazy"/>
+  </picture>
 
 它的作用是往修饰的目标上添加 roles 的 metadata。
 
 然后在 handler 上添加这个装饰器，参数为 admin，也就是给这个 handler 添加了一个 roles 为 admin 的metadata。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cFwBUp.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cFwBUp.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cFwBUp.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cFwBUp.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cFwBUp.webp" loading="lazy"/>
+  </picture>
 
 这样在 Guard 里就可以根据这个 metadata 决定是否放行了：
 
@@ -5685,7 +6321,11 @@ class 装饰器和方法装饰器一样。
 
 通过 @Headers 装饰器取某个请求头 或者全部请求头：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-SeOMUN.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-SeOMUN.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-SeOMUN.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-SeOMUN.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-SeOMUN.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5693,7 +6333,11 @@ class 装饰器和方法装饰器一样。
 
 通过 @Ip 拿到请求的 ip：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-PxZyoi.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-PxZyoi.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-PxZyoi.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-PxZyoi.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-PxZyoi.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5723,11 +6367,19 @@ export class AaaController {
 
 直接注入 request 对象：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-P46TQ7.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-P46TQ7.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-P46TQ7.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-P46TQ7.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-P46TQ7.webp" loading="lazy"/>
+  </picture>
 
 通过 @Req 或者 @Request 装饰器，这俩是同一个东西：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-jHsYBk.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-jHsYBk.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-jHsYBk.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-jHsYBk.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-jHsYBk.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5743,7 +6395,11 @@ export class AaaController {
 
 通过 @Session 拿到 session 对象：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-mzDLMG.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-mzDLMG.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-mzDLMG.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-mzDLMG.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-mzDLMG.webp" loading="lazy"/>
+  </picture>
 
 但要使用 session 需要安装一个 express 中间件：
 
@@ -5753,7 +6409,11 @@ npm install express-session
 
 在 main.ts 里引入并启用：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-U1oWdB.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-U1oWdB.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-U1oWdB.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-U1oWdB.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-U1oWdB.webp" loading="lazy"/>
+  </picture>
 
 指定加密的密钥和 cookie 的存活时间。
 
@@ -5761,17 +6421,29 @@ npm install express-session
 
 然后刷新页面：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-soxeXD.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-soxeXD.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-soxeXD.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-soxeXD.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-soxeXD.webp" loading="lazy"/>
+  </picture>
 
 会返回 set-cookie 的响应头，设置了 cookie，包含 sid 也就是 sesssionid。
 
 之后每次请求都会自动带上这个 cookie：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Yo4gck.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Yo4gck.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Yo4gck.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Yo4gck.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Yo4gck.webp" loading="lazy"/>
+  </picture>
 
 这样就可以在 session 对象里存储信息了。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-73PFJF.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-73PFJF.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-73PFJF.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-73PFJF.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-73PFJF.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5787,27 +6459,51 @@ npm install express-session
 
 也可以 @Res 或者 @Response 注入 response 对象，只不过 response 对象有点特殊：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kTQLwc.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kTQLwc.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kTQLwc.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kTQLwc.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kTQLwc.webp" loading="lazy"/>
+  </picture>
 
 当你注入 response 对象之后，服务器会一直没有响应：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Y1kRxC.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Y1kRxC.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Y1kRxC.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Y1kRxC.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Y1kRxC.webp" loading="lazy"/>
+  </picture>
 
 因为这时候 Nest 就不会再把 handler 返回值作为响应内容了。
 
 你可以自己返回响应：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8GNxsz.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8GNxsz.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8GNxsz.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8GNxsz.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8GNxsz.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-0XvcWO.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-0XvcWO.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-0XvcWO.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-0XvcWO.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-0XvcWO.webp" loading="lazy"/>
+  </picture>
 
 Nest 这么设计是为了避免你自己返回的响应和 Nest 返回的响应的冲突。
 
 如果你不会自己返回响应，可以通过 passthrough 参数告诉 Nest：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OF42Pm.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OF42Pm.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OF42Pm.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OF42Pm.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OF42Pm.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sNUWyS.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sNUWyS.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sNUWyS.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sNUWyS.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sNUWyS.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5817,11 +6513,19 @@ Nest 这么设计是为了避免你自己返回的响应和 Nest 返回的响应
 
 除了注入 @Res 不会返回响应外，注入 @Next 也不会：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LuX19I.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LuX19I.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LuX19I.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LuX19I.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LuX19I.webp" loading="lazy"/>
+  </picture>
 
 当你有两个 handler 来处理同一个路由的时候，可以在第一个 handler 里注入 next，调用它来把请求转发到第二个 handler：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ASdeQT.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ASdeQT.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ASdeQT.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ASdeQT.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-ASdeQT.webp" loading="lazy"/>
+  </picture>
 
 Nest 不会处理注入 @Next 的 handler 的返回值。
 
@@ -5833,9 +6537,17 @@ Nest 不会处理注入 @Next 的 handler 的返回值。
 
 handler 默认返回的是 200 的状态码，你可以通过 @HttpCode 修改它：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8QESnR.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8QESnR.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8QESnR.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8QESnR.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-8QESnR.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-91uTxN.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-91uTxN.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-91uTxN.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-91uTxN.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-91uTxN.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5843,9 +6555,17 @@ handler 默认返回的是 200 的状态码，你可以通过 @HttpCode 修改�
 
 当然，你也可以修改 response header，通过 @Header 装饰器：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OUny5Y.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OUny5Y.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OUny5Y.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OUny5Y.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-OUny5Y.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Of2OY9.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Of2OY9.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Of2OY9.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Of2OY9.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-Of2OY9.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5855,9 +6575,17 @@ handler 默认返回的是 200 的状态码，你可以通过 @HttpCode 修改�
 
 通过 @Redirect 装饰器来指定路由重定向的 url：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LNEroj.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LNEroj.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LNEroj.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LNEroj.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-LNEroj.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-T2CNlv.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-T2CNlv.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-T2CNlv.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-T2CNlv.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-T2CNlv.webp" loading="lazy"/>
+  </picture>
 
 或者在返回值的地方设置 url：
 
@@ -5907,17 +6635,33 @@ npm install --save hbs
 
 然后准备图片和模版文件：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KVDFVC.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KVDFVC.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KVDFVC.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KVDFVC.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-KVDFVC.webp" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-g1qzeL.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-g1qzeL.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-g1qzeL.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-g1qzeL.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-g1qzeL.webp" loading="lazy"/>
+  </picture>
 
 在 handler 里指定模版和数据：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kv0eZW.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kv0eZW.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kv0eZW.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kv0eZW.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-kv0eZW.webp" loading="lazy"/>
+  </picture>
 
 就可以看到渲染出的 html 了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-16sYVt.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-16sYVt.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-16sYVt.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-16sYVt.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-16sYVt.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5931,7 +6675,11 @@ Nest 也没有和 Express 强耦合，它做了一层抽象：
 
 定义了 [HttpServer 的 interface](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fnestjs%2Fnest%2Fblob%2Fd352e6f138bc70ff33cccf830053946d17272b82%2Fpackages%2Fcommon%2Finterfaces%2Fhttp%2Fhttp-server.interface.ts%23L21C1-L85)。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-04-15-46-image-20240204154631810.png" alt="image-20240204154631810" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-04-15-46-image-20240204154631810.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-04-15-46-image-20240204154631810.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-04-15-46-image-20240204154631810.png" alt="image-20240204154631810" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 这俩适配器分别在 @nestjs/platform-express 和 @nestjs/platform-fastify 的包里：
 
@@ -5949,11 +6697,19 @@ npm install fastify @nestjs/platform-fastify
 
 然后修改下 Nest 创建的方式：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9Ronuz.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9Ronuz.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9Ronuz.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9Ronuz.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-9Ronuz.webp" loading="lazy"/>
+  </picture>
 
 改成这样：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YrKbDg.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YrKbDg.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YrKbDg.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YrKbDg.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-YrKbDg.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -5961,15 +6717,27 @@ npm install fastify @nestjs/platform-fastify
 
 还可以再传一个类型参数：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uOJpbg.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uOJpbg.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uOJpbg.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uOJpbg.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uOJpbg.webp" loading="lazy"/>
+  </picture>
 
 这样返回的 app 就会提示 fastify 平台特有的方法了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AM6wER.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AM6wER.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AM6wER.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AM6wER.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-AM6wER.webp" loading="lazy"/>
+  </picture>
 
 这也是为什么之前我们要传入 NestExpressApplication 才有 useStaticAssets 方法：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-B8dx4o.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-B8dx4o.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-B8dx4o.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-B8dx4o.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-B8dx4o.webp" loading="lazy"/>
+  </picture>
 
 然后在 controller 里可以注入 fastify 的 reqeust 和 reply 对象：
 
@@ -5993,7 +6761,11 @@ export class AppController {
 
 我们注入了 fastify 的 request 和 reply 对象，然后用它来设置 header 发送响应：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uQWG1f.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uQWG1f.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uQWG1f.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uQWG1f.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-uQWG1f.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -6079,7 +6851,11 @@ https://juejin.cn/book/7226988578700525605/section/7247327089496424505
 nest new nest-config-test -p npm
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cyZaIh.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cyZaIh.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cyZaIh.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cyZaIh.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-cyZaIh.webp" loading="lazy"/>
+  </picture>
 
 安装 @nestjs/config 包：
 
@@ -6100,7 +6876,11 @@ bbb=2
 
 然后在 AppModule 里面引入：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sW64o5.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sW64o5.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sW64o5.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sW64o5.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-39-sW64o5.webp" loading="lazy"/>
+  </picture>
 
 然后在 AppController 里注入 ConfigService 来读取配置：
 
@@ -6136,7 +6916,11 @@ arduino
 
 浏览器访问下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-uuCsn7.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-uuCsn7.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-uuCsn7.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-uuCsn7.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-uuCsn7.webp" loading="lazy"/>
+  </picture>
 
 可以看到，nest 读取到了 .env 里的配置。
 
@@ -6180,7 +6964,11 @@ arduino
 
 浏览器访问下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-sApnJO.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-sApnJO.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-sApnJO.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-sApnJO.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-sApnJO.webp" loading="lazy"/>
+  </picture>
 
 可以看到 aaa 是 .aaa.env 里的，bbb 是 .env 里的。
 
@@ -6209,15 +6997,27 @@ javascript
 
 然后引入下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Kelonh.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Kelonh.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Kelonh.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Kelonh.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Kelonh.webp" loading="lazy"/>
+  </picture>
 
 在 Controller 里取出来：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-IVaCRG.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-IVaCRG.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-IVaCRG.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-IVaCRG.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-IVaCRG.webp" loading="lazy"/>
+  </picture>
 
 浏览器访问下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-2RB6dt.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-2RB6dt.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-2RB6dt.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-2RB6dt.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-2RB6dt.webp" loading="lazy"/>
+  </picture>
 
 这样，你可以动态加载配置。
 
@@ -6265,17 +7065,29 @@ export default async () => {
 
 在 AppModule 引入：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-g01yXg.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-g01yXg.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-g01yXg.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-g01yXg.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-g01yXg.webp" loading="lazy"/>
+  </picture>
 
 同样，前面覆盖后面的。
 
 改下 Controller：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-9ZZlBL.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-9ZZlBL.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-9ZZlBL.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-9ZZlBL.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-9ZZlBL.webp" loading="lazy"/>
+  </picture>
 
 浏览器访问下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-JBf3A8.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-JBf3A8.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-JBf3A8.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-JBf3A8.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-JBf3A8.webp" loading="lazy"/>
+  </picture>
 
 这样就正确读取了 yaml 配置。
 
@@ -6292,25 +7104,45 @@ css
 复制代码nest g resource bbb --no-spec
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-gSjgGe.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-gSjgGe.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-gSjgGe.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-gSjgGe.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-gSjgGe.webp" loading="lazy"/>
+  </picture>
 
 在 BbbModule 里注入下：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-lFlkez.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-lFlkez.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-lFlkez.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-lFlkez.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-lFlkez.webp" loading="lazy"/>
+  </picture>
 
 跑起来你会发现报错了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qL4CAj.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qL4CAj.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qL4CAj.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qL4CAj.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qL4CAj.webp" loading="lazy"/>
+  </picture>
 
 这个模块找不到 ConfigModule。
 
 这时候把 ConfigModule.forRoot 注册为全局模块就好了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rMUDZU.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rMUDZU.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rMUDZU.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rMUDZU.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rMUDZU.webp" loading="lazy"/>
+  </picture>
 
 这样就可以在 BbbModule 读取到配置了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rCxJ1k.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rCxJ1k.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rCxJ1k.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rCxJ1k.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-rCxJ1k.webp" loading="lazy"/>
+  </picture>
 
 此外，你还可以通过 ConfigModule.forFeautrue 来注册局部配置：
 
@@ -6350,7 +7182,11 @@ findAll() {
 
 可以看到，Nest 读取到了这个局部注册的配置。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qzJcpt.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qzJcpt.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qzJcpt.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qzJcpt.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-qzJcpt.webp" loading="lazy"/>
+  </picture>
 
 这里是再次验证了**动态模块的 forRoot 用于在 AppModule 里注册，一般指定为全局模块，forFeature 用于局部配置，在不同模块里 imports，而 register 用于一次性的配置。**
 
@@ -6362,7 +7198,11 @@ findAll() {
 
 先是 forFeature：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6mZ6nC.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6mZ6nC.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6mZ6nC.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6mZ6nC.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6mZ6nC.webp" loading="lazy"/>
+  </picture>
 
 动态返回模块定义，也就是 providers、exports 这些。
 
@@ -6372,11 +7212,19 @@ findAll() {
 
 它就是根据 options 读取 env 配置，然后用 useFactory 创建 ConfigService 的 provider：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hvU1pC.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hvU1pC.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hvU1pC.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hvU1pC.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hvU1pC.webp" loading="lazy"/>
+  </picture>
 
 之后动态返回模块定义：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-63Vocv.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-63Vocv.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-63Vocv.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-63Vocv.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-63Vocv.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -6426,7 +7274,11 @@ docker build -t eee .
 
 在 docker desktop 里可以看到这个镜像：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-yJO8D7.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-yJO8D7.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-yJO8D7.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-yJO8D7.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-yJO8D7.webp" loading="lazy"/>
+  </picture>
 
 那假设在服务器上，要怎么部署这个 nest 应用呢？
 
@@ -6483,13 +7335,21 @@ docker-compose 和 docker 命令是一起的，docker 能用，docker-compose �
 
 它会把所有容器的日志合并输出：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-5CNorX.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-5CNorX.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-5CNorX.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-5CNorX.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-5CNorX.webp" loading="lazy"/>
+  </picture>
 
 可以看到是先跑的 mysql、redis，再跑的 nest。
 
 只不过 mysql 服务启动有点慢，会连接失败几次。最后是会成功的：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MI1AX3.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MI1AX3.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MI1AX3.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MI1AX3.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MI1AX3.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -6499,7 +7359,11 @@ docker-compose 和 docker 命令是一起的，docker 能用，docker-compose �
 
 这时候如果你去 docker desktop 里看下，会发现它有专门的显示方式：多个容器可以一起管理。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-34-5ed7de84c738426caf96b938b8a8018e~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-34-5ed7de84c738426caf96b938b8a8018e~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-34-5ed7de84c738426caf96b938b8a8018e~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-34-5ed7de84c738426caf96b938b8a8018e~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-34-5ed7de84c738426caf96b938b8a8018e~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp" loading="lazy"/>
+  </picture>
 
 
 
@@ -6540,7 +7404,11 @@ networks:
 
 把 mysql-container、redis-container 的 ports 映射去掉，指定桥接网络为 common-network。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-47-c3e7e3da3d4448759bbf5a3e2978bc37~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-47-c3e7e3da3d4448759bbf5a3e2978bc37~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-47-c3e7e3da3d4448759bbf5a3e2978bc37~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-47-c3e7e3da3d4448759bbf5a3e2978bc37~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-05-21-47-c3e7e3da3d4448759bbf5a3e2978bc37~tplv-k3u1fbpfcp-jj-mark:1512:0:0:0:q75.awebp" loading="lazy"/>
+  </picture>
 
 然后下面通过 networks 指定创建的 common-network 桥接网络，网络驱动程序指定为 bridge。
 
@@ -6548,11 +7416,19 @@ networks:
 
 
 
-![image-20240202175447166](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-17-54-image-20240202175447166.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-17-54-image-20240202175447166.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-17-54-image-20240202175447166.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-17-54-image-20240202175447166.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-02-17-54-image-20240202175447166.png" loading="lazy"/>
+  </picture>
 
 首先有一个 AppService 声明了 @Injectable，代表这个 class 可注入，那么 nest 就会把它的对象放到 IOC 容器里。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MkbDuX.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MkbDuX.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MkbDuX.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MkbDuX.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-MkbDuX.webp" loading="lazy"/>
+  </picture>
 
 AppController 声明了 @Controller，代表这个 class 可以被注入，nest 也会把它放到 IoC 容器里。
 
@@ -6560,7 +7436,11 @@ AppController 的构造器参数依赖了 AppService。
 
 或者这样通过属性的方式声明依赖：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Entqpb.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Entqpb.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Entqpb.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Entqpb.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-Entqpb.webp" loading="lazy"/>
+  </picture>
 
 <mark>前者是构造器注入，后者是属性注入，两种都可以。</mark>
 
@@ -6568,7 +7448,11 @@ AppController 的构造器参数依赖了 AppService。
 
 然后在 AppModule 里引入：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-bjRcOj.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-bjRcOj.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-bjRcOj.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-bjRcOj.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-bjRcOj.webp" loading="lazy"/>
+  </picture>
 
 通过 @Module 声明模块，其中 controllers 是控制器，只能接收别人。
 
@@ -6576,13 +7460,21 @@ providers 里是提供者也是接收者，比如这里的 AppService。
 
 然后在入口模块里跑起来：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6rfTP4.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6rfTP4.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6rfTP4.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6rfTP4.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-6rfTP4.webp" loading="lazy"/>
+  </picture>
 
 那么 nest 就会从 AppModule 开始解析 class 上通过装饰器声明的依赖信息，自动创建和组装对象。
 
 所以 AppController 只是声明了对 AppService 的依赖，就可以调用它的方法了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hlttm9.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hlttm9.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hlttm9.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hlttm9.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-40-hlttm9.webp" loading="lazy"/>
+  </picture>
 
 nest 在背后自动做了对象创建和依赖注入的工作。
 

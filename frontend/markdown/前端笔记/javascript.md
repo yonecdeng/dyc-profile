@@ -67,7 +67,11 @@ JS 严格意义上来说分为：语言标准部分（ECMAScript）+ 宿主环�
 
 ## JS是怎么执行的
 
-![image-20230504115943433](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-59-image-20230504115943433.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-59-image-20230504115943433.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-59-image-20230504115943433.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-59-image-20230504115943433.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-59-image-20230504115943433.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -141,7 +145,11 @@ defer 使用场景：一般情况下都可以使用 defer，特别是需要控�
 
 link 标签的 preload 属性：用于提前加载一些需要的依赖，这些资源会优先加载（如下图红框）
 
-![preload.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-c4Jwjt.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-c4Jwjt.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-c4Jwjt.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-c4Jwjt.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-c4Jwjt.webp" loading="lazy"/>
+  </picture>
 
 vue2 项目打包生成的 index.html 文件，会自动给首页所需要的资源，全部添加 preload，实现关键资源的提前加载
 
@@ -159,7 +167,11 @@ preload 特点：
 
 prefetch 是利用浏览器的空闲时间，加载页面将来可能用到的资源的一种机制；通常可以用于加载其他页面（非首页）所需要的资源，以便加快后续页面的打开速度
 
-![prefetch.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7S2M1H.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7S2M1H.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7S2M1H.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7S2M1H.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-7S2M1H.webp" loading="lazy"/>
+  </picture>
 
 prefetch 特点：
 
@@ -211,7 +223,11 @@ parseInt(1100100,2)
 
 在 JavaScript 里，数字均为[基于 IEEE 754 标准的双精度 64 位的浮点数](https://link.juejin.cn/?target=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%E9%9B%99%E7%B2%BE%E5%BA%A6%E6%B5%AE%E9%BB%9E%E6%95%B8)，它的结构长这样：
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ZbTvqk.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ZbTvqk.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ZbTvqk.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ZbTvqk.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ZbTvqk.webp" loading="lazy"/>
+  </picture>
 
 - sign bit（符号）: 用来表示正负号
 - exponent（指数）: 用来表示次方数
@@ -690,7 +706,11 @@ isNaN() 如果参数不能转换为数字则判断是NaN； Number.isNaN() 利�
 
 ### == 操作符的强制类型转换规则
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-6L3sYS.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-6L3sYS.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-6L3sYS.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-6L3sYS.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-6L3sYS.webp" loading="lazy"/>
+  </picture>
 
 所以 `a!=null`就能保证a既不等于null也不等于undefined。
 
@@ -1618,7 +1638,11 @@ test();
 
 在 JavaScript 里，数字均为[基于 IEEE 754 标准的双精度 64 位的浮点数](https://link.juejin.cn/?target=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%E9%9B%99%E7%B2%BE%E5%BA%A6%E6%B5%AE%E9%BB%9E%E6%95%B8)，它的结构长这样：
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-93uu3P.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-93uu3P.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-93uu3P.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-93uu3P.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-93uu3P.webp" loading="lazy"/>
+  </picture>
 
 - sign bit（符号）: 用来表示正负号
 - exponent（指数）: 用来表示次方数
@@ -2136,7 +2160,11 @@ while (true) {
 
 看个图就很容易理解了：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aVZ9Ze.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aVZ9Ze.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aVZ9Ze.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aVZ9Ze.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aVZ9Ze.png" loading="lazy"/>
+  </picture>
 
 其核心逻辑就是，`n - 1` 一定可以消除最后一个 1，同时把其后的 0 都变成 1，这样再和 `n` 做一次 `&` 运算，就可以仅仅把最后一个 1 变成 0 了。
 
@@ -2290,11 +2318,19 @@ var missingNumber = function(nums) {
 
 而这道题索就可以通过这些性质巧妙算出缺失的那个元素，比如说 `nums = [0,3,1,4]`：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jbZde5.jpg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jbZde5.jpg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jbZde5.jpg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jbZde5.jpg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jbZde5.jpg" loading="lazy"/>
+  </picture>
 
 为了容易理解，我们假设先把索引补一位，然后让每个元素和自己相等的索引相对应：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-USLi48.jpg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-USLi48.jpg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-USLi48.jpg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-USLi48.jpg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-USLi48.jpg" loading="lazy"/>
+  </picture>
 
 这样做了之后，就可以发现除了缺失元素之外，所有的索引和元素都组成一对儿了，现在如果把这个落单的索引 2 找出来，也就找到了缺失的那个元素。
 
@@ -2318,7 +2354,11 @@ var missingNumber = function(nums) {
 }
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dyUHGV.jpg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dyUHGV.jpg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dyUHGV.jpg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dyUHGV.jpg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dyUHGV.jpg" loading="lazy"/>
+  </picture>
 
 由于异或运算满足交换律和结合律，所以总是能把成对儿的数字消去，留下缺失的那个元素。
 
@@ -3178,7 +3218,11 @@ prototype是==函数==（箭头函数没有）才会有的属性。
 
 每一个==JavaScript对象(null 和 Object.create(null)创建的对象除外)==在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，函数的 prototype 属性就指向了这个实例的原型
 
-![](https://camo.githubusercontent.com/02789d6806b75d34b2017021f58efa3aa7a2ee6be8a0c05fb3293438884b9ec0/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065312e706e67)
+<picture>
+    <source type="image/avif" srcset="https://camo.githubusercontent.com/02789d6806b75d34b2017021f58efa3aa7a2ee6be8a0c05fb3293438884b9ec0/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065312e706e67?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://camo.githubusercontent.com/02789d6806b75d34b2017021f58efa3aa7a2ee6be8a0c05fb3293438884b9ec0/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065312e706e67?imageMogr2/format/webp">
+    <img src="https://camo.githubusercontent.com/02789d6806b75d34b2017021f58efa3aa7a2ee6be8a0c05fb3293438884b9ec0/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065312e706e67" alt="https://camo.githubusercontent.com/02789d6806b75d34b2017021f58efa3aa7a2ee6be8a0c05fb3293438884b9ec0/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065312e706e67" loading="lazy"/>
+  </picture>
 
 ### `__proto__`（[[Prototype]]）
 
@@ -3186,7 +3230,11 @@ prototype是==函数==（箭头函数没有）才会有的属性。
 
 这个属性已经被废除了，用这个方法 ==Object.getPrototypeOf(obj)==来代替它，用这个`isPrototypeOf()` 方法去测试一个对象是否存在于另一个对象的原型链上，语法：`prototypeObj.isPrototypeOf(object)`
 
-![](https://camo.githubusercontent.com/3dde335faa15d03ffe3b907f6e5c2b5f4d2183caa4c47ac7486794bc407f663c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065322e706e67)
+<picture>
+    <source type="image/avif" srcset="https://camo.githubusercontent.com/3dde335faa15d03ffe3b907f6e5c2b5f4d2183caa4c47ac7486794bc407f663c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065322e706e67?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://camo.githubusercontent.com/3dde335faa15d03ffe3b907f6e5c2b5f4d2183caa4c47ac7486794bc407f663c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065322e706e67?imageMogr2/format/webp">
+    <img src="https://camo.githubusercontent.com/3dde335faa15d03ffe3b907f6e5c2b5f4d2183caa4c47ac7486794bc407f663c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065322e706e67" alt="https://camo.githubusercontent.com/3dde335faa15d03ffe3b907f6e5c2b5f4d2183caa4c47ac7486794bc407f663c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065322e706e67" loading="lazy"/>
+  </picture>
 
 
 
@@ -3194,7 +3242,11 @@ prototype是==函数==（箭头函数没有）才会有的属性。
 
 每个==原型==都有一个 constructor 属性指向关联的构造函数。所以其实constructor属性并不在实例对象上，只是实例对象调用该属性的时候从原型上找到了再调用。
 
-![](https://camo.githubusercontent.com/0aaf005afda83d4e2fdd2bbe523df228b567a091317a2154181771b2706ea2ef/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065332e706e67)
+<picture>
+    <source type="image/avif" srcset="https://camo.githubusercontent.com/0aaf005afda83d4e2fdd2bbe523df228b567a091317a2154181771b2706ea2ef/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065332e706e67?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://camo.githubusercontent.com/0aaf005afda83d4e2fdd2bbe523df228b567a091317a2154181771b2706ea2ef/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065332e706e67?imageMogr2/format/webp">
+    <img src="https://camo.githubusercontent.com/0aaf005afda83d4e2fdd2bbe523df228b567a091317a2154181771b2706ea2ef/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065332e706e67" alt="https://camo.githubusercontent.com/0aaf005afda83d4e2fdd2bbe523df228b567a091317a2154181771b2706ea2ef/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065332e706e67" loading="lazy"/>
+  </picture>
 
 
 
@@ -3238,7 +3290,11 @@ var obj = new Object();
 
 其实原型对象就是通过 Object 构造函数生成的
 
-![](https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67)蓝色的这条线就是原型链
+<picture>
+    <source type="image/avif" srcset="https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67?imageMogr2/format/webp">
+    <img src="https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67" alt="https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67" loading="lazy"/>
+  </picture>蓝色的这条线就是原型链
 
 
 
@@ -3873,7 +3929,11 @@ JSON字符串属于string类型，<font color="red">是一种特殊格式的字�
 
 实际就是若为基本数据类型则调用数据类型的toString方法，若为对象类型则调用对象类型的toJSON方法。
 
-![image-20221011091836511](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011091836511.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011091836511.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011091836511.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011091836511.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011091836511.png" loading="lazy"/>
+  </picture>
 
 基本数据类型：
 
@@ -5094,7 +5154,11 @@ class Dong {
 
 ## JavaScript内存模型
 
-![image-20220708201415582](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708201415582.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708201415582.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708201415582.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708201415582.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708201415582.png" loading="lazy"/>
+  </picture>
 
 代码空间主要是存储可执行代码的
 
@@ -5162,7 +5226,11 @@ js引擎是单线程的，为了降低老生代的垃圾回收而造成的卡顿
 
 **解释型语言编写的程序，在每次运行时都需要通过解释器对程序进行动态解释和执行**。
 
-![image-20220708210325252](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210325252.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210325252.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210325252.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210325252.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210325252.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -5172,7 +5240,11 @@ js引擎是单线程的，为了降低老生代的垃圾回收而造成的卡顿
 
 V8 在执行过程中既有**解释器 Ignition**，又有**编译器 TurboFan**
 
-![image-20220708210934502](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210934502.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210934502.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210934502.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210934502.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708210934502.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -5196,7 +5268,11 @@ V8 在执行过程中既有**解释器 Ignition**，又有**编译器 TurboFan**
 
 参考下图：
 
-![image-20220708211303045](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708211303045.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708211303045.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708211303045.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708211303045.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708211303045.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -5260,7 +5336,11 @@ string 因为常量池的存在，同样的字符串只会创建一次。new Str
 
 函数<span style="color:red">运行</span>的时候，会首先创建执行上下文并入栈，当此执行上下文处于栈顶时就运行它。可执行代码就是要被执行的，执行上下文就是会被放到栈里的。（<span style="color:red">堆栈是存放数据的地方，不是存放代码的地方。</span>）
 
-![image-20220708165306684](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708165306684.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708165306684.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708165306684.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708165306684.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708165306684.png" loading="lazy"/>
+  </picture>
 
 从上图可以看出，输入一段代码，经过编译（预扫描）后，会生成两部分内容：**执行上下文（Execution context）和可执行代码**。先一开始编译全局代码，再当执行到对应的可执行代码时编译可执行代码。
 
@@ -5275,7 +5355,11 @@ string 因为常量池的存在，同样的字符串只会创建一次。new Str
 
 例如：
 
-![image-20220708170846850](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708170846850.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708170846850.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708170846850.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708170846850.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708170846850.png" loading="lazy"/>
+  </picture>
 
 当执行到 add 函数的时候，我们就有了两个执行上下文了——全局执行上下文和 add 函数的执行上下文。
 
@@ -5291,7 +5375,15 @@ string 因为常量池的存在，同样的字符串只会创建一次。new Str
 
 创建执行上下文的过程中会做三件事：创建变量对象，创建作用域链，确定 this 指向。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-05-10-54-image-20230505105403416.png" alt="image-20230505105403416" style="zoom: 50%;" /><img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-05-10-58-image-20230505105809925.png" alt="image-20230505105809925" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-05-10-54-image-20230505105403416.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-05-10-54-image-20230505105403416.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-05-10-54-image-20230505105403416.png" alt="image-20230505105403416" style="zoom: 50%;" loading="lazy"/>
+  </picture><picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-05-10-58-image-20230505105809925.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-05-10-58-image-20230505105809925.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-05-10-58-image-20230505105809925.png" alt="image-20230505105809925" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 #### 变量环境 + 词法环境
 
@@ -5362,7 +5454,11 @@ AO = {
 
 ==全局作用域上定义的let 和 const 变量会存到 Script里，var定义的变量和function定义的函数会放到Global里。==
 
-![image-20220708194244148](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708194244148.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708194244148.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708194244148.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708194244148.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220708194244148.png" loading="lazy"/>
+  </picture>
 
 词法作用域就是指==作用域是由代码中函数声明的位置==来决定的，通过它就能够预测代码在执行过程中如何查找标识符。
 
@@ -5381,7 +5477,7 @@ AO = {
 
 通过上面的分析，我们可以画出执行到 foo 函数中“return innerBar”语句时的调用栈状态，如下图所示：
 
-![image-20220708201957894](/Users/mac/Library/Application Support/typora-user-images/image-20220708201957894.png)
+
 
 ==当执行到 foo 函数时，闭包就产生了==；当 foo 函数执行结束之后，其执行上下文从栈顶弹出，返回的 getName 和 setName 方法都引用“clourse(foo)”对象。所以在调用`bar.setName`或者`bar.getName`时，创建的执行上下文中就包含了“clourse(foo)”。
 
@@ -5628,7 +5724,11 @@ function changeArgProp(x) {
 
 ==类数组对象。==调用函数时，会为其创建一个Arguments对象，并自动初始化局部变量arguments，指代该Arguments对象。所有作为参数传入的值都会成为Arguments对象的数组元素。Arguments 对象包括了函数的参数和其他属性
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230209125414136.png" alt="image-20230209125414136" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230209125414136.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230209125414136.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230209125414136.png" alt="image-20230209125414136" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -6361,7 +6461,11 @@ console.log(obj.value) // 1
 
 AOP（面向切面编程）的主要作用是把一些跟核心业务逻辑模块无关的功能抽离出来，这些跟业务逻辑无关的功能通常包括日志统计、安全控制、异常处理等。把这些功能抽离出来之后，再通过“动态织入”的方式掺入业务逻辑模块中。这样做的好处首先是可以保持业务逻辑模块的纯净和高内聚性，其次是可以很方便地复用日志统计等功能模块。在Java语言中，可以通过反射和动态代理机制来实现AOP技术。而在JavaScript这种动态语言中，AOP的实现更加简单，这是JavaScript与生俱来的能力。通常，在JavaScript中实现AOP，都是指把一个函数“动态织入”到另外一个函数之中，具体的实现技术有很多，本节我们通过扩展Function.prototype来做到这一点。代码如下：
 
-![image-20230909214130747](/Users/yonecdeng/Library/Application Support/typora-user-images/image-20230909214130747.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-image-20230909214130747.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-image-20230909214130747.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-image-20230909214130747.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-image-20230909214130747.png" loading="lazy"/>
+  </picture>
 
 我们把负责打印数字1和打印数字3的两个函数通过AOP的方式动态植入func函数。通过执行上面的代码，我们看到控制台顺利地返回了执行结果1、2、3。这种使用AOP的方式来给函数添加职责，也是JavaScript语言中一种非常特别和巧妙的装饰者模式实现。
 
@@ -6732,7 +6836,11 @@ function useThrottle(fn,time,options={leading : true,trailing:false}){
 
 ### 这么多个线程的工作流程(事件循环的本质)
 
-![image-20230429110302039](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-11-03-image-20230429110302039.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-11-03-image-20230429110302039.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-11-03-image-20230429110302039.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-11-03-image-20230429110302039.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-11-03-image-20230429110302039.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -6740,11 +6848,19 @@ function useThrottle(fn,time,options={leading : true,trailing:false}){
 
 #### JS引擎与渲染引擎
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-11-00-image-20230429110036274.png" alt="image-20230429110036274" style="zoom: 50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-11-00-image-20230429110036274.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-11-00-image-20230429110036274.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-11-00-image-20230429110036274.png" alt="image-20230429110036274" style="zoom: 50%;" loading="lazy"/>
+  </picture>
 
 
 
-![image-20230429133117889](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-31-image-20230429133117889.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-31-image-20230429133117889.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-31-image-20230429133117889.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-31-image-20230429133117889.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-31-image-20230429133117889.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -6770,9 +6886,17 @@ script（整体代码块）可以看作个宏任务。因为如果同时存在�
 
 chrome里的performance也能看出下面这个流程图。
 
-![image-20230804000142916](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-04-00-01-image-20230804000142916.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-04-00-01-image-20230804000142916.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-04-00-01-image-20230804000142916.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-04-00-01-image-20230804000142916.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-04-00-01-image-20230804000142916.png" loading="lazy"/>
+  </picture>
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lTIVtK.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lTIVtK.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lTIVtK.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lTIVtK.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lTIVtK.webp" loading="lazy"/>
+  </picture>
 
 如果setTimeout不设置延迟时间，感觉chrome不一定满足这个（要设个几ms才能满足），但是safari是完全满足这个。
 
@@ -8904,7 +9028,11 @@ exports.b = '修改值-b模块内变量'
 
 输出结果如下：
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-OBqetU.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-OBqetU.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-OBqetU.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-OBqetU.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-OBqetU.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -8932,7 +9060,11 @@ console.log('c模块执行')
 
 执行结果如下：
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uoIhmz.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uoIhmz.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uoIhmz.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uoIhmz.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uoIhmz.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9132,7 +9264,11 @@ export default function sayHello() {
 
 结果如下
 
-![图片](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tk4Jkj.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tk4Jkj.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tk4Jkj.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tk4Jkj.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Tk4Jkj.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9248,7 +9384,11 @@ b = "修改值-b模块内变量"
 
 运行代码后的结果如下：
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dR3MJy.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dR3MJy.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dR3MJy.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dR3MJy.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-dR3MJy.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9264,7 +9404,11 @@ b = "修改值-b模块内变量"
 
    仔细观察module这个变量，可以看到还有一个属性`paths`
 
-   ![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-S0KViI.png)
+   <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-S0KViI.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-S0KViI.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-S0KViI.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-S0KViI.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9396,7 +9540,11 @@ loaction: 最有用的BOM对象之一，且比较特殊的是，locaton既是win
 
 ### Console
 
-![image-20230508160445832](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-16-04-image-20230508160445832.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-16-04-image-20230508160445832.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-16-04-image-20230508160445832.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-16-04-image-20230508160445832.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-16-04-image-20230508160445832.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9416,7 +9564,11 @@ loaction: 最有用的BOM对象之一，且比较特殊的是，locaton既是win
 
 #### 三个阶段
 
-![image-20230429133637057](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-36-image-20230429133637057.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-36-image-20230429133637057.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-36-image-20230429133637057.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-36-image-20230429133637057.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-13-36-image-20230429133637057.png" loading="lazy"/>
+  </picture>
 
 1. 捕获阶段（Capturing phase）—— 事件（从 Window）向下走近元素。
 2. 目标阶段（Target phase）—— 事件到达目标元素。
@@ -9456,13 +9608,25 @@ FastClick.attach(document.body);
 
 
 
-![image-20230303114058639](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114058639.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114058639.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114058639.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114058639.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114058639.png" loading="lazy"/>
+  </picture>
 
 
 
-![image-20230303114111759](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114111759.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114111759.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114111759.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114111759.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114111759.png" loading="lazy"/>
+  </picture>
 
-![image-20230303114136110](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114136110.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114136110.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114136110.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114136110.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114136110.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9488,11 +9652,19 @@ FastClick.attach(document.body);
 
 ### scroll
 
-![image-20230303114515679](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114515679.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114515679.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114515679.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114515679.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114515679.png" loading="lazy"/>
+  </picture>
 
 > 如果一个元素使用display: none隐藏起来，那它的scrollHeight属性等于0。遇到这种情况的时候，可以先把display属性设置为block（el.style.display ='block'），获取到scrollHeight，然后重置display的值（el.style.display ='none'）。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114524553.png" alt="image-20230303114524553" style="zoom: 50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114524553.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114524553.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114524553.png" alt="image-20230303114524553" style="zoom: 50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -9504,11 +9676,19 @@ FastClick.attach(document.body);
 
 ### offset
 
-![image-20230303114740466](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114740466.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114740466.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114740466.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114740466.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303114740466.png" loading="lazy"/>
+  </picture>
 
 ### client
 
-![image-20230303115340204](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115340204.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115340204.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115340204.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115340204.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115340204.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9516,7 +9696,11 @@ FastClick.attach(document.body);
 
 ### 以上三者对比
 
-![image-20230303115425319](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115425319.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115425319.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115425319.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115425319.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230303115425319.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9530,7 +9714,11 @@ FastClick.attach(document.body);
 
 返回值是一个 [`DOMRect`](https://developer.mozilla.org/zh-CN/docs/Web/API/DOMRect) 对象，是包含整个元素的最小矩形（包括 `padding` 和 `border-width`）。该对象使用 `left`、`top`、`right`、`bottom`、`x`、`y`、`width` 和 `height` 这几个以像素为单位的只读属性描述整个矩形的位置和大小。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Cff1mW.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Cff1mW.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Cff1mW.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Cff1mW.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-Cff1mW.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9544,7 +9732,11 @@ FastClick.attach(document.body);
 
 ### 二进制
 
-![image-20230429141036328](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-10-image-20230429141036328.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-10-image-20230429141036328.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-10-image-20230429141036328.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-10-image-20230429141036328.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-10-image-20230429141036328.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9686,7 +9878,11 @@ window.getComputedStyle(docEl).fontSize 获取的是元素的最终样式，包�
 
 ### 总览
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-17-image-20230429141717900.png" alt="image-20230429141717900" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-17-image-20230429141717900.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-17-image-20230429141717900.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-17-image-20230429141717900.png" alt="image-20230429141717900" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 ### WebWorker
 
@@ -9719,7 +9915,11 @@ window.getComputedStyle(docEl).fontSize 获取的是元素的最终样式，包�
 
 #### [使用](https://www.ruanyifeng.com/blog/2018/07/web-worker.html)
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-16-image-20230429141645718.png" alt="image-20230429141645718" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-16-image-20230429141645718.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-16-image-20230429141645718.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-16-image-20230429141645718.png" alt="image-20230429141645718" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 ##### 主线程环境
 
@@ -9791,7 +9991,11 @@ if (window.hasOwnProperty('Worker')) {
 
 #### PWA & AMP
 
-![image-20230429140703286](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-07-image-20230429140703286.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-07-image-20230429140703286.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-07-image-20230429140703286.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-07-image-20230429140703286.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-14-07-image-20230429140703286.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -10022,7 +10226,7 @@ str.split('').reverse().join('').replace(/elp(?=pa)/, 'ylp').split('').reverse()
 
 ### [可视化正则表达式](https://regexper.com/#%2F%5Cd%5Cw%2B%2F)
 
-
+在线测试：https://www.jyshare.com/front-end/854/
 
 
 
@@ -10214,7 +10418,11 @@ Peter Norvig曾说，设计模式是对语言不足的补充，如果要使用�
 
 
 
-<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/4/6/169f16406d230ffe~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-puYCDo.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-puYCDo.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-puYCDo.webp" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -12884,7 +13092,11 @@ V8的垃圾回收策略主要基于分代式垃圾回收机制。按对象的存
 
 新生代内存的最大值在64位系统和32位系统上分别为32 MB和16 MB。老生代的设置在64位系统下为1400 MB，在32位系统下为700 MB。--max-old-space-size命令行参数可以用于设置老生代内存空间的最大值，--max-new-space-size命令行参数则用于设置新生代内存空间的大小的。
 
-![image-20230811142953214](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-29-image-20230811142953214.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-29-image-20230811142953214.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-29-image-20230811142953214.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-29-image-20230811142953214.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-29-image-20230811142953214.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -12956,7 +13168,15 @@ V8堆内存的最大保留空间可以从下面的代码中看出来，其公式
 
 另一个判断条件是To空间的内存占用比。当要从From空间复制一个对象到To空间时，如果To空间已经使用了超过25%，则这个对象直接晋升到老生代空间中。设置25%这个限制值的原因是当这次Scavenge回收完成后，这个To空间将变成From空间，接下来的内存分配将在这个空间中进行。如果占比过高，会影响后续的内存分配。对象晋升后，将会在老生代空间中作为存活周期较长的对象来对待，接受新的回收算法处理。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-31-image-20230811143114150.png" alt="image-20230811143114150" style="zoom:50%;" />               <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-31-image-20230811143147785.png" alt="image-20230811143147785" style="zoom: 50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-31-image-20230811143114150.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-31-image-20230811143114150.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-31-image-20230811143114150.png" alt="image-20230811143114150" style="zoom:50%;" loading="lazy"/>
+  </picture>               <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-31-image-20230811143147785.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-31-image-20230811143147785.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-08-11-14-31-image-20230811143147785.png" alt="image-20230811143147785" style="zoom: 50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -13493,7 +13713,11 @@ webkit下跨域的js在非同步上下文抛异常 只能拿到script error
 
 https://bugs.webkit.org/show_bug.cgi?id=132945
 
-非同步上下文就是events、promise等，如：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-11-07-11-19-image-20231107111953190.png" alt="image-20231107111953190" style="zoom:50%;" />
+非同步上下文就是events、promise等，如：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-11-07-11-19-image-20231107111953190.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-11-07-11-19-image-20231107111953190.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-11-07-11-19-image-20231107111953190.png" alt="image-20231107111953190" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -13503,7 +13727,11 @@ https://bugs.webkit.org/show_bug.cgi?id=132945
 
 ## 1、折叠代码
 
-![image-20210928191231563](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210928191231563.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210928191231563.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210928191231563.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210928191231563.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210928191231563.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -13577,9 +13805,17 @@ console.log(proxy[0]); // 1
 
 <body>
     <div class="overlay">
-        <img src="../images/mask.png" style="width:200px" />
+        <picture>
+    <source type="image/avif" srcset="../images/mask.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="../images/mask.png?imageMogr2/format/webp">
+    <img src="../images/mask.png" style="width:200px" loading="lazy"/>
+  </picture>
     </div>
-    <img src="../images/cat.png" />
+    <picture>
+    <source type="image/avif" srcset="../images/cat.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="../images/cat.png?imageMogr2/format/webp">
+    <img src="../images/cat.png" loading="lazy"/>
+  </picture>
 </body>
 
 </html>
@@ -13587,7 +13823,11 @@ console.log(proxy[0]); // 1
 
 最终实现效果：（没有用一模一样的图片，只是模拟了类似的效果）
 
-![image.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5V1p9o.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5V1p9o.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5V1p9o.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5V1p9o.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-5V1p9o.webp" loading="lazy"/>
+  </picture>
 
 上述是在整个页面添加蒙层，若想只在图片部分添加蒙层：
 
@@ -13620,9 +13860,17 @@ console.log(proxy[0]); // 1
 <body>
     <div style="position: relative;width: 300px;">
         <div class="overlay">
-            <img src="../images/kid.png" style="width:200px" />
+            <picture>
+    <source type="image/avif" srcset="../images/kid.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="../images/kid.png?imageMogr2/format/webp">
+    <img src="../images/kid.png" style="width:200px" loading="lazy"/>
+  </picture>
         </div>
-        <img src="../images/cat.png" />
+        <picture>
+    <source type="image/avif" srcset="../images/cat.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="../images/cat.png?imageMogr2/format/webp">
+    <img src="../images/cat.png" loading="lazy"/>
+  </picture>
     </div>
 </body>
 
@@ -13632,7 +13880,11 @@ console.log(proxy[0]); // 1
 
 效果：
 
-![image.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-QeUIUc.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-QeUIUc.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-QeUIUc.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-QeUIUc.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-QeUIUc.webp" loading="lazy"/>
+  </picture>
 
 
 

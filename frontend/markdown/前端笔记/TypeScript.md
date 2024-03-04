@@ -66,7 +66,11 @@
 
 ## 面向对象的三大特性
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-mU7LSb.gif)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-mU7LSb.gif?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-mU7LSb.gif?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-mU7LSb.gif" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-mU7LSb.gif" loading="lazy"/>
+  </picture>
 
 ### 封装
 
@@ -82,7 +86,11 @@
 
 #### 泛化（Generalization）
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-DUef1H.gif)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-DUef1H.gif?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-DUef1H.gif?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-DUef1H.gif" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-DUef1H.gif" loading="lazy"/>
+  </picture>
 
 在上图中，空心的三角表示继承关系（类继承），在UML的术语中，这种关系被称为泛化（Generalization）。Person(人)是基类，Teacher(教师)、Student(学生)、Guest(来宾)是子类。
 
@@ -94,7 +102,11 @@
 
 #### 聚合（组合）
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-RMJG7t.gif)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-RMJG7t.gif?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-RMJG7t.gif?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-RMJG7t.gif" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-RMJG7t.gif" loading="lazy"/>
+  </picture>
 
 若在逻辑上A是B的“一部分”（a part of），则不允许B从A派生，而是要用A和其它东西组合出B。
 
@@ -865,7 +877,11 @@ ts习题
 >
 > 在线地址：[www.typescriptlang.org/play/](https://link.juejin.cn?target=https%3A%2F%2Fwww.typescriptlang.org%2Fplay%2F)
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-BItm42.jpg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-BItm42.jpg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-BItm42.jpg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-BItm42.jpg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-BItm42.jpg" loading="lazy"/>
+  </picture>
 
 除了 TypeScript 官方的 Playground 之外，你还可以选择其他的 Playground，比如 [codepen.io](https://link.juejin.cn?target=https%3A%2F%2Fcodepen.io%2F)、[stackblitz](https://link.juejin.cn?target=https%3A%2F%2Fstackblitz.com%2F) 或 [jsbin.com](https://link.juejin.cn?target=https%3A%2F%2Fjsbin.com%2F%3Fjs) 等。
 
@@ -875,7 +891,11 @@ ts习题
 >
 > 在线地址：[tsuml-demo.firebaseapp.com/](https://link.juejin.cn?target=https%3A%2F%2Ftsuml-demo.firebaseapp.com%2F)
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cut0Nn.jpg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cut0Nn.jpg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cut0Nn.jpg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cut0Nn.jpg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cut0Nn.jpg" loading="lazy"/>
+  </picture>
 
 #### 16.3 [JSON TO TS](https://link.juejin.cn?target=http%3A%2F%2Fwww.jsontots.com%2F)
 
@@ -883,7 +903,11 @@ ts习题
 >
 > 在线地址：[www.jsontots.com/](https://link.juejin.cn?target=http%3A%2F%2Fwww.jsontots.com%2F)
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hr14V8.jpg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hr14V8.jpg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hr14V8.jpg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hr14V8.jpg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-hr14V8.jpg" loading="lazy"/>
+  </picture>
 
 除了使用 [jsontots](https://link.juejin.cn?target=http%3A%2F%2Fwww.jsontots.com%2F) 在线工具之外，对于使用 VSCode IDE 的小伙们还可以安装 [JSON to TS](https://link.juejin.cn?target=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3DMariusAlchimavicius.json-to-ts) 扩展来快速完成  **JSON to TS** 的转换工作。
 
@@ -893,7 +917,11 @@ ts习题
 >
 > 在线地址：[github.com/SweetIQ/sch…](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2FSweetIQ%2Fschemats)
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0JKHu4.jpg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0JKHu4.jpg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0JKHu4.jpg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0JKHu4.jpg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0JKHu4.jpg" loading="lazy"/>
+  </picture>
 
 #### 16.5 [TypeScript AST Viewer](https://link.juejin.cn?target=https%3A%2F%2Fts-ast-viewer.com%2F)
 
@@ -901,7 +929,11 @@ ts习题
 >
 > 在线地址：[ts-ast-viewer.com/](https://link.juejin.cn?target=https%3A%2F%2Fts-ast-viewer.com%2F)
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vTMz5J.jpg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vTMz5J.jpg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vTMz5J.jpg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vTMz5J.jpg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vTMz5J.jpg" loading="lazy"/>
+  </picture>
 
 对于了解过 AST 的小伙伴来说，对 [astexplorer](https://link.juejin.cn?target=https%3A%2F%2Fastexplorer.net%2F) 这款在线工具应该不会陌生。该工具除了支持 JavaScript 之外，还支持 CSS、JSON、RegExp、GraphQL 和 Markdown 等格式的解析。
 
@@ -2485,7 +2517,11 @@ type Counter = {
 
 #### 索引查询类型
 
-![image-20220417165612988](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-u4PqGL.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-u4PqGL.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-u4PqGL.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-u4PqGL.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-u4PqGL.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2493,7 +2529,11 @@ type Counter = {
 
 
 
-![image-20220417165744130](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0eWhTP.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0eWhTP.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0eWhTP.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0eWhTP.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-0eWhTP.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2592,7 +2632,11 @@ getVegetables({
 
 有时候我们希望一个接口中除了包含必选和可选属性之外，还允许有其他的任意属性，这时我们可以使用 **索引签名** 的形式来满足上述要求。注意，可以设置索引类型为 number。但是这样如果将属性名设置为字符串类型，则会报错；但是<font color="red">如果设置索引类型为字符串类型，那么即便属性名设置的是数值类型，也没问题。因为 JS 在访问属性值时，如果属性名是数值类型，会先将数值类型转为字符串，然后再去访问</font>
 
-![image-20220417163713703](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-YbHkmk.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-YbHkmk.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-YbHkmk.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-YbHkmk.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-YbHkmk.png" loading="lazy"/>
+  </picture>
 
 ```javascript
 // 数字索引——约束数组
@@ -3986,7 +4030,11 @@ adopt(dog);  // Pass: 函数会根据入参类型推断出type为string
 
 ### 泛型接口
 
-![image-20220408182541605](https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型接口.png)
+<picture>
+    <source type="image/avif" srcset="https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型接口.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型接口.png?imageMogr2/format/webp">
+    <img src="https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型接口.png" alt="https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型接口.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4189,7 +4237,11 @@ type ReturnPromise<T> =
 
 还有很多的内置的类型工具，可以参考[TypeScript Handbook](https://link.juejin.cn/?target=https%3A%2F%2Fwww.typescriptlang.org%2Fdocs%2Fhandbook%2Futility-types.html)获得更详细的信息，同时 Github 上也有很多第三方类型辅助工具，如[utility-types](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fpiotrwitek%2Futility-types)等。
 
-![image-20220417160818470](https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型工具.png)
+<picture>
+    <source type="image/avif" srcset="https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型工具.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型工具.png?imageMogr2/format/webp">
+    <img src="https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型工具.png" alt="https://gitee.com/charleydeng/md-picture/raw/master/typescriptNotes/泛型工具.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4211,7 +4263,11 @@ type Partial<T> = {
 
 在以上代码中，首先通过 `keyof T` 拿到 `T` 的所有属性名，然后使用 `in` 进行遍历，将值赋给 `P`，最后通过 `T[P]` 取得相应的属性值。中间的 `?` 号，用于将所有属性变为可选。
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8EdW4r.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8EdW4r.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8EdW4r.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8EdW4r.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-8EdW4r.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -4243,7 +4299,11 @@ const todo2 = updateTodo(todo1, {
 
 ### Readonly
 
-![image-20220417161245085](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WfzyiU.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WfzyiU.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WfzyiU.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WfzyiU.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WfzyiU.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4449,11 +4509,19 @@ type T7 = ReturnType<Function>; // Error
 
 ## 映射类型
 
-![image-20220417173831090](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3auiAy.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3auiAy.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3auiAy.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3auiAy.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3auiAy.png" loading="lazy"/>
+  </picture>
 
 
 
-![image-20220417173859867](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YEMuoq.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YEMuoq.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YEMuoq.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YEMuoq.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YEMuoq.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4488,7 +4556,11 @@ type LazyPerson = Getters<Person>;
 // }
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hl4Of6.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hl4Of6.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hl4Of6.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hl4Of6.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-hl4Of6.webp" loading="lazy"/>
+  </picture>
 
 
 

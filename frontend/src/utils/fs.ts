@@ -3,7 +3,7 @@ import * as path from "node:path";
 /**遍历某个目录下的所有子目录，如果子目录中缺少某文件则创建一个某文件 */
 export function createIndexFileRecursive(
   directoryPath: string,
-  addData: { fileName: string; data: string | NodeJS.ArrayBufferView }
+  addData: { fileName: string; data: string | NodeJS.ArrayBufferView },
 ) {
   // 读取目录内容
   const directoryContents = fs.readdirSync(directoryPath);
@@ -54,7 +54,7 @@ function readDirectory(dir: string, filterDir?: string): any[] {
 /**格式化出vitepress需要的nav和sidebar */
 export function formatSidebarAndNav(dir: string, filterDir?: string) {
   const files = readDirectory(dir, filterDir).filter(
-    (item) => typeof item === "object"
+    (item) => typeof item === "object",
   );
   const nav = new Array<{ text: string; link: string }>();
   const sidebar = new Array<{ text: string; items: any[] }>();

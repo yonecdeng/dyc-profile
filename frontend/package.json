@@ -2,21 +2,29 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:build": "zx ./src/scripts/index.js && vitepress build",
+    "docs:preview": "vitepress preview",
+    "format-fix": "prettier . --write"
   },
   "devDependencies": {
     "@kwai-explore/tsconfig": "^0.0.3",
     "@types/node": "^20.11.1",
     "rollup-plugin-visualizer": "^5.12.0",
     "vite-plugin-inspect": "^0.8.3",
-    "vitepress": "1.0.0-rc.36"
+    "vitepress": "1.0.0-rc.44"
   },
   "dependencies": {
     "@sentry/vue": "^7.95.0",
     "@vercel/speed-insights": "^1.0.8",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.2.5",
     "rollup-pluginutils": "^2.8.2",
     "vite": "^5.0.12",
     "vue": "^3.4.13"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "vitepress@1.0.0-rc.44": "patches/vitepress@1.0.0-rc.44.patch"
+    }
   }
 }

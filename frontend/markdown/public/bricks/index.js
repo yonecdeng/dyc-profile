@@ -34,8 +34,8 @@ function keyUpHandler(e) {
   }
 }
 
-var paddleHeight = 50;
-var paddleWidth = 75;
+var paddleHeight = 20;
+var paddleWidth = 175;
 var paddleX = (canvas.width - paddleWidth) / 2;
 function drawPaddle() {
   ctx.beginPath();

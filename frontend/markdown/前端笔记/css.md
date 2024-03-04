@@ -4,7 +4,11 @@
 
 ## 开发者工具看样式
 
-![image-20221021174716830](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021174716830.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021174716830.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021174716830.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021174716830.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021174716830.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -140,7 +144,11 @@ Firefox 的 -moz-、IE 的 -ms-、Opera的 -o- 以及 Safari 和 Chrome 的 -web
 
 ## 标准流
 
-![image-20220429185101661](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/标准流.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/标准流.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/标准流.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/标准流.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/标准流.png" loading="lazy"/>
+  </picture>
 
 普通文档流——指的是网页元素的默认布局行为。行内元素跟随文字的方向从左到右排列，当到达容器边缘时会换行。块级元素会占据完整的一行，前后都有换行。普通文档流是为限定的宽度和无限的高度设计的。内容会填满视口的宽度，然后在必要的时候折行。因此，容器的高度由内容天然地决定，而不是容器自己决定。
 
@@ -163,11 +171,19 @@ Firefox 的 -moz-、IE 的 -ms-、Opera的 -o- 以及 Safari 和 Chrome 的 -web
 
 一个层叠上下文是由许多拥有z-index属性元素形成的平面构成的；有z-index属性的元素又会形成一个子层叠上下文（这里的z-index必须是被有效设置的）。<mark>z-index只在层叠上下文中才生效，而且z-index只在当前层叠上下文中有意义。在层叠上下文中的内部元素，其层级都在这个层叠上下文之上（哪怕是负数）。</mark>当多个层叠等级相同的元素重叠时，按照html中出现的顺序决定堆叠上下关系，后出现的在上面。
 
-![image-20230430114757404](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-11-47-image-20230430114757404.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-11-47-image-20230430114757404.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-11-47-image-20230430114757404.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-11-47-image-20230430114757404.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-11-47-image-20230430114757404.png" loading="lazy"/>
+  </picture>
 
 #### 层叠顺序
 
-<img src="https://mmbiz.qpic.cn/mmbiz_png/cpWiaicnZTaub9mhKL5cPOpUlq74eLXpeIvQutvAAOEfiaL96vDbH7GxNQgB7pEcFdlPBicOJPoKUjf1Niaun048VDQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" style="zoom:67%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-kcditw.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-kcditw.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-03-04-11-22-kcditw.png" style="zoom:67%;" loading="lazy"/>
+  </picture>
 
 所有层叠上下文内的元素会按照以下顺序叠放：
 
@@ -281,7 +297,11 @@ Firefox 的 -moz-、IE 的 -ms-、Opera的 -o- 以及 Safari 和 Chrome 的 -web
 
 3. 源码顺序：如果两个声明的来源和优先级相同，其中一个声明在样式表中出现较晚，或者位于页面较晚引入的样式表中，则该声明胜出。
 
-![image-20221011221300288](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011221300288.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011221300288.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011221300288.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011221300288.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221011221300288.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -385,7 +405,11 @@ body * + * {
 
 ❑ :nth-child(an+b)——匹配的元素在兄弟元素中间有特定的位置。公式an+b里面的a和b是整数，该公式指定要选中哪个元素。<strong style="color: red;">从0开始代入n的所有整数值，公式的计算结果指定了目标元素的位置。</strong>
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024191247962.png" alt="image-20221024191247962" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024191247962.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024191247962.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024191247962.png" alt="image-20221024191247962" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -425,7 +449,11 @@ body * + * {
 
 ❑ :focus——匹配通过鼠标点击、触摸屏幕或者按Tab键导航而获得焦点的元素。在Chrome浏览器中点击按钮时，你会发现按钮周围环绕了一个浅蓝色的光圈，这是浏览器为按钮的：focus状态默认添加的轮廓线。可以通过设置．button:focus{ outline: none; }来移除轮廓线。建议你在移除轮廓线的同时，添加一些其他特效来代替，这样当用户使用键盘导航的时候，就可以看到当前焦点状态在哪里。
 
-![image-20220505170435515](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/链接伪类选择器.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/链接伪类选择器.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/链接伪类选择器.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/链接伪类选择器.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/链接伪类选择器.png" loading="lazy"/>
+  </picture>
 
 因为优先级相同时，后出现的样式会覆盖先出现的样式。如果一个元素同时处于两个或者更多状态，最后一个状态就能覆盖其他状态。比如用户将鼠标悬停在一个访问过的链接上，悬停效果会生效；同时用户在鼠标悬停时激活了链接（即点击了它），激活的样式会生效（激活的样式就会覆盖掉悬停的样式）。
 
@@ -500,7 +528,11 @@ li:first-child:nth-last-child(n+4) ~ li {
 
 
 
-![image-20230707153412588](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-07-15-34-image-20230707153412588.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-07-15-34-image-20230707153412588.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-07-15-34-image-20230707153412588.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-07-15-34-image-20230707153412588.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-07-15-34-image-20230707153412588.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -546,7 +578,11 @@ var()函数接受第二个参数，它指定了备用值。如果第一个参数
 
 ### 使用JavaScript改变自定义属性
 
-![image-20221021200233872](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png)可以用JavaScript为--main-bg动态设置一个新值。
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png" loading="lazy"/>
+  </picture>可以用JavaScript为--main-bg动态设置一个新值。
 
 
 
@@ -725,7 +761,11 @@ width、height的继承如下：
 
 ## css属性推荐书写顺序
 
-![image-20220505222845182](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/css.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/css.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/css.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/css.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/css.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -743,7 +783,11 @@ width、height的继承如下：
 
 ### 使用JavaScript改变自定义属性
 
-![image-20221021200233872](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png)可以用JavaScript为--main-bg动态设置一个新值。
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021200233872.png" loading="lazy"/>
+  </picture>可以用JavaScript为--main-bg动态设置一个新值。
 
 
 
@@ -957,7 +1001,11 @@ height: 0;
 
 ## 概述
 
-![image-20230430104148645](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-10-41-image-20230430104148645.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-10-41-image-20230430104148645.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-10-41-image-20230430104148645.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-10-41-image-20230430104148645.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-30-10-41-image-20230430104148645.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -975,7 +1023,11 @@ border box（边框的外沿框）、padding box（内边距的外沿框）和 c
 
 CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：`外边距（margin）`、`边框（border）`、`内边距（padding）`、`实际内容（width,height）`四个方面。
 
-![image-20230429150339944](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-03-image-20230429150339944.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-03-image-20230429150339944.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-03-image-20230429150339944.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-03-image-20230429150339944.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-03-image-20230429150339944.png" loading="lazy"/>
+  </picture>
 
 ### box-sizing（两种盒模型）
 
@@ -990,7 +1042,11 @@ box-sizing 属性可以被用来调整这些表现:
 
 通过继承的方式稳健地让你开发的网站里的盒子都为`border-box`：（考虑到可能会引用第三方组件库，你不能把人家组件库里的盒子模型也改了）
 
-![image-20221021201745353](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021201745353.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021201745353.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021201745353.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021201745353.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221021201745353.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1054,7 +1110,11 @@ box-sizing 属性可以被用来调整这些表现:
 
 ##### 实现渐变边框
 
-![image-20230429151911666](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-19-image-20230429151911666.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-19-image-20230429151911666.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-19-image-20230429151911666.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-19-image-20230429151911666.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-19-image-20230429151911666.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1076,7 +1136,11 @@ outline: .6em solid #655;
 
 把这两者叠加到一起，box-shadow 会刚好填补描边和容器圆角之间的空隙，这两者的组合达成了我们想要的效果。
 
-![image-20230706195637838](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-19-56-image-20230706195637838.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-19-56-image-20230706195637838.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-19-56-image-20230706195637838.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-19-56-image-20230706195637838.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-19-56-image-20230706195637838.png" loading="lazy"/>
+  </picture>
 
 请注意，我们为 box-shadow 属性指定的扩张值并不一定等于描边的宽
 
@@ -1106,7 +1170,11 @@ $$
 
 （这里的 *r* 表示 border-radius）。
 
-![image-20230706201551599](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-15-image-20230706201551599.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-15-image-20230706201551599.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-15-image-20230706201551599.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-15-image-20230706201551599.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-15-image-20230706201551599.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1159,7 +1227,13 @@ box-shadow 属性加上 inset 关键字，来使投影绘制在元素的内圈�
 
 如果你只需要两层边框，那就可以先设置一层常规边框，再加上 outline（描边）属性来产生外层的边框。描边的另一个好处在于，你可以通过 outline-offset 属性来控制它跟元素边缘之间的间距，这个属性甚至可以接受负值。这对于某些效果来说非
 
-常有用。举个例子实现简单的缝边效果：![image-20230706163844073](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-16-38-image-20230706163844073.png)
+常有用。举个例子实现简单的缝边效果：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-16-38-image-20230706163844073.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-16-38-image-20230706163844073.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-16-38-image-20230706163844073.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-16-38-image-20230706163844073.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1399,7 +1473,11 @@ IFC的全称是Inline Formatting Contexts，也就是“内联格式化上下文
 
 在下面给出的例子中，<strong style="color: red">带黑色边框的两个 ([`div`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/div)) 元素组成了一个[块级格式化上下文（block formatting context）](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)，其中的每一个单词都参与一个行内格式化上下文中。</strong>水平书写模式下的各个框水平地排列，垂直书写模式下的各个框垂直地排列。
 
-![image-20230710172501541](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-17-25-image-20230710172501541.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-17-25-image-20230710172501541.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-17-25-image-20230710172501541.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-17-25-image-20230710172501541.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-17-25-image-20230710172501541.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1420,7 +1498,11 @@ IFC的全称是Inline Formatting Contexts，也就是“内联格式化上下文
 
 - 3、然后是`inline box`（内联盒子），如果(文字)外部包含`inline`水平的标签(`span、a、em、strong`等)，则属于内联盒子。如果是个光秃秃的文字，则属于匿名内联盒子。如下图标注，`inline boxes`不会让内容成块显示，而是排成一行。
 
-![image-20230720004055615](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-20-00-40-image-20230720004055615.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-20-00-40-image-20230720004055615.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-20-00-40-image-20230720004055615.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-20-00-40-image-20230720004055615.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-20-00-40-image-20230720004055615.png" loading="lazy"/>
+  </picture>
 
 - 4、`content area`（内容区域），内容区域指一种围绕文字看不见的盒子，其大小仅受字符本身特性控制(与`font-size`大小和`font-family`相关)，本质上是一个字符盒子(`character box`)，但是有些元素，如图片这样的替换元素，其内容显然不是文字，不存在字符盒子之类的，对于这些元素，内容区域可以看成元素自身。
 
@@ -1432,7 +1514,11 @@ IFC的全称是Inline Formatting Contexts，也就是“内联格式化上下文
 
 #### baseline
 
-![image-20230710155501870](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png" loading="lazy"/>
+  </picture>
 
 在 CSS 中有两个重要属性，<strong style="color:red">`line-height`和`vertical-align`都与基线有关，`line-height`行高的定义就是两个基线之间的距离，`vertical-align`的默认值就`baseline`，也就是基线对齐。对于内联元素，虽然`vertical-align`与`line-height`可能没有写上去，但实际上**到处都是**！</strong>
 
@@ -1461,14 +1547,24 @@ IFC的全称是Inline Formatting Contexts，也就是“内联格式化上下文
   </head>
   <body>
     <div class="father">
-      <img src="./img.png" />
+      <picture>
+    <source type="image/avif" srcset="./img.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="./img.png?imageMogr2/format/webp">
+    <img src="./img.png" loading="lazy"/>
+  </picture>
       <span>askbspxj</span>
     </div>
   </body>
 </html>
 ```
 
-上述代码表现：![image-20230721161149935](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-21-16-11-image-20230721161149935.png)
+上述代码表现：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-21-16-11-image-20230721161149935.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-21-16-11-image-20230721161149935.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-21-16-11-image-20230721161149935.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-21-16-11-image-20230721161149935.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1563,7 +1659,11 @@ HTML5 规范：
 
 - <strong style="color: red">行高(line-height)=内容区域高度(content area)+行间距(vertical spacing)，其中行间距分上下部分，间距对半分。行间距可以为负值。</strong>实际上是下一行基线到上一行基线距离
 
-  ![image-20230710161047126](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-10-image-20230710161047126.png)
+  <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-10-image-20230710161047126.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-10-image-20230710161047126.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-10-image-20230710161047126.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-10-image-20230710161047126.png" loading="lazy"/>
+  </picture>
 
 - 对于非[替代](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element)的 inline 元素，它用于计算行盒（line box）的高度。
 
@@ -1653,7 +1753,11 @@ FFC的全称是Flex formatting contexts，弹性盒模型。
 
 ##### 1、自动撑开页面高度，底栏总是出现在页面的底部
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Kqvukz.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Kqvukz.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Kqvukz.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Kqvukz.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Kqvukz.webp" loading="lazy"/>
+  </picture>
 
 ```css
 <style>
@@ -1675,7 +1779,11 @@ FFC的全称是Flex formatting contexts，弹性盒模型。
 </body>
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-qXOFNK.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-qXOFNK.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-qXOFNK.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-qXOFNK.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-qXOFNK.webp" loading="lazy"/>
+  </picture>
 
 ##### 2、经典的圣杯布局
 
@@ -1722,7 +1830,11 @@ footer {
 </body>
 ```
 
-![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aM5FmI.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aM5FmI.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aM5FmI.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aM5FmI.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-aM5FmI.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -1768,7 +1880,11 @@ clear: both声明让该元素移动到浮动元素的下面，而不是侧面。
 
 - 父级开启bfc
 
-- ![image-20220824212555474](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212555474.png)
+- <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212555474.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212555474.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212555474.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212555474.png" loading="lazy"/>
+  </picture>
 
     这种方法的原理：`clear`属性只能在块级元素上起作用，这就是清除浮动样式中`display:block`的作用。
 
@@ -1778,7 +1894,11 @@ clear: both声明让该元素移动到浮动元素的下面，而不是侧面。
 
   
 
-- ![image-20220824212533788](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212533788.png)
+- <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212533788.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212533788.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212533788.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220824212533788.png" loading="lazy"/>
+  </picture>
 
   
 
@@ -1804,7 +1924,11 @@ clear: both声明让该元素移动到浮动元素的下面，而不是侧面。
 
 #### 利用浮动实现网格系统
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022190703495.png" alt="image-20221022190703495" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022190703495.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022190703495.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022190703495.png" alt="image-20221022190703495" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 `.row{}`的作用：解决 网格列和网格行外的内容出现轻微的错位 的问题。比如页面标题（“Running tips”）的左边缘本来应该跟第一列的媒体对象的边缘对齐，但是列的内边距让媒体对象所在的灰色盒子稍微往右移了一点。于是使用负外边距来拉伸行元素的宽度。给行元素添加一个−0.75em的左侧外边距，把行元素的左侧拉伸到容器外面。列元素的内边距会把里面的内容往右推0.75em，第一列就会跟页面标题左对齐。同理，还要给行元素添加负的右侧外边距，拉伸右侧。
 
@@ -1919,7 +2043,11 @@ translate 是 transform 属性的⼀个值。改变transform或opacity不会触�
 
 如果我们不去解决position:fixed;引发的问题，那么下面的图片初始加载出来时就会位于任务栏的下方（如下图所示）
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CgGdTR.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CgGdTR.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CgGdTR.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CgGdTR.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CgGdTR.png" loading="lazy"/>
+  </picture>
 
  那么我们要如何解决这个问题呢？
 
@@ -2048,11 +2176,19 @@ Flex 布局的默认行为是将 flex 项放在一行中并尽量填充容器的
 
    
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022195910416.png" alt="image-20221022195910416" style="zoom: 50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022195910416.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022195910416.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022195910416.png" alt="image-20221022195910416" style="zoom: 50%;" loading="lazy"/>
+  </picture>
 
 Justify-content
 
-![WechatIMG542](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/WechatIMG542.jpeg)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/WechatIMG542.jpeg?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/WechatIMG542.jpeg?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/WechatIMG542.jpeg" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/WechatIMG542.jpeg" loading="lazy"/>
+  </picture>
 
 
 
@@ -2067,11 +2203,19 @@ Justify-content
 
 
 
-![image-20221022200052991](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022200052991.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022200052991.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022200052991.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022200052991.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022200052991.png" loading="lazy"/>
+  </picture>
 
 flex属性的几种实用方式：
 
-![image-20221022194317847](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022194317847.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022194317847.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022194317847.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022194317847.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022194317847.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2151,13 +2295,23 @@ flex属性的几种实用方式：
 
 当设计要求元素在两个维度上都对齐时，使用网格。当只关心一维的元素排列时，使用Flexbox。在实践中，这通常（并非总是）意味着网格更适合用于整体的网页布局，而Flexbox更适合对网格区域内的特定元素布局。
 
-![image-20221022205548056](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022205548056.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022205548056.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022205548056.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022205548056.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022205548056.png" loading="lazy"/>
+  </picture>
 
 
 
 ##### 照片墙
 
-例如这种效果：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022212438071.png" alt="image-20221022212438071" style="zoom: 25%;" />
+例如这种效果：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022212438071.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022212438071.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022212438071.png" alt="image-20221022212438071" style="zoom: 25%;" loading="lazy"/>
+  </picture>
 
 在这个布局中，将设置列的网格轨道，但是网格行是隐式创建的。这样网页不必关心照片的数量，它能适应任意数量的网格元素。只要照片需要换行显示，就会隐式创建新的一行。
 
@@ -2167,7 +2321,11 @@ flex属性的几种实用方式：
 
 #### 网格的组成部分
 
-![image-20221022203423725](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022203423725.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022203423725.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022203423725.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022203423725.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221022203423725.png" loading="lazy"/>
+  </picture>
 
 ❑ 网格线（grid line）——网格线构成了网格的框架。一条网格线可以水平或垂直，也可以位于一行或一列的任意一侧。如果指定了grid-gap的话，它就位于网格线上。
 
@@ -2237,7 +2395,11 @@ flex属性的几种实用方式：
 }
 ```
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2v5OiX.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2v5OiX.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2v5OiX.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2v5OiX.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2v5OiX.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2262,7 +2424,11 @@ flex属性的几种实用方式：
 }
 ```
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-MdQpe3.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-MdQpe3.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-MdQpe3.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-MdQpe3.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-MdQpe3.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2279,7 +2445,11 @@ flex属性的几种实用方式：
 }
 ```
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-4Fn0Y6.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-4Fn0Y6.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-4Fn0Y6.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-4Fn0Y6.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-4Fn0Y6.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2380,7 +2550,11 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 }
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-bEQt8m.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-bEQt8m.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-bEQt8m.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-bEQt8m.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-bEQt8m.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2388,7 +2562,11 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 细心的同学可能发现了一个问题，就是第五个项目和第六个项目之间有个空白（如下图所示），这个是由于第六块的长度大于了空白处的长度，被挤到了下一行导致的。在实际应用中，我们可能想让下面长度合适的填满这个空白，这个时候可以设置  `grid-auto-flow: row dense`，表示尽可能填满表格。代码以及效果如下所示：
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-lAVx9a.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-lAVx9a.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-lAVx9a.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-lAVx9a.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-lAVx9a.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2402,7 +2580,11 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 }
 ```
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CDNHX1.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CDNHX1.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CDNHX1.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CDNHX1.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-CDNHX1.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2420,7 +2602,11 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 }
 ```
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2p86op.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2p86op.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2p86op.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2p86op.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-2p86op.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2445,7 +2631,11 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LwfKrT.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LwfKrT.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LwfKrT.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LwfKrT.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-LwfKrT.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2487,25 +2677,41 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 - start：对齐单元格的起始边缘
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0guMG.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0guMG.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0guMG.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0guMG.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-e0guMG.webp" loading="lazy"/>
+  </picture>
 
 
 
 - end：对齐单元格的结束边缘
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-3DNa6a.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-3DNa6a.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-3DNa6a.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-3DNa6a.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-3DNa6a.webp" loading="lazy"/>
+  </picture>
 
 
 
 - center：单元格内部居中
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-F9wed8.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-F9wed8.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-F9wed8.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-F9wed8.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-F9wed8.webp" loading="lazy"/>
+  </picture>
 
 
 
 - stretch：拉伸，占满单元格的整个宽度（默认值）
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gfNRtx.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gfNRtx.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gfNRtx.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gfNRtx.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gfNRtx.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2546,7 +2752,11 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-TfEEeM.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-TfEEeM.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-TfEEeM.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-TfEEeM.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-TfEEeM.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2572,7 +2782,11 @@ grid-template-columns: [left-start] 2fr [left-end right-start] 1fr [right-end]; 
 
 
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-xH0yHD.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-xH0yHD.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-xH0yHD.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-xH0yHD.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-xH0yHD.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2668,7 +2882,11 @@ subgrid 解决 grid 嵌套 grid 时，子网格的位置、轨迹线不能完全
 
 上面代码中，类 `.two` 所在的网格项目，垂直网格线是从 2 到 4，水平网格线是从 1 到 2。其中它跟 `.three` （垂直网格线是从3 到 4，水平网格线是从 1 到 4） 是有冲突的。可以设置 `z-index` 去决定它们的层级关系
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WsKoXn.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WsKoXn.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WsKoXn.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WsKoXn.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-WsKoXn.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2714,7 +2932,11 @@ subgrid 解决 grid 嵌套 grid 时，子网格的位置、轨迹线不能完全
 
 
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9Lsu9R.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9Lsu9R.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9Lsu9R.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9Lsu9R.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9Lsu9R.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -2722,19 +2944,31 @@ subgrid 解决 grid 嵌套 grid 时，子网格的位置、轨迹线不能完全
 
 
 
-![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SYl73T.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SYl73T.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SYl73T.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SYl73T.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-SYl73T.webp" loading="lazy"/>
+  </picture>
 
 
 
 - center：单元格内部居中
 
-  ![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3s9If2.webp)
+  <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3s9If2.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3s9If2.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3s9If2.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3s9If2.webp" loading="lazy"/>
+  </picture>
 
   
 
 - stretch：拉伸，占满单元格的整个宽度（默认值）
 
-  ![image](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9SDOEx.webp)
+  <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9SDOEx.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9SDOEx.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9SDOEx.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-9SDOEx.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -3103,7 +3337,11 @@ wrapper {
 
 
 
-![image-20230504101045905](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-10-image-20230504101045905.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-10-image-20230504101045905.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-10-image-20230504101045905.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-10-image-20230504101045905.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-10-image-20230504101045905.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -3286,7 +3524,11 @@ import 'lib-flexible';
 
 ## viewport
 
-![image-20230504105211576](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-52-image-20230504105211576.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-52-image-20230504105211576.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-52-image-20230504105211576.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-52-image-20230504105211576.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-52-image-20230504105211576.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -3651,7 +3893,11 @@ font-display属性
 
 ##### @font-face
 
-![image-20221023210553867](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023210553867.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023210553867.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023210553867.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023210553867.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023210553867.png" loading="lazy"/>
+  </picture>
 
 @font-face规则定义了浏览器字体，以便在页面的CSS中使用。这里的第一条规则实际上是说，“如果页面需要渲染font-family为Roboto的拉丁字符，这些字符使用了正常的字体样式（非斜体）并且字重为300，那么就使用这个字体文件”。第二条规则类似，定义了一个粗体版本（字重为800）的Sansita字体。font-family设置了引用字体的名称，可以在样式表的其他地方使用。src：提供了一个逗号分隔的浏览器可以搜索的地址列表，以local(Roboto Light)和local(Roboto-Light)开头的话，如果用户的操作系统中恰好安装了名为Roboto Light或者Roboto-Light的字体，就使用这些字体。否则就使用url()来下载指定的字体文件。
 
@@ -3705,7 +3951,11 @@ COLRv1 Fonts 是一种自定义颜色与样式的矢量字体方案，浏览器�
 
 它是用来盛放字符的金属容器。这个 `em-square` 一般被设定为宽高均为 `1000` 相对单位，不过也可以是 `1024、2048` 相对单位。你可以理解为字体的模板（字模），如下图所示：
 
-![image-20230710165705190](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-57-image-20230710165705190.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-57-image-20230710165705190.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-57-image-20230710165705190.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-57-image-20230710165705190.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-57-image-20230710165705190.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -3715,7 +3965,11 @@ COLRv1 Fonts 是一种自定义颜色与样式的矢量字体方案，浏览器�
 
 这些度量的刻度是基于`1000`这个相对单位（不同字体相对单位可能不一样）来设置的，如下图所示：
 
-![image-20230710155501870](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-15-55-image-20230710155501870.png" loading="lazy"/>
+  </picture>
 
 - **Baseline：** 就是我们常说的基线，所有字母放置的水平线。它是文本中一条稳定的轴线，是校准文本与图片，文本与文本的一条重要的参考线。其他度量线都是相对基线来计算的。
 - **X-Height：** 是主要的小写字母高度（或者说是“x”字母的高度），除去上延和下延部分
@@ -3731,13 +3985,25 @@ COLRv1 Fonts 是一种自定义颜色与样式的矢量字体方案，浏览器�
 
 ##### [FontForge](https://link.juejin.cn/?target=https%3A%2F%2Ffontforge.org%2Fen-US%2Fdownloads%2F)软件看字体度量信息
 
-![image-20230710160422461](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-04-image-20230710160422461.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-04-image-20230710160422461.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-04-image-20230710160422461.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-04-image-20230710160422461.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-04-image-20230710160422461.png" loading="lazy"/>
+  </picture>
 
 <strong style="color:red">`Units Per Em`（就是上文讲到的`em-square`）表示一个字的高度有`1000`个单位，`baseline`的坐标为`0`，其它线的坐标相对于`baseline`</strong>，如下图所示：
 
-![image-20230710160519474](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-05-image-20230710160519474.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-05-image-20230710160519474.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-05-image-20230710160519474.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-05-image-20230710160519474.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-05-image-20230710160519474.png" loading="lazy"/>
+  </picture>
 
-![image-20230710160807630](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-08-image-20230710160807630.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-08-image-20230710160807630.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-08-image-20230710160807630.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-08-image-20230710160807630.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-10-16-08-image-20230710160807630.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -3791,7 +4057,11 @@ ios可以设置400 - 700
 
 当然你可以通过开发者工具去设置显示1px字体。
 
-![image-20230608155214675](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png" loading="lazy"/>
+  </picture>
 
 **解决办法：**
 
@@ -3938,7 +4208,11 @@ JS 实现方式：
 
 我们以分页器为例，当页码发生变化的时候，不等宽的数字会造成左侧箭头的位置偏移，大家可以从下图中看到示例：
 
-![图片](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-X5SQMU.gif)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-X5SQMU.gif?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-X5SQMU.gif?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-X5SQMU.gif" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-X5SQMU.gif" loading="lazy"/>
+  </picture>
 
 当遇到这种情况时，我们可以通过 font-variant-numeric 属性来实现数字的等宽。
 
@@ -4196,7 +4470,11 @@ background属性是以下八个属性的简写。
 
 repeating-radial-gradient()函数可以重复生成图样，形成同心圆环。
 
-![image-20221023194719428](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023194719428.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023194719428.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023194719428.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023194719428.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023194719428.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4224,7 +4502,11 @@ repeating-radial-gradient()函数可以重复生成图样，形成同心圆环�
 
 ###### 15种类型
 
-![image-20221023203341393](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023203341393.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023203341393.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023203341393.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023203341393.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023203341393.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4242,7 +4524,11 @@ repeating-radial-gradient()函数可以重复生成图样，形成同心圆环�
 
 #### `background-color`
 
-![image-20220326222319990](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/css%2F%E7%9F%A5%E8%AF%86%2Fmargin.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/css%2F%E7%9F%A5%E8%AF%86%2Fmargin.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/css%2F%E7%9F%A5%E8%AF%86%2Fmargin.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/css%2F%E7%9F%A5%E8%AF%86%2Fmargin.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/css%2F%E7%9F%A5%E8%AF%86%2Fmargin.png" loading="lazy"/>
+  </picture>
 
 #### `background-size`
 
@@ -4272,7 +4558,11 @@ background: linear-gradient(#fb3 50%, #58a 50%);//此时的条纹是等宽的
 background-size: 100% 30px;
 ```
 
-![image-20230706204728772](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-47-image-20230706204728772.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-47-image-20230706204728772.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-47-image-20230706204728772.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-47-image-20230706204728772.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-47-image-20230706204728772.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4290,7 +4580,11 @@ background-size: 100% 30px;
 因为“如果某个色标的位置值比整个列表中在它之前的色标的位置值都要小，则该色标的位置值会被设置为它前面所有色标位置值的最大值。” ——CSS 图像（第三版）（http://w3.org/TR/css3-images）
 ```
 
-![image-20230706204830920](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204830920.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204830920.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204830920.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204830920.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204830920.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4320,7 +4614,11 @@ background: linear-gradient(to right, /* 或 90deg */
 background-size: 30px 100%;
 ```
 
-![image-20230706204850596](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204850596.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204850596.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204850596.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204850596.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-20-48-image-20230706204850596.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4328,7 +4626,23 @@ background-size: 30px 100%;
 
 创建斜向条纹需要用到四个色标，因为斜着的两个色标是无法无缝重合的，需要四个色标才可以无缝重合。
 
-两个色标的情况：![image-20230706210420304](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210420304.png)                  四个色标：![image-20230706210435939](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210435939.png)
+两个色标的情况：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210420304.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210420304.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210420304.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210420304.png" loading="lazy"/>
+  </picture>                  
+
+
+
+四个色标：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210435939.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210435939.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210435939.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-04-image-20230706210435939.png" loading="lazy"/>
+  </picture>
 
 利用repeating-linear-gradient()
 
@@ -4357,7 +4671,11 @@ background: repeating-linear-gradient(60deg,#fb3, #fb3 15px, #58a 15px, #58a 30p
 /*第一个色值的色标为0，第二个色值和第三个色值的色标相同，第四个色值的色标与第三个色值的色标的差值跟第二个与第一个色值的色标的差值相同*/
 ```
 
-![image-20230706210003097](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-00-image-20230706210003097.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-00-image-20230706210003097.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-00-image-20230706210003097.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-00-image-20230706210003097.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-06-21-00-image-20230706210003097.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4389,7 +4707,13 @@ background-image: repeating-linear-gradient(30deg,
 
 ##### 用法
 
-默认情况下，阴影与元素的大小和尺寸相同。如果元素设置了border-radius，那么阴影相应地也会有圆角。阴影的水平偏移量（x）、垂直偏移量（y）和颜色都不可或缺。还有两个值是可选的：模糊半径和扩展半径。完整的语法如图![image-20221023195209780](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195209780.png)
+默认情况下，阴影与元素的大小和尺寸相同。如果元素设置了border-radius，那么阴影相应地也会有圆角。阴影的水平偏移量（x）、垂直偏移量（y）和颜色都不可或缺。还有两个值是可选的：模糊半径和扩展半径。完整的语法如图
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195209780.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195209780.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195209780.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195209780.png" loading="lazy"/>
+  </picture>
 
 模糊半径用来控制阴影边缘模糊区域的大小，可以为阴影生成一个更柔和、有点透明的边缘。扩展半径用来控制阴影的大小，设置为正值可以使阴影全方位变大，设为负值则会变小。
 
@@ -4397,9 +4721,21 @@ background-image: repeating-linear-gradient(30deg,
 
 ##### 用途
 
-使用渐变和阴影形成立体感：![image-20221023195456084](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195456084.png)按钮未被点击时：由上至下的渐变可以使按钮产生弧形的3D效果，阴影加强了这种效果。阴影做了一些模糊处理，看起来更自然了。按钮点击时，移除了阴影效果，取而代之的是在按钮的边框内出现了内阴影。这样按钮就有了一种被摁下的感觉，就仿佛用户真的在网页上按压按钮。
+使用渐变和阴影形成立体感：
 
-实现代码：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195749341.png" alt="image-20221023195749341" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195456084.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195456084.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195456084.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195456084.png" loading="lazy"/>
+  </picture>按钮未被点击时：由上至下的渐变可以使按钮产生弧形的3D效果，阴影加强了这种效果。阴影做了一些模糊处理，看起来更自然了。按钮点击时，移除了阴影效果，取而代之的是在按钮的边框内出现了内阴影。这样按钮就有了一种被摁下的感觉，就仿佛用户真的在网页上按压按钮。
+
+实现代码：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195749341.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195749341.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023195749341.png" alt="image-20221023195749341" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 我们增加了一个<font color="red">inset关键字</font>，用来替换之前的盒阴影。这样就可以使阴影出现在元素边框的内部，而非之前的外部。同时我们定义了不止一个阴影，<font color="red">用逗号分隔。通过这种方式可以添加多个阴影。</font>
 
@@ -4407,9 +4743,19 @@ background-image: repeating-linear-gradient(30deg,
 
 
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023200516781.png" alt="image-20221023200516781" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023200516781.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023200516781.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023200516781.png" alt="image-20221023200516781" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
-实现代码：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023200558736.png" alt="image-20221023200558736" style="zoom:50%;" />
+实现代码：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023200558736.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023200558736.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023200558736.png" alt="image-20221023200558736" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -4465,9 +4811,17 @@ background-image: repeating-linear-gradient(30deg,
 
 移动端是支持12px以下字体的，当然这其实只跟浏览器的设置有关，你电脑上也可以将chrome浏览器的字体设置到12px以下。
 
-![image-20230608155214675](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-06-08-15-52-image-20230608155214675.png" loading="lazy"/>
+  </picture>
 
-![image-20230429150120927](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-01-image-20230429150120927.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-01-image-20230429150120927.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-01-image-20230429150120927.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-01-image-20230429150120927.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-29-15-01-image-20230429150120927.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -4566,7 +4920,11 @@ Device Independent Pixel（DIP），可以理解为反映在CSS/JS程序里面�
 
 举个例子，iPhone 6的物理像素上面已经说了，是750 * 1334，那它的逻辑像素呢？我们只需在iPhone 6的Safari里打印一下`screen.width`和`screen.height`就知道了，结果是 375 * 667，这就是它的逻辑像素，据此很容易计算出DRP为2。当然，我们还可以直接通过`window.devicePixelRatio`这个值来获取DRP，打印结果是2
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-32-image-20230504103224911.png" alt="image-20230504103224911" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-32-image-20230504103224911.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-32-image-20230504103224911.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-32-image-20230504103224911.png" alt="image-20230504103224911" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -4574,7 +4932,11 @@ Device Independent Pixel（DIP），可以理解为反映在CSS/JS程序里面�
 
 
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-24-image-20230504102422471.png" alt="image-20230504102422471" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-24-image-20230504102422471.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-24-image-20230504102422471.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-10-24-image-20230504102422471.png" alt="image-20230504102422471" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -4730,13 +5092,21 @@ steps()函数。跟从一个值到另一个值的基于贝塞尔曲线的流畅�
 
 cubic-bezier()函数和4个参数共同组成了自定义定时函数。其中的四个参数分别代表两个控制柄的控制点的x和y坐标。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023221530152.png" alt="image-20221023221530152" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023221530152.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023221530152.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023221530152.png" alt="image-20221023221530152" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
 cubic-bezier(0.2， 0.9，0.3，1.3)函数产生了一个弹跳特效：标签向右移动时，超出了停止位置，然后再回到最终位置停下来。运动曲线如图所示：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024140629913.png" alt="image-20221024140629913" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024140629913.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024140629913.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024140629913.png" alt="image-20221024140629913" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 你会发现曲线超出了盒子的顶端，这就意味着值超过了过渡的最终值。从translate(-1em)到translate(0)的过渡中，标签的变换会短暂地到达一个超出最终位置大概0.15em的值，然后再缓缓回到最终位置。同样，我们也可以在定时函数的开始添加弹跳效果，即把第一个控制柄移动到低于盒子底部。然而过渡曲线是不可能超出左右两侧边缘的，这不合逻辑。
 
@@ -4798,7 +5168,11 @@ cubic-bezier(0.2， 0.9，0.3，1.3)函数产生了一个弹跳特效：标签�
 
 ###### 计算方式
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-20-11-image-20240130201124484.png" alt="image-20240130201124484" style="zoom:75%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-20-11-image-20240130201124484.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-20-11-image-20240130201124484.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-30-20-11-image-20240130201124484.png" alt="image-20240130201124484" style="zoom:75%;" loading="lazy"/>
+  </picture>
 
 ###### 偏移/缩放
 
@@ -4870,7 +5244,11 @@ matrix((1-k*k) / (1+k*k), 2k / (1 + k*k), 2k / (1 + k*k), (k*k - 1) / (1+k*k), 0
 
 这个如何得到的呢？如下图，已经y=kx，并且知道点(x, y)坐标，求其对称点(x’, y’)的坐标？
 
-![在这里插入图片描述](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w0kvOP.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w0kvOP.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w0kvOP.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w0kvOP.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-w0kvOP.webp" loading="lazy"/>
+  </picture>
 
 很简单，一是垂直，二是中心点在轴线上，因此有：
 
@@ -4896,7 +5274,11 @@ x' = ((1-k*k)*x + 2k*y)/(k*k+1); y' = (2k*x + ((k*k-1)*y))/(k*k+1);
 
 对于3D缩放效果，其矩阵如下：
 
-![在这里插入图片描述](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uomFwu.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uomFwu.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uomFwu.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uomFwu.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uomFwu.webp" loading="lazy"/>
+  </picture>
 
 代码表示就是：
 
@@ -4960,7 +5342,11 @@ transform-origin: 0 0;
 
 为页面添加3D变换之前，我们需要先确定一件事情，即透视距离（perspective）。我们可以把透视距离想象成“摄像机”和场景之间的距离，前后移动镜头就会改变整个场景最终显示到图像上的方式。如果镜头比较近（即透视距离小），那么3D效果就会比较强。如果镜头比较远（即透视距离大），那么3D效果就会比较弱。比如：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024162850117.png" alt="image-20221024162850117" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024162850117.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024162850117.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024162850117.png" alt="image-20221024162850117" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 左侧这个旋转后的元素，没有设置透视距离，看起来不太像是3D的。不设置透视距离的3D变换看上去像是平的，“向远处转”的那部分元素没有显得变小。
 
@@ -4998,7 +5384,11 @@ transform-origin: 0 0;
 
 如果你要使用嵌套元素构建复杂的3D场景，transform-style属性就变得非常重要。如果对3D变换元素的父元素再做3D变换，可能需要用到preserve-3d属性。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024165557820.png" alt="image-20221024165557820" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024165557820.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024165557820.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221024165557820.png" alt="image-20221024165557820" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 左图展示了通过把六个面变换到相应位置创建一个3D立方体。中间的图片展示的是对整个立方体（即它们的父元素）使用变换会发生什么。为了改正这个问题，我们应该对父元素使用transform-style: preserve-3d（如右图所示）。如果想要了解更多内容和使用案例，可以查看Ana Tudor在DWB网站写的教程。
 
@@ -5251,7 +5641,11 @@ Lottie是由Airbnb开源的一个支持 Android、iOS 以及 ReactNative的动�
 2. 通过 Lottie 提供的 AE 插件 Bodymovin 把动画导出 JSON 数据文件。
 3. 加载 Lottie 库结合 JSON 文件就可以实现一个 Lottie 动画。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-16-37-image-20231214163732074.png" alt="image-20231214163732074" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-16-37-image-20231214163732074.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-16-37-image-20231214163732074.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-16-37-image-20231214163732074.png" alt="image-20231214163732074" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -5365,7 +5759,11 @@ AnimationItem.prototype.setCurrentRawFrameValue = function(value){
 1. Lottie-web 文件本身仍然比较大，未压缩大小为 513k，轻量版压缩后也有 144k，经过 Gzip 后，大小为39k。所以，需要注意 Lottie-web 的加载。
 2. 不必要的序列帧。Lottie 的主要动画思想是绘制某一个图层不断的改变 CSS 属性，如果设计师偷懒用了一些插件实现的动画效果，可能会造成每一帧都是一张图，如下图所示，那就会造成这个 JSON 文件非常大，注意和设计师提前进行沟通。
 
-![不必要的序列帧](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z85IZO.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z85IZO.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z85IZO.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z85IZO.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-z85IZO.webp" loading="lazy"/>
+  </picture>
 
 3. 部分AE特效不支持。有少量的 AE 动画效果，Lottie 无法实现，有些是因为性能问题，有些是没有做，注意和设计师提前沟通，[点我查看](https://link.juejin.cn?target=http%3A%2F%2Fairbnb.io%2Flottie%2F%23%2Fsupported-features)。
 
@@ -5445,7 +5843,11 @@ WebGL实现透明视频绘制的主要思路为：
 - APNG 大小 27M
 - Video 仅有 400K
 
-<mark>h264格式Video 没有 Alpha 通道</mark>，也就是如下效果所示，视频背景是黑乎乎的。<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-19-48-image-20231214194847258.png" alt="image-20231214194847258" style="zoom:25%;" />然而我们平时的动画场景基本都是需要透明度的。
+<mark>h264格式Video 没有 Alpha 通道</mark>，也就是如下效果所示，视频背景是黑乎乎的。<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-19-48-image-20231214194847258.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-19-48-image-20231214194847258.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-19-48-image-20231214194847258.png" alt="image-20231214194847258" style="zoom:25%;" loading="lazy"/>
+  </picture>然而我们平时的动画场景基本都是需要透明度的。
 
 已知“用户与页面交互之后才可以使用 Video 标签进行视频播放”限制的平台有：移动端微信浏览器，iPhone 省电模式，部分 Android 浏览器。视频的可配置性和可交互性太差。高清视频一般体积都比较大。移动端视频在不同app、不同机型、不同系统的播放显示都不太一样，容易踩不少坑。
 
@@ -5462,11 +5864,19 @@ WebGl 实现透明视频绘制的主要思路为：
 
 
 
-设计同学导出左右对称视频 [查看视频](https://link.juejin.cn/?target=http%3A%2F%2Ff1.iplay.126.net%2FLTg4MDA1%2Fc62f8e1f15e98ff9eb9a094d015db380.mp4) 如下：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-36-image-20231214203658951.png" alt="image-20231214203658951" style="zoom: 25%;" />
+设计同学导出左右对称视频 [查看视频](https://link.juejin.cn/?target=http%3A%2F%2Ff1.iplay.126.net%2FLTg4MDA1%2Fc62f8e1f15e98ff9eb9a094d015db380.mp4) 如下：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-36-image-20231214203658951.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-36-image-20231214203658951.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-36-image-20231214203658951.png" alt="image-20231214203658951" style="zoom: 25%;" loading="lazy"/>
+  </picture>
 
 这个视频中是左右对称的。左面是纯白色的动画，右面是有色彩的也是我们所需要的动画。那我们的绘制思路就可以为：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-44-image-20231214204436507.png" alt="image-20231214204436507" style="zoom:25%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-44-image-20231214204436507.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-44-image-20231214204436507.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-44-image-20231214204436507.png" alt="image-20231214204436507" style="zoom:25%;" loading="lazy"/>
+  </picture>
 
 1. 真正绘制的动画宽为原视频的 50%，也就是一半，高和视频一致
 2. 解析左侧像素点，白色就代表是动画，黑色就代表需要透明
@@ -5575,7 +5985,15 @@ function onClick(clientX, clinetY) {
 
 GIF 经常会有杂边。APNG（Animated Portable Network Graphics）是基于 PNG 格式扩展的一种动画格式，增加了对动画图像的支持，同时加入了 24 位图像和 8 位 Alpha 透明度的支持。看下 APNG 和 GIF 的对比效果：
 
-![clock.gif](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jF4Bkv.webp)![clock.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gWQs55.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jF4Bkv.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jF4Bkv.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jF4Bkv.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-jF4Bkv.webp" loading="lazy"/>
+  </picture><picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gWQs55.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gWQs55.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gWQs55.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-gWQs55.png" loading="lazy"/>
+  </picture>
 
  APNG 和 GIF 的大小虽然相差不大，但是 APNG 要比 GIF 清晰的多，并且没有杂边。
 
@@ -5585,7 +6003,11 @@ GIF 经常会有杂边。APNG（Animated Portable Network Graphics）是基于 P
 
 png的数据格式：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-29-image-20231214172917571.png" alt="image-20231214172917571" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-29-image-20231214172917571.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-29-image-20231214172917571.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-29-image-20231214172917571.png" alt="image-20231214172917571" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 主要分为 4 部分：
 
@@ -5605,7 +6027,11 @@ png的数据格式：
 
 APNG 的数据格式：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-39-image-20231214173905380.png" alt="image-20231214173905380" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-39-image-20231214173905380.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-39-image-20231214173905380.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-39-image-20231214173905380.png" alt="image-20231214173905380" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 APNG 在 PNG 的基础上增加了 acTL、fcTL 和 fdAT 3 种模块
 
@@ -5617,11 +6043,19 @@ APNG 在 PNG 的基础上增加了 acTL、fcTL 和 fdAT 3 种模块
 
 ###### apng性能
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174306894.png" alt="image-20231214174306894" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174306894.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174306894.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174306894.png" alt="image-20231214174306894" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 生成 APNG 前，APNG 会通过算法计算帧之间的差异，只存储帧之前的差异，而不是存储全帧。如下，第 2、3、4 帧都没有表盘部分了。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174324181.png" alt="image-20231214174324181" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174324181.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174324181.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-17-43-image-20231214174324181.png" alt="image-20231214174324181" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 APNG 文件存储多帧数据会很大，所以建议使用比较小的动画场景上。如果场景合适，也可以放一张静态图在底部，待 APNG 加载完毕后替换，不过这种需要第一帧是可以对用户静态展示的。
 
@@ -5636,7 +6070,11 @@ APNG 文件存储多帧数据会很大，所以建议使用比较小的动画场
 平时我们使用 APNG 方式如下，非常简单：
 
 ```html
-<img src="xxx.png" />
+<picture>
+    <source type="image/avif" srcset="xxx.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="xxx.png?imageMogr2/format/webp">
+    <img src="xxx.png" loading="lazy"/>
+  </picture>
 ```
 
 但是直接使用 `img` 标签存在 2 个问题：
@@ -5838,11 +6276,23 @@ apng/透明视频/lottie 如何选型 ---  看内存占用和实现效果，有�
 
 ##### 其他维度总结
 
-![image-20230705200125080](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-05-20-01-image-20230705200125080.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-05-20-01-image-20230705200125080.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-05-20-01-image-20230705200125080.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-05-20-01-image-20230705200125080.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-07-05-20-01-image-20230705200125080.png" loading="lazy"/>
+  </picture>
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-01-image-20231214200111523.png" alt="image-20231214200111523" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-01-image-20231214200111523.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-01-image-20231214200111523.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-14-20-01-image-20231214200111523.png" alt="image-20231214200111523" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
-![image-20230428120224415](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-28-12-02-image-20230428120224415.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-28-12-02-image-20230428120224415.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-28-12-02-image-20230428120224415.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-28-12-02-image-20230428120224415.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-04-28-12-02-image-20230428120224415.png" loading="lazy"/>
+  </picture>
 
 1. 矢量动画(Lottie)：Lottie矢量动画压缩率很高，但其无法显示特殊效果（比如粒子特效）；
 2. 动图方案(GIF、Apng、Webp)：GIF只支持8位颜色，颜色丢失严重，解码性能低，无法满足特效效果；Apng, Webp虽然能够满足特效效果，但文件较大，软解效率低，资源加载缓慢，容易引起体验问题；
@@ -6117,7 +6567,11 @@ https://coolshell.cn/articles/4990.html
 
 打开chrome控制台 -> More Tools -> Layers
 
-![image-20230909163743013](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-37-image-20230909163743013.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-37-image-20230909163743013.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-37-image-20230909163743013.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-37-image-20230909163743013.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-37-image-20230909163743013.png" loading="lazy"/>
+  </picture>
 
 当我们选中Layers里面的某一层时，就可以看到几个关键信息：产生合成层的原因/占据内存是多少、以及绘制次数。这里会涉及到几个点需要大家在写动画的时候注意：
 
@@ -6134,7 +6588,11 @@ https://coolshell.cn/articles/4990.html
 
 打开chrome控制台 -> More Tools -> Layer/Rendering
 
-![image-20230909163121444](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-31-image-20230909163121444.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-31-image-20230909163121444.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-31-image-20230909163121444.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-31-image-20230909163121444.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-31-image-20230909163121444.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -6148,7 +6606,11 @@ https://coolshell.cn/articles/4990.html
 
  Animations里面展示的动画都为CSS动画，通过JS + Raf调用去控制的JS动画是不会出现在Animations里面。
 
-![image-20230909164054907](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-40-image-20230909164054907.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-40-image-20230909164054907.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-40-image-20230909164054907.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-40-image-20230909164054907.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-16-40-image-20230909164054907.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -6165,7 +6627,15 @@ https://coolshell.cn/articles/4990.html
 
 目前这个数据缺乏有效的线上数据收集手段，只能查看实验室数据，打开相关调试工具：打开chrome控制台 -> More Tools -> Rendering，
 
-勾选<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-03-image-20240129180354224.png" alt="image-20240129180354224" style="zoom:33%;" />即可看到<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-04-image-20240129180418251.png" alt="image-20240129180418251" style="zoom:33%;" />。
+勾选<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-03-image-20240129180354224.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-03-image-20240129180354224.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-03-image-20240129180354224.png" alt="image-20240129180354224" style="zoom:33%;" loading="lazy"/>
+  </picture>即可看到<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-04-image-20240129180418251.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-04-image-20240129180418251.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-18-04-image-20240129180418251.png" alt="image-20240129180418251" style="zoom:33%;" loading="lazy"/>
+  </picture>。
 
 一般推荐 FPS 保持在 60 为最佳
 
@@ -6264,7 +6734,11 @@ keep里有手机温度的数据，但由于影响因素太多，推荐还是实�
 
 一般的设计师合作流程如下：
 
-![image-20230909154002015](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-40-image-20230909154002015.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-40-image-20230909154002015.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-40-image-20230909154002015.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-40-image-20230909154002015.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-09-09-15-40-image-20230909154002015.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -6292,11 +6766,19 @@ H5 采用 Canvas 做游戏方面的开发，主要原因在于性能和游戏引
 
 **痛点2**、当react和这些渲染引擎的代码穿插出现在业务中的时候，往往带来的代码管理成本是非常高的。比如状态管理就无法在游戏侧和UI侧同时共享；
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112005637.png" alt="image-20231215112005637" style="zoom:25%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112005637.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112005637.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112005637.png" alt="image-20231215112005637" style="zoom:25%;" loading="lazy"/>
+  </picture>
 
 以一个卡牌类桌游场景为例。于是就有了以下这种很棘手的开发流程
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112034565.png" alt="image-20231215112034565" style="zoom:25%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112034565.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112034565.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-15-11-20-image-20231215112034565.png" alt="image-20231215112034565" style="zoom:25%;" loading="lazy"/>
+  </picture>
 
 **痛点3**、除此之外，代码里也需要有大量的订阅发布、面向对象开发、甚至有时需要单独维护一套状态机。在使用Eva.js的过程中，我们还需要遵循ECS的架构思路来安排自己的代码。这一切，都与DSL有所割裂。而完全在需求中摒弃DSL却又会导致开发效率的直线下滑。
 
@@ -6310,11 +6792,306 @@ https://kenney.nl/assets
 
 ### 库
 
-手子推币机用的物理引擎：https://github.com/liabru/matter-js
+快手推币机用的物理引擎：https://github.com/liabru/matter-js
 
 
 
+### 选型
 
+#### **pixijs**
+
+https://github.com/pixijs/pixijs
+
+- **优势**
+
+- - **性能好，轻量，容易上手。**
+  - **使用 typescript 编写，类型友好，容易与 web 生态结合。**
+
+- **缺点**
+
+- - **不是一个游戏引擎，只是一个2d 渲染器。**
+
+- **是否支持2D**
+
+- - **是**
+
+- **是否支持3D**
+
+- - **否**
+
+- **是否支持小游戏**
+
+- - **比较难兼容**
+
+- **包大小**
+
+- - **452kb(压缩后) gzip: 136kb**
+  - **支持裁剪** [**https://pixijs.io/customize/**](https://pixijs.io/customize/)
+
+- **示例（如果有）**
+
+- - [**https://codepen.io/boli88/pen/pVEaKV**](https://codepen.io/boli88/pen/pVEaKV)
+  - [**https://itch.io/games/made-with-pixijs**](https://itch.io/games/made-with-pixijs)
+
+
+
+#### **phaser**
+
+[ https://github.com/photonstorm/phaser](https://github.com/photonstorm/phaser) 
+
+- **优势**
+
+- - **简单, h5框架**
+
+  - **跨平台：web 、移动端、桌面**
+
+  - **支持canvas和WebGL渲染，****基于浏览器支持可自由切换**
+
+  - **黑马编辑器辅助开发**
+
+  - - [**http://mightyeditor.mightyfingers.com/**](http://mightyeditor.mightyfingers.com/)
+    - [**https://www.youtube.com/watch?v=gzGHMRx3yz0**](https://www.youtube.com/watch?v=gzGHMRx3yz0)
+
+- **缺点**
+
+- - **2D渲染，不支持3D**
+
+- **是否支持2D**
+
+- - **是**
+
+- **是否支持3D**
+
+- - **否**
+
+- **是否支持小游戏**
+
+- - **否**
+
+- **包大小**
+
+- - **1.1M（压缩后）gzip: 299kb**
+  - [**https://bundlephobia.com/package/phaser@3.60.0**](https://bundlephobia.com/package/phaser@3.60.0)
+
+- **示例**
+
+- - [**https://www.crazygames.com/game/bloxdhop-io**](https://www.crazygames.com/game/bloxdhop-io)
+  - [**https://poki.com/en/g/poor-eddie**](https://poki.com/en/g/poor-eddie)
+
+
+
+#### **babylon**
+
+https://github.com/BabylonJS/Babylon.js
+
+3D游戏引擎，它专注于WebGL渲染，支持物理引擎、材质系统、灯光、阴影等高级功能
+
+- **优势**
+
+- - **跨平台能力****：****支持 WebGL 的现代浏览器上运行**
+  - **可以按需引入**
+  - **TypeScript 类型完善，几乎每个函数都有注释。**
+  - **babylon有sandbox playground 材质编辑器 editor等**[**https://playground.babylonjs.com/**](https://playground.babylonjs.com/)
+
+[**https://nme.babylonjs.com/**](https://nme.babylonjs.com/)
+
+[**https://sandbox.babylonjs.com/**](https://sandbox.babylonjs.com/)
+
+[**https://doc.babylonjs.com/toolsAndResources/guiEditor**](https://doc.babylonjs.com/toolsAndResources/guiEditor)
+
+
+
+- **缺点**
+
+- - **中文社区和文档相比于其它没那么丰富**
+
+- **是否支持2D**
+
+- - **是**
+
+- **是否支持3D**
+
+- - **是**
+
+- **是否支持小游戏**
+
+- - **是 但不建议用于搞微信小游戏，踩坑** [**https://github.com/coppyC/blog/issues/52**](https://github.com/coppyC/blog/issues/52)
+
+- **包大小**
+
+- - **70.1 MB**
+  - **968****kB（****MINIFIED + GZIPPED****）**[**https://bundlephobia.com/package/babylonjs@6.13.0**](https://bundlephobia.com/package/babylonjs@6.13.0)
+
+- **示例**
+
+- - [**https://cnbabylon.com/community/**](https://cnbabylon.com/community/)
+  - [**http://www.babylonjs.com.cn/examples/index.html**](http://www.babylonjs.com.cn/examples/index.html)
+
+
+
+#### **playcanvas**
+
+[ https://github.com/playcanvas/engine](https://github.com/playcanvas/engine)
+
+- **优势**
+
+- - **不需要下载 ide，在线编辑，可以拖拽生成场景**
+  - **作为游戏引擎功能齐全，包括物理引擎、资源管理、动画、声音等等**
+  - **平台附带托管功能**
+
+- **缺点**
+
+- - **engine 开源，编辑器没有开源**
+
+- **是否支持2D**
+
+- - **否**
+
+- **是否支持3D**
+
+- - **是**
+
+- **是否支持小游戏**
+
+- - **支持**
+
+- **包大小**
+
+- - **1.5mb gzip 378kb**
+
+- **示例**
+
+- - [**https://tanx.io/?u=Tr92fuRdAwa8KaQS**](https://tanx.io/?u=Tr92fuRdAwa8KaQS)
+  - [**https://codepen.io/playcanvas/pen/NPbxMj**](https://codepen.io/playcanvas/pen/NPbxMj)
+
+
+
+#### **threejs**
+
+https://github.com/mrdoob/three.js 
+
+3d 渲染引擎
+
+The current builds only include a WebGL renderer but WebGPU (experimental), SVG and CSS3D renderers are also available as addons.
+
+- **优势**
+
+- - **丰富的社区和生态系统**
+  - **模块化架构，易于扩展和定制**
+
+- **缺点**
+
+- - **定位不是一个游戏引擎，只是一个3d 渲染引擎。但社区给它加了不少游戏引擎的扩展。**
+  - **源码大部分是es5，质量一般**
+
+- **是否支持2D**
+
+- - **是 但2D没必要用它**
+
+- **是否支持3D**
+
+- - **是**
+
+- **是否支持小游戏**
+
+- - **是**  **支持WebGL渲染和Canvas渲染的浏览器就行**
+
+- **包大小**
+
+- - **23.3mb**
+  - **156.4****kb（****MINIFIED + GZIPPED****）**[**https://bundlephobia.com/package/three@0.154.0**](https://bundlephobia.com/package/three@0.154.0)
+
+- **示例**
+
+- - [**https://threejs.org/examples/#webgl_animation_skinning_blending**](https://threejs.org/examples/#webgl_animation_skinning_blending)
+
+
+
+#### **cocos**
+
+Cocos Creator 既是一款高效、轻量、免费开源的跨平台 2D&3D 图形引擎，也是一个实时 2D&3D 数字内容创作平台。拥有**高性能**、**低功耗**、**流式加载**、**跨平台**等诸多优点，您可以用它来创作**游戏**、**车机**、**XR**、**元宇宙**等领域的项目。
+
+https://github.com/cocos2d/cocos2d-x
+
+https://github.com/cocos3d/cocos3d[ ](https://github.com/egret-labs/egret-core)
+
+- **优势**
+
+- - **支持web、native、小游戏等多个平台**
+  - **支持ts和js**
+  - **庞大的社区支持和生态**
+  - **性能出色**
+
+- **缺点**
+
+- - **学习成本较高**
+  - **3D功能相对较弱**
+
+- **是否支持2D**
+
+- - **是**
+
+- **是否支持3D**
+
+- - **是**
+
+- **是否支持小游戏**
+
+- - **是**
+
+- **包大小**
+
+- - **2.3M，可裁剪，以果园为例，裁剪完大约890k**
+
+- **示例**
+
+
+
+#### **egret**
+
+https://github.com/egret-labs/egret-core
+
+- **优势**
+
+- - **基于h5引擎，使用ts、js语法开发**
+  - **支持跨端，移动端、Web、桌面、微信小程序**
+  - **编辑器支持**
+
+- **缺点**
+
+- - **社区、文档不丰富(两年未更新代码了。。。)**
+
+- **是否支持2D**
+
+- - **是**
+
+- **是否支持3D**
+
+- - **是**
+
+- **是否支持小游戏**
+
+- - **是**
+
+- **包大小**
+
+- - **zgip: 7.9M**
+
+- **示例**
+
+- - [**http://game.codebear.cn/nervecat/**](http://game.codebear.cn/nervecat/)
+
+
+
+#### **Galacean (原名eva、oasis等）**
+
+https://galacean.antgroup.com/
+
+
+
+#### **LayaAir 3.x** 
+
+https://layaair.layabox.com/#/
 
 
 
@@ -6338,7 +7115,11 @@ https://kenney.nl/assets
 
 ### 查错
 
-![image-20220429163658837](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/查错.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/查错.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/查错.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/查错.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//css/知识/查错.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -6563,7 +7344,11 @@ div {
 }
 ```
 
-显示出来是这样的：![上面css展示的效果图](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-fA9Laj.webp)
+显示出来是这样的：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-fA9Laj.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-fA9Laj.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-fA9Laj.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-fA9Laj.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -6578,7 +7363,11 @@ div {
 }
 ```
 
-上面css展示效果：![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1XxluP.webp)
+上面css展示效果：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1XxluP.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1XxluP.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1XxluP.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1XxluP.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -6591,7 +7380,11 @@ div {
 }
 ```
 
-上面css展示效果：![](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-KF2FYv.webp)
+上面css展示效果：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-KF2FYv.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-KF2FYv.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-KF2FYv.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-KF2FYv.webp" loading="lazy"/>
+  </picture>
 
 
 
@@ -6609,7 +7402,11 @@ div{
 }
 ```
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-AtBX0u.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-AtBX0u.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-AtBX0u.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-AtBX0u.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-AtBX0u.webp" loading="lazy"/>
+  </picture>
 
 ### 实现一个宽高自适应的正方形
 
@@ -6981,13 +7778,21 @@ div{
 
 CSS本身没有命名空间的能力，这意味着一旦CSS样式生效就会直接作用于全局，所以页面很容易出现样式冲突。当出现样式冲突时，一般的解决方法是通过增加选择器权重值，或者使用官方的！import属性进行样式覆盖。后续的开发人员如果想要在此基础上进行修改，就只能不停地提高权重值。 
 
-第一个解决方案是BEM命名规范，即块（block）、元素（element）、修饰符（modifier）三部分的首字母缩写，三部分之间使用__与--连接。 <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-08-image-20231228160847097.png" alt="image-20231228160847097" style="zoom:50%;" />
+第一个解决方案是BEM命名规范，即块（block）、元素（element）、修饰符（modifier）三部分的首字母缩写，三部分之间使用__与--连接。 <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-08-image-20231228160847097.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-08-image-20231228160847097.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-08-image-20231228160847097.png" alt="image-20231228160847097" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 该方案通过约束选择器的命名方式来保证选择器的唯一性，从而避免样式冲突。虽然BEM命名规范在一定程度上解决了样式冲突问题，但它只是一个标准，没有工程化手段进行约束，需要开发人员主动遵守规范。它还存在其他问题，例如，选择器的命名会变得特别长，导致代码极其臃肿。
 
 第二个解决方案是命名空间，开发人员需要为每个模块都分配唯一命名的选择器，将它作为父级选择器，该模块下的每个选择器都是该选择器的后代。 该方案和BEM一样存在编写麻烦的问题，但是该问题可以借助打包工具解决。 
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-09-image-20231228160940165.png" alt="image-20231228160940165" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-09-image-20231228160940165.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-09-image-20231228160940165.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-09-image-20231228160940165.png" alt="image-20231228160940165" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -6997,7 +7802,11 @@ CSS本身没有命名空间的能力，这意味着一旦CSS样式生效就会�
 
 第四个解决方案是CSS in JavaSoript，将CSS样式以变量的形式编写在JavaScript里。 
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-12-image-20231228161209669.png" alt="image-20231228161209669" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-12-image-20231228161209669.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-12-image-20231228161209669.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-12-28-16-12-image-20231228161209669.png" alt="image-20231228161209669" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 第五个解决方案是Shadow DOM，它是由浏览器提供的解决方案。Shadow DOM允许将隐藏的DOM树附加到常规的DOM树中。它以shadow root节点为根节点，在根节点下方可以插入任意标签，其表现行为和普通的DOM树一样。Shadow DOM内部的所有样式设置都不会对外部造成影响，外部的所有样式设置也无法对其内部造成影响。（每一个页面都是一个shadow Dom是吧，反正目前没看到这种方法。）
 
@@ -7015,7 +7824,11 @@ CSS本身没有命名空间的能力，这意味着一旦CSS样式生效就会�
 
 #### 简介
 
-![image-20230504112056835](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-20-image-20230504112056835.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-20-image-20230504112056835.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-20-image-20230504112056835.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-20-image-20230504112056835.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-20-image-20230504112056835.png" loading="lazy"/>
+  </picture>
 
 #### CSS Module
 
@@ -7038,7 +7851,11 @@ OOCSS 的全称为 Object Oriented CSS （面向对象的 CSS），它让我们�
 
 面向对象有三大特征：**封装、继承、多态** ，在 OOCSS 中，主要应用到了面向对象的**封装**和**继承**的思想。我们以掘金的下图这个部分来进行说明：
 
-![item.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3bMusH.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3bMusH.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3bMusH.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3bMusH.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-3bMusH.webp" loading="lazy"/>
+  </picture>
 
 图中画红色的部分，可以看成是有四个容器组成的，每个容器里面的内容又不一样。那么每个容器都有相同的样式，那么我们就可以进行**封装**。
 
@@ -7057,7 +7874,11 @@ OOCSS 的全称为 Object Oriented CSS （面向对象的 CSS），它让我们�
 
 然后如果我们需要对它们每一项进行拓展的话，那么我们只需要在原来的样式基础上进行新增一个 class，再针对这个 class 写不同的样式即可，这样达到**继承**原来基础部分的样式进行拓展自己独有的样式。
 
-![li.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-JnLajO.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-JnLajO.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-JnLajO.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-JnLajO.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-JnLajO.webp" loading="lazy"/>
+  </picture>
 
 通过上图可以得知我们相当于**继承**基础类型 item 后，然后分别拓展出 `浏览 view`、`点赞 like`、`评论 comment`、`更多 more  ` 的 CSS 内容。
 
@@ -7589,7 +8410,11 @@ index.scss 文件内容：
 
 这样我们就实现了所有文件的闭环，最后我们把 play 项目运行起来，看看效果，要运行 play 项目，我们专栏的前面的文章中已经说过了，就是在根目录下执行 `pnpm run dev`  即可。
 
-![icon-play.png](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uJaZBf.webp)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uJaZBf.webp?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uJaZBf.webp?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uJaZBf.webp" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-uJaZBf.webp" loading="lazy"/>
+  </picture>
 
 我们也看到已经成功实现了渲染并和如期一样，那么其他样式的测试，我们将在后续具体的组件实现上再进行测试。
 
@@ -7613,7 +8438,11 @@ index.scss 文件内容：
 4. State（状态）
 5. Theme（主题）
 
- <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-15-53-image-20240129155306955.png" alt="image-20240129155306955" style="zoom:33%;" />
+ <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-15-53-image-20240129155306955.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-15-53-image-20240129155306955.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-29-15-53-image-20240129155306955.png" alt="image-20240129155306955" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -7629,7 +8458,11 @@ index.scss 文件内容：
 
 下列代码展示了四个工具类，它们分别实现了特定的功能：文字居中、左浮动、清除浮动（包裹浮动）、隐藏元素。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023184231564.png" alt="image-20221023184231564" style="zoom: 25%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023184231564.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023184231564.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221023184231564.png" alt="image-20221023184231564" style="zoom: 25%;" loading="lazy"/>
+  </picture>
 
 工具类是唯一应该使用important注释的地方这样的话，不管在哪里用到工具类，都可以生效。我敢肯定，任何时候为元素添加text-center类，都是想让文本居中，不想让其他样式覆盖它。
 
@@ -7662,19 +8495,31 @@ index.scss 文件内容：
 
 #### css-in-js
 
-![image-20230504112209613](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-22-image-20230504112209613.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-22-image-20230504112209613.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-22-image-20230504112209613.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-22-image-20230504112209613.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-22-image-20230504112209613.png" loading="lazy"/>
+  </picture>
 
 
 
 优缺点
 
-![image-20230504112623882](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-26-image-20230504112623882.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-26-image-20230504112623882.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-26-image-20230504112623882.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-26-image-20230504112623882.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-26-image-20230504112623882.png" loading="lazy"/>
+  </picture>
 
 
 
 
 
-![image-20230504112325287](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-23-image-20230504112325287.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-23-image-20230504112325287.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-23-image-20230504112325287.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-23-image-20230504112325287.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-23-image-20230504112325287.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -7692,13 +8537,21 @@ index.scss 文件内容：
 
 ##### 优缺点
 
-![image-20230504113532140](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-35-image-20230504113532140.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-35-image-20230504113532140.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-35-image-20230504113532140.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-35-image-20230504113532140.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-35-image-20230504113532140.png" loading="lazy"/>
+  </picture>
 
 
 
 ##### TailwindCss
 
-![image-20230504113452087](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-34-image-20230504113452087.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-34-image-20230504113452087.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-34-image-20230504113452087.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-34-image-20230504113452087.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-34-image-20230504113452087.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -7770,7 +8623,11 @@ Sass 的功能比 Less 强大，基本可以说是一种真正的编程语言了
 
 #### 介绍
 
-![image-20230504111029916](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-10-image-20230504111029916.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-10-image-20230504111029916.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-10-image-20230504111029916.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-10-image-20230504111029916.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-10-image-20230504111029916.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -7780,7 +8637,11 @@ Sass 的功能比 Less 强大，基本可以说是一种真正的编程语言了
 
 PostCSS是一个用JavaScript实现的CSS转换、处理工具。它本质上是一个平台，只提供基础能力，对CSS的处理能力是通过插件的形式实现的。
 
-![image-20230504111610565](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-16-image-20230504111610565.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-16-image-20230504111610565.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-16-image-20230504111610565.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-16-image-20230504111610565.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-04-11-16-image-20230504111610565.png" loading="lazy"/>
+  </picture>
 
 
 

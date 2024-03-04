@@ -14,7 +14,11 @@
 
 vdom如何生成？在vue中我们常常会为组件编写模板 - template， 这个模板会被编译器 - compiler编译为渲染函数，在接下来的挂载（mount）过程中会调用render函数，返回的对象就是虚拟dom。但它们还不是真正的dom，所以会在后续的patch过程中进一步转化为dom。
 
-![image-20221007160852614](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007160852614.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007160852614.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007160852614.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007160852614.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007160852614.png" loading="lazy"/>
+  </picture>
 
 挂载过程结束后，vue程序进入更新流程。如果某些响应式数据发生变化，将会引起组件重新render，此时就会生成新的vdom，和上一次的渲染结果diff就能得到变化的地方，从而转换为最小量的dom操作，高效更新视图
 
@@ -257,7 +261,11 @@ Virtual DOM本质上是JavaScript的对象，它可以很方便的跨平台操�
 
 而如果[用组合式 API 重构](https://gist.github.com/yyx990803/8854f8f6a97631576c14b63c8acd8f2e)这个组件，将会变成下面右边这样：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cFMl5V.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cFMl5V.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cFMl5V.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cFMl5V.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-cFMl5V.png" loading="lazy"/>
+  </picture>
 
 现在与同一个逻辑关注点相关的代码被归为了一组：我们无需再为了一个逻辑关注点在不同的选项块间来回滚动切换。此外，我们现在可以很轻松地将这一组代码移动到一个外部文件中，不再需要为了抽象而重新组织代码，大大降低了重构成本，这在长期维护的大型项目中非常关键。
 
@@ -866,7 +874,11 @@ Vetur 和 Volar 在处理 .vue 文件上有冲突，所以必须卸载或者禁�
 
 在 Vue.js 3 的源码中，你可以搜索到名为 initCustomFormatter 的函数，该函数就是用来在开发环境下初始化自定义 formatter 的。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-08-19-39-image-20240108193901460.png" alt="image-20240108193901460" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-08-19-39-image-20240108193901460.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-08-19-39-image-20240108193901460.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-08-19-39-image-20240108193901460.png" alt="image-20240108193901460" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 以 Chrome 为例，我们可以打开 DevTools 的设置，然后勾选“Console”→“Enable custom formatters”选项，如图 2-3 所示。会发现输出内容变得非常直观：`Ref<0>`
 
@@ -992,7 +1004,11 @@ export default {
 
 ##### v-text
 
-![image-20220509194759768](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theory/image-20220509194759768.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theory/image-20220509194759768.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theory/image-20220509194759768.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theory/image-20220509194759768.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theory/image-20220509194759768.png" loading="lazy"/>
+  </picture>
 
 ##### {{}}
 
@@ -1000,7 +1016,11 @@ export default {
 
 ##### v-html
 
-![image-20220509195807417](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theoryimage-20220509195807417.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theoryimage-20220509195807417.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theoryimage-20220509195807417.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theoryimage-20220509195807417.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com//vue/theoryimage-20220509195807417.png" loading="lazy"/>
+  </picture>
 
 ```html
 <div v-html="html"></div>
@@ -1103,7 +1123,11 @@ export default {
 
 ##### 简介
 
-![image-20220510103306126](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510103306.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510103306.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510103306.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510103306.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510103306.png" loading="lazy"/>
+  </picture>
 
 可以直接简写成一个冒号 :
 
@@ -1165,7 +1189,11 @@ export default {
 
 ##### 事件对象
 
-![image-20220510105331563](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510105331.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510105331.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510105331.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510105331.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510105331.png" loading="lazy"/>
+  </picture>
 
 组件的自定义事件传过来的参数也是这样去获取
 
@@ -1173,21 +1201,37 @@ export default {
 
 ##### 传参
 
-![image-20220510110017493](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110017493.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110017493.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110017493.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110017493.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110017493.png" loading="lazy"/>
+  </picture>
 
 
 
 ###### $event
 
-![image-20220510110201354](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110201354.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110201354.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110201354.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110201354.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110201354.png" loading="lazy"/>
+  </picture>
 
 
 
 ##### 事件修饰符
 
-![image-20220510110438296](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110438296.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110438296.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110438296.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110438296.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110438296.png" loading="lazy"/>
+  </picture>
 
-![image-20220510110733514](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110733514.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110733514.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110733514.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110733514.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510110733514.png" loading="lazy"/>
+  </picture>
 
 #### 双向绑定指令
 
@@ -1203,13 +1247,21 @@ export default {
 
 在自定义组件上使用v-model时
 
-![image-20220510145135856](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145135856.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145135856.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145135856.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145135856.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145135856.png" loading="lazy"/>
+  </picture>
 
 
 
 使用步骤
 
-![image-20220510145553179](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145553179.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145553179.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145553179.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145553179.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510145553179.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1242,7 +1294,11 @@ app.component('my-component', {
 
 ##### v-model指令的修饰符
 
-![image-20220510113520612](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510113520612.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510113520612.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510113520612.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510113520612.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510113520612.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -1426,7 +1482,11 @@ vue3，v-if优先级比v-for高，v-if执行时，它调用的变量还不存在
 
 #### 列表渲染指令
 
-![image-20220510114116530](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510114116530.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510114116530.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510114116530.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510114116530.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510114116530.png" loading="lazy"/>
+  </picture>
 
 v-for还支持一个可选的第二个参数，即当前项的索引。
 
@@ -1750,7 +1810,11 @@ app.directive('focus', {
 
 ### 模版语法
 
-![image-20220510104404337](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510104402.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510104402.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510104402.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510104402.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/20220510104402.png" loading="lazy"/>
+  </picture>
 
 #### JavaScript 表达式
 
@@ -1957,35 +2021,59 @@ const props = withDefaults(defineProps<BarrageProps<any>>(), {
 
 ### 大小写命名
 
-![image-20220510125940204](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510125940204.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510125940204.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510125940204.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510125940204.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510125940204.png" loading="lazy"/>
+  </picture>
 
 
 
 ### props验证
 
-![image-20220510131608701](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131608701.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131608701.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131608701.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131608701.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131608701.png" loading="lazy"/>
+  </picture>
 
 
 
 #### 多个可能的类型
 
-![image-20220510131652296](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131652296.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131652296.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131652296.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131652296.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131652296.png" loading="lazy"/>
+  </picture>
 
 #### 必填属性
 
-![image-20220510131906720](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131906720.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131906720.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131906720.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131906720.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510131906720.png" loading="lazy"/>
+  </picture>
 
 
 
 #### 为属性提供默认值
 
-![image-20220510132107449](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue%2Ftheory/image-20220510132107449.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue%2Ftheory/image-20220510132107449.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue%2Ftheory/image-20220510132107449.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue%2Ftheory/image-20220510132107449.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue%2Ftheory/image-20220510132107449.png" loading="lazy"/>
+  </picture>
 
 
 
 #### 自定义验证函数
 
-![image-20220510132234337](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510132234337.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510132234337.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510132234337.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510132234337.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510132234337.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2007,7 +2095,11 @@ $emit触发的是外面传进来的方法。
 
 子组件向父组件传输数据
 
-![image-20220510143200066](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510143200066.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510143200066.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510143200066.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510143200066.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510143200066.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2116,7 +2208,11 @@ $emit触发的是外面传进来的方法。
 
 
 
-![](https://cn.vuejs.org/assets/lifecycle.16e4c08e.png)
+<picture>
+    <source type="image/avif" srcset="https://cn.vuejs.org/assets/lifecycle.16e4c08e.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://cn.vuejs.org/assets/lifecycle.16e4c08e.png?imageMogr2/format/webp">
+    <img src="https://cn.vuejs.org/assets/lifecycle.16e4c08e.png" alt="https://cn.vuejs.org/assets/lifecycle.16e4c08e.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2130,7 +2226,11 @@ $emit触发的是外面传进来的方法。
 
 第一点：请求回来的时候就走挂载组件阶段，相比于在mounted的时候再发请求，减少了mounted等待的时间。
 
-![image-20220929222723395](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220929222723395.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220929222723395.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220929222723395.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220929222723395.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20220929222723395.png" loading="lazy"/>
+  </picture>
 
 第二点：放在 created 中有助于一致性，因为ssr 不支持 beforeMount 、mounted 钩子函数。
 
@@ -2176,7 +2276,11 @@ beforeCreate() , created()，beforeMount() , mounted()
 
 当引入`keep-alive` 的时候，页面第一次进入，钩子的触发顺序created-> mounted-> activated，退出时触发deactivated。当<font color="red">再次进入（前进或者后退）时，只触发activated。</font>**`keep-alive`钩子在服务器端渲染期间不被调用。**
 
-![image-20220705181457135](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/image-20220705181457135.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/image-20220705181457135.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/image-20220705181457135.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/image-20220705181457135.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/image-20220705181457135.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2441,7 +2545,11 @@ const tabs = inject(TabItemProvider);
 
 ##### 使注入变成响应性
 
-![image-20220511163123498](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511163123498.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511163123498.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511163123498.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511163123498.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511163123498.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2646,7 +2754,11 @@ h(MyComponent, null, { // 这里不传入 props，所以为null
 
 ##### 绑定style
 
-![image-20220510130510800](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510130510800.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510130510800.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510130510800.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510130510800.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220510130510800.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2810,7 +2922,7 @@ export type LoaderSlots = {
 
 vue2.7的可以看marquee-slide组件天翔skyline是怎么写的。
 
-如：
+如：这样插槽里面还是没有类型提示。
 
 ```ts
 import type { VNode } from 'vue';
@@ -4832,7 +4944,11 @@ export function useCount() {
 
 以下是一个表示“单向数据流”理念的简单示意：
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ogfZ4k.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ogfZ4k.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ogfZ4k.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ogfZ4k.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-ogfZ4k.png" loading="lazy"/>
+  </picture>
 
 但是，当我们的应用遇到**多个组件共享状态**时，单向数据流的简洁性很容易被破坏：
 
@@ -6870,7 +6986,11 @@ store是用于全局存储Model实例的集合
 
 ### 核心流程
 
-![image-20221007124916616](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007124916616.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007124916616.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007124916616.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007124916616.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007124916616.png" loading="lazy"/>
+  </picture>
 
 **（1）核心流程中的主要功能：**
 
@@ -7931,7 +8051,11 @@ export interface App<HostElement = any> {
 
   然而，`extends` 和 `mixins` 表达的是不同的目标。`mixins` 选项基本用于组合功能，而 `extends` 则一般更关注继承关系。
 
-  合并策略：![image-20221007072903742](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007072903742.png)
+  合并策略：<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007072903742.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007072903742.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007072903742.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20221007072903742.png" loading="lazy"/>
+  </picture>
 
   
 
@@ -8393,13 +8517,25 @@ vue2中使用listeners获取事件，vue3中已移除，均合并到listeners获
 
 
 
-![image-20220511170642044](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170642044.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170642044.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170642044.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170642044.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170642044.png" loading="lazy"/>
+  </picture>
 
-![image-20220511170835355](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170835355.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170835355.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170835355.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170835355.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170835355.png" loading="lazy"/>
+  </picture>
 
 
 
-![image-20220511170849842](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170849842.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170849842.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170849842.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170849842.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/vue/theory/image-20220511170849842.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -8543,7 +8679,13 @@ vue2中使用listeners获取事件，vue3中已移除，均合并到listeners获
 
 2. 可以使用第三方库来用一些写好的动画。（详情操作视频见https://www.bilibili.com/video/BV1Zy4y1K7SH?p=94）
 
-3. 图示：![image-20210927203309437](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210927203309437.png)
+3. 图示：
+
+   <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210927203309437.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210927203309437.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210927203309437.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20210927203309437.png" loading="lazy"/>
+  </picture>
 
 4. 写法：
 
@@ -8806,7 +8948,11 @@ destroyed(){
 
 #### [#](http://www.zhufengpeixun.com/jg-vue/guide/01.introduce.html#vue3项目结构)Vue3项目结构
 
-[![xx](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jcRj3z.png)](http://www.zhufengpeixun.com/jg-vue/guide/introduce.png)
+[<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jcRj3z.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jcRj3z.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jcRj3z.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-jcRj3z.png" loading="lazy"/>
+  </picture>](http://www.zhufengpeixun.com/jg-vue/guide/introduce.png)
 
 
 
@@ -9268,7 +9414,11 @@ const vnode = {
 传统更新页面，拼接一个完整的字符串innerHTML全部重新渲染；添加虚拟DOM后，可以比较新旧虚拟节点，找到变化在进行更新。
 
 - 创建页面时：虚拟 DOM 相比innerHTML 没有优势可言，甚至因为要先创建虚拟dom导致性能会更差。
-- 更新页面时：虚拟 DOM 在更新页面时只会更新必要的元素，但 innerHTML 需要全量更新。对于虚拟 DOM 来说，无论页面多大，都只会更新变化的内容，而对于 innerHTML 来说，页面越大，就意味着更新时的性能消耗越大。![image-20230108153828201](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230108153828201.png)
+- 更新页面时：虚拟 DOM 在更新页面时只会更新必要的元素，但 innerHTML 需要全量更新。对于虚拟 DOM 来说，无论页面多大，都只会更新变化的内容，而对于 innerHTML 来说，页面越大，就意味着更新时的性能消耗越大。<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230108153828201.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230108153828201.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230108153828201.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230108153828201.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -9328,7 +9478,11 @@ Vue.js 3 仍然保持了运行时 + 编译时的架构。Vue.js 3 在保留运�
 
 - 纯编译时的：由于不需要任何运行时，而是直接编译成可执行的 JavaScript 代码，因此理论上性能可能会更好。
 
-  <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-08-18-22-image-20240108182231236.png" alt="image-20240108182231236" style="zoom:33%;" />
+  <picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-08-18-22-image-20240108182231236.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-08-18-22-image-20240108182231236.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-08-18-22-image-20240108182231236.png" alt="image-20240108182231236" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 - 运行时+编译时：
 
@@ -9611,7 +9765,11 @@ function ref(value) {
 
 
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-15-16-image-20240110151620624.png" alt="image-20240110151620624" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-15-16-image-20240110151620624.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-15-16-image-20240110151620624.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-15-16-image-20240110151620624.png" alt="image-20240110151620624" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 其中 WeakMap 的键是原始对象 target，WeakMap 的值是一个 Map 实例，而Map 的键是原始对象 target 的 key，Map 的值是一个由副作用函数组成的 Set。
 
@@ -10243,11 +10401,19 @@ export function stop(runner: ReactiveEffectRunner) {
 
 分支切换可能会产生遗留的副作用函数。拿上面这段代码来说，字段 obj.ok 的初始值为 true，这时会读取字段 obj.text 的值，所以当 effectFn 函数执行时会触发字段 obj.ok 和字段 obj.text 这两个属性的读取操作，此时副作用函数 effectFn 与响应式数据之间建立的联系如下：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-16-59-image-20240110165932612.png" alt="image-20240110165932612" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-16-59-image-20240110165932612.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-16-59-image-20240110165932612.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-16-59-image-20240110165932612.png" alt="image-20240110165932612" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 可以看到，副作用函数 effectFn 分别被字段 data.ok 和字段 data.text 所对应的依赖集合收集。当字段 obj.ok 的值修改为 false，并触发副作用函数重新执行后，由于此时字段 obj.text 不会被读取，只会触发字段 obj.ok 的读取操作，所以理想情况下副作用函数 effectFn 不应该被字段 obj.text 所对应的依赖集合收集：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-17-00-image-20240110170000363.png" alt="image-20240110170000363" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-17-00-image-20240110170000363.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-17-00-image-20240110170000363.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-17-00-image-20240110170000363.png" alt="image-20240110170000363" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -10272,7 +10438,11 @@ obj.ok 的初始值为 true，当我们将其修改为 false 后，这会触发�
 
 解决这个问题的思路很简单，每次副作用函数执行时，先把它从所有与之关联的依赖集合中删除：
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-17-32-image-20240110173210689.png" alt="image-20240110173210689" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-17-32-image-20240110173210689.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-17-32-image-20240110173210689.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-17-32-image-20240110173210689.png" alt="image-20240110173210689" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 清除完再去运行fn，运行fn的时候就会再重新收集依赖。
 
@@ -11101,7 +11271,11 @@ export function proxyRefs(objectWithRefs){ // 传进来的参数是一个带有r
 
 Vue.js 模板编译器的目标代码其实就是渲染函数。详细而言，Vue.js 模板编译器会首先对模板进行词法分析和语法分析，得到模板 AST。接着，将模板AST 转换（transform）成 JavaScript AST。最后，根据 JavaScript AST 生成JavaScript 代码，即渲染函数代码。
 
-![image-20240112173507390](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-17-35-image-20240112173507390.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-17-35-image-20240112173507390.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-17-35-image-20240112173507390.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-17-35-image-20240112173507390.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-17-35-image-20240112173507390.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -11261,7 +11435,11 @@ export default /* @__PURE__ */_export_sfc(_sfc_main, [["render", _sfc_render], [
 
 ！！下图巨重要：
 
-![image-20240110125259081](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-12-53-image-20240110125259081.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-12-53-image-20240110125259081.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-12-53-image-20240110125259081.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-12-53-image-20240110125259081.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-10-12-53-image-20240110125259081.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -11355,7 +11533,11 @@ export default /* @__PURE__ */_export_sfc(_sfc_main, [["render", _sfc_render], [
 
 渲染器把虚拟 DOM 节点渲染为真实 DOM 节点的过程叫作**挂载**，通常用英文mount 来表达。
 
-![image-20230109001013207](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230109001013207.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230109001013207.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230109001013207.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230109001013207.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230109001013207.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -11513,7 +11695,11 @@ vnode.children 属性只能有如下三种类型。
 
 key 属性就像虚拟节点的“身份证”号，只要两个虚拟节点的 type 属性值和 key 属性值都相同，即可以<mark>进行 DOM 的复用。主要用于优化dom移动场景</mark>>(比如列表排序发生变化)：有 key 的话就能够明确知道新子节点和旧子节点中的对应关系，这样就可以进行相应的DOM 移动操作，而不是通过增删dom去完成新的排序。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-15-14-image-20240112151437654.png" alt="image-20240112151437654" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-15-14-image-20240112151437654.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-15-14-image-20240112151437654.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-15-14-image-20240112151437654.png" alt="image-20240112151437654" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 DOM 可复用并不意味着不需要更新，如下面的两个虚拟节点所示：
 
@@ -12463,7 +12649,11 @@ children has 3 possibilities: text, array or no children.
 
 ##### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#sync-from-start)sync from start
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Udj0iy.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Udj0iy.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Udj0iy.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Udj0iy.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-Udj0iy.png" loading="lazy"/>
+  </picture>
 
 ```js
  h('div',[
@@ -12507,7 +12697,11 @@ const patchKeydChildren = (c1, c2, container) => {
 
 ##### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#sync-from-end)sync from end
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vm3P3I.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vm3P3I.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vm3P3I.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vm3P3I.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-vm3P3I.png" loading="lazy"/>
+  </picture>
 
 ```js
         // 2. sync from end
@@ -12533,9 +12727,17 @@ const patchKeydChildren = (c1, c2, container) => {
 
 //此时得到的就是中间部分的那些节点，下面就是处理这些中间部分的节点
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-re1Eaj.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-re1Eaj.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-re1Eaj.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-re1Eaj.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-re1Eaj.png" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dNognp.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dNognp.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dNognp.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dNognp.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-dNognp.png" loading="lazy"/>
+  </picture>
 
 ```js
         //此时得到的就是中间部分的那些节点，下面就是处理这些中间部分的节点
@@ -12564,9 +12766,17 @@ const patchKeydChildren = (c1, c2, container) => {
 
 ##### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#common-sequence-unmount)common sequence + unmount
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1IOlQ6.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1IOlQ6.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1IOlQ6.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1IOlQ6.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-1IOlQ6.png" loading="lazy"/>
+  </picture>
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YBUrVj.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YBUrVj.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YBUrVj.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YBUrVj.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-YBUrVj.png" loading="lazy"/>
+  </picture>
 
 ```js
         // 4. common sequence + unmount
@@ -12597,7 +12807,11 @@ const patchKeydChildren = (c1, c2, container) => {
 
 ###### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#build-key-index-map-for-newchildren)`build key:index map for newChildren`
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oh4Qk4.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oh4Qk4.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oh4Qk4.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oh4Qk4.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-oh4Qk4.png" loading="lazy"/>
+  </picture>
 
 ```js
         // 5. unknown sequence
@@ -12640,7 +12854,11 @@ const patchKeydChildren = (c1, c2, container) => {
 
 ​        //到这只是新老属性和儿子的比对，下面就要移动该节点的位置 或者 新建节点了
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lEVfsL.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lEVfsL.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lEVfsL.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lEVfsL.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-lEVfsL.png" loading="lazy"/>
+  </picture>
 
 ```js
         for (let i = toBePatched - 1; i >= 0; i--) { //从后往前
@@ -12729,7 +12947,11 @@ console.log(getSequence([2, 3, 1, 5, 6, 8, 7, 9, 4]))
 
 假设有：[2,3,1,5,6,8,7,9,4] 
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-IYEPiP.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-IYEPiP.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-IYEPiP.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-IYEPiP.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-38-IYEPiP.png" loading="lazy"/>
+  </picture>
 
 ##### [#](http://www.zhufengpeixun.com/jg-vue/guide/10.diff.html#优化diff算法)利用最长递增子序列优化`Diff`算法
 
@@ -13248,7 +13470,13 @@ defineAsyncComponent 是一个高阶组件，它最基本的实现如下：
 24 }
 ```
 
-这里有以下几个关键点。● defineAsyncComponent 函数本质上是一个高阶组件，它的返回值是一个包装组件。● 包装组件会根据加载器的状态来决定渲染什么内容。如果加载器成功地加载了组件，则渲染被加载的组件，否则会渲染一个占位内容。● 通常占位内容是一个注释节点。组件没有被加载成功时，页面中会渲染一个注释节点来占位。但这里我们使用了一个空文本节点来占位。
+这里有以下几个关键点。
+
+● defineAsyncComponent 函数本质上是一个高阶组件，它的返回值是一个包装组件。
+
+● 包装组件会根据加载器的状态来决定渲染什么内容。如果加载器成功地加载了组件，则渲染被加载的组件，否则会渲染一个占位内容。
+
+● 通常占位内容是一个注释节点。组件没有被加载成功时，页面中会渲染一个注释节点来占位。但这里我们使用了一个空文本节点来占位。
 
 
 
@@ -13387,7 +13615,11 @@ Vue.js 可以用于构建客户端应用程序，组件的代码在浏览器中�
 
 ### 组件流程
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-18-15-image-20240112181516079.png" alt="image-20240112181516079" style="zoom:25%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-18-15-image-20240112181516079.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-18-15-image-20240112181516079.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-18-15-image-20240112181516079.png" alt="image-20240112181516079" style="zoom:25%;" loading="lazy"/>
+  </picture>
 
 在进行服务端渲染时，组件的初始化流程与客户端渲染时组件的初始化流程基本一致，但有两个重要的区别。
 
@@ -13395,7 +13627,11 @@ Vue.js 可以用于构建客户端应用程序，组件的代码在浏览器中�
 
 ●服务端渲染只需要获取组件要渲染的 subTree 即可，无须调用渲染器完成真实DOM 的创建。因此，在服务端渲染时，可以忽略“设置 render effect 完成渲染”这一步。这意味着，组件的 beforeMount 以及 mounted 钩子不会被触发。而且，由于服务端渲染不存在数据变更后的重新渲染逻辑，所以beforeUpdate 和 updated 钩子也不会在服务端执行
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-18-14-image-20240112181431744.png" alt="image-20240112181431744" style="zoom:25%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-18-14-image-20240112181431744.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-18-14-image-20240112181431744.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-12-18-14-image-20240112181431744.png" alt="image-20240112181431744" style="zoom:25%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -13431,7 +13667,11 @@ Vue.js 可以用于构建客户端应用程序，组件的代码在浏览器中�
 
 真实 DOM 元素与虚拟 DOM 对象都是树型结构，并且节点之间存在一一对应的关系。而激活的原理就是递归地在真实 DOM 元素与虚拟 DOM 节点之间建立关系，即 vnode.el = node。当渲染副作用执行挂载操作时，我们优先检查虚拟节点的 vnode.el 属性是否已经存在，如果存在，则意味着无须进行全新的挂载，只需要进行激活操作即可，否则仍然按照之前的逻辑进行全新的挂载。
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-13-20-06-image-20240113200625086.png" alt="image-20240113200625086" style="zoom:33%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-13-20-06-image-20240113200625086.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-13-20-06-image-20240113200625086.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-01-13-20-06-image-20240113200625086.png" alt="image-20240113200625086" style="zoom:33%;" loading="lazy"/>
+  </picture>
 
 
 

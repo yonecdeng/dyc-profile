@@ -65,7 +65,11 @@ $ yarn remove sass-loader
 
 还要在webpack.config.js修改配置
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310102329936.png" alt="image-20230310102329936" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310102329936.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310102329936.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310102329936.png" alt="image-20230310102329936" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -85,7 +89,11 @@ alias:{
 
 ##### 方法一
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310104410693.png" alt="image-20230310104410693" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310104410693.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310104410693.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310104410693.png" alt="image-20230310104410693" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -95,13 +103,21 @@ alias:{
 $ yarn add cross-env
 ```
 
-![image-20230310105233872](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105233872.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105233872.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105233872.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105233872.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105233872.png" loading="lazy"/>
+  </picture>
 
 
 
 #### 修改兼容性
 
-![image-20230310105725618](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105725618.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105725618.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105725618.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105725618.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230310105725618.png" loading="lazy"/>
+  </picture>
 
 我们可以`yarn add @babel/polyfill` 然后在入口文件中 `import '@babel/polyfill'`,
 
@@ -1131,7 +1147,11 @@ const Demo = function Demo() {
 - 具备周期函数
   - 严格模式下，一些不安全的周期函数是禁止使用的
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230315204628963.png" alt="image-20230315204628963" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230315204628963.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230315204628963.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230315204628963.png" alt="image-20230315204628963" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 ### 创建类组件
 
@@ -1313,7 +1333,13 @@ this.setState({
  })
 ```
 
-两者在更新机制上有一些不同：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230315212707800.png" alt="image-20230315212707800" style="zoom:50%;" />
+两者在更新机制上有一些不同：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230315212707800.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230315212707800.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230315212707800.png" alt="image-20230315212707800" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 ##### callback
 
@@ -1706,7 +1732,23 @@ ev.stopPropagation(); //合成事件对象中的“阻止事件传播”:阻止�
 
 
 
-react17及以后整个事件流过程：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png" alt="image-20230316135339121" style="zoom: 33%;" /> react16事件流过程：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png" alt="image-20230316190929886" style="zoom: 67%;" />
+react17及以后整个事件流过程：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png" alt="image-20230316135339121" style="zoom: 33%;" loading="lazy"/>
+  </picture> 
+
+
+
+react16事件流过程：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png" alt="image-20230316190929886" style="zoom: 67%;" loading="lazy"/>
+  </picture>
 
 ##### 处理onXxx/onXxxCapture 
 
@@ -2791,9 +2833,17 @@ export default App;
 
 ## 概览
 
-![image-20230508195901131](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-19-59-image-20230508195901131.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-19-59-image-20230508195901131.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-19-59-image-20230508195901131.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-19-59-image-20230508195901131.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-19-59-image-20230508195901131.png" loading="lazy"/>
+  </picture>
 
-![image-20230508200203569](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-20-02-image-20230508200203569.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-20-02-image-20230508200203569.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-20-02-image-20230508200203569.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-20-02-image-20230508200203569.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2023-05-08-20-02-image-20230508200203569.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -2945,7 +2995,13 @@ export default VoteFooter;
 
 ### redux工程化
 
-redux工程化其实就是“按模块划分”。<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230319123011986.png" alt="image-20230319123011986" style="zoom:50%;" />
+redux工程化其实就是“按模块划分”
+
+。<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230319123011986.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230319123011986.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230319123011986.png" alt="image-20230319123011986" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 #### 举例说明
 
@@ -3456,7 +3512,11 @@ virtualDOM = {
   }
 ```
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230314131802049.png" alt="image-20230314131802049" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230314131802049.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230314131802049.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230314131802049.png" alt="image-20230314131802049" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 ####   第二步：把构建的virtualDOM渲染为真实DOM
 
@@ -3801,7 +3861,23 @@ v18版本里的index.js是这样的：
 
 
 
-react17及以后整个事件流过程：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png" alt="image-20230316135339121" style="zoom: 33%;" /> react16事件流过程：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png" alt="image-20230316190929886" style="zoom: 67%;" />
+react17及以后整个事件流过程：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png" alt="image-20230316135339121" style="zoom: 33%;" loading="lazy"/>
+  </picture> 
+
+
+
+react16事件流过程：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png" alt="image-20230316190929886" style="zoom: 67%;" loading="lazy"/>
+  </picture>
 
 
 
@@ -3813,13 +3889,21 @@ MVC 和 MVVM 是2种常见的软件架构设计模式，主要通过分离关注
 
 **（1）MVC**
 
-<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230313212708681.png" alt="image-20230313212708681" style="zoom:50%;" />
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230313212708681.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230313212708681.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230313212708681.png" alt="image-20230313212708681" style="zoom:50%;" loading="lazy"/>
+  </picture>
 
 React采用的是MVC。“单向驱动”。如果要实现双向驱动得自己写代码。
 
 MVC 通过分离 Model、View 和 Controller 的方式来组织代码结构。其中 View 负责页面的显示逻辑，Model 负责存储页面的业务数据，以及对相应数据的操作。并且 View 和 Model 应用了观察者模式，当 Model 层发生改变的时候它会通知有关 View 层更新页面。Controller 层是 View 层和 Model 层的纽带，它主要负责用户与页面产生交互的时候，Controller 中的事件触发器就开始工作了，通过调用 Model 层，来完成对 Model 的修改，然后 Model 层再去通知 View 层更新。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IYTbAl.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IYTbAl.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IYTbAl.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IYTbAl.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-IYTbAl.png" loading="lazy"/>
+  </picture>
 
 （2）MVVM
 
@@ -3835,7 +3919,11 @@ Model和View并无直接关联，而是通过ViewModel来进行联系的，Model
 
 这种模式实现了 Model和View的数据自动同步，因此开发者只需要专注于数据的维护操作即可，而不需要自己操作DOM。
 
-![img](https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-kEHaIY.png)
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-kEHaIY.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-kEHaIY.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-kEHaIY.png" alt="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/upic/2024-02-07-17-37-kEHaIY.png" loading="lazy"/>
+  </picture>
 
 
 
@@ -3875,7 +3963,21 @@ Model和View并无直接关联，而是通过ViewModel来进行联系的，Model
 
 
 
-react17及以后整个事件流过程：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png" alt="image-20230316135339121" style="zoom: 33%;" /> react16事件流过程：<img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png" alt="image-20230316190929886" style="zoom: 67%;" />
+react17及以后整个事件流过程：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316135339121.png" alt="image-20230316135339121" style="zoom: 33%;" loading="lazy"/>
+  </picture> 
+
+react16事件流过程：
+
+<picture>
+    <source type="image/avif" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png?imageMogr2/format/avif">
+    <source type="image/webp" srcset="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png?imageMogr2/format/webp">
+    <img src="https://picbed-1306720359.cos.ap-guangzhou.myqcloud.com/else/image-20230316190929886.png" alt="image-20230316190929886" style="zoom: 67%;" loading="lazy"/>
+  </picture>
 
 
 
